@@ -5,20 +5,30 @@
 'use strict'
 const bodyParser=require('body-parser');
 const express=require("express");
+const morgan =require("morgan");
 /*==========================================================
 ======================== instanciando express ==============
 ============================================================*/
-
 const app=express();
+app.set('view engine','ejs');
+/*==========================================================
+======================== middleware ========================
+============================================================*/
+
+app.use(morgan('combined'));
 /*==========================================================
 ========================= RUTAS ============================
 ============================================================*/
+app.get("/",(req,res)=>{
+    res.render("pages/welcome");
+});
 app.get("/login",(req,res)=>{
-    res.status(200).send({message:"interfaceLogin"});//status 200=ok
+    res.render("pages/login");//status 200=ok
 });
 app.get("/expediente",(req,res)=>{
     res.status(200).send({message:"interfaceExpedientes"});//status 200=ok
 });
+
 
 //ruta de error
 app.get("*",(req,res)=>{

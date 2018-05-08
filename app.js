@@ -3,32 +3,39 @@
 ========================= dependencias =====================
 ============================================================*/
 'use strict'
+
 const bodyParser=require('body-parser');
 const express=require("express");
 const morgan =require("morgan");
+var user_routes=require("./routes/usuario");
 /*==========================================================
 ======================== instanciando express ==============
 ============================================================*/
 const app=express();
+/*==========================================================
+============== usando motor de plantillas ejs ==============
+============================================================*/
 app.set('view engine','ejs');
 /*==========================================================
 ======================== middleware ========================
 ============================================================*/
-
-app.use(morgan('combined'));
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+app.use(morgan('short'));
 /*==========================================================
 ========================= RUTAS ============================
 ============================================================*/
+app.use("/api",user_routes);
 app.get("/",(req,res)=>{
-    res.render("pages/welcome");
-});
-app.get("/login",(req,res)=>{
-    res.render("pages/login");//status 200=ok
+    res.render("pages/login");
 });
 app.get("/expediente",(req,res)=>{
     res.status(200).send({message:"interfaceExpedientes"});//status 200=ok
 });
-
+app.get("/public/assets/1.jpg",(req,res)=>{
+    res.status(200).send("/public/assets/1.jpg");
+});
 
 //ruta de error
 app.get("*",(req,res)=>{

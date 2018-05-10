@@ -7,7 +7,11 @@
 const bodyParser=require('body-parser');
 const express=require("express");
 const morgan =require("morgan");
-var user_routes=require("./routes/usuario");
+var RutasValidacion=require('./routes/valida');
+var RutasUsuario=require("./routes/usuario");
+var RutasExpediente=require("./routes/expediente");
+var RutasCoordinador=require("./routes/coordinador");
+var RutasConsulta=require("./routes/consulta");
 /*==========================================================
 ======================== instanciando express ==============
 ============================================================*/
@@ -26,16 +30,15 @@ app.use(morgan('short'));
 /*==========================================================
 ========================= RUTAS ============================
 ============================================================*/
-app.use("/api",user_routes);
 app.get("/",(req,res)=>{
     res.render("pages/login");
 });
-app.get("/expediente",(req,res)=>{
-    res.status(200).send({message:"interfaceExpedientes"});//status 200=ok
-});
-app.get("/public/assets/1.jpg",(req,res)=>{
-    res.status(200).send("/public/assets/1.jpg");
-});
+app.use("/validacion",RutasValidacion);
+app.use("/usuarios",RutasUsuario);
+app.use("/expedientes",RutasExpediente);
+app.use("/coordinador",RutasCoordinador);
+app.use("/consulta",RutasConsulta);
+
 
 //ruta de error
 app.get("*",(req,res)=>{

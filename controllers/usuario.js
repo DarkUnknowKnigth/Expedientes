@@ -2,13 +2,17 @@ const bcrypt=require("bcrypt-nodejs");
 const Usuario=require("../models/usuario");
 const Permiso=require("../models/permiso");
 function validar(req,res){  
-    if(req)
-        res.status(200).send("usuario valido");
-    else    
-        res.status(400).send("usuario invalido");
+   
 }
+function modificar(req,res)
+{
 
-function save(req,res){
+}
+function eliminar(req,res)
+{
+    
+}
+function guardar(req,res){
     var permiso= new Permiso();
     var user= new Usuario();
     var params=req.body;
@@ -25,5 +29,7 @@ function save(req,res){
 }
 module.exports={
     validar,
-    save
+    guardar,
+    modificar,
+    eliminar
 };

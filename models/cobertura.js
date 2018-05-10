@@ -1,10 +1,9 @@
 var mongoose=require("mongoose");
 var Schema=mongoose.Schema;
-var SaludReproductivaSchema= Schema({
-    RT_Emb:String,
-    TrimestreGest:String,
-    AltoRiesgo:Boolean,
-    Complicaciones:String
+var CoberturaSchema= Schema({
+    PrimeraVezAnio:String,
+    IMC_10_19a:String,
+    SintRespTB:Boolean
     });
 
-    module.exports=mongoose.model('Cobertura',SaludReproductivaSchema);
+    module.exports=mongoose.model('Cobertura',CoberturaSchema);

@@ -1,13 +1,18 @@
 'use strict'
 const express = require('express');
-const UserController=require('../controllers/usuario');
-const api=express.Router();
-api.get('/',(req,res)=>{
-    res.status(200).send("estas en el api");
-});
-api.post('/newUser',UserController.save);
-api.get('/doctor',(req,res)=>{
-    res.status(200).render("../views/pages/consulta.ejs");
-});
+const controladorUsuario=require('../controllers/usuario');
+const usuario=express.Router();
 
-module.exports=api;
+usuario.get("/crear",(req,res)=>{
+    res.status(200).render("../views/partials/crearUsuario.ejs");
+});
+usuario.get("/modificar",(req,res)=>{
+    res.status(200).render("../views/partials/modificarUsuario.ejs");
+});
+usuario.get("/eliminar",(req,res)=>{
+    res.status(200).render("../views/partials/eliminarUsuario.ejs");
+});
+usuario.post('/nuevoUsuario',controladorUsuario.guardar);
+usuario.post('/modificaUsuario',controladorUsuario.modificar);
+usuario.post('/eliminarUsuario',controladorUsuario.eliminar);
+module.exports=usuario;

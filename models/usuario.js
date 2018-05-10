@@ -10,6 +10,7 @@ var UsuarioSchema= Schema({
     apMaterno:String,
     activo:Boolean,
     TipoUsuario:String,
-    permiso:{type:Schema.ObjectId,ref:'Permiso'}
+    permiso:{type:Schema.ObjectId,ref:'Permiso'},
+    administrador:{type:Schema.ObjectId,ref:'Administrador'}
     });
     module.exports=mongoose.model('Usuario',UsuarioSchema);

@@ -10,10 +10,7 @@ const morgan =require("morgan");
 var path = require('path');
 var Principal=require("./routes/principal");
 var RutasValidacion=require('./routes/valida');
-var RutasUsuario=require("./routes/usuario");
-var RutasExpediente=require("./routes/expediente");
-var RutasCoordinador=require("./routes/coordinador");
-var RutasConsulta=require("./routes/consulta");
+
 /*==========================================================
 ======================== instanciando express ==============
 ============================================================*/
@@ -33,15 +30,14 @@ app.use(morgan('short'));
 /*==========================================================
 ========================= RUTAS ============================
 ============================================================*/
+
+//ruta base carga vista del login
 app.get("/",(req,res)=>{
     res.render("pages/login");
 });
+//ruta de usuario logueado
 app.use("/principal",Principal);
 app.use("/validacion",RutasValidacion);
-app.use("/usuarios",RutasUsuario);
-app.use("/expedientes",RutasExpediente);
-app.use("/coordinador",RutasCoordinador);
-app.use("/consulta",RutasConsulta);
 
 
 //ruta de error

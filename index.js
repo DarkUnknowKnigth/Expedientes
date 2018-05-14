@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:'+portb+'/dbexpedientes',(err,res)=>{
         throw err;
     }
     else{
-        console.log("DB correiendo en mondodb://localhost:"+portb);
+        console.log("DB correiendo en mongodb://localhost:"+portb);
         //crea el server
         app.listen(port,()=>{
             console.log("servidor corriendo en http://localhost:"+port);

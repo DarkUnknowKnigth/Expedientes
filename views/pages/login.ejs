@@ -3,19 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Iniciar sesión</title>
+	<link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost:3000/css/style.css">
 	<script type="text/javascript" src="http://localhost:3000/js/main.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
+	</head>
 <body>	
 	<div id="capaBlanca">		
 	</div>
 	<div id="login">
 		<div class="titleLogin">
-			<h1>GeClinic</h1>
+			<h1>Sistema para la gestión de expedientes clinicos</h1>
 		</div>
 		<div class="contentForm">
 			<form class="form" action="/validacion/usuario" method="POST">
@@ -24,7 +21,7 @@
 				<label for="Pass">Contraseña:</label>
 				<input type="password" name="Pass">
 				<input class="checkbox" type="checkbox" name="check">
-				<label class="checkbox2" for="check">Recuerda esta sesión</label>	
+				<label class="checkbox2" for="check">Recordar</label>	
 				<button type="submit">Iniciar sesión</button>
 			</form>		
 		</div>

@@ -7,6 +7,8 @@
 const bodyParser=require('body-parser');
 const express=require("express");
 const morgan =require("morgan");
+var path = require('path');
+var Principal=require("./routes/principal");
 var RutasValidacion=require('./routes/valida');
 var RutasUsuario=require("./routes/usuario");
 var RutasExpediente=require("./routes/expediente");
@@ -20,6 +22,7 @@ const app=express();
 ============== usando motor de plantillas ejs ==============
 ============================================================*/
 app.set('view engine','ejs');
+app.set('views', path.join(__dirname, 'views'));
 /*==========================================================
 ======================== middleware ========================
 ============================================================*/
@@ -33,6 +36,7 @@ app.use(morgan('short'));
 app.get("/",(req,res)=>{
     res.render("pages/login");
 });
+app.use("/principal",Principal);
 app.use("/validacion",RutasValidacion);
 app.use("/usuarios",RutasUsuario);
 app.use("/expedientes",RutasExpediente);
@@ -42,7 +46,7 @@ app.use("/consulta",RutasConsulta);
 
 //ruta de error
 app.get("*",(req,res)=>{
-    res.status(404).send("<h1>Oh no algo malo ha ocurrido!...</h1>");
+    res.status(404).render("pages/error");
 });
 /*==========================================================
 ========== configuracion del body-parser====================

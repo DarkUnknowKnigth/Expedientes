@@ -1,8 +1,8 @@
 'use strict'
-function config(req,res)
+function redirect(req,res)
 {
 
 }
 module.exports={
-    config
+    redirect
 }

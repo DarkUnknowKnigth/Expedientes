@@ -1,6 +1,8 @@
 const bcrypt=require("bcrypt-nodejs");
 const Usuario=require("../models/usuario");
 const Permiso=require("../models/permiso");
+const Administrador=require("../models/administrador");
+
 function validar(req,res){  
    
 }

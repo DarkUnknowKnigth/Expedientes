@@ -4,7 +4,6 @@ $(document).ready(()=>{
     let rec=$("#r").prop("checked");//remember
     config();
 });
-
 function config()
 {
     $("#enviar").click((e)=>{
@@ -15,8 +14,7 @@ function config()
         if(e.keyCode==13)
         {
             $("#enviar").click();   
-        }
-        
+        }   
     });
     $("#u").keyup((e)=>{
         patern=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
@@ -38,10 +36,8 @@ function config()
         else
         {
             $("#err-p").text("");
-        }
-       
+        } 
     });
-
 }
 function valida(u,p,e) 
 {  
@@ -52,13 +48,19 @@ function valida(u,p,e)
         if(p!="" && !patern.test(p))
         {
             $.ajax({
+                //haciendo la peticion de validar usuario y contraseña
                 type: "POST",
                 url: "http://localhost:3000/validacion/usuario",
                 data: {Usuario:u,Password:p}
-            }).done((res)=>{
-                window.location.href=res;
-            }).fail((res)=>{
+            }).done((res)=>{//redireccionar a la pagina principal si el usuario existe si no a inicio
+                $("#login").html(res.message);
+                if(res.url)
+                {
+                    window.location.href=res.url;
+                }
+            }).fail((res)=>{ //si falla informar y recargar a inicio
                 $("#status").text(res.message).css("color","red");
+                window.location.href=res.url;
             }).progress(()=>{
                 $("#status").text("enviando solicitud").css("color","yellow");
             });      

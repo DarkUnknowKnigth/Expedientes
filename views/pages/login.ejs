@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Iniciar sesión</title>
-	<link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
-	<script src="http://localhost:3000/js/jq.js"></script>
-	<script type="text/javascript" src="http://localhost:3000/js/main.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<title>Iniciar sesión</title>
+		<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+		<script src="/public/js/jq.js"></script>
+		<script type="text/javascript" src="/public/js/main.js"></script>
 	</head>
-<body style="background-image: url('http://localhost:3000/assets/1.jpg');background-repeat: no-repeat;">	
-	<div class="container-fluid">
-		<div id="login" style="width: 35%; position: absolute;top: 100px; left: 35%;">
-			<div class="card text-left|center|right ">
-				<div class="card-header badge-dark">
-					<h4 class="card-title text-center">Sistema para la gestión de expedientes clinicos</h4>
-					<p class="card-text text-center">Modulo - Control de Ingreso</p>
-				</div>
-					<div class="card-body">
-					<form class="form" id="loginform">
-						<div class="form-group">
-							<label class="h5" for="Usuario">Usuario:</label>
-							<input class="form-control" type="text" name="Usuario" id="u">
-							<span class="row text-danger" id="err-u"></span>
-							<label class="h5" for="Pass">Contraseña:</label>
-							<input class="form-control" type="password" name="Pass" id="p">
-							<span class="row text-danger" id="err-p"></span>
-							<div class="form-inline">
-								<label class="col-md-auto" for="check">Recordar Sesion </label>
-								<input class="col-md-auto" type="checkbox" name="check" id="r">
-							</div>
-								
-						</div>
-					</form>	
-					<button type="button" class="btn btn-primary float-right" id="enviar">Iniciar sesión</button>
-					<div class="row text-center">
-						<span class="text" id="status"></span>
+	<body style="background-image: url('/public/assets/1.jpg');background-repeat: no-repeat;">	
+		<div class="container-fluid">
+			<div id="login" style="width: 35%; position: absolute;top: 100px; left: 35%;">
+				<div class="card text-left|center|right ">
+					<div class="card-header badge-dark">
+						<h4 class="card-title text-center">Sistema para la gestión de expedientes clinicos</h4>
+						<p class="card-text text-center">Modulo - Control de Ingreso</p>
 					</div>
-				</div>
-				<div class="card-footer badge-dark">
-					<p>2018 - GeClinic. Todos los derechos reservados</p>
+						<div class="card-body">
+						<form class="form" id="loginform">
+							<div class="form-group">
+								<label class="h5" for="Usuario">Usuario:</label>
+								<input class="form-control" placeholder="Escriba su Usuario" maxlength="40" type="text" name="Usuario" id="u">
+								<span class="row text-danger" id="err-u"></span>
+								<label class="h5" for="Pass">Contraseña:</label>
+								<input class="form-control" placeholder="Escriba su Password" maxlength="40" type="password" name="Pass" id="p">
+								<span class="row text-danger" id="err-p"></span>
+								<div class="form-inline">
+									<label class="col-md-auto" for="check">Recordar Sesion </label>
+									<input class="col-md-auto" type="checkbox" name="check" id="r">
+								</div>
+									
+							</div>
+						</form>	
+						<button type="button" class="btn btn-primary float-right" id="enviar">Iniciar sesión</button>
+						<div class="row text-center">
+							<span class="text" id="status"></span>
+						</div>
+					</div>
+					<div class="card-footer badge-dark">
+						<p>2018 - GeClinic. Todos los derechos reservados</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-</body>
+	</body>
 </html>

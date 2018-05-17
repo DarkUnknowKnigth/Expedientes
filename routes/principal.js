@@ -1,10 +1,12 @@
 'use strict'
 const express = require('express');
 const principal=express.Router();
-var ControladorPrincipal=require("../controllers/principal");
-principal.get("/:id&:nombre",(req,res)=>{
-    res.send({message:"Ingresando...",url:"http://localhost:3000/modulo/"+req.params.nombre});
-});
-
-
+principal.get("/:id&:user&:pass",(req,res)=>{
+    res.send({message:
+        '<center>'+
+        '<span class="badge badge-success">'+
+            '<h1>Bienvenido! al Sistema: <br> '+req.params.user+
+       '</h1></span>'+
+    '</center>',url:"http://localhost:3000/modulo/"+req.params.id+"&"+req.params.user+"&"+req.params.pass});
+}); 
 module.exports=principal;

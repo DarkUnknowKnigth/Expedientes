@@ -19,11 +19,13 @@ function validarUsuario(req,res)
         {
             if(req.body.Password!="" && !patern.test(req.body.Password))
             {
+ 
                 //validar
                 
                 Usuario.findOne({usuario:req.body.Usuario,password:req.body.Password},(err,usuario)=>{
+
                     if(err){
-                        console.log("un error: "+err);
+                        //si encuentra un error informar
                         res.send({message:
                             '<div class="alert alert-dark" role="alert">'+
                                 '<form action="http://localhost:3000/" method="GET">'+
@@ -36,9 +38,24 @@ function validarUsuario(req,res)
                     {
                         if(usuario)
                         {
-                            console.log(usuario);
-                            //luego redireccionar con los parametros validos a principal
-                            res.redirect(`http://localhost:3000/principal/${usuario._id}&${usuario.nombre}`);
+                            //compara la contraseña con la de la base de datos
+                            if(req.body.Password == usuario.password)
+                            {
+                                //console.log(usuario);
+                                //luego redireccionar con los parametros validos a principal
+                                res.redirect(`http://localhost:3000/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                            }
+                            else
+                            {
+                                res.send({message:
+                                    '<div class="alert alert-dark" role="alert">'+
+                                        '<form action="http://localhost:3000/" method="GET">'+
+                                            '<strong class="form-control">Usuario o contraseña no existe</strong>'+
+                                            '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
+                                        '</form>'+
+                                    '</div>'});
+                            }
+                            
                         }
                         else
                         {
@@ -57,14 +74,17 @@ function validarUsuario(req,res)
             }
             else
             {
-                
                 res.status(400).send({message:"Usted proporciono una contraseña invalida",url:"http://localhost:3000/"});
             }
         }
         else
         {
-            res.send({message:"Usted proporciono una usuario invalido",url:"http://localhost:3000/"});
+            res.status(404).send({message:"Usted proporciono una usuario invalido",url:"http://localhost:3000/"});
         }
+    }
+    else
+    {
+        console.log("12");
     }
     
     //

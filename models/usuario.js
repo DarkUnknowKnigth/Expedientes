@@ -1,4 +1,5 @@
 var mongoose=require("mongoose");
+var bcrypt=require('bcrypt-nodejs');
 var Schema=mongoose.Schema;
 var Administrador=require('../models/administrador');
 var Permiso=require('../models/permiso');
@@ -15,5 +16,5 @@ var UsuarioSchema= Schema({
     administrador:{type:Schema.ObjectId,ref:'Administrador'},
     permiso:{type:Schema.ObjectId,ref:'Permiso'},
     });
-    module.exports=mongoose.model('Usuario',UsuarioSchema);
+module.exports=mongoose.model('Usuario',UsuarioSchema);
 

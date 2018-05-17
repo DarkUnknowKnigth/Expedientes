@@ -4,20 +4,22 @@
 ============================================================*/
 'use strict'
 var helmet = require('helmet');
-const bodyParser=require('body-parser');
-const express=require("express");
-const morgan =require("morgan");
+var bodyParser=require('body-parser');
+var express=require("express");
+var morgan =require("morgan");
 var path = require('path');
+var cookieParser=require('cookie-parser');
+//var passport=require('passport');
 var session=require('express-session');
-var RutasPrincipal=require("./routes/principal");
-var RutasValidacion=require('./routes/valida');
-var RutasModulo=require("./routes/modulo");
-
+var autentifica=require('./middleware/autenficador');
+//var configPassport=require('./passport')(passport);
 /*==========================================================
 ======================== instanciando express ==============
 ============================================================*/
 const app=express();
-
+var RutasPrincipal=require("./routes/principal");
+var RutasValidacion=require('./routes/valida');
+var RutasModulo=require("./routes/modulo");
 /*==========================================================
 ============== usando motor de plantillas ejs ==============
 ============================================================*/
@@ -27,45 +29,68 @@ app.set('views', path.join(__dirname, 'views'));
 ======================== middleware ========================
 ============================================================*/
 app.use(helmet());
-app.use(express.static('public'));
+app.use(morgan('short'));
+app.use(cookieParser());
+//app.use(express.static(path.join(__dirname+'public')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(session({
-    secret:"sionisourgood",
+    secret:"yasuo",
     resave:false,
     saveUninitialized:false
 }));
-app.use(morgan('short'));
+// app.use(passport.initialize());
+// app.use(passport.session());
 /*==========================================================
 ========================= RUTAS ============================
 ============================================================*/
-
 //ruta base carga vista del login es ala que se accede al cargar la pagina por primera vez
 app.get("/",(req,res)=>{
     res.render("pages/login");
+    console.log(req.session);
 });
 //ruta de usuario logueado
-app.use("/principal",RutasPrincipal); //menu con todas las opciones segun privilegios
-app.use("/validacion",RutasValidacion); //la loguearse se envia la informacion a la ruta de validacion/usuario
-app.use("/modulo",RutasModulo);
+var User=require('./models/usuario');
+app.use('/public',express.static(__dirname + '/public'));
 
+app.use((req,res,next)=>{ //middleware de session
+    var Usuario=req.body.Usuario;
+    var Password=req.body.Password;
+    User.findOne({usuario:Usuario,password:Password},(err,user)=>{
+        if(err)
+        {
+           next();
+        }
+        else
+        {
+            if(user)
+            {
+                req.session.user_id=user._id;
+                console.log(req.session);
+                res.locals={usuario:user};
+                next();
+            }
+            else
+            {
+               next();
+            }
+        }
+    });
+});
+app.use((req,res,next)=>{ //middleware de autentificacion
+    if(!req.session.user_id)
+    {
+        res.redirect('http://localhost:3000/');
+    }
+    else{
+        next();
+    }
+});
+app.use("/validacion",RutasValidacion); //la loguearse se envia la informacion a la ruta de validacion/usuario
+app.use("/principal",RutasPrincipal); //menu con todas las opciones segun privilegios
+app.use("/modulo",RutasModulo);
 //ruta de error
 app.get("*",(req,res)=>{
     res.status(404).render("pages/error");
 });
-/*==========================================================
-========== configuracion del body-parser====================
-============================================================*/
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-/*==========================================================
-=============configuracion de cabeceras=====================
-============================================================*/
-
-/*==========================================================
-======================== Rutas base ========================
-============================================================*/
-
-
 module.exports=app;

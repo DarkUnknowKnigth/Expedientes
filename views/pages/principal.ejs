@@ -1,17 +1,1189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
-	<script src="http://localhost:3000/js/jq.js"></script>
-	<script type="text/javascript" src="http://localhost:3000/js/main.js"></script>
-    <title>Principal</title>
+	<meta charset="UTF-8">
+	<title>Modulo - Principal</title>
+	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+	<script type="text/javascript" src="/public/js/jq.js"></script>
+    <script type="text/javascript" src="/public/js/fontawesome-all.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/myStyle.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>bienvenido <%= user %></h1>
-    </div>
+	<!-- Nombre de la institución: Centro de Salud Santa Cruz -->
+	<header>
+		<div class="top-barActions">
+			<div class="conf"><a href="#"><i class="fas fa-cog"></i></a></div>
+			<div class="logOut"><a href="#"><i class="fas fa-sign-out-alt"></i></a></div>
+		</div>
+		<p>SISTEMA WEB PARA LA GESTIÓN DE EXPEDIENTES CLÍNICOS</p>
+	</header>
+
+	<div class="leftSide">
+		<div class="userInfo">
+			<div class="userPicture" style="background-image: url('/public/assets/1.jpg');background-position: center; background-repeat: no-repeat; background-size: 100% 100%;"></div>
+			<p class="userDescription">Doctor</p>
+		</div>
+		<!-- Accordion -->
+		<div id="accordion">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h5 class="mb-0">
+						<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							EXPEDIENTES CLINICOS
+						</button>
+					</h5>
+				</div>
+				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body">
+                        <div id="crearExp">
+                            <a href="#">Crear Expediente</a>
+                        </div>
+                        <div id="modifExp">
+                            <a href="#">Editar/Eliminar Expediente</a>
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingTwo">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							USUARIOS
+						</button>
+					</h5>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+					<div class="card-body">
+							<div id="crearUser">
+								<a href="#">Crear Usuario</a>
+							</div>
+							<div id="modifUser">
+								<a href="#">Modificar Usuario</a>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingThree">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							CONSULTAS
+						</button>
+					</h5>
+				</div>
+				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+					<div class="card-body">
+						<div id="procesoConsulta">
+							<a href="#">Realizar consulta</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingThree">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFourth" aria-expanded="false" aria-controls="collapseFourth">
+							ACCIONES DE COORDINADOR
+						</button>
+					</h5>
+				</div>
+				<div id="collapseFourth" class="collapse" aria-labelledby="headingFourth" data-parent="#accordion">
+					<div class="card-body">
+						<div id="genHojaDiaria">
+							<a href="#">Generar hoja diaria</a>
+						</div>
+						<div id="genInformeMensual">
+							<a href="#">Generar informe mensual</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footerLeftSide"></div>
+	</div>
+	<div class="rightSide">
+		<!-- Forms -->
+		<div class="containerForms createExp">
+			<!-- botón de retroceso -->
+			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
+				<p>CREAR EXPEDIENTE</p>
+			</div>
+			<!-- barra de estado -->
+			<div class="statusBar btn-group">
+				<table class="statusTable">
+					<tr>
+						<td id="antec">Antecedentes Heredo Familiares</td>
+						<td id="fi">Ficha de identificación</td>
+						<td id="an">Antecedentes Personales No Patologicos</td>
+						<td id="in">Inmunizaciones</td>
+						<td id="ap">Antecedentes Personales Patologicos</td>
+						<td id="anGi">Antecedentes Ginecoobstétricos</td>
+					</tr>
+				</table>
+			</div>
+			<!-- Formulario -->
+			<div class="putForm">
+				<!-- Aquí se ponen los forms desde GeClinic.js -->
+
+				<!-- Form antecedentes -->
+				<form id="formAntec" action="">
+					<div class="groupForm"><label for="idAntec">Clave de antecedentes:</label><input type="text" id="idAntec" name="idAntec"></div>
+					<div class="groupForm">
+						<label for="parentesco">Parentesco:</label>
+						<select id="parentesco" name="parentesco">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="HA">HA:</label>
+						<select id="HA" name="HA">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="diabetes">Diabetes:</label>
+						<select id="diabetes" name="diabetes">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="cancer">Cáncer:</label>
+						<select id="cancer" name="cancer">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="TB">TB:</label>
+						<select id="TB" name="TB">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="sida">SIDA:</label>
+						<select id="sida" name="sida">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm"><label for="otros">Otros:</label><textarea name="otros" id="otros" placeholder="Especifique..."></textarea></div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+
+				<!-- Fin de form antecedentes -->
+
+				<!-- Form ficha identificación -->
+
+				<form id="formFichIde" action="">
+					<div class="groupForm"><label for="idFicha">Clave de identificación:</label><input type="text" id="idFicha" name="idFicha"></div>
+					<div class="groupForm">
+						<label for="divorciado">Divorciado:</label>
+						<select id="divorciado" name="divorciado">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="casado">Casado:</label>
+						<select id="casado" name="casado">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="unionLibre">Unión libre:</label>
+						<select id="unionLibre" name="unionLibre">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="soltero">Soltero:</label>
+						<select id="soltero" name="soltero">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="separado">Separado:</label>
+						<select id="separado" name="separado">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="viudo">Viudo:</label>
+						<select id="viudo" name="viudo">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="sinOcupacion">Sin ocupación:</label>
+						<select id="sinOcupacion" name="sinOcupacion">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="estudia">Estudia:</label>
+						<select id="estudia" name="estudia">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="laboresHogar">Labores de hogar:</label>
+						<select id="laboresHogar" name="laboresHogar">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="trabaja">Trabaja:</label>
+						<select id="trabaja" name="trabaja">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="jubilado">Jubilado:</label>
+						<select id="jubilado" name="jubilado">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="padreSoltero">Padre soltero:</label>
+						<select id="padreSoltero" name="padreSoltero">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+				<!-- Fin de form Ficha identificación -->
+
+				<!-- Form APNP -->
+
+				<form id="formAPNP" action="">
+					<div class="groupForm"><label for="idApnp">Clave APNP:</label><input type="text" id="idApnp" name="idApnp"></div>
+					<div class="groupForm">
+						<label for="tabaco">Tabaco:</label>
+						<select id="tabaco" name="tabaco">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="dieta">Dieta:</label>
+						<select id="dieta" name="dieta">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="alcohol">Alcohol:</label>
+						<select id="alcohol" name="alcohol">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="vivienda">Vivienda:</label>
+						<select id="vivienda" name="vivienda">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="fauna">Fauna:</label>
+						<select id="fauna" name="fauna">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="promiscuidad">Promiscuidad:</label>
+						<select id="promiscuidad" name="promiscuidad">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="hacinamiento">Hacinamiento:</label>
+						<select id="hacinamiento" name="hacinamiento">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+				<!-- Fin de form APNP -->
+
+				<!-- Form Inmunizaciones -->
+				<form id="formInmu" action="">
+					<div class="groupForm"><label for="idInmu">Clave de inmunizaciones:</label><input type="text" id="idInmu" name="idInmu"></div>
+					<div class="groupForm">
+						<label for="sabin">SABIN:</label>
+						<select id="sabin" name="sabin">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="dpt">DPT:</label>
+						<select id="dpt" name="dpt">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="bcg">BCG:</label>
+						<select id="bcg" name="bcg">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="antisarampion">Antisarampión:</label>
+						<select id="antisarampion" name="antisarampion">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+				<!-- Fin de form inmunizaciones -->
+
+				<!-- Form APP -->
+
+				<form id="formAPP" action="">
+					<div class="groupForm"><label for="idApp">APP:</label><input type="text" id="idApp" name="idApp"></div>
+					<div class="groupForm">
+						<label for="sonrie">Sonríe:</label>
+						<select id="sonrie" name="sonrie">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+                    </div>
+
+					<div class="groupForm">
+						<label for="sostieneCabeza">Sostiene su cabeza:</label>
+						<select id="sostieneCabeza" name="sostieneCabeza">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="seSienta">Se sienta:</label>
+						<select id="seSienta" name="seSienta">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="gatea">Gatea:</label>
+						<select id="gatea" name="gatea">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="habla">Habla:</label>
+						<select id="habla" name="habla">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="sarampion">Sarampión:</label>
+						<select id="sarampion" name="sarampion">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="rubeola">Rubeola:</label>
+						<select id="rubeola" name="rubeola">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="tosferina">Tosferina:</label>
+						<select id="tosferina" name="tosferina">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="varicela">Varicela:</label>
+						<select id="varicela" name="varicela">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="escarlatina">Escarlatina:</label>
+						<select id="escarlatina" name="escarlatina">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="amigdalitis">Amigdalitis:</label>
+						<select id="amigdalitis" name="amigdalitis">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="parasitoIntestinal">Parásito intestinal:</label>
+						<select id="parasitoIntestinal" name="parasitoIntestinal">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="convulsiones">Convulsiones:</label>
+						<select id="convulsiones" name="convulsiones">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="urosepsis">Urosepsis:</label>
+						<select id="urosepsis" name="urosepsis">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="traumatismos">Traumatismos:</label>
+						<select id="traumatismos" name="traumatismos">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm"><label for="ingresoHospital">Ingreso a hospital:</label><input type="date" id="ingresoHospital" name="ingresoHospital"></div>
+					<div class="groupForm">
+						<label for="cirugia">Cirugía:</label>
+						<select id="cirugia" name="cirugia">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+
+				<!-- Fin de form APP -->
+
+				<!-- Form Antec. Ginecoobstétricos -->
+				<form id="formAntecGine" action="">
+					<div class="groupForm"><label for="idGine">Clave Ginecoobstétricos:</label><input type="text" id="idGine" name="idGine"></div>
+					<div class="groupForm">
+						<label for="menarquia">Menarquía:</label>
+						<select id="menarquia" name="menarquia">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm"><label for="ritmo">Ritmo:</label><input type="text" id="ritmo" name="ritmo"></div>
+					<div class="groupForm"><label for="magSang">Magnitud sanguínea:</label><input type="text" id="magSang" name="magSang"></div>
+					<div class="groupForm">
+						<label for="vidSexAct">Vida sexual activa:</label>
+						<select id="vidSexAct" name="vidSexAct">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm"><label for="ultMens">Última menstruación:</label><input type="date" id="ultMens" name="ultMens"></div>
+					<div class="groupForm"><label for="gesta">Gesta:</label><input type="text" id="gesta" name="gesta"></div>
+					<div class="groupForm">
+						<label for="aborto">Aborto:</label>
+						<select id="aborto" name="aborto">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="cesarea">Cesarea:</label>
+						<select id="cesarea" name="cesarea">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="legradoUt">Legrado uterino:</label>
+						<select id="legradoUt" name="legradoUt">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="pruebaEmb">Prueba embarazo:</label>
+						<select id="pruebaEmb" name="pruebaEmb">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="citologia">Citología:</label>
+						<select id="citologia" name="citologia">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm"><label for="fechaAnticonceptivo">Fecha anticonceptivo:</label><input type="date" id="fechaAnticonceptivo" name="fechaAnticonceptivo"></div>
+					<div class="groupForm">
+						<label for="tipoAnticoncep">Tipo anticonceptivo:</label>
+						<select id="tipoAnticoncep" name="tipoAnticoncep">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+
+				<!-- Fin de form Antec. Ginecoobstétricos -->
+			</div>
+		</div>
+		<div class="containerForms modifExp">
+			<!-- botón de retroceso -->
+			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
+				<p>MODIFICAR Y ELIMINAR EXPEDIENTE</p>
+			</div>
+			<div class="tablaResultados">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Edad</th>
+							<th scope="col">Expediente</th>
+							<th scope="col">Otra cosa :v</th>
+							<th scope="col">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Larry the Bird</td>
+							<td>@twitter</td>
+							<td>@twitter</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- Modal confirmación eliminación -->
+				<div class="modal fade eliminar" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Eliminar</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>¿Está seguro de eliminar este dato?</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">¡No!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="containerForms createUser">
+			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
+				<p>CREAR USUARIO</p>
+			</div>
+			
+			<!-- Formulario -->
+			<div class="putForm">
+				<!-- Aquí se ponen los forms desde GeClinic.js -->
+				<form id="formUser" action="">
+					<div class="groupForm">
+						<label for="nomUser">Nombre de usuario:</label>
+						<input required type="text" id="nomUser" name="nomUser">
+					</div>
+					<div class="groupForm">
+						<label for="password">Contraseña:</label>
+						<input required type="password" id="password" name="password">
+					</div>
+					<div class="groupForm">
+						<label for="confirmPassword">Confirmar contraseña:</label>
+						<input required type="password" id="confirmPassword" name="confirmPassword">
+					</div>
+					<div class="groupForm">
+						<label for="nomReal">Nombre:</label>
+						<input required type="text" id="nomReal" name="nomReal">
+					</div>
+					<div class="groupForm">
+						<label for="apMaterno">Apellido materno:</label>
+						<input required type="text" id="apMaterno" name="apMaterno">
+					</div>
+					<div class="groupForm">
+						<label for="apPaterno">Apellido paterno:</label>
+						<input required type="text" id="apPaterno" name="apPaterno">
+					</div>
+					<div class="groupForm">
+						<label for="tipoUser">Tipo de usuario:</label>
+						<select id="tipoUser" name="tipoUser">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="cedulaProfesional">Cédula profesional:</label>
+						<input required type="text" id="cedulaProfesional" name="cedulaProfesional">
+					</div>
+					<div class="groupForm">
+						<label for="activeUser">Activo:</label>
+						<select id="activeUser" name="activeUser">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="premisosUser">Permisos:</label>
+						<select id="premisosUser" name="premisosUser">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+					<button class="btn btn-success" type="submit">Guardar</button>
+				</form>
+			</div>
+		</div>
+		<div class="containerForms modifUser">
+			<!-- botón de retroceso -->
+			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
+				<p>MODIFICAR Y ELIMINAR USUARIO</p>
+			</div>
+			<div class="tablaResultados">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Ap. Materno</th>
+							<th scope="col">Ap. Paterno</th>
+							<th scope="col">Tipo de usuario</th>
+							<th scope="col">Activo</th>
+							<th scope="col">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+							<td>@mdo</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+							<td>@mdo</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Larry the Bird</td>
+							<td>@twitter</td>
+							<td>@mdo</td>
+							<td>@mdo</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- Modal confirmación eliminación -->
+				<div class="modal fade eliminarUser" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Eliminar</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>¿Está seguro de eliminar este usuario?</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">¡No!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="containerForms procesoConsulta">
+			<div class="actions">
+				<button>Iniciar consulta</button>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="progressConsulta">
+				<div class="progressGroup">
+					<p><img class="inicio" src="/public/assets/progress1.svg" alt=""> Iniciar consulta</p>
+				</div>
+				<div class="progressGroup">
+					<div class="bar"></div>
+				</div>
+				<div class="progressGroup c">
+					<div class="circle1"></div><p>Tomar signos vitales</p>
+				</div>
+				<div class="progressGroup">
+					<div class="bar"></div>
+				</div>
+				<div class="progressGroup c">
+					<div class="circle2"></div><p>Formato de consulta</p>
+				</div>
+				<div class="progressGroup">
+					<div class="bar"></div>
+				</div>
+				<div class="progressGroup c">
+					<div class="circle3"></div><p>Diagnóstico</p>
+				</div>
+			</div>
+			<div class="consultaViewer sigVit">
+				<div class="viewerTitle">
+					<p>Signos vitales</p>
+				</div>
+				<div class="formViewer">
+					<form id="sigVit" action="">
+					<div class="groupForm">
+						<label for="talla">Talla:</label>
+						<input required type="text" id="talla" name="talla">
+					</div>
+					<div class="groupForm">
+						<label for="ta">TA:</label>
+						<input required type="text" id="ta" name="ta">
+					</div>
+					<div class="groupForm">
+						<label for="peso">Peso:</label>
+						<input required type="text" id="peso" name="peso">
+					</div>
+					<div class="groupForm">
+						<label for="temperatura">Temperatura:</label>
+						<input required type="text" id="temperatura" name="temperatura">
+					</div>
+					<div class="groupForm">
+						<label for="imc">IMC:</label>
+						<input required type="text" id="IMC" name="IMC">
+					</div>
+					<div class="groupForm">
+						<label for="pulso">Pulso:</label>
+						<input required type="text" id="pulso" name="pulso">
+					</div>
+					<button class="btn btn-success" data-toggle="modal" data-target=".continuar" type="button">Continuar</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar" type="reset">Cancelar</button>
+					<!-- Modal confirmación de registros -->
+
+					<!-- Modal continuar -->
+					<div class="modal fade continuar" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Continuar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de guardar así estos datos?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Fin modal continuar -->
+
+					<!-- Modal cancelar -->
+					<div class="modal fade cancelar" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Cancelar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de que desea cancelar esta consulta?</p>
+									<p>Se perderán los datos ingresados hasta ahora en
+									todas las partes de la consulta.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Fin modal cancelar -->
+
+					<!-- Fin modales -->
+				</form>
+				</div>
+			</div>
+			<div class="consultaViewer formatConsulta">
+				<div class="viewerTitle">
+					<p>Signos vitales</p>
+				</div>
+				<div class="formViewer">
+					<form id="formatConsulta" action="">
+					<div class="groupForm">
+						<label for="deteccion">Detección:</label>
+						<input required type="text" id="deteccion" name="deteccion">
+					</div>
+					<div class="groupForm">
+						<label for="primAnio">Primera vez al año:</label>
+						<input required type="checkbox" id="primAnio" name="primAnio">
+					</div>
+					<div class="groupForm">
+						<label for="tb">Síntomas de TB:</label>
+						<input required type="checkbox" id="tb" name="tb">
+					</div>
+					<div class="groupForm">
+						<label for="obesidad">Nivel de obesidad:</label>
+						<select id="obesidad" name="obesidad">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="saludRepro">Salud reproductiva:</label>
+						<select id="saludRepro" name="saludRepro">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<button class="btn btn-success" data-toggle="modal" data-target=".continuar2" type="button">Continuar</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar2" type="reset">Cancelar</button>
+					<!-- Modal confirmación de registros -->
+
+					<!-- Modal continuar -->
+					<div class="modal fade continuar2" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Continuar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de guardar así estos datos?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Fin modal continuar -->
+
+					<!-- Modal cancelar -->
+					<div class="modal fade cancelar2" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Cancelar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de que desea cancelar esta consulta?</p>
+									<p>Se perderán los datos ingresados hasta ahora en
+									todas las partes de la consulta.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Fin modal cancelar -->
+
+
+					<!-- Fin modales -->
+				</form>
+				</div>
+			</div>
+			<div class="consultaViewer formatDiagnostico">
+				<div class="viewerTitle">
+					<p>Signos vitales</p>
+				</div>
+				<div class="formViewer">
+					<form id="formatDiagnostico" action="">
+					<div class="groupForm">
+						<label for="diagnostico">Diagnóstico:</label>
+						<textarea name="diagnostico" id="diagnostico" placeholder="Especifique su diagnóstico"></textarea>
+					</div>
+					<div class="groupForm">
+						<label for="programMotivo">Programa según motivo:</label>
+						<select id="programMotivo" name="programMotivo">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="fechaDiagnostico">Fecha:</label>
+						<input required type="date" id="fechaDiagnostico" name="fechaDiagnostico">
+					</div>
+					<button class="btn btn-success" data-toggle="modal" data-target=".continuar3" type="button">Continuar</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar3" type="reset">Cancelar</button>
+					<!-- Modal confirmación de registros -->
+
+					<!-- Modal continuar -->
+					<div class="modal fade continuar3" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Continuar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de guardar así estos datos?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Fin modal continuar -->
+
+					<!-- Modal cancelar -->
+					<div class="modal fade cancelar3" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Cancelar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de que desea cancelar esta consulta?</p>
+									<p>Se perderán los datos ingresados hasta ahora en
+									todas las partes de la consulta.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Fin modal cancelar -->
+
+
+					<!-- Fin modales -->
+				</form>
+				</div>
+			</div>
+		</div>
+		<div class="containerForms genHojaDiaria">
+			<!-- botón de retroceso -->
+			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
+				<p>GENERAR HOJA DIARIA</p>
+			</div>
+			<div class="HojaDiaria">
+				<form id="formHojaDiaria" action="">
+					<div class="groupForm">
+						<label for="fechaHo">Ingrese día para generar hoja:</label>
+						<input type="date" id="fechaHojaDiaria" name="fechaHo">
+					</div>
+					<button class="btn btn-dark" type="submit">Generar hoja diaria</button>
+				</form>
+			</div>
+		</div>
+		<div class="containerForms genInformeMensual">
+			<!-- botón de retroceso -->
+			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
+				<p>GENERAR INFORME MENSUAL</p>
+			</div>
+			<div class="formMes">
+				<form id="formHojaMes" action="">
+					<div class="groupForm">
+						<label for="fechaHoja">Ingrese mes para generar informe:</label>
+						<input type="date" id="fechaHojaMes" name="fechaHoja">
+					</div>
+					<button class="btn btn-dark" type="submit">Generar informe mensual</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="footerRightSide">
+		<p><i class="far fa-copyright"></i> 2018 - GeClinic. Todos los derechos reservados.</p>
+	</div>
+	<script type="text/javascript" src="/public/js/GeClinic.js"></script>
 </body>
 </html>

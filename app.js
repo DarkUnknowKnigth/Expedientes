@@ -47,9 +47,7 @@ app.use(session({
 //ruta base carga vista del login es ala que se accede al cargar la pagina por primera vez
 app.get("/",(req,res)=>{
     res.render("pages/login");
-    console.log(req.session);
 });
-//ruta de usuario logueado
 var User=require('./models/usuario');
 app.use('/public',express.static(__dirname + '/public'));
 
@@ -66,7 +64,6 @@ app.use((req,res,next)=>{ //middleware de session
             if(user)
             {
                 req.session.user_id=user._id;
-                console.log(req.session);
                 res.locals={usuario:user};
                 next();
             }
@@ -77,6 +74,9 @@ app.use((req,res,next)=>{ //middleware de session
         }
     });
 });
+app.use("/validacion",RutasValidacion); //la loguearse se envia la informacion a la ruta de validacion/usuario
+//ruta de usuario logueado
+app.use("/principal",RutasPrincipal); //menu con todas las opciones segun privilegios
 app.use((req,res,next)=>{ //middleware de autentificacion
     if(!req.session.user_id)
     {
@@ -86,8 +86,6 @@ app.use((req,res,next)=>{ //middleware de autentificacion
         next();
     }
 });
-app.use("/validacion",RutasValidacion); //la loguearse se envia la informacion a la ruta de validacion/usuario
-app.use("/principal",RutasPrincipal); //menu con todas las opciones segun privilegios
 app.use("/modulo",RutasModulo);
 //ruta de error
 app.get("*",(req,res)=>{

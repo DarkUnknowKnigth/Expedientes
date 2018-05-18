@@ -19,7 +19,6 @@
 			<div class="logOut"><a href="#"><i class="fas fa-sign-out-alt"></i></a></div>
 		</div>
 		<p>SISTEMA WEB PARA LA GESTIÓN DE EXPEDIENTES CLÍNICOS</p>
-	</header>
 
 	<div class="leftSide">
 		<div class="userInfo">
@@ -129,7 +128,7 @@
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
 
 				<!-- Form antecedentes -->
-				<form id="formAntec" action="">
+				<form id="formAntec" method="POST">
 					<div class="groupForm"><label for="idAntec">Clave de antecedentes:</label><input type="text" id="idAntec" name="idAntec"></div>
 					<div class="groupForm">
 						<label for="parentesco">Parentesco:</label>
@@ -738,7 +737,7 @@
 			<!-- Formulario -->
 			<div class="putForm">
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
-				<form id="formUser" action="">
+				<form id="formUser" method="POST" action=<%= linkUsuarios %>>
 					<div class="groupForm">
 						<label for="nomUser">Nombre de usuario:</label>
 						<input required type="text" id="nomUser" name="nomUser">

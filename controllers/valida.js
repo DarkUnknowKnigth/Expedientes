@@ -39,6 +39,8 @@ function validarUsuario(req,res)
                         if(usuario)
                         {
                             //compara la contraseña con la de la base de datos
+                            //usuario.comparar(req.body.Password)
+                            //req.body.Password == usuario.password
                             if(req.body.Password == usuario.password)
                             {
                                 //console.log(usuario);
@@ -59,18 +61,51 @@ function validarUsuario(req,res)
                         }
                         else
                         {
-                            res.send({message:
-                                '<div class="alert alert-dark" role="alert">'+
-                                    '<form action="http://localhost:3000/" method="GET">'+
-                                        '<strong class="form-control">Usuario o contraseña no existe</strong>'+
-                                        '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
-                                    '</form>'+
-                                '</div>'});
-                        }
-                        
+                            Administrador.findOne({usuario:req.body.Usuario,password:req.body.Password},(err,admin)=>{
+                                if(err)
+                                {
+                                    res.send({message:
+                                        '<div class="alert alert-dark" role="alert">'+
+                                            '<form action="http://localhost:3000/" method="GET">'+
+                                                '<strong class="form-control">Ha ocurrido un error <br>Porfavor intente de nuevo</strong>'+
+                                                '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
+                                            '</form>'+
+                                        '</div>'});
+                                }
+                                else{
+                                    if(admin)
+                                    {
+                                        //admin.comparar(req.body.Password)
+                                        if(req.body.Password == admin.password)
+                                        {
+                                            //luego redireccionar con los parametros validos a principal
+                                            res.redirect(`http://localhost:3000/principal/${admin._id}&${admin.usuario}&${admin.password}`);
+                                        }
+                                        else
+                                        {
+                                            res.send({message:
+                                                '<div class="alert alert-dark" role="alert">'+
+                                                    '<form action="http://localhost:3000/" method="GET">'+
+                                                        '<strong class="form-control">Usuario o contraseña no existe</strong>'+
+                                                        '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
+                                                    '</form>'+
+                                                '</div>'});
+                                        }
+                                    }
+                                    else{
+                                        res.send({message:
+                                            '<div class="alert alert-dark" role="alert">'+
+                                                '<form action="http://localhost:3000/" method="GET">'+
+                                                    '<strong class="form-control">Usuario o contraseña no existe</strong>'+
+                                                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
+                                                '</form>'+
+                                            '</div>'});
+                                    }
+                                }
+                            });
+                        }   
                     }
-                });
-               
+                });  
             }
             else
             {

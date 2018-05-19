@@ -10,7 +10,7 @@ var Usuario=require("../models/usuario");
 var Permiso=require("../models/permiso");
 var Administrador=require("../models/administrador");
 modulo.get("/:id&:user&:pass",(req,res)=>{
-    Usuario.findById(req.params.id,(err,usuario)=>
+    Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
     {
         if(err)
         {
@@ -20,7 +20,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         {
             if(usuario)
             {
-                console.log("usuarios enonctrado: "+usuario.permiso._id);
+                console.log("usuarios enonctrado: "+usuario);
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
 

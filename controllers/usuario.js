@@ -5,7 +5,7 @@ const Administrador=require("../models/administrador");
 
 function validar(req,res)
 {  
-    console.log(req.body.TipoUsuario);
+    console.log(req.body.password);
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
@@ -14,8 +14,15 @@ function validar(req,res)
         {
             if((params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR") && params.password == params.cpassword)
             {
-                if(guardar(params));
-                res.redirect(req.baseUrl);
+                if(guardar(params))
+                {
+                    res.redirect(req.baseUrl);
+                }
+                else
+                {
+                     res.redirect('/');
+                }
+                
             }
             else
             {

@@ -15,37 +15,31 @@ function validar(req,res)
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
                 if(params.password == params.cpassword)
-                {    if(guardar(params))
-                    {
-                        res.redirect(req.baseUrl);
-                    }
-                    else
-                    {
-                        res.redirect('/');
-                    }
+                {   guardar(params);
+                    res.redirect(req.baseUrl.replace("/usuario","/done"));
                 }
                 else
                 {
                     console.log("No pass");
-                    res.redirect(req.baseUrl);
+                    res.redirect(req.baseUrl.replace("/usuario","/fail"));
                 }
             }
             else
             {
                console.log("No Campo");
-               res.redirect(req.baseUrl);
+               res.redirect(req.baseUrl.replace("/usuario","/fail"));
             }
         }
         else
         {
            console.log("No cedula");
-           res.redirect(req.baseUrl);
+           res.redirect(req.baseUrl.replace("/usuario","/fail"));
         }
     }   
     else
     {
        console.log("No valido");
-       res.redirect(req.baseUrl);
+       res.redirect(req.baseUrl.replace("/usuario","/fail"));
     }
 }
 function modificar(req,res)

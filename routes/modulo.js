@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express');
 const modulo=express.Router();
+var address='https://stark-sea-10471.herokuapp.com';
 var RutasUsuario=require("./usuario");
 var RutasExpediente=require("./expediente");
 var RutasCoordinador=require("./coordinador");
@@ -12,7 +13,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
     {
         if(err)
         {
-            res.redirect("http://localhost:3000/");
+            res.redirect(address+"/");
         }
         else
         {
@@ -27,13 +28,13 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         usuario:false,
                         consulta:true,
                         coordinador:false,
-                        crearUsuarios:`http://localhost:3000/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
-                        crearExpedientes:`http://localhost:3000/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`
+                        crearUsuarios:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
+                        crearExpedientes:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`
                     });
                 }
                 else
                 {
-                    res.redirect("http://localhost:3000/");
+                    res.redirect(address+"/");
                 }
             }
             else
@@ -42,7 +43,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 {
                     if(err)
                     {
-                        res.redirect("http://localhost:3000/");
+                        res.redirect(address+"/");
                     }
                     else
                     {
@@ -57,18 +58,18 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                     usuario:true,
                                     consulta:false,
                                     coordinador:false,
-                                    crearUsuarios:`http://localhost:3000/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
-                                    crearExpedientes:`http://localhost:3000/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes`
+                                    crearUsuarios:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
+                                    crearExpedientes:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes`
                                 });
                             }
                             else
                             {
-                                res.redirect("http://localhost:3000/");
+                                res.redirect(address+"/");
                             }
                         }
                         else
                         {
-                            res.redirect("http://localhost:3000/");
+                            res.redirect(address+"/");
                         }
                     }
                 });

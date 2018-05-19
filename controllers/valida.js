@@ -42,7 +42,7 @@ function validarUsuario(req,res)
                             //compara la contraseña con la de la base de datos
                             //usuario.comparar(req.body.Password)
                             //req.body.Password == usuario.password
-                            if(req.body.Password == usuario.password)
+                            if(req.body.Password == usuario.password && usuario.activo)
                             {
                                 //console.log(usuario);
                                 //luego redireccionar con los parametros validos a principal
@@ -77,7 +77,7 @@ function validarUsuario(req,res)
                                     if(admin)
                                     {
                                         //admin.comparar(req.body.Password)
-                                        if(req.body.Password == admin.password)
+                                        if(req.body.Password == admin.password && usuario.activo)
                                         {
                                             //luego redireccionar con los parametros validos a principal
                                             res.redirect(`${address}/principal/${admin._id}&${admin.usuario}&${admin.password}`);

@@ -23,7 +23,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 console.log("usuarios enonctrado: "+usuario);
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
-
+                    console.log(usuario.permiso);
                     res.render("../views/pages/principal.ejs",
                     {
                         user:usuario.usuario,

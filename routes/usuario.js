@@ -12,7 +12,7 @@ const usuario=express.Router();
 // usuario.get("/eliminar",(req,res)=>{
 //     res.status(200).render("../views/partials/eliminarUsuario.ejs");
 // });
-usuario.post('/nuevoUsuario',controladorUsuario.guardar);
+usuario.post('/nuevoUsuario',controladorUsuario.validar);
 usuario.post('/modificaUsuario',controladorUsuario.modificar);
 usuario.post('/eliminarUsuario',controladorUsuario.eliminar);
 module.exports=usuario;

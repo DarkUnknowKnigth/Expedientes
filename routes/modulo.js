@@ -9,6 +9,8 @@ var RutasConsulta=require("./consulta");
 var Usuario=require("../models/usuario");
 var Permiso=require("../models/permiso");
 var Administrador=require("../models/administrador");
+const ejsLint = require('ejs-lint');
+
 modulo.get("/:id&:user&:pass",(req,res)=>{
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
     {
@@ -24,7 +26,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
                     console.log(usuario.permiso);
-                    res.render("../views/pages/principal.ejs",
+                    res.render(ejsLint("../views/pages/principal.ejs",
                     {
                         //variables para la vista --->principal.ejs
                         //nombre
@@ -58,7 +60,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         original:req.originalUrl
-                    });
+                    }));
                 }
                 else
                 {

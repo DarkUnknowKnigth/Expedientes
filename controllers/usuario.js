@@ -12,10 +12,9 @@ function validar(req,res)
     {
         if(params.cedula.length>0)
         {
-            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERO" || params.TipoUsuario=="COORDINADOR" && params.password == params.cpassword)
+            if((params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR") && params.password == params.cpassword)
             {
                 if(guardar(params));
-                console.log(req.params.id);
                 res.redirect(req.baseUrl);
             }
             else

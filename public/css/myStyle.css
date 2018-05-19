@@ -99,12 +99,6 @@ header p{
 #accordion{
 	margin-top: 10%;
 }
-
-.card{
-	/*border-radius: 0px;*/
-	/*border: 1px solid #296597;*/
-	/*margin-top: 1%;*/
-}
 .card-header{
 	background-color: #669BC7;
 	padding: 1%;
@@ -323,10 +317,7 @@ header p{
 }
 .tablaResultados .edit,.delete{
 	margin-left: 5%;
-	width: 30%;
-	height: 30px;
 	display: inline;
-	margin-top: auto;
 	background-color: transparent;
 	border: 1px solid transparent;
 	border-radius: 5px;

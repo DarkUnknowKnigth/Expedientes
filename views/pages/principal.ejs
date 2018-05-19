@@ -15,6 +15,7 @@
 	<!-- Nombre de la institución: Centro de Salud Santa Cruz -->
 	<header>
 		<div class="top-barActions">
+			<% console.log(permiso)%>
 			<div class="conf"><a href="#"><i class="fas fa-cog"></i></a></div>
 			<div class="logOut"><a href="https://stark-sea-10471.herokuapp.com/"><i class="fas fa-sign-out-alt"></i></a></div>
 		</div>
@@ -31,7 +32,7 @@
 		<!-- Accordion -->
 		
 		<div id="accordion">
-		<% if ( expediente ) { %>
+		<% if (permiso.expediente ) { %>
 			<div class="card">
 				<div class="card-header" id="headingOne">
 					<h5 class="mb-0">
@@ -42,12 +43,12 @@
 				</div>
 				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
-						<% if( crearExp) { %>
+						<% if( permiso.crearExp) { %>
                         <div id="crearExp">
                             <a href="#">Crear Expediente</a>
 						</div>
 						<% } %>
-						<% if ( modificarExp || eliminarExp ){%>
+						<% if ( permiso.modificarExp || permiso.eliminarExp ){%>
                         <div id="modifExp">
                             <a href="#">Gestion de Expediente</a>
 						</div>
@@ -56,7 +57,7 @@
 				</div>
 			</div>
 		<% } %>
-		<% if(usuario ){ %>
+		<% if(permiso.usuario ){ %>
 			<div class="card">
 				<div class="card-header" id="headingTwo">
 					<h5 class="mb-0">
@@ -67,12 +68,12 @@
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
-						<% if(crearUser){ %>
+						<% if(permiso.crearUser){ %>
 						<div id="crearUser">
 							<a href="#">Crear Usuario</a>
 						</div>
 						<% } %>
-						<% if (modificarUser || eliminarUser) {%>
+						<% if (permiso.modificarUser || permiso.eliminarUser) {%>
 						<div id="modifUser">
 							<a href="#">Modificar Usuario</a>
 						</div>
@@ -81,7 +82,7 @@
 				</div>
 			</div>
 		<% } %>
-		<% if(consulta){ %>
+		<% if(permiso.consulta){ %>
 			<div class="card">
 				<div class="card-header" id="headingThree">
 					<h5 class="mb-0">
@@ -99,7 +100,7 @@
 				</div>
 			</div>
 		<% } %>
-		<% if(coordinador){ %>
+		<% if(permiso.coordinador){ %>
 			<div class="card">
 				<div class="card-header" id="headingThree">
 					<h5 class="mb-0">
@@ -125,7 +126,7 @@
 	</div>
 	<div class="rightSide">
 		<!-- Forms -->
-		<% if ( expediente ) { %>
+		<% if ( permiso.expediente ) { %>
 		<div class="containerForms createExp">
 			<!-- botón de retroceso -->
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
@@ -906,7 +907,7 @@
 			</div>
 		</div>
 		<% } %>
-		<% if ( usuario ) { %>
+		<% if ( permiso.usuario ) { %>
 		<div class="containerForms createUser">
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
 				<p>CREAR USUARIO</p>
@@ -1042,7 +1043,7 @@
 			</div>
 		</div>
 		<% } %>
-		<% if ( consulta ) { %>
+		<% if ( permiso.consulta ) { %>
 		<div class="containerForms procesoConsulta">
 			<!-- <div class="actions">
 				<button>Iniciar consulta</button>
@@ -1329,7 +1330,7 @@
 			</div>
 		</div>
 		<% } %>
-		<% if ( coordinador ) { %>
+		<% if ( permiso.coordinador ) { %>
 		<div class="containerForms genHojaDiaria">
 			<!-- botón de retroceso -->
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>

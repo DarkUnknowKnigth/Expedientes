@@ -32,18 +32,20 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //nombre
                         user:usuario.nombre+" "+usuario.apPaterno+" "+usuario.apMaterno,
                         //permisos de acceso
-                        expediente:usuario.permiso.AccesoExp,
-                        usuario:usuario.permiso.AccesoUser,
-                        consulta:usuario.permiso.AccesoConsulta,
-                        coordinador:usuario.permiso.AccesoCenso,
-                        //permisos de exp
-                        crearExp:usuario.permiso.CrearExp,
-                        modificarExp:usuario.permiso.ModificarExp,
-                        eliminarExp:usuario.permiso.EliminarExp,  
-                        //permisos de user
-                        crearUser:usuario.permiso.CrearUser,
-                        modificarUser:usuario.permiso.ModificarUser,
-                        eliminarUser:usuario.permiso.EliminarUser,
+                        permiso:{
+                            expediente:usuario.permiso.AccesoExp,
+                            usuario:usuario.permiso.AccesoUser,
+                            consulta:usuario.permiso.AccesoConsulta,
+                            coordinador:usuario.permiso.AccesoCenso,
+                            //permisos de exp
+                            crearExp:usuario.permiso.CrearExp,
+                            modificarExp:usuario.permiso.ModificarExp,
+                            eliminarExp:usuario.permiso.EliminarExp,  
+                            //permisos de user
+                            crearUser:usuario.permiso.CrearUser,
+                            modificarUser:usuario.permiso.ModificarUser,
+                            eliminarUser:usuario.permiso.EliminarUser
+                        },
                         //links usuarios
                         crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
                         modificarUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/modificaUsuario`,
@@ -60,6 +62,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`
                     }));
+                    console.log("fine");
                 }
                 else
                 {

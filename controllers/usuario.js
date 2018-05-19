@@ -15,7 +15,8 @@ function validar(req,res)
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERO" || params.TipoUsuario=="COORDINADOR" && params.password == params.cpassword)
             {
                 if(guardar(params));
-                res.redirect(req.baseUrl.baseUrl);
+                console.log(req.params.id);
+                res.redirect(req.baseUrl);
             }
             else
             {

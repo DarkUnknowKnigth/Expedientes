@@ -715,7 +715,7 @@
 				<form id="formUser" method="POST" action= <%= crearUsuarios %> 	>
 					<div class="groupForm">
 						<label for="nomUser">Nombre de usuario:</label>
-						<input placeholder="Ingrese nombre de usuario" required type="text" id="nomUser" name="nomUser">
+						<input placeholder="Ingrese nombre de usuario" required type="text" id="nomUser" name="usuario">
 					</div>
 					<div class="groupForm">
 						<label for="password">Contraseña:</label>
@@ -723,11 +723,11 @@
 					</div>
 					<div class="groupForm">
 						<label for="confirmPassword">Confirmar contraseña:</label>
-						<input placeholder="Ingrese contraseña nuevamente" required type="password" id="confirmPassword" name="confirmPassword">
+						<input placeholder="Ingrese contraseña nuevamente" required type="password" id="cpassword" name="confirmPassword">
 					</div>
 					<div class="groupForm">
 						<label for="nomReal">Nombre:</label>
-						<input placeholder="Ingrese su nombre real" required type="text" id="nomReal" name="nomReal">
+						<input placeholder="Ingrese su nombre real" required type="text" id="nomReal" name="nombre">
 					</div>
 					<div class="groupForm">
 						<label for="apPaterno">Apellido paterno:</label>
@@ -739,27 +739,25 @@
 					</div>
 					<div class="groupForm">
 						<label for="tipoUser">Tipo de usuario:</label>
-						<select id="tipoUser" name="tipoUser">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select id="tipoUser" name="TipoUsuario">
+							<option value="DOCTOR">Doctor</option>
+							<option value="ENFERMERA">Enfermera</option>
+							<option value="COORDINADOR">coordinador</option>
 						</select>
 					</div>
 					<div class="groupForm">
 						<label for="cedulaProfesional">Cédula profesional:</label>
-						<input placeholder="Ingrese cédula profesional" required type="text" id="cedulaProfesional" name="cedulaProfesional">
+						<input placeholder="Ingrese cédula profesional" required type="text" id="cedulaProfesional" name="cedula">
 					</div>
 					<div class="groupForm">
 						<label for="activeUser">Activo:</label>
-						<select id="activeUser" name="activeUser">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select id="activeUser" name="activo">
+							<option value="true">Si</option>
+							<option value="false">No</option>
+							
 						</select>
 					</div>
-					<div class="groupForm">
+					<!-- <div class="groupForm">
 						<label for="premisosUser">Permisos:</label>
 						<select id="premisosUser" name="premisosUser">
 							<option value="volvo">Volvo</option>
@@ -767,7 +765,7 @@
 							<option value="fiat">Fiat</option>
 							<option value="audi">Audi</option>
 						</select>
-					</div>
+					</div> -->
 					<div style="clear:both;"></div>
 					<button class="btn btn-success" type="submit">Guardar</button>
 				</form>

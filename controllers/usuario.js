@@ -5,15 +5,17 @@ const Administrador=require("../models/administrador");
 
 function validar(req,res)
 {  
+    
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
     {
-        if(params.cedula.length>0 && params.fechaCreacion && params.activo == true)
+        if(params.cedula.length>0 && params.activo == true)
         {
-            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERO" || params.TipoUsuario=="COORDINADOR")
+            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERO" || params.TipoUsuario=="COORDINADOR" && params.password == params.cpassword)
             {
-                res.send(guardar(params));
+                if(guardar(params));
+                res.redirect(req.baseUrl);
             }
             else
             {
@@ -39,19 +41,45 @@ function eliminar(req,res)
     
 }
 function guardar(info){
-    var permiso= new Permiso();
-    var user= new Usuario();
-    user.nombre=info.nombre;
-    user.usuario=info.usuario;
-    user.password=info.password;
-    user.apPaterno= info.apPaterno;
-    user.apMaterno=info.apMaterno;
-    user.activo=info.activo;
-    user.TipoUsuario=info.TipoUsuario;
-    user.cedula=info.cedula;
-    user.fechaCreacion=info.fechaCreacion;
-    
-    return "<h1>exitoso</h1>";
+    Permiso.findOne({"tipo":info.TipoUsuario},(err,permiso)=>{
+        if(err)
+        {
+            throw err
+            return false
+        }
+        else
+        {
+            if(permiso)
+            {
+                var now=new Date();
+                user=new Usuario();
+                user.nombre=info.nombre;
+                user.usuario=info.usuario;
+                user.password=info.password;
+                user.apPaterno= info.apPaterno;
+                user.apMaterno=info.apMaterno;
+                user.activo=info.activo;
+                user.TipoUsuario=info.TipoUsuario;
+                user.cedula=info.cedula;
+                user.fechaCreacion=now.getFullYear+"-"+now.getMonth+"-"+now.getDay;
+                user.permiso=permiso._id;
+                user.save((err,stored)=>{
+                    if(err)
+                    {
+                        throw err
+                        return false
+                    }
+                    else{
+                        if(stored)
+                        {
+                            console.log(stored);
+                            return true;
+                        }
+                    }
+                });
+            }
+        }
+    });
 }
 module.exports={
     validar,

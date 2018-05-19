@@ -20,6 +20,7 @@ $("#modifExp a").click(function(){
 $("#crearUser a").click(function(){
 	darColorVinetas("#crearUser");
 	$(".containerForms").css("display","none");
+	$(".putForm form").css("display","none");
 
 	texto = $(".createUser p").text();
 
@@ -28,6 +29,8 @@ $("#crearUser a").click(function(){
 		$(".createUser p").text(texto);
 	}
 	$(".createUser").css("display","block");
+	$("#formUser").css("display","block");
+
 });
 $("#modifUser a").click(function(){
 	darColorVinetas("#modifUser");
@@ -136,6 +139,7 @@ $(".actions button").click(function(){
 	$(this).css("opacity","0");
 	$(".sigVit").css("display","block");
 	$(".circle1").css("background-color","#88d392");
+	
 });
 $(".modal.cancelar .modal-footer .btn-danger").click(function(){
 	$(".consultaViewer").css("display","none");
@@ -207,8 +211,26 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 		$(".consultaViewer.formatDiagnostico").css("display","none");
 		$(".actions button").css("opacity","1");
 		alert("¡Registro de consulta exitosa!");
+		$(".circle1,.circle2,.circle3").css("background-color","transparent");
+		$(".consultaViewer form")[0].reset();
 	}
 	else{
 		alert("Falta rellenar algunos campos");
 	}
 });
+
+
+//Obtener año
+var fecha = new Date();
+// var ano = fecha.getFullYear();
+// alert('El año actual es: '+ano);
+
+
+function insertarAnios(){
+	for(var i = 1950; i<=fecha.getFullYear();i++){
+		$(".genInformeMensual #anioInfo").append("<option value"+i+">"+i+"</option>");
+	}
+}
+
+insertarAnios();
+

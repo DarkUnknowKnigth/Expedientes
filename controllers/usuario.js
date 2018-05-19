@@ -5,24 +5,30 @@ const Administrador=require("../models/administrador");
 
 function validar(req,res)
 {  
-    console.log(req.body.password);
+    console.log(req.body);
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
     {
         if(params.cedula.length>0)
         {
-            if((params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR") && params.password == params.cpassword)
+            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
-                if(guardar(params))
-                {
-                    res.redirect(req.baseUrl);
+                if(params.password == params.cpassword)
+                {    if(guardar(params))
+                    {
+                        res.redirect(req.baseUrl);
+                    }
+                    else
+                    {
+                        res.redirect('/');
+                    }
                 }
                 else
                 {
-                     res.redirect('/');
+                    console.log("No pass");
+                    res.redirect(req.baseUrl);
                 }
-                
             }
             else
             {

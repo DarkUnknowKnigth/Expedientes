@@ -42,7 +42,7 @@ function validarUsuario(req,res)
                             //compara la contraseña con la de la base de datos
                             //usuario.comparar(req.body.Password)
                             //req.body.Password == usuario.password
-                            if(req.body.Password == usuario.password && usuario.activo)
+                            if(req.body.Password == usuario.password)
                             {
                                 //console.log(usuario);
                                 //luego redireccionar con los parametros validos a principal

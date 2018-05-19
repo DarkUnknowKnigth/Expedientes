@@ -64,7 +64,7 @@ function guardar(info){
                 user.activo=info.activo;
                 user.TipoUsuario=info.TipoUsuario;
                 user.cedula=info.cedula;
-                user.fechaCreacion=now.getFullYear+"-"+now.getMonth+"-"+now.getDay;
+                user.fechaCreacion=now;
                 user.permiso=permiso._id;
                 user.save((err,stored)=>{
                     if(err)

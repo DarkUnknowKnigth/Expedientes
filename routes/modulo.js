@@ -19,8 +19,10 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         {
             if(usuario)
             {
+                console.log("usuarios enonctrado: "+usuario.permiso);
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
+
                     res.render("../views/pages/principal.ejs",
                     {
                         user:usuario.usuario,
@@ -49,6 +51,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     {
                         if(admin)
                         {
+                            console.log("admin enonctrado: "+admin.permiso);
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
                                 res.render("../views/pages/principal.ejs",

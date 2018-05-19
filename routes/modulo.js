@@ -7,6 +7,7 @@ var RutasExpediente=require("./expediente");
 var RutasCoordinador=require("./coordinador");
 var RutasConsulta=require("./consulta");
 var Usuario=require("../models/usuario");
+var Permiso=require("../models/permiso");
 var Administrador=require("../models/administrador");
 modulo.get("/:id&:user&:pass",(req,res)=>{
     Usuario.findById(req.params.id,(err,usuario)=>
@@ -19,7 +20,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         {
             if(usuario)
             {
-                console.log("usuarios enonctrado: "+usuario.permiso);
+                console.log("usuarios enonctrado: "+usuario.permiso._id);
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
 
@@ -51,7 +52,6 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     {
                         if(admin)
                         {
-                            console.log("admin enonctrado: "+admin.permiso);
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
                                 res.render("../views/pages/principal.ejs",

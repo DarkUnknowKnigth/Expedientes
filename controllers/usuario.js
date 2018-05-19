@@ -5,7 +5,7 @@ const Administrador=require("../models/administrador");
 
 function validar(req,res)
 {  
-    console.log(params.TipoUsuario);
+    console.log(req.body.TipoUsuario);
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))

@@ -91,12 +91,12 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                     coordinador:false,
                                     //expedientes
                                     crearExp:true,
-                                    ModificarExp:true,
-                                    EliminarExp:true,
+                                    modificarExp:true,
+                                    eliminarExp:true,
                                     //permisos de user
-                                    CrearUser:true,
-                                    ModificarUser:true,
-                                    EliminarUser:true,
+                                    crearUser:true,
+                                    modificarUser:true,
+                                    eliminarUser:true,
                                     //link de usuarios
                                     crearUsuarios:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
                                     modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificaUsuario`,

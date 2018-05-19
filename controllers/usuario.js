@@ -10,7 +10,7 @@ function validar(req,res)
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
     {
-        if(params.cedula.length>0 && params.activo == true)
+        if(params.activo == true)
         {
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERO" || params.TipoUsuario=="COORDINADOR" && params.password == params.cpassword)
             {

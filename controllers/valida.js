@@ -77,7 +77,7 @@ function validarUsuario(req,res)
                                     if(admin)
                                     {
                                         //admin.comparar(req.body.Password)
-                                        if(req.body.Password == admin.password && usuario.activo)
+                                        if(req.body.Password == admin.password)
                                         {
                                             //luego redireccionar con los parametros validos a principal
                                             res.redirect(`${address}/principal/${admin._id}&${admin.usuario}&${admin.password}`);

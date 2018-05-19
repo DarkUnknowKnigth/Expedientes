@@ -19,17 +19,20 @@ function validar(req,res)
             }
             else
             {
-               console.log("no");
+               console.log("No Campo");
+               res.redirect(req.baseUrl);
             }
         }
         else
         {
-           console.log("no");
+           console.log("No cedula");
+           res.redirect(req.baseUrl);
         }
     }   
     else
     {
-       console.log("no");
+       console.log("No valido");
+       res.redirect(req.baseUrl);
     }
 }
 function modificar(req,res)

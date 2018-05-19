@@ -16,30 +16,30 @@ function validar(req,res)
             {
                 if(params.password == params.cpassword)
                 {   guardar(params);
-                    res.redirect(req.baseUrl.replace("/usuario","/done"));
+                    res.redirect(req.baseUrl.replace("/usuarios","/done"));
                 }
                 else
                 {
                     console.log("No pass");
-                    res.redirect(req.baseUrl.replace("/usuario","/fail"));
+                    res.redirect(req.baseUrl.replace("/usuarios","/fail"));
                 }
             }
             else
             {
                console.log("No Campo");
-               res.redirect(req.baseUrl.replace("/usuario","/fail"));
+               res.redirect(req.baseUrl.replace("/usuarios","/fail"));
             }
         }
         else
         {
            console.log("No cedula");
-           res.redirect(req.baseUrl.replace("/usuario","/fail"));
+           res.redirect(req.baseUrl.replace("/usuarios","/fail"));
         }
     }   
     else
     {
        console.log("No valido");
-       res.redirect(req.baseUrl.replace("/usuario","/fail"));
+       res.redirect(req.baseUrl.replace("/usuarios","/fail"));
     }
 }
 function modificar(req,res)

@@ -26,11 +26,22 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     console.log(usuario.permiso);
                     res.render("../views/pages/principal.ejs",
                     {
+                        //nombre
                         user:usuario.nombre+" "+usuario.apPaterno+" "+usuario.apMaterno,
+                        //permisos de acceso
                         expediente:usuario.permiso.AccesoExp,
                         usuario:usuario.permiso.AccesoUser,
                         consulta:usuario.permiso.AccesoConsulta,
                         coordinador:usuario.permiso.AccesoCenso,
+                        //permisos de exp
+                        crearExp:usuario.permiso.CrearExp,
+                        ModificarExp:usuario.permiso.ModificarExp,
+                        EliminarExp:usuario.permiso.EliminarExp,  
+                        //permisos de user
+                        CrearUser:usuario.permiso.CrearUser,
+                        ModificarUser:usuario.permiso.ModificarUser,
+                        EliminarUser:usuario.permiso.EliminarUser,
+                        //links para las modificaciones
                         crearUsuarios:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
                         crearExpedientes:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`
                     });
@@ -80,6 +91,16 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         }
     });
    
+});
+modulo.get("/:id&:user&:pass/:status",(req,res)=>{
+    if(req.params.status=="done")
+    {
+        
+    }
+    else
+    {
+
+    }
 });
 modulo.use("/:id&:user&:pass/usuarios",RutasUsuario);
 modulo.use("/:id&:user&:pass/expedientes",RutasExpediente);

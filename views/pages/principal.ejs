@@ -42,12 +42,16 @@
 				</div>
 				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
+						<% if( CrearExp) { %>
                         <div id="crearExp">
                             <a href="#">Crear Expediente</a>
-                        </div>
+						</div>
+						<% } %>
+						<% if ( modificarExp || eliminarExp ){%>
                         <div id="modifExp">
-                            <a href="#">Editar/Eliminar Expediente</a>
-                        </div>
+                            <a href="#">Gestion de Expediente</a>
+						</div>
+						<% } %>
 					</div>
 				</div>
 			</div>
@@ -63,12 +67,16 @@
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
-							<div id="crearUser">
-								<a href="#">Crear Usuario</a>
-							</div>
-							<div id="modifUser">
-								<a href="#">Modificar Usuario</a>
-							</div>
+						<% if(crearUser){} %>
+						<div id="crearUser">
+							<a href="#">Crear Usuario</a>
+						</div>
+						<% } %>
+						<% if (modificarUser || eliminarUser) {%>
+						<div id="modifUser">
+							<a href="#">Modificar Usuario</a>
+						</div>
+						<% } %>
 					</div>
 				</div>
 			</div>

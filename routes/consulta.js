@@ -12,8 +12,7 @@ consulta.get('/formato',(req,res)=>{
 consulta.get('/diagnostico',(req,res)=>{
     res.status(200).render("../views/partials/diagnostico.ejs");
 });
-consulta.post('/nuevoSignosVitales',controladorConsulta.guardarSignosVitales);
-consulta.post('/nuevoFormato',controladorConsulta.guardarFormato);
-consulta.post('/nuevoDiagnostico',controladorConsulta.guardarDiagnostico);
+consulta.post('/nuevaConsulta',controladorConsulta.crear);
+
 
 module.exports=consulta;

@@ -91,9 +91,13 @@ function guardar(info){
         }
     });
 }
+function buscar(req,res){
+
+}
 module.exports={
     validar,
     guardar,
     modificar,
-    eliminar
+    eliminar,
+    buscar
 };

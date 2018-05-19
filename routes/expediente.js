@@ -13,7 +13,8 @@ expediente.get('/eliminar',(req,res)=>{
     res.status(200).render("../views/partials/eliminarExpedeinte.ejs");
 });
 expediente.post('/nuevoExpediente',controladorExpediente.guardar);
-expediente.post('/nuevoModificar',controladorExpediente.modificar);
-expediente.post('/nuevoEliminar',controladorExpediente.eliminar);
+expediente.post('/modificarExpediente',controladorExpediente.modificar);
+expediente.post('/eliminarExpediente',controladorExpediente.eliminar);
+expediente.post('/buscarExpediente',controladorExpediente.eliminar);
 module.exports=expediente;
 

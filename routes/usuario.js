@@ -15,4 +15,5 @@ usuario.get("/:status",(req,res)=>{
 usuario.post('/nuevoUsuario',controladorUsuario.validar);
 usuario.post('/modificaUsuario',controladorUsuario.modificar);
 usuario.post('/eliminarUsuario',controladorUsuario.eliminar);
+usuario.post('/buscarUsuario',controladorUsuario.buscar);
 module.exports=usuario;

@@ -26,11 +26,11 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     console.log(usuario.permiso);
                     res.render("../views/pages/principal.ejs",
                     {
-                        user:usuario.usuario,
-                        expediente:true,
-                        usuario:false,
-                        consulta:true,
-                        coordinador:false,
+                        user:usuario.nombre+" "+usuario.apPaterno+" "+usuario.apMaterno,
+                        expediente:usuario.permiso.AccesoExp,
+                        usuario:usuario.permiso.AccesoUser,
+                        consulta:usuario.permiso.AccesoConsulta,
+                        coordinador:usuario.permiso.AccesoCenso,
                         crearUsuarios:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
                         crearExpedientes:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`
                     });

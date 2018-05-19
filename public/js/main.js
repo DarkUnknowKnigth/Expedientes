@@ -41,6 +41,7 @@ function config()
 }
 function valida(u,p,e) 
 {  
+    var address='https://stark-sea-10471.herokuapp.com'
     patern=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     //valida si user es un conjunto de letras y numeros y si la contraseña no contiene caracteres especiales
     if(!patern.test(u) && u!="")
@@ -50,7 +51,7 @@ function valida(u,p,e)
             $.ajax({
                 //haciendo la peticion de validar usuario y contraseña
                 type: "POST",
-                url: "http://localhost:3000/validacion/usuario",
+                url: address+"/validacion/usuario",
                 data: {Usuario:u,Password:p}
             }).done((res)=>{//redireccionar a la pagina principal si el usuario existe si no a inicio
                 $("#login").html(res.message);

@@ -1,5 +1,6 @@
 'use strict'
 //modelos de la base de datos
+var address='https://stark-sea-10471.herokuapp.com'
 var bcrypt=require('bcrypt-nodejs');
 var Usuario=require("../models/usuario");
 var Administrador=require("../models/administrador");
@@ -28,7 +29,7 @@ function validarUsuario(req,res)
                         //si encuentra un error informar
                         res.send({message:
                             '<div class="alert alert-dark" role="alert">'+
-                                '<form action="http://localhost:3000/" method="GET">'+
+                                '<form action="'+address+'/" method="GET">'+
                                     '<strong class="form-control">Ha ocurrido un error <br>Porfavor intente de nuevo</strong>'+
                                     '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
                                 '</form>'+
@@ -45,13 +46,13 @@ function validarUsuario(req,res)
                             {
                                 //console.log(usuario);
                                 //luego redireccionar con los parametros validos a principal
-                                res.redirect(`http://localhost:3000/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                                res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
                             }
                             else
                             {
                                 res.send({message:
                                     '<div class="alert alert-dark" role="alert">'+
-                                        '<form action="http://localhost:3000/" method="GET">'+
+                                        '<form action="'+address+'/" method="GET">'+
                                             '<strong class="form-control">Usuario o contraseña no existe</strong>'+
                                             '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
                                         '</form>'+
@@ -66,7 +67,7 @@ function validarUsuario(req,res)
                                 {
                                     res.send({message:
                                         '<div class="alert alert-dark" role="alert">'+
-                                            '<form action="http://localhost:3000/" method="GET">'+
+                                            '<form action="'+address+'/" method="GET">'+
                                                 '<strong class="form-control">Ha ocurrido un error <br>Porfavor intente de nuevo</strong>'+
                                                 '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
                                             '</form>'+
@@ -79,13 +80,13 @@ function validarUsuario(req,res)
                                         if(req.body.Password == admin.password)
                                         {
                                             //luego redireccionar con los parametros validos a principal
-                                            res.redirect(`http://localhost:3000/principal/${admin._id}&${admin.usuario}&${admin.password}`);
+                                            res.redirect(`${address}/principal/${admin._id}&${admin.usuario}&${admin.password}`);
                                         }
                                         else
                                         {
                                             res.send({message:
                                                 '<div class="alert alert-dark" role="alert">'+
-                                                    '<form action="http://localhost:3000/" method="GET">'+
+                                                    '<form action="'+address+'/" method="GET">'+
                                                         '<strong class="form-control">Usuario o contraseña no existe</strong>'+
                                                         '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
                                                     '</form>'+
@@ -95,7 +96,7 @@ function validarUsuario(req,res)
                                     else{
                                         res.send({message:
                                             '<div class="alert alert-dark" role="alert">'+
-                                                '<form action="http://localhost:3000/" method="GET">'+
+                                                '<form action="'+address+'/" method="GET">'+
                                                     '<strong class="form-control">Usuario o contraseña no existe</strong>'+
                                                     '<button type="submit" class="btn btn-danger form-control">Aceptar</button>'+
                                                 '</form>'+
@@ -109,12 +110,12 @@ function validarUsuario(req,res)
             }
             else
             {
-                res.status(400).send({message:"Usted proporciono una contraseña invalida",url:"http://localhost:3000/"});
+                res.status(400).send({message:"Usted proporciono una contraseña invalida",url:address+"/"});
             }
         }
         else
         {
-            res.status(404).send({message:"Usted proporciono una usuario invalido",url:"http://localhost:3000/"});
+            res.status(404).send({message:"Usted proporciono una usuario invalido",url:address+"/"});
         }
     }
     else

@@ -3,6 +3,7 @@
 ========================= dependencias =====================
 ============================================================*/
 'use strict'
+var appaddress='https://stark-sea-10471.herokuapp.com';
 var helmet = require('helmet');
 var bodyParser=require('body-parser');
 var express=require("express");
@@ -98,7 +99,7 @@ app.use("/principal",RutasPrincipal); //menu con todas las opciones segun privil
 app.use((req,res,next)=>{ //middleware de autentificacion
     if(!req.session.user_id)
     {
-        res.redirect('http://localhost:3000/');
+        res.redirect(appaddress+'/');
     }
     else{
         next();

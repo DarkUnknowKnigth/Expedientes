@@ -12,7 +12,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
     {
         if(err)
         {
-            res.status(404).redirect("http://localhost:3000/");
+            res.redirect("http://localhost:3000/");
         }
         else
         {
@@ -20,11 +20,20 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
             {
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
-                    res.render("../views/pages/principal.ejs",{user:usuario.usuario});
+                    res.render("../views/pages/principal.ejs",
+                    {
+                        user:usuario.usuario,
+                        expediente:true,
+                        usuario:false,
+                        consulta:true,
+                        coordinador:false,
+                        crearUsuarios:`http://localhost:3000/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
+                        crearExpedientes:`http://localhost:3000/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`
+                    });
                 }
                 else
                 {
-                    res.status(404).redirect("http://localhost:3000/");
+                    res.redirect("http://localhost:3000/");
                 }
             }
             else
@@ -33,7 +42,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 {
                     if(err)
                     {
-                        res.status(404).redirect("http://localhost:3000/");
+                        res.redirect("http://localhost:3000/");
                     }
                     else
                     {
@@ -44,22 +53,22 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                 res.render("../views/pages/principal.ejs",
                                 {
                                     user:admin.usuario,
-                                    expedientes:true,
+                                    expediente:true,
                                     usuario:true,
                                     consulta:false,
                                     coordinador:false,
-                                    linkUsuarios:`http://localhost:3000/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
-                                    linkExpedientes:`http://localhost:3000/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes`
+                                    crearUsuarios:`http://localhost:3000/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
+                                    crearExpedientes:`http://localhost:3000/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes`
                                 });
                             }
                             else
                             {
-                                res.status(404).redirect("http://localhost:3000/");
+                                res.redirect("http://localhost:3000/");
                             }
                         }
                         else
                         {
-                            res.status(404).redirect("http://localhost:3000/");
+                            res.redirect("http://localhost:3000/");
                         }
                     }
                 });

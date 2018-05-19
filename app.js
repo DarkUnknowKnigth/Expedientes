@@ -12,6 +12,8 @@ var cookieParser=require('cookie-parser');
 //var passport=require('passport');
 var session=require('express-session');
 var autentifica=require('./middleware/autenficador');
+var User=require('./models/usuario');
+var Admin=require('./models/administrador');
 //var configPassport=require('./passport')(passport);
 /*==========================================================
 ======================== instanciando express ==============
@@ -48,9 +50,6 @@ app.use(session({
 app.get("/",(req,res)=>{
     res.render("pages/login");
 });
-var User=require('./models/usuario');
-app.use('/public',express.static(__dirname + '/public'));
-
 app.use((req,res,next)=>{ //middleware de session
     var Usuario=req.body.Usuario;
     var Password=req.body.Password;
@@ -69,11 +68,30 @@ app.use((req,res,next)=>{ //middleware de session
             }
             else
             {
-               next();
+                Admin.findOne({usuario:Usuario,password:Password},(err,admin)=>{
+                    if(err)
+                    {
+                        next();
+                    }
+                    else
+                    {
+                        if(admin)
+                        {
+                            req.session.user_id=admin._id;
+                            res.locals={usuario:admin};
+                            next();
+                        }
+                        else
+                        {
+                            next();
+                        }
+                    }
+                });
             }
         }
     });
 });
+app.use('/public',express.static(__dirname + '/public'));
 app.use("/validacion",RutasValidacion); //la loguearse se envia la informacion a la ruta de validacion/usuario
 //ruta de usuario logueado
 app.use("/principal",RutasPrincipal); //menu con todas las opciones segun privilegios
@@ -89,6 +107,6 @@ app.use((req,res,next)=>{ //middleware de autentificacion
 app.use("/modulo",RutasModulo);
 //ruta de error
 app.get("*",(req,res)=>{
-    res.status(404).render("pages/error");
+res.status(404).render("pages/error");
 });
 module.exports=app;

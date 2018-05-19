@@ -4,13 +4,17 @@
 	padding: 0;
 }
 
+body{
+	font-family: "Montserrat",sans-serif ;
+}
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 /*end universal*/
 /*Header*/
 
 header{
-	background-color: rgb(4, 88, 133);
+	background-color: #2F789F;
 	height: 40px;
 	width: 100%;
 	position: fixed;
@@ -18,7 +22,7 @@ header{
 }
 
 header p{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-align: center;
 	padding: 5px;
 	color: #fff;
@@ -67,16 +71,16 @@ header p{
 .userInfo{
 	width: 100%;
 	background-color: #fff;
-	height: 200px;
-	border: 2px solid #ccc;
+	height: 100px;
+	border: 1px solid #ccc;
 	border-left: none;
 	border-right: none;
 }
 .userPicture{
 	float: left;
-	width: 100px;
-	height: 100px;
-	border: 4px solid rgb(226, 226, 226);
+	width: 80px;
+	height: 80px;
+	border: 1px solid #ccc;
 	border-radius: 5px;
 	margin-top: 3%;
 	margin-left: 3%;
@@ -84,7 +88,7 @@ header p{
 .userDescription{
 	float: left;
 	color: #000;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	margin-left: 5%;
 	margin-top: 10%;
 	font-size: 12px;
@@ -96,8 +100,13 @@ header p{
 	margin-top: 10%;
 }
 
+.card{
+	/*border-radius: 0px;*/
+	/*border: 1px solid #296597;*/
+	/*margin-top: 1%;*/
+}
 .card-header{
-	background-color: rgb(14, 115, 197);
+	background-color: #669BC7;
 	padding: 1%;
 	border-radius: 0px !important;
 }
@@ -151,7 +160,7 @@ header p{
 .active{
 	background-color: #fff !important;
 	/*color: #528AF2 !important;*/
-	list-style-image: url("../assets/vinetaBlack.svg") !important;
+	list-style-image: url("../img/vinetaBlack.svg") !important;
 }
 
 
@@ -200,7 +209,7 @@ header p{
 	display: block;
 	margin: auto;
 	font-size: 12px;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-weight: bold;
 }
 .statusBar table tr td{
@@ -223,6 +232,31 @@ header p{
 
 /*Forms*/
 
+/*Estilos a clases directo*/
+
+.containerForms .parent{
+	display: block;
+	margin: auto;
+	float: none;
+	margin-bottom: 5%;
+}
+
+.containerForms .buscar{
+	margin-bottom: 2%;
+	width: 90% !important;
+	float: none;
+}
+
+#formUser .groupForm{
+	float: none;
+}
+
+#formAPP h5{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/*end estilos a clases*/
 
 .containerForms form{
 	margin-top: 5%;
@@ -237,7 +271,7 @@ header p{
 	height: 45px;
 	border: 1px solid #E4E4E4;
 	border-radius: 10px;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	padding: 2%
 }
 .containerForms input,select,textarea{
@@ -260,7 +294,7 @@ header p{
 	margin-left: 5%;
 	margin-top: 3%;
 	font-size: 18px;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-weight: bold;
 }
 .containerForms textarea{
@@ -269,7 +303,7 @@ header p{
 	height: 100px;
 	border-radius: 10px;
 	padding: 3%;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 }
 .groupForm{
 	float: left;
@@ -289,7 +323,10 @@ header p{
 }
 .tablaResultados .edit,.delete{
 	margin-left: 5%;
+	width: 30%;
+	height: 30px;
 	display: inline;
+	margin-top: auto;
 	background-color: transparent;
 	border: 1px solid transparent;
 	border-radius: 5px;
@@ -353,14 +390,14 @@ header p{
 }
 
 .actions button{
-	float: right;
+	float: none;
 	margin-top: 2%;
 	margin-right: 3%;
 	background-color: transparent;
 	padding: 1%;
 	border: 1px solid #979797;
 	color: #383C41;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-align: center;
 	font-weight: bold;
 	transition: ease all 0.2s;
@@ -378,7 +415,7 @@ header p{
 }
 .viewerTitle p{
 	text-align: center;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-weight: bold;
 	font-size: 40px;
 	color: #383C41;

@@ -5,7 +5,30 @@ const Administrador=require("../models/administrador");
 
 function validar(req,res)
 {  
-   
+    var params=req.body; 
+    var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
+    if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
+    {
+        if(params.cedula.length>0 && params.fechaCreacion && params.activo == true)
+        {
+            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERO" || params.TipoUsuario=="COORDINADOR")
+            {
+                res.send(guardar(params));
+            }
+            else
+            {
+               console.log("no");
+            }
+        }
+        else
+        {
+           console.log("no");
+        }
+    }   
+    else
+    {
+       console.log("no");
+    }
 }
 function modificar(req,res)
 {
@@ -15,20 +38,20 @@ function eliminar(req,res)
 {
     
 }
-function guardar(req,res){
+function guardar(info){
     var permiso= new Permiso();
     var user= new Usuario();
-    var params=req.body;
-    console.log(params);
-    user.id_user=params.id_user;
-    user.nombre=params.nombre;
-    user.usuario=params.usuario;
-    user.password=params.password;
-    user.apPaterno= params.apPaterno;
-    user.apMaterno=params.apMaterno;
-    user.activo=params.activo;
-    user.TipoUsuario=params.TipoUsuario;
-    res.status(200).send("<h1>exitoso</h1>");
+    user.nombre=info.nombre;
+    user.usuario=info.usuario;
+    user.password=info.password;
+    user.apPaterno= info.apPaterno;
+    user.apMaterno=info.apMaterno;
+    user.activo=info.activo;
+    user.TipoUsuario=info.TipoUsuario;
+    user.cedula=info.cedula;
+    user.fechaCreacion=info.fechaCreacion;
+    
+    return "<h1>exitoso</h1>";
 }
 module.exports={
     validar,

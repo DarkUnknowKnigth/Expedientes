@@ -45,12 +45,12 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         modificarUser:usuario.permiso.ModificarUser,
                         eliminarUser:usuario.permiso.EliminarUser,
                         //links usuarios
-                        crearUsuarios:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
+                        crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
                         modificarUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/modificaUsuario`,
                         buscarUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/buscarUsuario`,
                         eliminarUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/eliminarUsuario`,
                         //link expedientes
-                        crearExpedientes:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`,
+                        crearExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/nuevoExpediente`,
                         modificarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/modificarExpediente`,
                         eliminarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/eliminarExpediente`,
                         buscarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarExpediente`,
@@ -97,12 +97,12 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                     modificarUser:true,
                                     eliminarUser:true,
                                     //link de usuarios
-                                    crearUsuarios:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
+                                    crearUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
                                     modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificaUsuario`,
                                     buscarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/buscarUsuario`,
                                     eliminarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/eliminarUsuario`,
                                     //link expedientes
-                                    crearExpedientes:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/nuevoExpediente`,
+                                    crearExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/nuevoExpediente`,
                                     modificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/modificarExpediente`,
                                     eliminarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/eliminarExpediente`,
                                     buscarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarExpediente`,

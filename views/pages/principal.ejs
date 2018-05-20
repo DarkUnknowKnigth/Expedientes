@@ -980,17 +980,15 @@
 				<p>MODIFICAR Y ELIMINAR USUARIO</p>
 			</div>
 			<div class="groupForm buscar">
-				<form method="POST" id="buscadorUsuarios" action= <%= buscarUsuario %> >
-					<div class="d-inline-block">
-						<label for="buscadorUser">Buscar por:</label>
-						<select name="tbusqueda" id="tbusqueda" required>
-							<option value="nombre">Nombre</option>
-							<option value="cedula">Cedula</option>
-							<option value="tipo">Tipo de usuario</option>
-							<option value="usuario">usuario</option>
-						</select>
-					</div>
-					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser" required>
+				<form method="POST" id="buscadorUsuarios" action= <%= buscarUsuario %> >	
+					<label for="buscadorUser">Buscar por:</label>
+					<select name="tbusqueda" id="tbusqueda" required>
+						<option value="nombre">Nombre</option>
+						<option value="cedula">Cedula</option>
+						<option value="tipo">Tipo de usuario</option>
+						<option value="usuario">usuario</option>
+					</select>
+					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="r" required>
 				</form>	
 				<button class="btn btn-primary" type="button" id="search">Buscar</button>
 			</div>
@@ -1409,11 +1407,11 @@
 			console.log(datos);
 			console.log(direccion);
 			$("#search").click((e)=>{
+				console.log("click");
 				$.ajax({
 					method:"POST",
 					url: direccion,
 					data: datos,
-					dataType: "dataType",
 					success: function (response){
 						$("#results").html(response.table);
 					}

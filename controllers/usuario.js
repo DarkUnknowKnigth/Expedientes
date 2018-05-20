@@ -117,7 +117,6 @@ function buscar(req,res){
     console.log(req.body);
     var tipo=req.body.tipo;
     var valor=req.body.valor;
-    tipo=tipo.toString();
     var tb="";
     Usuario.findOne({tipo:valor}).populate('permiso').exec((err,usuario)=>{
         if(err)

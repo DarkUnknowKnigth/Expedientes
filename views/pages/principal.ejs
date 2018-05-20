@@ -981,7 +981,7 @@
 			</div>
 			<div class="groupForm buscar">
 				<form method="POST" id="buscadorUsuarios" action= <%= buscarExpediente %> >
-					<div class="d-inline-flex">
+					<div class="d-inline-block">
 						<label for="buscadorUser">Buscar por:</label>
 						<select name="tbusqueda" id="tbusqueda">
 							<option value="nombre">Nombre</option>
@@ -990,9 +990,7 @@
 							<option value="usuario">usuario</option>
 						</select>
 					</div>
-					<div class="d-inline-block">
-						<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser">
-					</div>
+					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser">
 				</form>	
 				<button class="btn btn-primary" type="button" id="search">Buscar</button>
 			</div>

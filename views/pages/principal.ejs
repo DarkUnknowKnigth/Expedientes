@@ -948,7 +948,7 @@
 			<!-- Formulario -->
 			<div class="putForm">
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
-				<form id="formUser" action="">
+				<form id="formUser" action=<%= crearUsuario %>>
 					<div id="failUser" class="groupForm">
 						
 					</div>
@@ -1018,7 +1018,7 @@
 				<p>MODIFICAR Y ELIMINAR USUARIO</p>
 			</div>
 
-			<div class="groupForm buscar" action="" method="post">
+			<div class="groupForm buscar" action=<%= buscarUsuario%> method="post">
 				<form id="buscadorUsuarios">
 					<label for="buscadorUser">Buscar:</label>
 					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser">

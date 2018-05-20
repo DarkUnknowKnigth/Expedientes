@@ -948,7 +948,6 @@
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
 				<form id="formUser" method="POST" action= <%= crearUsuario %>>
 					<div id="failUser" class="groupForm alert alert-danger">
-							
 						</div>
 					<div class="groupForm">
 						<label for="nomUser">Nombre de usuario:</label>
@@ -1025,7 +1024,6 @@
 						</tr>
 					</thead>
 					<tbody id="results">
-						<%=usuarios%>
 						<!-- <tr>
 							<th scope="row">1</th>
 							<td>Mark</td>
@@ -1034,7 +1032,7 @@
 							<td>@mdo</td>
 							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
 						</tr> -->
-						
+						<%=usuarios%>
 					</tbody>
 				</table>
 				<!-- Modal confirmación eliminación -->

@@ -134,16 +134,6 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
     });
    
 });
-modulo.get("/:id&:user&:pass/:status&:info",(req,res)=>{
-    if(req.params.status=="done")
-    {
-        res.redirect(address+`/modulo/${req.params.id}&${req.params.user}&${req.params.pass}`);
-    }
-    else
-    {
-        res.send({info:req.params.info});
-    }
-});
 modulo.use("/:id&:user&:pass/usuarios",RutasUsuario);
 modulo.use("/:id&:user&:pass/expedientes",RutasExpediente);
 modulo.use("/:id&:user&:pass/coordinador",RutasCoordinador);

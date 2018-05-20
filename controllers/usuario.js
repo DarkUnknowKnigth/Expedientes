@@ -18,30 +18,30 @@ function validar(req,res)
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {   guardar(params);
                     
-                    res.redirect(req.baseUrl.replace("/usuarios","/done&"+report));
+                    res.redirect(req.baseUrl.replace("/usuarios",""));
                 }
                 else
                 {
                     report="Las contraseñas no son iguales"
-                    res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
+                    res.send(report);
                 }
             }
             else
             {
                 report="El tipo de usuario es invalido"
-                res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
+                res.send(report);
             }
         }
         else
         {
            report="La Cedula no posee un formato adecuado";
-           res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
+           res.send(report);
         }
     }   
     else
     {
        report="Todos los campos deben ser alfanumericos";
-       res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
+       res.send(report);
     }
 }
 function modificar(req,res)

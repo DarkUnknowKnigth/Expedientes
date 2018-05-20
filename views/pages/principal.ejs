@@ -1410,7 +1410,7 @@
 			console.log(direccion);
 			$("#search").click((e)=>{
 				$.ajax({
-					type: "POST",
+					method:"POST",
 					url: direccion,
 					data: datos,
 					dataType: "dataType",

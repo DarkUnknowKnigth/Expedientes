@@ -118,7 +118,7 @@ function buscar(req,res){
     var tipo=req.body.tipo;
     var valor=req.body.valor;
     var tb="";
-    Usuario.findOne({tipo: { $regex: '.*' + valor + '.*' } }).populate('permiso').exec((err,usuarios)=>{
+    Usuario.findOne({tipo: { $regex: '.*' + valor + '.*' } }).populate('permiso').exec((err,usuario)=>{
         if(err)
         {
             console.log(err);
@@ -127,12 +127,12 @@ function buscar(req,res){
         }
         else
         {
-            if(usuarios.length>0)
+            if(usuario)
             {
-                console.log(">>>>>>>>>>>>USUARIOSSSS>>>>>>>>>>>>>>"+usuarios);
-                var i=1;
-                usuarios.forEach(usuario =>{
-                console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
+                console.log(">>>>>>>>>>>>USUARIOSSSS>>>>>>>>>>>>>>"+usuario);
+               // var i=1;
+                //usuarios.forEach(usuario =>{
+                //console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
                 tb+='<tr>'+
                     '<th scope="row">'+usuario._id+'</th>'+
                     '<td>'+usuario.usuario+'</td>'+
@@ -142,8 +142,8 @@ function buscar(req,res){
                    ' <td>'+usuario.activo+'</td>'+
                    ' <td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'+
                 '</tr>';
-                i++   
-                });
+               // i++   
+                //});
                 res.send(tb);
             }
             else

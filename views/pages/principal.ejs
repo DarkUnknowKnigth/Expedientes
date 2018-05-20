@@ -910,7 +910,6 @@
 		<div class="containerForms createUser">
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
 				<p>CREAR USUARIO</p>
-				<br><br><span id="failUser" class="alert-danger"></span>
 			</div>
 			
 			<!-- Formulario -->
@@ -1398,22 +1397,32 @@
 		<% } %>
 	</div>
 	<div class="footerRightSide">
+		<span id="failUser" class="alert-danger"></span>
+		<br>
 		<p><i class="far fa-copyright"></i> 2018 - GeClinic. Todos los derechos reservados.</p>
 	</div>
 	<script>
 		$(document).ready(function () 
 		{
 			$("#search").click((e)=>{
-				$.ajax({
-					method:"POST",
-					url: $("#buscadorUsuarios").attr('action'),
-					data: {
-						"tipo":$("#tbusqueda").val(),
-						"valor":$("#buscadorUser").val()
-					}
-				}).done((r)=>{
-					$("#results").text(r);
-				});
+				if(!/[a-zA-Z`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/.test($("#buscadorUser").val()))
+				{
+					$.ajax({
+						method:"POST",
+						url: $("#buscadorUsuarios").attr('action'),
+						data:{
+							"tipo":$("#tbusqueda").val(),
+							"valor":$("#buscadorUser").val()
+						}
+					}).done((r)=>{
+						$("#results").text(r);
+					});
+				}
+				else
+				{
+					e.preventDefault();
+				}
+				
 			});
 			
 			$("#guardarUsuario").click((e)=>{

@@ -1407,10 +1407,9 @@
 				$.ajax({
 					method:"POST",
 					url: $("#buscadorUsuarios").attr('action'),
-					data: {"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()},
-					success: function (response){
-						$("#results").text(response.table);
-					}
+					data: {"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()}
+				}).done((r)=>{
+					$("#results").text(r.table);
 				});
 			});
 			
@@ -1437,10 +1436,9 @@
 						'TipoUsuario':tu.val(),
 						'cedula':cp.val(),
 						'activo':a.val()
-					},
-					success: function (response){
-						$("#failUser").text(response.info);
 					}
+				}).done((r)=>{
+					$("#failUser").text(r.info);
 				});
 			});
 		});

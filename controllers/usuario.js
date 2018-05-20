@@ -117,10 +117,11 @@ function buscar(req,res){
     console.log(req.body);
     var tipo=req.body.tipo;
     var valor=req.body.valor;
-    Usuario.find({tipo:valor}).populate('permiso').exec((err,usuarios)=>{
+    var tb="";
+    Usuario.find({tipo: { $regex: '.*' + valor + '.*' } }).populate('permiso').exec((err,usuarios)=>{
         if(err)
         {
-            throw err
+            console.log(err);
             tb='<tr><th scope="row"> 0 resultados </th></tr>';
             res.send(tb);
         }
@@ -129,7 +130,6 @@ function buscar(req,res){
             if(usuarios.length>0)
             {
                 console.log(usuarios);
-                var tb="";
                 var i=1;
                 usuarios.forEach(usuario =>{
                 console.log(usuario);
@@ -144,7 +144,6 @@ function buscar(req,res){
                 '</tr>';
                 i++   
                 });
-                
                 res.send(tb);
             }
             else

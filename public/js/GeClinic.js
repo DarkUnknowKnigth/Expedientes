@@ -282,7 +282,7 @@ $("#search").click((e)=>{
 			}
 		}).done((r)=>{
 			console.log(r);
-			$("#results").html(r);
+			$("#results").append(r);
 		});
 	}
 	else

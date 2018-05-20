@@ -84,6 +84,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     {
                         if(admin)
                         {
+                            
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
                                 var Usuariosfinded="0 results";

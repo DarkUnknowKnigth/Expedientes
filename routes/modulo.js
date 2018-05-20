@@ -137,8 +137,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
 modulo.get("/:id&:user&:pass/:status&:info",(req,res)=>{
     if(req.params.status=="done")
     {
-        res.send({info:req.params.info});
-        res.redirect(req.baseUrl+`/${req.params.id}&${req.params.user}&${req.params.pass}`);
+        res.redirect(address+`/modulo/${req.params.id}&${req.params.user}&${req.params.pass}`);
     }
     else
     {

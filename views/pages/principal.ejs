@@ -1405,7 +1405,7 @@
 		$(document).ready(function () 
 		{
 			$("#search").click((e)=>{
-				if(!/[a-zA-Z`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/.test($("#buscadorUser").val()))
+				if(/[A-Za-z]/.test(("#buscadorUser").val()))
 				{
 					$.ajax({
 						method:"POST",

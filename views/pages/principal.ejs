@@ -47,7 +47,7 @@
                             <a href="#">Crear Expediente</a>
 						</div>
 						<% } %>
-						<% if (true ){%>
+						<% if ( permiso.modificarExp){%>
                         <div id="modifExp">
                             <a href="#">Gestion de Expediente</a>
 						</div>
@@ -72,7 +72,7 @@
 							<a href="#">Crear Usuario</a>
 						</div>
 						<% } %>
-						<% if (permiso.modificarUser || permiso.eliminarUser) {%>
+						<% if (permiso.modificarUser) {%>
 						<div id="modifUser">
 							<a href="#">Modificar Usuario</a>
 						</div>

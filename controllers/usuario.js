@@ -104,7 +104,6 @@ function buscar(req,res){
             throw err
             tb='<tr><th scope="row"> 0 resultados </th></tr>';
             res.send(tb);
-            res.end();
         }
         else
         {
@@ -114,6 +113,7 @@ function buscar(req,res){
                 var tb="";
                 var i=1;
                 usuarios.forEach(usuario =>{
+                console.log(usuario);
                 tb+='<tr>'+
                     '<th scope="row">'+usuario._id+'</th>'+
                     '<td>'+usuario.usuario+'</td>'+
@@ -127,13 +127,11 @@ function buscar(req,res){
                 });
                 
                 res.send(tb);
-                res.end();
             }
             else
             {
                 tb='<tr><th scope="row"> 0 resultados </th></tr>';
                 res.send(tb);
-                res.end();
             }
         }
 

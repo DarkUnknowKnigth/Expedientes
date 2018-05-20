@@ -994,23 +994,6 @@
 				</form>	
 				<button class="btn btn-primary" type="submit" id="search">Buscar</button>
 			</div>
-			<script>
-				var  direccion=$("#buscadorUsuarios").attr('action');
-				var datos={"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()};
-				console.log(datos);
-				console.log(direccion);
-				$("#search").click((e)=>{
-					$.ajax({
-						type: "POST",
-						url: direccion,
-						data: datos,
-						dataType: "dataType",
-						success: function (response){
-							$("#results").html(response.table);
-						}
-					});
-				});
-			</script>
 			<div class="tablaResultados">
 				<table class="table table-hover">
 					<thead>
@@ -1024,7 +1007,7 @@
 						</tr>
 					</thead>
 					<tbody id="results">
-						<tr>
+						<!-- <tr>
 							<th scope="row">1</th>
 							<td>Mark</td>
 							<td>Otto</td>
@@ -1047,7 +1030,7 @@
 							<td>@mdo</td>
 							<td>@mdo</td>
 							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 				<!-- Modal confirmación eliminación -->
@@ -1418,6 +1401,26 @@
 	<div class="footerRightSide">
 		<p><i class="far fa-copyright"></i> 2018 - GeClinic. Todos los derechos reservados.</p>
 	</div>
+	<script>
+		$(document).ready(function () 
+		{
+			var  direccion=$("#buscadorUsuarios").attr('action');
+			var datos={"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()};
+			console.log(datos);
+			console.log(direccion);
+			$("#search").click((e)=>{
+				$.ajax({
+					type: "POST",
+					url: direccion,
+					data: datos,
+					dataType: "dataType",
+					success: function (response){
+						$("#results").html(response.table);
+					}
+				});
+			});
+		});
+	</script>
 	<script type="text/javascript" src="/public/js/GeClinic.js"></script>
 </body>
 </html>

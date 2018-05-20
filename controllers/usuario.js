@@ -133,7 +133,7 @@ function buscar(req,res){
                // var i=1;
                 //usuarios.forEach(usuario =>{
                 //console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
-                tb+='<tr>'+
+                tb='<tr>'+
                     '<th scope="row">'+usuario._id+'</th>'+
                     '<td>'+usuario.usuario+'</td>'+
                    ' <td>'+usuario.cedula+'</td>'+

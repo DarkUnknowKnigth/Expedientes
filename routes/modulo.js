@@ -10,8 +10,15 @@ var Usuario=require("../models/usuario");
 var Permiso=require("../models/permiso");
 var Administrador=require("../models/administrador");
 const ejsLint = require('ejs-lint');
-
+var Usuariosfinded;
+    
 modulo.get("/:id&:user&:pass",(req,res)=>{
+    Usuario.find({}).populate('permiso')..exec((err,usuarios)=>{
+        if(!err)
+        {
+            Usuariosfinded=usuarios;
+        }
+    });
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
     {
         if(err)
@@ -45,15 +52,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             crearUser:usuario.permiso.CrearUser,
                             modificarUser:usuario.permiso.ModificarUser,
                             eliminarUser:usuario.permiso.EliminarUser,
-                            usuarios:
-                            '<tr>'+
-                                '<th scope="row">1</th>'+
-                                '<td>Mark</td>'+
-                                '<td>Otto</td>'+
-                                '<td>@mdo</td>'+
-                                '<td>@mdo</td>'+
-                                '<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'+
-						    '</tr>'
+                            usuarios:Usuariosfinded
                         },
                         //links usuarios
                         crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
@@ -82,13 +81,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
             {
                 Administrador.findById(req.params.id,(err,admin)=>
                 {
-                    var Usuariosfinded;
-                    Usuario.find().exec((err,usuario)=>{
-                        if(!err)
-                        {
-                            Usuariosfinded=usuario;
-                        }
-                    });
+                    
                     if(err)
                     {
                         res.redirect(address+"/");

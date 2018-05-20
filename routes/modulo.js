@@ -10,7 +10,6 @@ var Usuario=require("../models/usuario");
 var Permiso=require("../models/permiso");
 var Administrador=require("../models/administrador");
 const ejsLint = require('ejs-lint');
-var Usuariosfinded="0 results";
     
 modulo.get("/:id&:user&:pass",(req,res)=>{
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
@@ -27,6 +26,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
                     console.log(usuario.permiso);
+                    var Usuariosfinded="0 results";
                     res.render("../views/pages/principal.ejs",
                     {
                         //variables para la vista --->principal.ejs
@@ -86,6 +86,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         {
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
+                                var Usuariosfinded="0 results";
                                 res.render("../views/pages/principal.ejs",
                                 {
                                     //permisos de acceso

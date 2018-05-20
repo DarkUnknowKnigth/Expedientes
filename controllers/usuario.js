@@ -98,11 +98,11 @@ function buscar(req,res){
     console.log(req.body);
     var valor=req.body.valor;
     var tb="";
-    Usuario.findById({'$regex':valor}).populate('permiso').exec((err,usuario)=>{
+    Usuario.findById(valor).populate('permiso').exec((err,usuario)=>{
         if(err)
         {
             console.log(err);
-            tb='<tr><th scope="row"> 0 resultados </th></tr>';
+            tb='<tr><th scope="row"> Lo sentimos su solicitud no fue bien procesada </th></tr>';
             res.send(tb);
         }
         else

@@ -11,7 +11,7 @@ function validar(req,res)
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
     {
-        if(params.cedula.length==8 && !(patron+/[a-zA-Z]/).test(params.cedula))
+        if(params.cedula.length==8 && !/[a-zA-Z`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/.test(params.cedula))
         {
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
@@ -96,9 +96,11 @@ function guardar(info){
 }
 function buscar(req,res){
     console.log(req.body);
+   
     var tipo=req.body.tipo;
     var valor=req.body.valor;
-    Usuario.find({tipo:valor}).populate('permiso').exec((err,usuarios)=>{
+    var regex = new RegExp(valor, "i"), query = { tipo : regex };
+    Usuario.find(query).populate('permiso').exec((err,usuarios)=>{
         if(err)
         {
             throw err
@@ -121,12 +123,12 @@ function buscar(req,res){
                 '</tr>';
                 i++   
                 });
-                res.send({table:tb});
+                res.send(tb);
             }
             else
             {
                 tb='<tr><th scope="row"> 0 resultados </th></tr>';
-                res.send({table:tb});
+                res.send(tb);
             }
         }
 

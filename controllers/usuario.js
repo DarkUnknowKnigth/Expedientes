@@ -24,7 +24,7 @@ function validar(req,res)
                             res.send(report);
                         }
                         else{
-                            if(usuario.usuario==params.usuario)
+                            if(usuario.usuario)
                             {
                                 report="El usuario ya existe";
                                 res.send(report);

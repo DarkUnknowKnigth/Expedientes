@@ -109,7 +109,7 @@ function buscar(req,res){
         }
         else
         {
-            if(usuarios)
+            if(usuarios.length>0)
             {
                 console.log(usuarios);
                 var tb="";

@@ -82,6 +82,13 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
             {
                 Administrador.findById(req.params.id,(err,admin)=>
                 {
+                    var Usuariosfinded;
+                    Usuario.find().exec((err,usuario)=>{
+                        if(!err)
+                        {
+                            Usuariosfinded=usuario;
+                        }
+                    });
                     if(err)
                     {
                         res.redirect(address+"/");
@@ -125,15 +132,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                     generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
                                     //link consulta
                                     nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
-                                    usuarios:
-                                        '<tr>'+
-                                            '<th scope="row">1</th>'+
-                                            '<td>Mark</td>'+
-                                            '<td>Otto</td>'+
-                                            '<td>@mdo</td>'+
-                                            '<td>@mdo</td>'+
-                                            '<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'+
-                                        '</tr>'
+                                    usuarios:Usuariosfinded;
+            
                                 });
                             }
                             else

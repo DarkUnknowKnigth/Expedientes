@@ -271,7 +271,7 @@ function insertarEnfermedades(arrayEnfer){
 }
 
 
-$("#search").click((e)=>{
+$("#buscadorUser").keyup((e)=>{
 	if(/[A-Za-z]/.test($("#buscadorUser").val()))
 	{
 		$.ajax({

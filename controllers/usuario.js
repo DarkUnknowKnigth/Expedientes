@@ -96,10 +96,9 @@ function guardar(info){
 }
 function buscar(req,res){
     console.log(req.body);
-    var tipo=req.body.tipo;
     var valor=req.body.valor;
     var tb="";
-    Usuario.findOne({"_id":valor}).populate('permiso').exec((err,usuario)=>{
+    Usuario.findById({'$regex':valor}).populate('permiso').exec((err,usuario)=>{
         if(err)
         {
             console.log(err);

@@ -129,10 +129,10 @@ function buscar(req,res){
         {
             if(usuarios.length>0)
             {
-                console.log(usuarios);
+                console.log(">>>>>>>>>>>>USUARIOSSSS>>>>>>>>>>>>>>"+usuarios);
                 var i=1;
                 usuarios.forEach(usuario =>{
-                console.log(usuario);
+                console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
                 tb+='<tr>'+
                     '<th scope="row">'+usuario._id+'</th>'+
                     '<td>'+usuario.usuario+'</td>'+

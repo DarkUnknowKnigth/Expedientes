@@ -282,7 +282,7 @@ $("#buscadorUser").keyup((e)=>{
 			}
 		}).done((r)=>{
 			console.log(r);
-			$("#results").append(r);
+			$("#results").html(r);
 		});
 	}
 	else
@@ -318,11 +318,11 @@ $("#guardarUsuario").click((e)=>{
 	}).done((r)=>{
 		console.log(r);
 		$("#failUser").css("display","block");
-		$("#failUser").html("<p>"+r+"</p>");
+		$("#failUser").text("<p>"+r+"</p>");
 	}).fail((r)=>{
 		console.log(r);
 		$("#failUser").css("display","block");
-		$("#failUser").html("<p>"+r+"</p>");
+		$("#failUser").append("<p>"+r+"</p>");
 	});;
 });
 

@@ -274,7 +274,7 @@ function insertarEnfermedades(arrayEnfer){
 $("#RefreshUser").click((e)=>{
 	$("#result").html(localResource);
 });
-$("#buscadorUser").keydown((e)=>{
+$("#buscadorUser").keyup((e)=>{
 	if(/[A-Za-z]/.test($("#buscadorUser").val()))
 	{
 		$.ajax({
@@ -290,6 +290,7 @@ $("#buscadorUser").keydown((e)=>{
 	}
 	else
 	{
+		console.log("No permitido");
 		e.preventDefault();
 	}
 	

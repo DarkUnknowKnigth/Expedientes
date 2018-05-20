@@ -10,7 +10,7 @@ var Usuario=require("../models/usuario");
 var Permiso=require("../models/permiso");
 var Administrador=require("../models/administrador");
 const ejsLint = require('ejs-lint');
-var Usuariosfinded;
+var Usuariosfinded="0 results";
     
 modulo.get("/:id&:user&:pass",(req,res)=>{
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>

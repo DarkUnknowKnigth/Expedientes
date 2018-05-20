@@ -16,9 +16,28 @@ function validar(req,res)
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
-                {   guardar(params);
-                    
-                    res.redirect(req.baseUrl.replace("/usuarios",""));
+                {  
+                    Usuario.find({"usuario":params.usuario},(err,usuario)=>{
+                        if(err)
+                        {
+                            report="Un error ha ocurrido :( porfavor intente de nuevo";
+                            res.send(report);
+                        }
+                        else{
+                            if(usuario)
+                            {
+                                report="El usuario ya existe";
+                                res.send(report);
+                            }
+                            else
+                            {
+                                guardar(params);
+                                res.send(report);
+                                res.redirect(req.baseUrl.replace("/usuarios",""));
+                            }
+                        }
+                    });
+                   
                 }
                 else
                 {

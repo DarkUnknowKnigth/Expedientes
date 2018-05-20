@@ -46,7 +46,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             crearUser:usuario.permiso.CrearUser,
                             modificarUser:usuario.permiso.ModificarUser,
                             eliminarUser:usuario.permiso.EliminarUser,
-                            usuarios:Usuariosfinded
+                            usuarios:Usuariosfinded,
                         },
                         //links usuarios
                         crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
@@ -120,7 +120,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                     generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
                                     //link consulta
                                     nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
-                                    usuarios:Usuariosfinded;
+                                    usuarios:Usuariosfinded
             
                                 });
                             }

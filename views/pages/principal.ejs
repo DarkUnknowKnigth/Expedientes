@@ -983,14 +983,14 @@
 				<form method="POST" id="buscadorUsuarios" action= <%= buscarExpediente %> >
 					<div class="d-inline-block">
 						<label for="buscadorUser">Buscar por:</label>
-						<select name="tbusqueda" id="tbusqueda">
+						<select name="tbusqueda" id="tbusqueda" required>
 							<option value="nombre">Nombre</option>
 							<option value="cedula">Cedula</option>
 							<option value="tipo">Tipo de usuario</option>
 							<option value="usuario">usuario</option>
 						</select>
 					</div>
-					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser">
+					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser" required>
 					<button class="btn btn-primary" type="submit" id="search">Buscar</button>
 				</form>	
 				

@@ -278,7 +278,7 @@ $("#buscadorUser").keyup((e)=>{
 			method:"POST",
 			url: $("#buscadorUsuarios").attr('action'),
 			data:{
-				"valor":$("#buscadorUser").val()
+				valor:$("#buscadorUser").val()
 			}
 		}).done((r)=>{
 			console.log(r);
@@ -329,6 +329,6 @@ $("#guardarUsuario").click((e)=>{
 $(".delete").click((event)=>{
 	// console.log(event.currentTarget.value);
 	// $("#usuElim").text(event.currentTarget.value);
-	var nombre = $(".delete").parent().child().child();
+	var nombre = $(".delete").parent().child().child().text();
 	$("#usuElim").text(nombre);
 });

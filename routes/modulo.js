@@ -62,7 +62,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         generarHoja:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarHojaDiaria`,
                         generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
                         //link consulta
-                        nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`
+                        nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
+                        localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                     });
                     console.log("fine");
                 }
@@ -126,7 +127,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
                                             //link consulta
                                             nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
-                                            usuarios: Usuariosfinded
+                                            usuarios: Usuariosfinded,
+                                            localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                                         });
                                     }
                                 });

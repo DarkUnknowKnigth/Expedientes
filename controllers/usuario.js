@@ -96,7 +96,6 @@ function guardar(info){
 }
 function buscar(req,res){
     console.log(req.body);
-   
     var tipo=req.body.tipo;
     var valor=req.body.valor;
     var regex = new RegExp(valor, "i"), query = { tipo : regex };
@@ -104,11 +103,15 @@ function buscar(req,res){
         if(err)
         {
             throw err
+            tb='<tr><th scope="row"> 0 resultados </th></tr>';
+            res.send(tb);
+            res.end();
         }
         else
         {
             if(usuarios)
             {
+                console.log(usuarios);
                 var tb="";
                 var i=1;
                 usuarios.forEach(usuario =>{
@@ -123,6 +126,7 @@ function buscar(req,res){
                 '</tr>';
                 i++   
                 });
+                
                 res.send(tb);
                 res.end();
             }

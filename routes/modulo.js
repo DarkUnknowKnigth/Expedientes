@@ -44,7 +44,16 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             //permisos de user
                             crearUser:usuario.permiso.CrearUser,
                             modificarUser:usuario.permiso.ModificarUser,
-                            eliminarUser:usuario.permiso.EliminarUser
+                            eliminarUser:usuario.permiso.EliminarUser,
+                            usuarios:
+                            '<tr>'+
+                                '<th scope="row">1</th>'+
+                                '<td>Mark</td>'+
+                                '<td>Otto</td>'+
+                                '<td>@mdo</td>'+
+                                '<td>@mdo</td>'+
+                                '<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'+
+						    '</tr>'
                         },
                         //links usuarios
                         crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,

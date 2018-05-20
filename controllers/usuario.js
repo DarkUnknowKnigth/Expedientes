@@ -17,27 +17,9 @@ function validar(req,res)
             {
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {  
-                    Usuario.find({"usuario":params.usuario},(err,usuario)=>{
-                        if(err)
-                        {
-                            report="Un error ha ocurrido :( porfavor intente de nuevo";
-                            res.send(report);
-                        }
-                        else{
-                            if(usuario.usuario)
-                            {
-                                report="El usuario ya existe";
-                                res.send(report);
-                            }
-                            else
-                            {
-                                guardar(params);
-                                res.send(report);
-                                res.redirect(req.baseUrl.replace("/usuarios",""));
-                            }
-                        }
-                    });
-                   
+                    guardar(params);
+                    res.send(report);
+                    res.redirect(req.baseUrl.replace("/usuarios",""));         
                 }
                 else
                 {

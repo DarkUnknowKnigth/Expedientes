@@ -1,4 +1,16 @@
 
+
+/*Precargar elementos*/
+
+$(document).ready(function(){
+	insertarAnios();
+	insertarEnfermedades(enfermedades);
+});
+
+/*end precargar elementos*/
+
+
+
 /*Eventos de accordion*/
 $("#crearExp a").click(function(){
 	darColorVinetas("#crearExp");
@@ -228,10 +240,82 @@ var fecha = new Date();
 
 function insertarAnios(){
 	for(var i = 1950; i<=fecha.getFullYear();i++){
-		$(".genInformeMensual #anioInfo").append("<option value"+i+">"+i+"</option>");
+		$(".genInformeMensual #anioInfo").append("<option value='"+i+"'>"+i+"</option>");
 	}
 }
 
-insertarAnios();
+var enfermedades = [
+						{nombre:"Diabetes Mellitus", value: "diabetesMellitus"},
+						{nombre:"Hipertensión arterial", value: "hipertensionArterial"},
+						{nombre:"Obesidad", value: "obesidad"},
+						{nombre:"Diabetes Mellitus", value: "diabetesMellitus"},
+						{nombre:"Dislipidemias", value: "dislipidemias"},
+						{nombre:"Depresión", value: "depresion"},
+						{nombre:"Alteración de memoria", value: "alteracionMemoria"},
+						{nombre:"Síntomas respiratorios", value: "sintomasRespiratorios"},
+						{nombre:"Alcoholismo", value: "alcoholismo"},
+						{nombre:"Tabaquismo", value: "tabaquismo"},
+						{nombre:"Fármacos", value: "farmacos"},
+						{nombre:"Incontinencia urinaria", value: "incontinenciaUrinaria"},
+						{nombre:"VIH", value: "vih"},
+						{nombre:"Gonorrea", value: "gonorrea"},
+						{nombre:"ITS", value: "its"},
+						{nombre:"Sífilis", value: "sifilis"}
+					];
+
+function insertarEnfermedades(arrayEnfer){
+	arrayEnfer.forEach(element => {
+		$(".formatConsulta #deteccion").append("<option value='"+element.value+"'>"+element.nombre+"</option>");
+	});
+}
 
 
+$("#search").click((e)=>{
+	if(/[A-Za-z]/.test($("#buscadorUser").val()))
+	{
+		$.ajax({
+			method:"POST",
+			url: $("#buscadorUsuarios").attr('action'),
+			data:{
+				"valor":$("#buscadorUser").val()
+			}
+		}).done((r)=>{
+			console.log(r);
+			$("#results").html(r);
+		});
+	}
+	else
+	{
+		e.preventDefault();
+	}
+	
+});
+
+$("#guardarUsuario").click((e)=>{
+	var u=$("#nomUser");
+	var c=$("#password");
+	var cc=$("#confirmPassword");
+	var n=$("#nomReal");
+	var ap=$("#apPaterno");
+	var am=$("#apMaterno");
+	var tu=$("#tipoUser");
+	var cp=$("#cedulaProfesional");
+	var a=$("#activeUser");
+	$.ajax({
+		method:"POST",
+		url: $("#formUser").attr('action'),
+		data: {
+			'usuario':u.val(),
+			'password':c.val(),
+			'cpassword':cc.val(),
+			'nombre':n.val(),
+			'apPaterno':ap.val(),
+			'apMaterno':am.val(),
+			'TipoUsuario':tu.val(),
+			'cedula':cp.val(),
+			'activo':a.val()
+		}
+	}).done((r)=>{
+		$("#failUser").html(r);
+	});
+});

@@ -3,41 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Modulo - Principal</title>
-	<!-- <script type="text/javascript" src="js/jq.js"></script> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/myStyle.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/fontawesome-all.js"></script>
+	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+	<script type="text/javascript" src="/public/js/jq.js"></script>
+    <script type="text/javascript" src="/public/js/fontawesome-all.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/myStyle.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/font-awesome.min.css">
 </head>
 <body>
 	<!-- Nombre de la institución: Centro de Salud Santa Cruz -->
 	<header>
 		<div class="top-barActions">
 			<div class="conf"><a href="#"><i class="fas fa-cog"></i></a></div>
-			<div class="logOut"><a href="#"><i class="fas fa-sign-out-alt"></i></a></div>
+			<div class="logOut"><a href="https://stark-sea-10471.herokuapp.com/"><i class="fas fa-sign-out-alt"></i></a></div>
 		</div>
 		<p>SISTEMA WEB PARA LA GESTIÓN DE EXPEDIENTES CLÍNICOS</p>
 	</header>
 	<!-- Barra lateral izquierda -->
 	<div class="leftSide">
-
 		<!-- Información de usuario -->
 		<div class="userInfo">
-			<div class="userPicture" style="background-image: url('http://localhost:3000/assets/1.jpg');background-position: center; background-repeat: no-repeat; background-size: 100% 100%;"></div>
-			<p class="userDescription">Doctor: <%=user%></p>
+			<div class="userPicture" style="background-image: url('/public/assets/1.jpg');background-position: center; background-repeat: no-repeat; background-size: 100% 100%;"></div>
+			<p class="userDescription">Doctor: <%= user %></p>
 		</div>
-
 		<!-- End información de usuario -->
 		<!-- Accordion -->
+		
 		<div id="accordion">
-			<%
-			if(permiso.expediente){
-			%>
+		<% if (permiso.expediente ) { %>
 			<div class="card">
 				<div class="card-header" id="headingOne">
 					<h5 class="mb-0">
@@ -48,30 +42,21 @@
 				</div>
 				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 					<div class="card-body">
-						<%if(permiso.crearExp){%>
+						<% if( permiso.crearExp) { %>
                         <div id="crearExp">
                             <a href="#">Crear Expediente</a>
-                        </div>
-                        <%}%>
-                        <%if(permiso.modificarExp){%>
+						</div>
+						<% } %>
+						<% if ( permiso.modificarExp){%>
                         <div id="modifExp">
-                            <a href="#">Editar/Eliminar Expediente</a>
-                        </div>
-                        <%}%>
-
+                            <a href="#">Gestion de Expediente</a>
+						</div>
+						<% } %>
 					</div>
 				</div>
 			</div>
-
-			<%
-
-				}
-
-			%>
-			<%
-			if(permiso.usuario){
-
-			%>
+		<% } %>
+		<% if(permiso.usuario ){ %>
 			<div class="card">
 				<div class="card-header" id="headingTwo">
 					<h5 class="mb-0">
@@ -82,29 +67,21 @@
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 					<div class="card-body">
-						<%if(permiso.crearUser){%>
-							<div id="crearUser">
-								<a href="#">Crear Usuario</a>
-							</div>
-							<%}%>
-							<%if(permiso.modificarUser){%>
-							<div id="modifUser">
-								<a href="#">Modificar Usuario</a>
-							</div>
-							<%}%>
+						<% if(permiso.crearUser){ %>
+						<div id="crearUser">
+							<a href="#">Crear Usuario</a>
+						</div>
+						<% } %>
+						<% if (permiso.modificarUser) {%>
+						<div id="modifUser">
+							<a href="#">Modificar Usuario</a>
+						</div>
+						<% } %>
 					</div>
 				</div>
 			</div>
-
-			<%
-
-				}
-			%>
-
-			<%
-
-			if(permiso.consulta){
-			%>
+		<% } %>
+		<% if(permiso.consulta){ %>
 			<div class="card">
 				<div class="card-header" id="headingThree">
 					<h5 class="mb-0">
@@ -115,19 +92,14 @@
 				</div>
 				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 					<div class="card-body">
-
 						<div id="procesoConsulta">
 							<a href="#">Realizar consulta</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<%
-				}
-			%>
-			<%
-			if(permiso.coordinador){
-			%>
+		<% } %>
+		<% if(permiso.coordinador){ %>
 			<div class="card">
 				<div class="card-header" id="headingThree">
 					<h5 class="mb-0">
@@ -147,15 +119,13 @@
 					</div>
 				</div>
 			</div>
-			<%
-				}
-			%>
+		<% } %>
 		</div>
 		<!-- End accordion -->
 	</div>
 	<div class="rightSide">
 		<!-- Forms -->
-		<%if(permiso.expediente){%>
+		<% if ( permiso.expediente ) { %>
 		<div class="containerForms createExp">
 			<!-- botón de retroceso -->
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
@@ -183,10 +153,8 @@
 					<div class="groupForm parent">
 						<label for="parentesco">Parentesco:</label>
 						<select id="parentesco" name="parentesco">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+							<option value="materno">Materno</option>
+							<option value="paterno">Paterno</option>
 						</select>
 						<input type="button" name="Agregar" value="Agregar" class="btn btn-primary">
 					</div>
@@ -197,11 +165,11 @@
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="Ha" class="Si">
+							<input type="radio" value=true name="Ha" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="Ha" class="No">
+							<input type="radio"  value=false name="Ha" class="No">
 						</div>
 					</div>
 					<div class="groupForm">
@@ -210,11 +178,11 @@
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="diabetes" class="Si">
+							<input type="radio" value=true name="diabetes" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="diabetes" class="No">
+							<input type="radio" value=false name="diabetes" class="No">
 						</div>
 					</div>
 					<div class="groupForm">
@@ -223,11 +191,11 @@
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="cancer" class="Si">
+							<input type="radio" value=true name="cancer" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="cancer" class="No">
+							<input type="radio" value=false name="cancer" class="No">
 						</div>
 					</div>
 					<div class="groupForm">
@@ -236,11 +204,11 @@
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="TB" class="Si">
+							<input type="radio" value=true name="TB" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="TB" class="No">
+							<input type="radio" value=false name="TB" class="No">
 						</div>
 					</div>
 					<div class="groupForm">
@@ -249,16 +217,16 @@
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="sida" class="Si">
+							<input type="radio" value=true name="sida" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="sida" class="No">
+							<input type="radio" value=true name="sida" class="No">
 						</div>
 					</div>
 					<div class="groupForm"><label for="otros">Otros:</label><textarea name="otros" id="otros" placeholder="Especifique..."></textarea></div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success" type="submit">Guardar</button>
+					<button class="btn btn-success" id="agregarfamiliar" type="submit">Guardar</button>
 				</form>
 
 				<!-- Fin de form antecedentes -->
@@ -266,98 +234,33 @@
 				<!-- Form ficha identificación -->
 
 				<form id="formFichIde" action="">
-					<div class="groupForm"><label for="idNombrePaciente">Nombre(s) del paciente:</label><input placeholder="Ingrese nombre" type="text" id="idNombrePaciente" name="idNombrePaciente"></div>
-					<div class="groupForm"><label for="idApPat">Apellido Paterno:</label><input placeholder="Ingrese Apellido paterno" type="text" id="idApPat" name="idApPat"></div>
-					<div class="groupForm"><label for="idApMat">Apellido Materno:</label><input placeholder="Ingrese Apellido materno" type="text" id="idApMat" name="idApMat"></div>
-					<div class="groupForm"><label for="direccion">Dirección o domicilio:</label><input placeholder="Ingrese dirección" type="text" id="direccion" name="direccion"></div>
-					<div class="groupForm">
-						<label for="estadoCivil">Estado civil:</label>
-						<select id="estadoCivil" name="estadoCivil">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
-						</select>
-					</div>
-					<div class="groupForm">
-						<label for="laboresHogar">Labores de hogar:</label>
-						<select id="laboresHogar" name="laboresHogar">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
-						</select>
-					</div>
-					<div class="groupForm">
-						<label for="sinOcupacion">Sin ocupación:</label>
-						
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="sinOcupacion" class="Si">
+						<div class="groupForm"><label for="idNombrePaciente">Nombre(s) del paciente:</label><input placeholder="Ingrese nombre" type="text" id="idNombrePaciente" name="idNombrePaciente"></div>
+						<div class="groupForm"><label for="idApPat">Apellido Paterno:</label><input placeholder="Ingrese Apellido paterno" type="text" id="idApPat" name="idApPat"></div>
+						<div class="groupForm"><label for="idApMat">Apellido Materno:</label><input placeholder="Ingrese Apellido materno" type="text" id="idApMat" name="idApMat"></div>
+						<div class="groupForm"><label for="direccion">Dirección o domicilio:</label><input placeholder="Ingrese dirección" type="text" id="direccion" name="direccion"></div>
+						<div class="groupForm">
+							<label for="estadoCivil">Estado civil:</label>
+							<select id="estadoCivil" name="estadoCivil">
+								<option value="casado">casado</option>
+								<option value="soltero">soltero</option>
+								<option value="viuda">viuda</option>
+								<option value="union libre">union libre</option>
+								<option value="separado">separado</option>
+							</select>
 						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="sinOcupacion" class="No">
+						<div class="groupForm">
+							<label for="laboresHogar">Ocupacion:</label>
+							<select id="ocupacion" name="ocupacion">
+								<option value="ninguna">ninguna</option>
+								<option value="estudia">estudia</option>
+								<option value="trabaja">trabaja</option>
+								<option value="labores del hogar">labores del hogar</option>
+								<option value="desempleado">desempleado</option>
+								<option value="jubilado">jubilado</option>
+							</select>
 						</div>
-					</div>
-					<div class="groupForm">
-						<label for="estudia">Estudia:</label>
-						
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="estudia" class="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="estudia" class="No">
-						</div>
-					</div>
-					
-					<div class="groupForm">
-						<label for="trabaja">Trabaja:</label>
-						
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="trabaja" class="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="trabaja" class="No">
-						</div>
-
-					</div>
-					<div class="groupForm">
-						<label for="jubilado">Jubilado:</label>
-						
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="jubilado" class="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="jubilado" class="No">
-						</div>
-
-					</div>
-					<div class="groupForm">
-						<label for="padreSoltero">Padre soltero:</label>
-						
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="padreSoltero" class="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="padreSoltero" class="No">
-						</div>
-					</div>
-					<div style="clear:both;"></div>
-					<button class="btn btn-success" type="submit">Guardar</button>
+						<div style="clear:both;"></div>
+						<button class="btn btn-success" type="submit">Guardar</button>
 				</form>
 				<!-- Fin de form Ficha identificación -->
 
@@ -366,21 +269,29 @@
 				<form id="formAPNP" action="">
 					<div class="groupForm">
 						<label for="promiscuidad">Promiscuidad:</label>
-						<select id="promiscuidad" name="promiscuidad">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
-						</select>
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" value=true name="promiscuidad" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" value=true name="promiscuidad" class="No">
+						</div>
 					</div>
 					<div class="groupForm">
 						<label for="hacinamiento">Hacinamiento:</label>
-						<select id="hacinamiento" name="hacinamiento">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
-						</select>
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" value=true name="hacinamiento" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" value=true name="hacinamiento" class="No">
+						</div>
 					</div>
 					<div class="groupForm">
 						<label for="tabaco">Tabaco:</label>
@@ -447,9 +358,8 @@
 							<input type="radio" name="fauna" class="No">
 						</div>
 					</div>
-					
 					<div style="clear:both;"></div>
-					<button class="btn btn-success" type="submit">Guardar</button>
+					<button class="btn btn-success"id="guardadrAPNP" type="submit">Guardar</button>
 				</form>
 				<!-- Fin de form APNP -->
 
@@ -514,21 +424,38 @@
 
 				<!-- Form APP -->
 
-				<form id="formAPP" action="">
 					<div class="groupForm">
-						<h5>Antecedentes Prenatales</h5>
+						<h5>Antecedentes Perinatales</h5>
 					</div>
 					<div style="clear: both"></div>
 					<div class="groupForm">
-						<label for="traumatismos">Traumatismos:</label>
-						<select id="traumatismos" name="traumatismos">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
-						</select>
+						<label for="traumatismosingreso">Traumatismos:</label>
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="traumatismos" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="traumatismos" class="No">
+						</div>
 					</div>
-					<div class="groupForm"><label for="ingresoHospital">Ingreso a hospital:</label><input type="date" id="ingresoHospital" name="ingresoHospital"></div>
+					<div class="groupForm">
+						<label for="ingresoHospital">Ingreso a Hospital:</label>
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="ingresoHospital" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="ingresoHospital" class="No">
+						</div>
+					</div>
+					<div class="groupForm">
+						
 					<div class="groupForm">
 						<label for="sonrie">Sonríe:</label>
 						
@@ -761,17 +688,8 @@
 					</div>
 					<div style="clear: both"></div>
 					<div class="groupForm">
-						<label for="menarquia">Menarquía:</label>
-						
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="menarquia" class="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="menarquia" class="No">
-						</div>
+						<label for="menarquia">Menarquia:</label>
+						<input type="date" id="menarquia" name="menarquia">
 					</div>
 					
 					<div class="groupForm">
@@ -832,11 +750,11 @@
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
-							<label for="Si">Si</label>
+							<label for="Si">Positiva</label>
 							<input type="radio" name="pruebaEmb" class="Si">
 						</div>
 						<div class="groupLabel">
-							<label for="No">No</label>
+							<label for="No">Negativa</label>
 							<input type="radio" name="pruebaEmb" class="No">
 						</div>
 					</div>
@@ -874,7 +792,6 @@
 				<!-- Fin de form Antec. Ginecoobstétricos -->
 			</div>
 		</div>
-
 		<div class="containerForms modifExp">
 			<!-- botón de retroceso -->
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
@@ -938,8 +855,8 @@
 				</div>
 			</div>
 		</div>
-		<%}%>
-		<%if(permiso.usuario){%>
+		<% } %>
+		<% if ( permiso.usuario ) { %>
 		<div class="containerForms createUser">
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
 				<p>CREAR USUARIO</p>
@@ -948,13 +865,10 @@
 			<!-- Formulario -->
 			<div class="putForm">
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
-				<form id="formUser" action="">
-					<div id="failUser" class="groupForm">
-						
-					</div>
+				<form id="formUser" method="POST" action= <%= crearUsuario %> 	>
 					<div class="groupForm">
 						<label for="nomUser">Nombre de usuario:</label>
-						<input placeholder="Ingrese nombre de usuario" required type="text" id="nomUser" name="nomUser">
+						<input placeholder="Ingrese nombre de usuario" required type="text" id="nomUser" name="usuario">
 					</div>
 					<div class="groupForm">
 						<label for="password">Contraseña:</label>
@@ -962,43 +876,41 @@
 					</div>
 					<div class="groupForm">
 						<label for="confirmPassword">Confirmar contraseña:</label>
-						<input placeholder="Ingrese contraseña nuevamente" required type="password" id="confirmPassword" name="confirmPassword">
+						<input placeholder="Ingrese contraseña nuevamente" required type="password" id="confirmpassword" name="cpassword">
 					</div>
 					<div class="groupForm">
 						<label for="nomReal">Nombre:</label>
-						<input placeholder="Ingrese su nombre real" required type="text" id="nomReal" name="nomReal">
+						<input placeholder="Ingrese su nombre real" required type="text" id="nom" name="nombre">
 					</div>
 					<div class="groupForm">
 						<label for="apPaterno">Apellido paterno:</label>
-						<input placeholder="Ingrese apellido paterno" required type="text" id="apPaterno" name="apPaterno">
+						<input placeholder="Ingrese apellido paterno" required type="text" id="apP" name="apPaterno">
 					</div>
 					<div class="groupForm">
 						<label for="apMaterno">Apellido materno:</label>
-						<input required placeholder="Ingrese apellido materno" type="text" id="apMaterno" name="apMaterno">
+						<input required placeholder="Ingrese apellido materno" type="text" id="apM" name="apMaterno">
 					</div>
 					<div class="groupForm">
 						<label for="tipoUser">Tipo de usuario:</label>
-						<select id="tipoUser" name="tipoUser">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select id="tipoUser" name="TipoUsuario">
+							<option value="DOCTOR" selected>Doctor</option>
+							<option value="ENFERMERA">Enfermera</option>
+							<option value="COORDINADOR">Coordinador</option>
 						</select>
 					</div>
 					<div class="groupForm">
 						<label for="cedulaProfesional">Cédula profesional:</label>
-						<input placeholder="Ingrese cédula profesional" required type="text" id="cedulaProfesional" name="cedulaProfesional">
+						<input placeholder="Ingrese cédula profesional" required type="text" id="cedulaProfesional" name="cedula">
 					</div>
 					<div class="groupForm">
 						<label for="activeUser">Activo:</label>
-						<select id="activeUser" name="activeUser">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select id="activeUser" name="activo">
+							<option value=true>Si</option>
+							<option value=false>No</option>
+							
 						</select>
 					</div>
-					<div class="groupForm">
+					<!-- <div class="groupForm">
 						<label for="premisosUser">Permisos:</label>
 						<select id="premisosUser" name="premisosUser">
 							<option value="volvo">Volvo</option>
@@ -1006,10 +918,10 @@
 							<option value="fiat">Fiat</option>
 							<option value="audi">Audi</option>
 						</select>
-					</div>
+					</div> -->
 					<div style="clear:both;"></div>
-					<button class="btn btn-success" type="submit">Guardar</button>
 				</form>
+				<button class="btn btn-success" type="button" id="guardarUsuario">Guardar</button>
 			</div>
 		</div>
 		<div class="containerForms modifUser">
@@ -1017,12 +929,18 @@
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
 				<p>MODIFICAR Y ELIMINAR USUARIO</p>
 			</div>
-
-			<div class="groupForm buscar" action="" method="post">
-				<form id="buscadorUsuarios">
-					<label for="buscadorUser">Buscar:</label>
-					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser">
-				</form>
+			<div class="groupForm buscar">
+				<form method="POST" id="buscadorUsuarios" action= <%= buscarUsuario %> >	
+					<label for="buscadorUser">Buscar por:</label>
+					<select name="tbusqueda" id="tbusqueda" required>
+						<option value="nombre">Nombre</option>
+						<option value="cedula">Cedula</option>
+						<option value="TipoUsuario">Tipo de usuario</option>
+						<option value="usuario">usuario</option>
+					</select>
+					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="r" required>
+				</form>	
+				<button class="btn btn-primary" type="button" id="search">Buscar</button>
 			</div>
 			<div class="tablaResultados">
 				<table class="table table-hover">
@@ -1037,7 +955,7 @@
 						</tr>
 					</thead>
 					<tbody id="results">
-						<%=usuarios%>
+						<%= usuarios %>
 						<!-- <tr>
 							<th scope="row">1</th>
 							<td>Mark</td>
@@ -1045,8 +963,23 @@
 							<td>@mdo</td>
 							<td>@mdo</td>
 							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+							<td>@mdo</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Larry the Bird</td>
+							<td>@twitter</td>
+							<td>@mdo</td>
+							<td>@mdo</td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
 						</tr> -->
-						
 					</tbody>
 				</table>
 				<!-- Modal confirmación eliminación -->
@@ -1071,17 +1004,16 @@
 				</div>
 			</div>
 		</div>
-		<%}%>
-		<%if(permiso.consulta){%>
+		<% } %>
+		<% if ( permiso.consulta ) { %>
 		<div class="containerForms procesoConsulta">
-
 			<!-- <div class="actions">
 				<button>Iniciar consulta</button>
 			</div> -->
 			<div style="clear: both;"></div>
 			<div class="progressConsulta">
 				<div class="progressGroup">
-					<p><img class="inicio" src="img/progress1.svg" alt=""> <span class="actions"><button>Iniciar consulta</button></span></p>
+					<p><img class="inicio" src="/public/assets/progress1.svg" alt=""> <span class="actions"><button>Iniciar consulta</button></span></p>
 				</div>
 				<div class="progressGroup">
 					<div class="bar"></div>
@@ -1108,83 +1040,83 @@
 				</div>
 				<div class="formViewer">
 					<form id="sigVit" action="">
-						<div class="groupForm">
-							<label for="talla">Talla:</label>
-							<input placeholder="Ingrese talla" required type="text" id="talla" name="talla">
-						</div>
-						<div class="groupForm">
-							<label for="ta">TA:</label>
-							<input placeholder="Ingrese TA" required type="text" id="ta" name="ta">
-						</div>
-						<div class="groupForm">
-							<label for="peso">Peso:</label>
-							<input placeholder="Ingrese peso" required type="text" id="peso" name="peso">
-						</div>
-						<div class="groupForm">
-							<label for="temperatura">Temperatura:</label>
-							<input placeholder="Ingrese temperatura" required type="text" id="temperatura" name="temperatura">
-						</div>
-						<div class="groupForm">
-							<label for="imc">IMC:</label>
-							<input  placeholder="Ingrese IMC" required type="text" id="talla" name="talla">
-						</div>
-						<div class="groupForm">
-							<label for="pulso">Pulso:</label>
-							<input placeholder="Ingrese pulso" required type="text" id="pulso" name="pulso">
-						</div>
-						<button class="btn btn-success" data-toggle="modal" data-target=".continuar" type="button">Continuar</button>
-						<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar" type="reset">Cancelar</button>
-						<!-- Modal confirmación de registros -->
+					<div class="groupForm">
+						<label for="talla">Talla:</label>
+						<input placeholder="Ingrese talla" required type="text" id="talla" name="talla">
+					</div>
+					<div class="groupForm">
+						<label for="ta">TA:</label>
+						<input placeholder="Ingrese TA" required type="text" id="ta" name="ta">
+					</div>
+					<div class="groupForm">
+						<label for="peso">Peso:</label>
+						<input placeholder="Ingrese peso" required type="text" id="peso" name="peso">
+					</div>
+					<div class="groupForm">
+						<label for="temperatura">Temperatura:</label>
+						<input placeholder="Ingrese temperatura" required type="text" id="temperatura" name="temperatura">
+					</div>
+					<div class="groupForm">
+						<label for="imc">IMC:</label>
+						<input  placeholder="Ingrese IMC" required type="text" id="talla" name="talla">
+					</div>
+					<div class="groupForm">
+						<label for="pulso">Pulso:</label>
+						<input placeholder="Ingrese pulso" required type="text" id="pulso" name="pulso">
+					</div>
+					<button class="btn btn-success" data-toggle="modal" data-target=".continuar" type="button">Continuar</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar" type="reset">Cancelar</button>
+					<!-- Modal confirmación de registros -->
 
-						<!-- Modal continuar -->
-						<div class="modal fade continuar" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Continuar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de guardar así estos datos?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
+					<!-- Modal continuar -->
+					<div class="modal fade continuar" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Continuar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de guardar así estos datos?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 								</div>
 							</div>
 						</div>
-						<!-- Fin modal continuar -->
+					</div>
+					<!-- Fin modal continuar -->
 
-						<!-- Modal cancelar -->
-						<div class="modal fade cancelar" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Cancelar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de que desea cancelar esta consulta?</p>
-										<p>Se perderán los datos ingresados hasta ahora en
-										todas las partes de la consulta.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
+					<!-- Modal cancelar -->
+					<div class="modal fade cancelar" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Cancelar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de que desea cancelar esta consulta?</p>
+									<p>Se perderán los datos ingresados hasta ahora en
+									todas las partes de la consulta.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<!-- Fin modal cancelar -->
+					<!-- Fin modal cancelar -->
 
-						<!-- Fin modales -->
-					</form>
+					<!-- Fin modales -->
+				</form>
 				</div>
 			</div>
 			<div class="consultaViewer formatConsulta">
@@ -1193,88 +1125,90 @@
 				</div>
 				<div class="formViewer">
 					<form id="formatConsulta" action="">
-						<div class="groupForm">
-							<label for="deteccion">Detección:</label>
-							<select id="deteccion" name="deteccion">
-								<option value="Selecciona">Selecciona</option>
-							</select>
-						</div>
-						<div class="groupForm">
-							<label for="primAnio">Primera vez al año:</label>
-							<input required type="checkbox" id="primAnio" name="primAnio">
-						</div>
-						<div class="groupForm">
-							<label for="tb">Síntomas de TB:</label>
-							<input required type="checkbox" id="tb" name="tb">
-						</div>
-						<div class="groupForm">
-							<label for="obesidad">Nivel de obesidad:</label>
-							<select id="obesidad" name="obesidad">
-								<option value="volvo">Volvo</option>
-								<option value="saab">Saab</option>
-								<option value="fiat">Fiat</option>
-								<option value="audi">Audi</option>
-							</select>
-						</div>
-						<div class="groupForm">
-							<label for="saludRepro">Salud reproductiva:</label>
-							<textarea id="saludRepro" name="saludRepro" placeholder="Diagnóstico de salud reproductiva"></textarea>
-						</div>
+					<div class="groupForm">
+						<label for="deteccion">Detección:</label>
+						<input placeholder="Ingrese detección" required type="text" id="deteccion" name="deteccion">
+					</div>
+					<div class="groupForm">
+						<label for="primAnio">Primera vez al año:</label>
+						<input required type="checkbox" id="primAnio" name="primAnio">
+					</div>
+					<div class="groupForm">
+						<label for="tb">Síntomas de TB:</label>
+						<input required type="checkbox" id="tb" name="tb">
+					</div>
+					<div class="groupForm">
+						<label for="obesidad">Nivel de obesidad:</label>
+						<select id="obesidad" name="obesidad">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="saludRepro">Salud reproductiva:</label>
+						<select id="saludRepro" name="saludRepro">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<button class="btn btn-success" data-toggle="modal" data-target=".continuar2" type="button">Continuar</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar2" type="reset">Cancelar</button>
+					<!-- Modal confirmación de registros -->
 
-						<button class="btn btn-success" data-toggle="modal" data-target=".continuar2" type="button">Continuar</button>
-						<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar2" type="reset">Cancelar</button>
-						<!-- Modal confirmación de registros -->
-
-						<!-- Modal continuar -->
-						<div class="modal fade continuar2" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Continuar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de guardar así estos datos?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
+					<!-- Modal continuar -->
+					<div class="modal fade continuar2" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Continuar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de guardar así estos datos?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 								</div>
 							</div>
 						</div>
-						<!-- Fin modal continuar -->
+					</div>
+					<!-- Fin modal continuar -->
 
-						<!-- Modal cancelar -->
-						<div class="modal fade cancelar2" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Cancelar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de que desea cancelar esta consulta?</p>
-										<p>Se perderán los datos ingresados hasta ahora en
-										todas las partes de la consulta.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
+					<!-- Modal cancelar -->
+					<div class="modal fade cancelar2" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Cancelar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de que desea cancelar esta consulta?</p>
+									<p>Se perderán los datos ingresados hasta ahora en
+									todas las partes de la consulta.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<!-- Fin modal cancelar -->
+					<!-- Fin modal cancelar -->
 
 
-						<!-- Fin modales -->
-					</form>
+					<!-- Fin modales -->
+				</form>
 				</div>
 			</div>
 			<div class="consultaViewer formatDiagnostico">
@@ -1283,82 +1217,82 @@
 				</div>
 				<div class="formViewer">
 					<form id="formatDiagnostico" action="">
-						<div class="groupForm">
-							<label for="diagnostico">Diagnóstico:</label>
-							<textarea name="diagnostico" id="diagnostico" placeholder="Especifique su diagnóstico"></textarea>
-						</div>
-						<div class="groupForm">
-							<label for="programMotivo">Programa según motivo:</label>
-							<select id="programMotivo" name="programMotivo">
-								<option value="volvo">Volvo</option>
-								<option value="saab">Saab</option>
-								<option value="fiat">Fiat</option>
-								<option value="audi">Audi</option>
-							</select>
-						</div>
-						<div class="groupForm">
-							<label for="fechaDiagnostico">Fecha:</label>
-							<input required type="date" id="fechaDiagnostico" name="fechaDiagnostico">
-						</div>
-						<button class="btn btn-success" data-toggle="modal" data-target=".continuar3" type="button">Continuar</button>
-						<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar3" type="reset">Cancelar</button>
-						<!-- Modal confirmación de registros -->
+					<div class="groupForm">
+						<label for="diagnostico">Diagnóstico:</label>
+						<textarea name="diagnostico" id="diagnostico" placeholder="Especifique su diagnóstico"></textarea>
+					</div>
+					<div class="groupForm">
+						<label for="programMotivo">Programa según motivo:</label>
+						<select id="programMotivo" name="programMotivo">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="fechaDiagnostico">Fecha:</label>
+						<input required type="date" id="fechaDiagnostico" name="fechaDiagnostico">
+					</div>
+					<button class="btn btn-success" data-toggle="modal" data-target=".continuar3" type="button">Continuar</button>
+					<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar3" type="reset">Cancelar</button>
+					<!-- Modal confirmación de registros -->
 
-						<!-- Modal continuar -->
-						<div class="modal fade continuar3" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Continuar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de guardar así estos datos?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
+					<!-- Modal continuar -->
+					<div class="modal fade continuar3" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Continuar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de guardar así estos datos?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 								</div>
 							</div>
 						</div>
-						<!-- Fin modal continuar -->
+					</div>
+					<!-- Fin modal continuar -->
 
-						<!-- Modal cancelar -->
-						<div class="modal fade cancelar3" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Cancelar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de que desea cancelar esta consulta?</p>
-										<p>Se perderán los datos ingresados hasta ahora en
-										todas las partes de la consulta.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
+					<!-- Modal cancelar -->
+					<div class="modal fade cancelar3" tabindex="-1" role="dialog">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Cancelar</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>¿Está seguro de que desea cancelar esta consulta?</p>
+									<p>Se perderán los datos ingresados hasta ahora en
+									todas las partes de la consulta.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<!-- Fin modal cancelar -->
+					<!-- Fin modal cancelar -->
 
 
-						<!-- Fin modales -->
-					</form>
+					<!-- Fin modales -->
+				</form>
 				</div>
 			</div>
 		</div>
-		<%}%>
-		<%if(permiso.coordinador){%>
+		<% } %>
+		<% if ( permiso.coordinador ) { %>
 		<div class="containerForms genHojaDiaria">
 			<!-- botón de retroceso -->
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
@@ -1411,15 +1345,67 @@
 				</form>
 			</div>
 		</div>
-		<%}%>
+		<% } %>
 	</div>
-	<!-- End rightSide -->
-
-	<!-- Descripción de pie -->
 	<div class="footerRightSide">
+		<span id="failUser" class="alert-danger"></span>
+		<br>
 		<p><i class="far fa-copyright"></i> 2018 - GeClinic. Todos los derechos reservados.</p>
 	</div>
-	<!-- End descripción de pie -->
-	<script type="text/javascript" src="js/GeClinic.js"></script>
+	<script>
+		$(document).ready(function () 
+		{
+			$("#search").click((e)=>{
+				if(/[A-Za-z]/.test($("#buscadorUser").val()))
+				{
+					$.ajax({
+						method:"POST",
+						url: $("#buscadorUsuarios").attr('action'),
+						data:{
+							"tipo":$("#tbusqueda").val(),
+							"valor":$("#buscadorUser").val()
+						}
+					}).done((r)=>{
+						console.log(r);
+						$("#results").html(r);
+					});
+				}
+				else
+				{
+					e.preventDefault();
+				}
+				
+			});
+			$("#guardarUsuario").click((e)=>{
+				var u=$("#nomUser");
+				var c=$("#password");
+				var cc=$("#confirmpassword");
+				var n=$("#nom");
+				var ap=$("#apP");
+				var am=$("#apM");
+				var tu=$("#tipoUser");
+				var cp=$("#cedulaProfesional");
+				var a=$("#activeUser");
+				$.ajax({
+					method:"POST",
+					url: $("#formUser").attr('action'),
+					data: {
+						'usuario':u.val(),
+						'password':c.val(),
+						'cpassword':cc.val(),
+						'nombre':n.val(),
+						'apPaterno':ap.val(),
+						'apMaterno':am.val(),
+						'TipoUsuario':tu.val(),
+						'cedula':cp.val(),
+						'activo':a.val()
+					}
+				}).done((r)=>{
+					$("#failUser").html(r);
+				});
+			});
+		});
+	</script>
+	<script type="text/javascript" src="/public/js/GeClinic.js"></script>
 </body>
 </html>

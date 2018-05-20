@@ -273,9 +273,23 @@ header p{
 	float: none;
 }
 
+#formUser #failUser{
+	margin-right: 5%;
+	float: right !important;
+	border: none;
+	width: 400px;
+	height: 50px;
+	border-radius: 10px;
+}
+
 #formAPP h5{
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+#saludRepro{
+	height: 280px;
+	resize: none;
 }
 
 /*end estilos a clases*/

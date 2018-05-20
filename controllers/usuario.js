@@ -118,7 +118,7 @@ function buscar(req,res){
     var tipo=req.body.tipo;
     var valor=req.body.valor;
     var tb="";
-    Usuario.findOne({tipo:valor}).populate('permiso').exec((err,usuario)=>{
+    Usuario.findOne({"_id":valor}).populate('permiso').exec((err,usuario)=>{
         if(err)
         {
             console.log(err);

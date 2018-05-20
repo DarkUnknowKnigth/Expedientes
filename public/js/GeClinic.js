@@ -1,8 +1,9 @@
 
 
 /*Precargar elementos*/
-
+var localResource='';
 $(document).ready(function(){
+	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
 	$("#failUser").css("display","none");
@@ -270,7 +271,9 @@ function insertarEnfermedades(arrayEnfer){
 	});
 }
 
-
+$("#RefreshUser").click((e)=>{
+	$("#result").html(localResource);
+});
 $("#buscadorUser").keydown((e)=>{
 	if(/[A-Za-z]/.test($("#buscadorUser").val()))
 	{

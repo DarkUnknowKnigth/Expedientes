@@ -325,3 +325,8 @@ $("#guardarUsuario").click((e)=>{
 		$("#failUser").append("<p>"+r+"</p>");
 	});;
 });
+
+$(".delete").click((event)=>{
+	console.log(event);
+	// $("#usuElim").append(event.attr("value"));
+});

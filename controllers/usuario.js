@@ -17,8 +17,18 @@ function validar(req,res)
             {
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {  
-                    guardar(params);
-                    res.redirect(req.baseUrl.replace("/usuarios",""));         
+                    Usuario.find({"usuario":params.usuario}).exec((err,user)=>{
+                        if(err)
+                        {
+                            guardar(params);
+                            res.redirect(req.baseUrl.replace("/usuarios",""));  
+                        }
+                        else
+                        {
+                            report="El usuario ya existe";
+                            res.send(report);
+                        }
+                    })      
                 }
                 else
                 {

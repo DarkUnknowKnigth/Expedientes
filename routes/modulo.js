@@ -93,44 +93,44 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                     {
                                         console.log(usuarios);
                                         Usuariosfinded=usuarios;
+                                        res.render("../views/pages/principal.ejs",
+                                        {
+                                            //permisos de acceso
+                                            user:admin.usuario,
+                                            permiso:{
+                                                expediente:true,
+                                                usuario:true,
+                                                consulta:false,
+                                                coordinador:false,
+                                                //expedientes
+                                                crearExp:true,
+                                                modificarExp:true,
+                                                eliminarExp:true,
+                                                //permisos de user
+                                                crearUser:true,
+                                                modificarUser:true,
+                                                eliminarUser:true,
+                                            },
+                                            //link de usuarios
+                                            crearUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
+                                            modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificaUsuario`,
+                                            buscarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/buscarUsuario`,
+                                            eliminarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/eliminarUsuario`,
+                                            //link expedientes
+                                            crearExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/nuevoExpediente`,
+                                            modificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/modificarExpediente`,
+                                            eliminarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/eliminarExpediente`,
+                                            buscarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarExpediente`,
+                                            //link coordinador
+                                            generarHoja:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
+                                            generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
+                                            //link consulta
+                                            nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
+                                            usuarios: JSON.stringify(Usuariosfinded)
+                                        });
                                     }
                                 });
-                                res.render("../views/pages/principal.ejs",
-                                {
-                                    //permisos de acceso
-                                    user:admin.usuario,
-                                    permiso:{
-                                        expediente:true,
-                                        usuario:true,
-                                        consulta:false,
-                                        coordinador:false,
-                                        //expedientes
-                                        crearExp:true,
-                                        modificarExp:true,
-                                        eliminarExp:true,
-                                        //permisos de user
-                                        crearUser:true,
-                                        modificarUser:true,
-                                        eliminarUser:true,
-                                    },
-                                    //link de usuarios
-                                    crearUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
-                                    modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificaUsuario`,
-                                    buscarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/buscarUsuario`,
-                                    eliminarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/eliminarUsuario`,
-                                    //link expedientes
-                                    crearExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/nuevoExpediente`,
-                                    modificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/modificarExpediente`,
-                                    eliminarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/eliminarExpediente`,
-                                    buscarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarExpediente`,
-                                    //link coordinador
-                                    generarHoja:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
-                                    generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
-                                    //link consulta
-                                    nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
-                                    usuarios:Usuariosfinded
-            
-                                });
+                                
                             }
                             else
                             {

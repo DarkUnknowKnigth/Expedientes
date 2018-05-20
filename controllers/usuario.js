@@ -6,40 +6,42 @@ const Administrador=require("../models/administrador");
 function validar(req,res)
 {  
     console.log(req.body);
+    var report="Creacion Exitosa";
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
     if(!patron.test(params.nombre+params.usuario+params.password+params.apMaterno+params.apPaterno+params.TipoUsuario))
     {
-        if(params.cedula.length>0)
+        if(params.cedula.length==8 && !(patron+/[a-zA-Z]/).test(params.cedula))
         {
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
                 if(params.password == params.cpassword)
                 {   guardar(params);
-                    res.redirect(req.baseUrl.replace("/usuarios","/done"));
+                    
+                    res.redirect(req.baseUrl.replace("/usuarios","/done&"+report));
                 }
                 else
                 {
-                    console.log("No pass");
-                    res.redirect(req.baseUrl.replace("/usuarios","/fail"));
+                    report="Las contraseñas no son iguales"
+                    res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
                 }
             }
             else
             {
-               console.log("No Campo");
-               res.redirect(req.baseUrl.replace("/usuarios","/fail"));
+                report="El tipo de usuario es invalido"
+                res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
             }
         }
         else
         {
-           console.log("No cedula");
-           res.redirect(req.baseUrl.replace("/usuarios","/fail"));
+           report="La Cedula no posee un formato adecuado";
+           res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
         }
     }   
     else
     {
-       console.log("No valido");
-       res.redirect(req.baseUrl.replace("/usuarios","/fail"));
+       report="Todos los campos deben ser alfanumericos";
+       res.redirect(req.baseUrl.replace("/usuarios","/fail&"+report));
     }
 }
 function modificar(req,res)

@@ -910,6 +910,7 @@
 		<div class="containerForms createUser">
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
 				<p>CREAR USUARIO</p>
+				<br><br><span id="failUser" class="alert-danger"></span>
 			</div>
 			
 			<!-- Formulario -->
@@ -930,15 +931,15 @@
 					</div>
 					<div class="groupForm">
 						<label for="nomReal">Nombre:</label>
-						<input placeholder="Ingrese su nombre real" required type="text" id="nomReal" name="nombre">
+						<input placeholder="Ingrese su nombre real" required type="text" id="nom" name="nombre">
 					</div>
 					<div class="groupForm">
 						<label for="apPaterno">Apellido paterno:</label>
-						<input placeholder="Ingrese apellido paterno" required type="text" id="apPaterno" name="apPaterno">
+						<input placeholder="Ingrese apellido paterno" required type="text" id="apP" name="apPaterno">
 					</div>
 					<div class="groupForm">
 						<label for="apMaterno">Apellido materno:</label>
-						<input required placeholder="Ingrese apellido materno" type="text" id="apMaterno" name="apMaterno">
+						<input required placeholder="Ingrese apellido materno" type="text" id="apM" name="apMaterno">
 					</div>
 					<div class="groupForm">
 						<label for="tipoUser">Tipo de usuario:</label>
@@ -970,8 +971,8 @@
 						</select>
 					</div> -->
 					<div style="clear:both;"></div>
-					<button class="btn btn-success" type="submit">Guardar</button>
 				</form>
+				<button class="btn btn-success" type="button" id="guardarUsuario">Guardar</button>
 			</div>
 		</div>
 		<div class="containerForms modifUser">
@@ -1402,18 +1403,43 @@
 	<script>
 		$(document).ready(function () 
 		{
-			var  direccion=$("#buscadorUsuarios").attr('action');
-			var datos={"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()};
-			console.log(datos);
-			console.log(direccion);
 			$("#search").click((e)=>{
-				console.log("click");
 				$.ajax({
 					method:"POST",
-					url: direccion,
-					data: datos,
+					url: $("#buscadorUsuarios").attr('action'),
+					data: {"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()},
 					success: function (response){
 						$("#results").html(response.table);
+					}
+				});
+			});
+			
+			$("#guardarUsuario").click((e)=>{
+				var u=$("#nomUser");
+				var c=$("#password");
+				var cc=$("#confirmpassword");
+				var n=$("#nom");
+				var ap=$("#apP");
+				var am=$("#apM");
+				var tu=$("#tipoUser");
+				var cp=$("#cedulaProfesional");
+				var a=$("#activeUser");
+				$.ajax({
+					method:"POST",
+					url: $("#formUser").attr('action'),
+					data: {
+						'usuario':u.val(),
+						'password':c.val(),
+						'cpassword':cc.val(),
+						'nombre':n.val(),
+						'apPaterno':ap.val(),
+						'apMaterno':am.val(),
+						'TipoUsuario':tu.val(),
+						'cedula':cp.val(),
+						'activo':a.val()
+					},
+					success: function (response){
+						$("#failUser").text(response.info);
 					}
 				});
 			});

@@ -134,14 +134,15 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
     });
    
 });
-modulo.get("/:id&:user&:pass/:status",(req,res)=>{
+modulo.get("/:id&:user&:pass/:status&:info",(req,res)=>{
     if(req.params.status=="done")
     {
+        res.send({info:req.params.info});
         res.redirect((req.baseUrl+req.path).replace("/done",""));
     }
     else
     {
-        res.send({message:"Lo sentimos no pudimos realizar su solicitud"});
+        res.send({info:req.params.info});
     }
 });
 modulo.use("/:id&:user&:pass/usuarios",RutasUsuario);

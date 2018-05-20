@@ -98,8 +98,7 @@ function buscar(req,res){
     console.log(req.body);
     var tipo=req.body.tipo;
     var valor=req.body.valor;
-    var regex = new RegExp(valor, "i"), query = { tipo : regex };
-    Usuario.find(query).populate('permiso').exec((err,usuarios)=>{
+    Usuario.find({tipo:valor}).populate('permiso').exec((err,usuarios)=>{
         if(err)
         {
             throw err

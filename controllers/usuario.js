@@ -124,11 +124,13 @@ function buscar(req,res){
                 i++   
                 });
                 res.send(tb);
+                res.end();
             }
             else
             {
                 tb='<tr><th scope="row"> 0 resultados </th></tr>';
                 res.send(tb);
+                res.end();
             }
         }
 

@@ -979,7 +979,23 @@
 			<div id="Prev"><a href="#"><i class="fas fa-arrow-left"></i></a>
 				<p>MODIFICAR Y ELIMINAR USUARIO</p>
 			</div>
-			<div class="groupForm buscar"><label for="buscadorUser">Buscar:</label><input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser"></div>
+			<div class="groupForm buscar">
+				<form method="POST" id="buscadorUsuarios" action= <%= buscarExpediente %> >
+					<div class="d-inline-flex">
+						<label for="buscadorUser">Buscar por:</label>
+						<select name="tbusqueda" id="tbusqueda">
+							<option value="nombre">Nombre</option>
+							<option value="cedula">Cedula</option>
+							<option value="tipo">Tipo de usuario</option>
+							<option value="usuario">usuario</option>
+						</select>
+					</div>
+					<div class="d-inline-block">
+						<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser">
+					</div>
+				</form>	
+				<button class="btn btn-primary" type="button" id="search">Buscar</button>
+			</div>
 			<div class="tablaResultados">
 				<table class="table table-hover">
 					<thead>

@@ -3,9 +3,9 @@ const express = require('express');
 const controladorUsuario=require('../controllers/usuario');
 const usuario=express.Router();
 
-usuario.get("/:status",(req,res)=>{
-    res.status(200).render("../views/partials/crearUsuario.ejs");
-});
+// usuario.get("/crear",(req,res)=>{
+//     res.status(200).render("../views/partials/crearUsuario.ejs");
+// });
 // usuario.get("/modificar",(req,res)=>{
 //     res.status(200).render("../views/partials/modificarUsuario.ejs");
 // });

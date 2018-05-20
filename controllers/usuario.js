@@ -44,6 +44,7 @@ function validar(req,res)
 }
 function modificar(req,res)
 {
+    var params= req.body;
 
 }
 function eliminar(req,res)
@@ -92,6 +93,40 @@ function guardar(info){
     });
 }
 function buscar(req,res){
+    var tipo=req.body.tbusqueda;
+    var valor=req.body.buscadorUser;
+    Usuario.find({tipo:valor}).populate('permiso').exec((err,usuarios)=>{
+        if(err)
+        {
+            throw err
+        }
+        else
+        {
+            if(usuarios)
+            {
+                var tb="";
+                var i=1;
+                usuarios.forEach(usuario =>{
+                tb+='<tr>'+
+                    '<th scope="row">'+usuario._id+'</th>'+
+                    '<td>'+usuario.usuario+'</td>'+
+                   ' <td>'+usuario.cedula+'</td>'+
+                   ' <td>'+usuario.nombre+'</td>'+
+                   ' <td>'+usuario.fechaCreacion+'</td>'+
+                   ' <td>'+usuario.activo+'</td>'+
+                   ' <td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'+
+                '</tr>';
+                i++   
+                });
+                res.send({table:tb});
+            }
+            else
+            {
+                res.redirect('/');
+            }
+        }
+
+    });
 
 }
 module.exports={

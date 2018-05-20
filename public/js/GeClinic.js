@@ -233,4 +233,9 @@ function insertarAnios(){
 }
 
 insertarAnios();
+$("#search").click((e)=>{
+	var data= new FormData($("#buscadorUsuarios"));	
+	console.log(data);
+});
+
 

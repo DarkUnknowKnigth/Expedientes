@@ -1415,7 +1415,7 @@
 							"valor":$("#buscadorUser").val()
 						}
 					}).done((r)=>{
-						$("#results").text(r);
+						$("#results").html(r);
 					});
 				}
 				else
@@ -1450,7 +1450,7 @@
 						'activo':a.val()
 					}
 				}).done((r)=>{
-					$("#failUser").text(r.info);
+					$("#failUser").html(r.info);
 				});
 			});
 		});

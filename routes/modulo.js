@@ -13,7 +13,7 @@ const ejsLint = require('ejs-lint');
 var Usuariosfinded;
     
 modulo.get("/:id&:user&:pass",(req,res)=>{
-    Usuario.find({}).populate('permiso')..exec((err,usuarios)=>{
+    Usuario.find().populate('permiso')..exec((err,usuarios)=>{
         if(!err)
         {
             Usuariosfinded=usuarios;

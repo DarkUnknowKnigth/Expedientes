@@ -1409,7 +1409,7 @@
 					url: $("#buscadorUsuarios").attr('action'),
 					data: {"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()},
 					success: function (response){
-						$("#results").html(response.table);
+						$("#results").text(response.table);
 					}
 				});
 			});

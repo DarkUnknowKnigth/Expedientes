@@ -118,7 +118,7 @@ function buscar(req,res){
     var tipo=req.body.tipo;
     var valor=req.body.valor;
     var tb="";
-    Usuario.find({tipo: { $regex: '.*' + valor + '.*' } }).populate('permiso').exec((err,usuarios)=>{
+    Usuario.findOne({tipo: { $regex: '.*' + valor + '.*' } }).populate('permiso').exec((err,usuarios)=>{
         if(err)
         {
             console.log(err);

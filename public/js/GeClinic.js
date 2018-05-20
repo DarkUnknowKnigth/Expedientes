@@ -327,6 +327,8 @@ $("#guardarUsuario").click((e)=>{
 });
 
 $(".delete").click((event)=>{
-	console.log(event.currentTarget.value);
-	$("#usuElim").append(event.currentTarget.value);
+	// console.log(event.currentTarget.value);
+	// $("#usuElim").text(event.currentTarget.value);
+	var nombre = $(".delete").parent().child().child();
+	$("#usuElim").text(nombre);
 });

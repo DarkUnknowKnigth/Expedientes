@@ -15,7 +15,7 @@ function validar(req,res)
         {
             if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
-                if(params.password == params.cpassword)
+                if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {   guardar(params);
                     
                     res.redirect(req.baseUrl.replace("/usuarios","/done&"+report));

@@ -113,14 +113,15 @@ function buscar(req,res){
                // var i=1;
                 //usuarios.forEach(usuario =>{
                 //console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
-                tb='<tr>'+
-                    '<th scope="row">'+usuario._id+'</th>'+
-                    '<td>'+usuario.usuario+'</td>'+
-                   ' <td>'+usuario.cedula+'</td>'+
-                   ' <td>'+usuario.nombre+'</td>'+
-                   ' <td>'+usuario.fechaCreacion+'</td>'+
-                   ' <td>'+usuario.activo+'</td>'+
-                   ' <td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'+
+                tb=
+                '<tr>'+
+                    '<th scope="row">'+usuario._id +'</th>'+
+                    '<th>'+usuario.nombre+'</th>'+
+                    '<td>'+usuario.apPaterno+'</td>'+
+                    '<td>'+usuario.apMaterno+'</td>'+
+                    '<td>'+usuario.TipoUsuario+'</td>'+
+                    '<td>'+usuario.activo+'</td>'+
+                    '<td><button class="edit" value='+ usuario.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+usuario._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
                 '</tr>';
                // i++   
                 //});

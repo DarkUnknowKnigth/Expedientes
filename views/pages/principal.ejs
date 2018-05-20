@@ -1005,8 +1005,8 @@
 				<p>MODIFICAR Y ELIMINAR USUARIO</p>
 			</div>
 
-			<div class="groupForm buscar" action=<%= buscarUsuario%> method="post">
-				<form id="buscadorUsuarios">
+			<div class="groupForm buscar">
+				<form id="buscadorUsuarios" method="POST" action=<%= buscarUsuario %>>
 					<label for="buscadorUser">Buscar:</label>
 					<input placeholder="el ID del usuario" type="text" id="buscadorUser" name="buscadorUser">
 				</form>

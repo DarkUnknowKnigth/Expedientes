@@ -88,6 +88,13 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
                                 var Usuariosfinded="0 results";
+                                Usuario.find().exec((err,usuarios)=>{
+                                    if(!err)
+                                    {
+                                        console.log(usuarios);
+                                        Usuariosfinded=usuarios;
+                                    }
+                                });
                                 res.render("../views/pages/principal.ejs",
                                 {
                                     //permisos de acceso

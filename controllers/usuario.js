@@ -93,8 +93,9 @@ function guardar(info){
     });
 }
 function buscar(req,res){
-    var tipo=req.body.tbusqueda;
-    var valor=req.body.buscadorUser;
+    console.log(req.body);
+    var tipo=req.body.tipo;
+    var valor=req.body.valor;
     Usuario.find({tipo:valor}).populate('permiso').exec((err,usuarios)=>{
         if(err)
         {
@@ -122,7 +123,8 @@ function buscar(req,res){
             }
             else
             {
-                res.redirect('/');
+                tb='<tr><th scope="row"> 0 resultados </th></tr>';
+                res.send({table:tb});
             }
         }
 

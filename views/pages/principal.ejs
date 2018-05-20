@@ -991,10 +991,26 @@
 						</select>
 					</div>
 					<input placeholder="Ingrese el usuario que desea buscar" type="text" id="buscadorUser" name="buscadorUser" required>
-					<button class="btn btn-primary" type="submit" id="search">Buscar</button>
 				</form>	
-				
+				<button class="btn btn-primary" type="submit" id="search">Buscar</button>
 			</div>
+			<script>
+				var  direccion=$("#buscadorUsuarios").attr('action');
+				var datos={"tipo":$("#tbusqueda").val(),"valor":$("#buscadorUser").val()};
+				console.log(datos);
+				console.log(direccion);
+				$("#search").click((e)=>{
+					$.ajax({
+						type: "POST",
+						url: direccion,
+						data: datos,
+						dataType: "dataType",
+						success: function (response){
+							$("#results").html(response.table);
+						}
+					});
+				});
+			</script>
 			<div class="tablaResultados">
 				<table class="table table-hover">
 					<thead>
@@ -1007,7 +1023,7 @@
 							<th scope="col">Acciones</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="results">
 						<tr>
 							<th scope="row">1</th>
 							<td>Mark</td>

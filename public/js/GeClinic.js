@@ -290,7 +290,6 @@ $("#search").click((e)=>{
 	}
 	
 });
-
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");
@@ -316,6 +315,10 @@ $("#guardarUsuario").click((e)=>{
 			'activo':a.val()
 		}
 	}).done((r)=>{
-		$("#failUser").html(r);
-	});
+		console.log(r);
+		$("#failUser").append("<p>"+r+"</p>");
+	}).fail((r)=>{
+		console.log(r);
+		$("#failUser").append("<p>"+r+"</p>");
+	});;
 });

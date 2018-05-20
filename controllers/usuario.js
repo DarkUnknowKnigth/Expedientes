@@ -5,7 +5,7 @@ const Administrador=require("../models/administrador");
 
 function validar(req,res)
 {  
-    console.log(req.body);
+    console.log("validando...")
     var report="Creacion Exitosa";
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
@@ -18,7 +18,6 @@ function validar(req,res)
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {  
                     guardar(params);
-                    res.send(report);
                     res.redirect(req.baseUrl.replace("/usuarios",""));         
                 }
                 else

@@ -5,6 +5,7 @@
 $(document).ready(function(){
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
+	$("#failUser").css("display","none");
 });
 
 /*end precargar elementos*/
@@ -316,9 +317,11 @@ $("#guardarUsuario").click((e)=>{
 		}
 	}).done((r)=>{
 		console.log(r);
+		$("#failUser").css("display","block");
 		$("#failUser").append("<p>"+r+"</p>");
 	}).fail((r)=>{
 		console.log(r);
+		$("#failUser").css("display","block");
 		$("#failUser").append("<p>"+r+"</p>");
 	});;
 });

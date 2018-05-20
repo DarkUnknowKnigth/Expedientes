@@ -112,7 +112,7 @@ function buscar(req,res){
         if(err)
         {
             console.log(err);
-            tb='<tr><th scope="row"> Lo sentimos su solicitud no fue bien procesada </th></tr>';
+            tb='<tr><th scope="row"> 0 coincidencias </th></tr>';
             res.send(tb);
         }
         else

@@ -10,6 +10,7 @@ function eliminar(req,res)
 }
 function guardar(req,res){
     var newExp=req.body;
+    console.log(newExp);
     var expediente= new Expediente({
         FichaId:newExp.FichaId,
         APNP:newExp.APNP,

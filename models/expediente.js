@@ -47,17 +47,17 @@ var ExpedienteSchema= Schema({
         sienta:{type:String,required: false},
         gatea:{type:String,required: false},
         habla:{type:String,required: false},
-        traumatismo:{type:String,required: true},
-        sarampion:{type:String,required: true},
-        rubeola:{type:String,required: true},
-        tosferina:{type:String,required: true},
-        varicela:{type:String,required: true},
-        escarlatina:{type:String,required: true},
-        amigdalitis:{type:String,required: true},
-        parasitosis:{type:String,required: true},
-        convulsiones:{type:String,required: true},
-        urosepsis:{type:String,required: true},
-        cirugia:{type:String,required: true}
+        traumatismo:{type:String,required: false},
+        sarampion:{type:String,required: false},
+        rubeola:{type:String,required: false},
+        tosferina:{type:String,required: false},
+        varicela:{type:String,required: false},
+        escarlatina:{type:String,required: false},
+        amigdalitis:{type:String,required: false},
+        parasitosis:{type:String,required: false},
+        convulsiones:{type:String,required: false},
+        urosepsis:{type:String,required: false},
+        cirugia:{type:String,required: false}
 
 
     },

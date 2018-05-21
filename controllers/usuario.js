@@ -121,7 +121,7 @@ function buscar(req,res){
     var tb="";
     if(/[a-zA-Z0-9]/.test(valor))
     {
-        Usuario.find(valor).populate('permiso').limit(1).exec((err,usuario)=>{
+        Usuario.findById(valor).populate('permiso').limit(1).exec((err,usuario)=>{
             if(err)
             {
                 console.log(err);

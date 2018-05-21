@@ -9,7 +9,9 @@ function eliminar(req,res)
     
 }
 function guardar(req,res){
+
     newExp=req.body;
+    console.log(newExp);
     expediente= new Exp();
     expediente.AntecedentesHF=newExp.AntecedentesHF;
     expediente.FichaId=newExp.FichaId;
@@ -17,6 +19,7 @@ function guardar(req,res){
     expediente.Inmunizaciones=newExp.Inmunizaciones;
     expediente.APP=newExp.APP;
     expediente.AntecedentesG=newExp.AntecedentesG;
+    console.log(expediente);
     expediente.save((err,StoredExp)=>{
         if(err){
             res.status(500).send("Error en almacenamiento");
@@ -32,8 +35,7 @@ function guardar(req,res){
 
             }
         }
-    })
-    res.status(200).send("Recibido");
+    });
 }
 module.exports={
     modificar,

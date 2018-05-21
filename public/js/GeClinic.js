@@ -270,7 +270,6 @@ function insertarEnfermedades(arrayEnfer){
 		$(".formatConsulta #deteccion").append("<option value='"+element.value+"'>"+element.nombre+"</option>");
 	});
 }
-
 $("#RefreshUser").click((e)=>{
 	$("#result").append(RefreshUser);
 });

@@ -108,44 +108,65 @@ function buscar(req,res){
     console.log(req.body);
     var valor=req.body.valor;
     var tb="";
-    Usuario.findById(valor).populate('permiso').exec((err,usuario)=>{
-        if(err)
-        {
-            console.log(err);
-            tb='<tr><th scope="row"> 0 coincidencias </th></tr>';
-            res.send(tb);
-        }
-        else
-        {
-            if(usuario)
+    if(valor=="")
+    {
+        Usuario.find({}).exec((err, u) => {
+            if (!err) 
             {
-                console.log(">>>>>>>>>>>>USUARIOSSSS>>>>>>>>>>>>>>"+usuario);
-               // var i=1;
-                //usuarios.forEach(usuario =>{
-                //console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
-                tb=
-                '<tr>'+
-                    '<th scope="row">'+usuario._id +'</th>'+
-                    '<th>'+usuario.nombre+'</th>'+
-                    '<td>'+usuario.apPaterno+'</td>'+
-                    '<td>'+usuario.apMaterno+'</td>'+
-                    '<td>'+usuario.TipoUsuario+'</td>'+
-                    '<td>'+usuario.activo+'</td>'+
-                    '<td><button class="edit" value='+ usuario.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+usuario._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
-                '</tr>';
-               // i++   
-                //});
+                u.forEach(usuario => {
+                    tb +=
+                        '<tr>' +
+                        '<th scope="row">' + usuario._id + '</th>' +
+                        '<th>' + usuario.nombre + '</th>' +
+                        '<td>' + usuario.apPaterno + '</td>' +
+                        '<td>' + usuario.apMaterno + '</td>' +
+                        '<td>' + usuario.TipoUsuario + '</td>' +
+                        '<td>' + usuario.activo + '</td>' +
+                        '<td><button class="edit" value=' + usuario.id + '><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value=' + usuario._id + 'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
+                    '</tr>';
+                });
+            } 
+        });
+    }
+    else
+    {
+        Usuario.findById(valor).populate('permiso').exec((err,usuario)=>{
+            if(err)
+            {
+                console.log(err);
+                tb='<tr><th scope="row"> 0 coincidencias </th></tr>';
                 res.send(tb);
             }
             else
             {
-                tb='<tr><th scope="row"> 0 resultados </th></tr>';
-                res.send(tb);
+                if(usuario)
+                {
+                    console.log(">>>>>>>>>>>>USUARIOSSSS>>>>>>>>>>>>>>"+usuario);
+                   // var i=1;
+                    //usuarios.forEach(usuario =>{
+                    //console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
+                    tb=
+                    '<tr>'+
+                        '<th scope="row">'+usuario._id +'</th>'+
+                        '<th>'+usuario.nombre+'</th>'+
+                        '<td>'+usuario.apPaterno+'</td>'+
+                        '<td>'+usuario.apMaterno+'</td>'+
+                        '<td>'+usuario.TipoUsuario+'</td>'+
+                        '<td>'+usuario.activo+'</td>'+
+                        '<td><button class="edit" value='+ usuario.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+usuario._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
+                    '</tr>';
+                   // i++   
+                    //});
+                    res.send(tb);
+                }
+                else
+                {
+                    tb='<tr><th scope="row"> 0 resultados </th></tr>';
+                    res.send(tb);
+                }
             }
-        }
-
-    });
-
+        });
+    }
 }
 module.exports={
     validar,

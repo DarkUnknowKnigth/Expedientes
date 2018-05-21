@@ -272,7 +272,7 @@ function insertarEnfermedades(arrayEnfer){
 }
 
 $("#RefreshUser").click((e)=>{
-	$("#result").html(localResource);
+	$("#result").append(RefreshUser);
 });
 $("#buscadorUser").keyup((e)=>{
 	if(/[A-Za-z]/.test($("#buscadorUser").val()))

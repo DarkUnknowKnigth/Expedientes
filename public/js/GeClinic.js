@@ -439,7 +439,7 @@ $("#formAPNP button").click(function(){
 		"tabaco": $("#tabaco input:radio[name=tabaco]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"alcohol": $("#alcohol input:radio[name=alcohol]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"direccion": $("#direccion input:radio[name=direccion]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"Fauna": $("#fauna input:radio[name=fauna]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"fauna": $("#fauna input:radio[name=fauna]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"hacinamiento": $("#hacinamiento input:radio[name=hacinamiento]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"dieta": $("#dieta input:radio[name=dieta]:checked").val(),
 		"vivienda": $("#vivienda").val()
@@ -503,18 +503,21 @@ $("#formAntecGine button").click(function(){
 		"tipoAnt": $("#tipoAnticoncep").val()
 		
 	};
+	var Expediente=
+	{
+		AntecedentesHF :formAntec ,
+		FichaId:formFichIde,
+		APNP:formAPNP,
+		Inmunizaciones:formInmu,
+		APP:formAPP,
+		AntecedentesG:formAntecGine
+	};
 	$.ajax({
 		type: "POST",
 		url: $("#formAntecGine").attr("action"),
-		Expediente: 
-		{
-			AntecedentesHF :formAntec ,
-			FichaId:formFichIde,
-			APNP:formAPNP,
-			Inmunizaciones:formInmu,
-			APP:formAPP,
-			AntecedentesG:formAntecGine
-		}
+		data:Expediente
+	}).done((e)=>{
+		console.log(e);
 	});
 	console.log(formAntecGine);
 });

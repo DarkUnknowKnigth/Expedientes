@@ -27,7 +27,7 @@ var ExpedinteSchema= Schema({
         promiscuidad:{type:Boolean,required: true},
         tabaco:{type:Boolean,required: true},
         alcohol:{type:Boolean,required: true},
-        Fauna:{type:Boolean,required: true},
+        fauna:{type:Boolean,required: true},
         hacinamiento:{type:Boolean,required: true},
         dieta:{type:Boolean,required: true},
         vivienda:{type:String,required: true}
@@ -61,7 +61,7 @@ var ExpedinteSchema= Schema({
 
     },
     AntecedentesG:{
-        ultimaMenst:{type:Date,required:false},
+        ultimaMenst:{type:String,required:false},
         fechaAnti:{type:Date,required:false},
         gesta:{type:String,required: false},
         ritmo:{type:String,required: false},

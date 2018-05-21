@@ -181,76 +181,77 @@
 					<div class="groupForm parent">
 						<label for="parentesco">Parentesco:</label>
 						<select id="parentesco" name="parentesco">
-							<option selected value="seleccione">Seleccione...</option>
-							<option value="paterno">Paterno</option>
-							<option value="materno">Materno</option>
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
 						</select>
 						<input type="button" name="Agregar" value="Agregar" class="btn btn-primary">
 					</div>
 					<div style="clear: both"></div>
-					<div class="groupForm" id="Ha">
+					<div class="groupForm">
 						<label for="HA">HA:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="Ha" class="Si" value="Si">
+							<input type="radio" name="Ha" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" value="No" name="Ha" class="No" value="No">
+							<input type="radio" name="Ha" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="diabetes">
+					<div class="groupForm">
 						<label for="diabetes">Diabetes:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="diabetes" class="Si" value="Si">
+							<input type="radio" name="diabetes" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="diabetes" class="No" value="No">
+							<input type="radio" name="diabetes" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="cancer">
+					<div class="groupForm">
 						<label for="cancer">Cáncer:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="cancer" class="Si" value="Si">
+							<input type="radio" name="cancer" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="cancer" class="No" value="No">
+							<input type="radio" name="cancer" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="tb">
+					<div class="groupForm">
 						<label for="TB">TB:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="TB" class="Si" value="Si">
+							<input type="radio" name="TB" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="TB" class="No" value="No">
+							<input type="radio" name="TB" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="sida">
+					<div class="groupForm">
 						<label for="sida">SIDA:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="sida" class="Si" value="Si">
+							<input type="radio" name="sida" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="sida" class="No" value="No">
+							<input type="radio" name="sida" class="No">
 						</div>
 					</div>
 					<div class="groupForm"><label for="otros">Otros:</label><textarea name="otros" id="otros" placeholder="Especifique..."></textarea></div>
@@ -262,95 +263,95 @@
 
 				<!-- Form ficha identificación -->
 
-				<<form id="formFichIde" action="">
+				<form id="formFichIde" action="">
 					<div class="groupForm"><label for="idNombrePaciente">Nombre(s) del paciente:</label><input placeholder="Ingrese nombre" type="text" id="idNombrePaciente" name="idNombrePaciente"></div>
 					<div class="groupForm"><label for="idApPat">Apellido Paterno:</label><input placeholder="Ingrese Apellido paterno" type="text" id="idApPat" name="idApPat"></div>
 					<div class="groupForm"><label for="idApMat">Apellido Materno:</label><input placeholder="Ingrese Apellido materno" type="text" id="idApMat" name="idApMat"></div>
 					<div class="groupForm"><label for="direccion">Dirección o domicilio:</label><input placeholder="Ingrese dirección" type="text" id="direccion" name="direccion"></div>
-					<div class="groupForm"><label for="curp">CURP:</label><input placeholder="Ingrese CURP" type="text" id="curp" name="curp"></div>
 					<div class="groupForm">
 						<label for="estadoCivil">Estado civil:</label>
 						<select id="estadoCivil" name="estadoCivil">
-							<option selected value="seleccione">Seleccione...</option>
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
 						</select>
 					</div>
 					<div class="groupForm">
-						<label for="laboresHogar" id="laboresHogar">Labores de hogar:</label>
+						<label for="laboresHogar">Labores de hogar:</label>
+						<select id="laboresHogar" name="laboresHogar">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="sinOcupacion">Sin ocupación:</label>
+						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="laboresHogar" class="Si" value="Si">
+							<input type="radio" name="sinOcupacion" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="laboresHogar" class="No" value="No">
+							<input type="radio" name="sinOcupacion" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="sinOcupacion">
-						<label for="sinOcupacion">Sin ocupación:</label>
-						<select id="sinOcupacion" name="sinOcupacion">
-							<option selected value="seleccione">Seleccione...</option>
-							<option value="ninguna">Ninguna</option>
-							<option value="estudia">Estudia</option>
-							<option value="trabaja">Trabaja</option>
-							<option value="laboresHogar">Labores del hogar</option>
-							<option value="desempleado">Desempleado</option>
-							<option value="jubilado">Jubilado</option>
-						</select>
-					</div>
-					<div class="groupForm" id="estudia">
+					<div class="groupForm">
 						<label for="estudia">Estudia:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="estudia" class="Si" value="Si">
+							<input type="radio" name="estudia" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="estudia" class="No" value="No">
+							<input type="radio" name="estudia" class="No">
 						</div>
 					</div>
 					
-					<div class="groupForm" id="trabaja">
+					<div class="groupForm">
 						<label for="trabaja">Trabaja:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="trabaja" class="Si" value="Si">
+							<input type="radio" name="trabaja" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="trabaja" class="No" value="No">
+							<input type="radio" name="trabaja" class="No">
 						</div>
 
 					</div>
-					<div class="groupForm" id="jubilado">
+					<div class="groupForm">
 						<label for="jubilado">Jubilado:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="jubilado" class="Si" value="Si">
+							<input type="radio" name="jubilado" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="jubilado" class="No" value="No">
+							<input type="radio" name="jubilado" class="No">
 						</div>
 
 					</div>
-					<div class="groupForm" id="padreSoltero">
+					<div class="groupForm">
 						<label for="padreSoltero">Padre soltero:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="padreSoltero" class="Si" value="Si">
+							<input type="radio" name="padreSoltero" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="padreSoltero" class="No" value="No">
+							<input type="radio" name="padreSoltero" class="No">
 						</div>
 					</div>
 					<div style="clear:both;"></div>
@@ -361,90 +362,87 @@
 				<!-- Form APNP -->
 
 				<form id="formAPNP" action="">
-					<div class="groupForm" id="promiscuidad">
+					<div class="groupForm">
 						<label for="promiscuidad">Promiscuidad:</label>
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="promiscuidad" class="Si" value="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="promiscuidad" class="No" value="No">
-						</div>
+						<select id="promiscuidad" name="promiscuidad">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
 					</div>
-					<div class="groupForm" id="hacinamiento">
+					<div class="groupForm">
 						<label for="hacinamiento">Hacinamiento:</label>
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="hacinamiento" class="Si" value="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="hacinamiento" class="No" value="No">
-						</div>
+						<select id="hacinamiento" name="hacinamiento">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
 					</div>
-					<div class="groupForm" id="tabaco">
+					<div class="groupForm">
 						<label for="tabaco">Tabaco:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="tabaco" class="Si" value="Si">
+							<input type="radio" name="tabaco" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="tabaco" class="No" value="No">
+							<input type="radio" name="tabaco" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="dieta">
+					<div class="groupForm">
 						<label for="dieta">Dieta:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="dieta" class="Si" value="Si">
+							<input type="radio" name="dieta" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="dieta" class="No" value="No">
+							<input type="radio" name="dieta" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="alcohol">
+					<div class="groupForm">
 						<label for="alcohol">Alcohol:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="alcohol" class="Si" value="Si">
+							<input type="radio" name="alcohol" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="alcohol" class="No" value="No">
+							<input type="radio" name="alcohol" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="vivienda">
+					<div class="groupForm">
 						<label for="vivienda">Vivienda:</label>
-						<select id="vivienda" name="vivienda">
-							<option selected value="seleccione">Seleccione...</option>
-							<option value="mala">Mala</option>
-							<option value="intermedia">Intermedia</option>
-							<option value="buena">Buena</option>
-						</select>
 						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="vivienda" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="vivienda" class="No">
+						</div>
 					</div>
-					<div class="groupForm" id="fauna">
+					<div class="groupForm">
 						<label for="fauna">Fauna:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="fauna" class="Si" value="Si">
+							<input type="radio" name="fauna" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="fauna" class="No" value="No">
+							<input type="radio" name="fauna" class="No">
 						</div>
 					</div>
 					
@@ -455,56 +453,56 @@
 
 				<!-- Form Inmunizaciones -->
 				<form id="formInmu" action="">
-					<div class="groupForm" id="sabin">
+					<div class="groupForm">
 						<label for="sabin">SABIN:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="sabin" class="Si" value="Si">
+							<input type="radio" name="sabin" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="sabin" class="No" value="No">
+							<input type="radio" name="sabin" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="dpt">
-						<label for="dpt" >DPT:</label>
+					<div class="groupForm">
+						<label for="dpt">DPT:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="dpt" class="Si" value="Si">
+							<input type="radio" name="dpt" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="dpt" class="No" value="No">
+							<input type="radio" name="dpt" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="bcg">
-						<label for="bcg" >BCG:</label>
+					<div class="groupForm">
+						<label for="bcg">BCG:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="bcg" class="Si" value="Si">
+							<input type="radio" name="bcg" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="bcg" class="No" value="No">
+							<input type="radio" name="bcg" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="antisarampion">
+					<div class="groupForm">
 						<label for="antisarampion">Antisarampión:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="antisarampion" class="Si" value="Si">
+							<input type="radio" name="antisarampion" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="antisarampion" class="No" value="No">
+							<input type="radio" name="antisarampion" class="No">
 						</div>
 					</div>
 					<div style="clear:both;"></div>
@@ -516,97 +514,83 @@
 
 				<form id="formAPP" action="">
 					<div class="groupForm">
-						<h5>Antecedentes Perinatales</h5>
+						<h5>Antecedentes Prenatales</h5>
 					</div>
 					<div style="clear: both"></div>
-					<div class="groupForm" >
-						<label for="traumatismos">Traumatismos:</label>
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="traumatismos" class="Si" value="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="traumatismos" class="No" value="No">
-						</div>
-					</div>
 					<div class="groupForm">
-						<label for="ingresoHospital">Ingreso a hospital:</label>
-						<div style="clear: both"></div>
-						<div class="groupLabel">
-							<label for="Si">Si</label>
-							<input type="radio" name="ingresoHospital" class="Si" value="Si">
-						</div>
-						<div class="groupLabel">
-							<label for="No">No</label>
-							<input type="radio" name="ingresoHospital" class="No" value="No">
-						</div>
+						<label for="traumatismos">Traumatismos:</label>
+						<select id="traumatismos" name="traumatismos">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
 					</div>
-					<div class="groupForm" id="sonrie">
+					<div class="groupForm"><label for="ingresoHospital">Ingreso a hospital:</label><input type="date" id="ingresoHospital" name="ingresoHospital"></div>
+					<div class="groupForm">
 						<label for="sonrie">Sonríe:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="sonrie" class="Si" value="Si">
+							<input type="radio" name="sonrie" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="sonrie" class="No" value="No">
+							<input type="radio" name="sonrie" class="No">
 						</div>
 					</div>
 
-					<div class="groupForm" id="sostieneCabeza">
+					<div class="groupForm">
 						<label for="sostieneCabeza">Sostiene su cabeza:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="sostieneCabeza" class="Si" value="Si">
+							<input type="radio" name="sostieneCabeza" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="sostieneCabeza" class="No" value="No">
+							<input type="radio" name="sostieneCabeza" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="seSienta">
+					<div class="groupForm">
 						<label for="seSienta">Se sienta:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="seSienta" class="Si" value="Si">
+							<input type="radio" name="seSienta" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="seSienta" class="No" value="No">
+							<input type="radio" name="seSienta" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="gatea">
+					<div class="groupForm">
 						<label for="gatea">Gatea:</label>
 
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="gatea" class="Si" value="Si">
+							<input type="radio" name="gatea" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="gatea" class="No" value="No">
+							<input type="radio" name="gatea" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="habla">
+					<div class="groupForm">
 						<label for="habla">Habla:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="habla" class="Si" value="Si">
+							<input type="radio" name="habla" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="habla" class="No" value="No">
+							<input type="radio" name="habla" class="No">
 						</div>
 					</div>
 					<div style="clear: both"></div>
@@ -614,135 +598,135 @@
 						<h5>Enfermedades y alergias</h5>
 					</div>
 					<div style="clear: both"></div>
-					<div class="groupForm" id="sarampion">
+					<div class="groupForm">
 						<label for="sarampion">Sarampión:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="sarampion" class="Si" value="Si">
+							<input type="radio" name="sarampion" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="sarampion" class="No" value="No">
+							<input type="radio" name="sarampion" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="rubeola">
+					<div class="groupForm">
 						<label for="rubeola">Rubeola:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="rubeola" class="Si" value="Si">
+							<input type="radio" name="rubeola" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="rubeola" class="No" value="No">
+							<input type="radio" name="rubeola" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="tosferina">
+					<div class="groupForm">
 						<label for="tosferina">Tosferina:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="tosferina" class="Si" value="Si">
+							<input type="radio" name="tosferina" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="tosferina" class="No" value="No">
+							<input type="radio" name="tosferina" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="varicela">
+					<div class="groupForm">
 						<label for="varicela">Varicela:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="varicela" class="Si" value="Si">
+							<input type="radio" name="varicela" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="varicela" class="No" value="No">
+							<input type="radio" name="varicela" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="escarlatina">
+					<div class="groupForm">
 						<label for="escarlatina">Escarlatina:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="escarlatina" class="Si" value="Si">
+							<input type="radio" name="escarlatina" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="escarlatina" class="No" value="No">
+							<input type="radio" name="escarlatina" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="amigdalitis">
+					<div class="groupForm">
 						<label for="amigdalitis">Amigdalitis:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="amigdalitis" class="Si" value="Si">
+							<input type="radio" name="amigdalitis" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="amigdalitis" class="No" value="No">
+							<input type="radio" name="amigdalitis" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="parasitoIntestinal">
+					<div class="groupForm">
 						<label for="parasitoIntestinal">Parásito intestinal:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="parasitoIntestinal" class="Si" value="Si">
+							<input type="radio" name="parasitoIntestinal" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="parasitoIntestinal" class="No" value="No">
+							<input type="radio" name="parasitoIntestinal" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="convulsiones">
+					<div class="groupForm">
 						<label for="convulsiones">Convulsiones:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="convulsiones" class="Si" value="Si">
+							<input type="radio" name="convulsiones" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="convulsiones" class="No" value="No">
+							<input type="radio" name="convulsiones" class="No">
 						</div>
 					</div>
-					<div class="groupForm" id="urosepsis">
+					<div class="groupForm">
 						<label for="urosepsis">Urosepsis:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="urosepsis" class="Si" value="Si">
+							<input type="radio" name="urosepsis" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="urosepsis" class="No" value="No">
+							<input type="radio" name="urosepsis" class="No">
 						</div>
 					</div>
 					
-					<div class="groupForm" id="cirugia">
+					<div class="groupForm">
 						<label for="cirugia">Cirugía:</label>
 						
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
-							<input type="radio" name="cirugia" class="Si" value="Si">
+							<input type="radio" name="cirugia" class="Si">
 						</div>
 						<div class="groupLabel">
 							<label for="No">No</label>
-							<input type="radio" name="cirugia" class="No" value="No">
+							<input type="radio" name="cirugia" class="No">
 						</div>
 					</div>
 					<div style="clear:both;"></div>
@@ -759,7 +743,7 @@
 					</div>
 					<div class="groupForm">
 						<label for="gesta">Gesta:</label>
-						<input placeholder="Ingrese número de gestas" type="number" min="0" max="10" id="gesta" name="gesta">
+						<input placeholder="Ingrese gesta" type="text" id="gesta" name="gesta">
 					</div>
 					<div class="groupForm">
 						<label for="ritmo">Ritmo:</label>
@@ -774,44 +758,112 @@
 						<input type="date" id="fechaAnticonceptivo" name="fechaAnticonceptivo">
 					</div>
 					<div style="clear: both"></div>
-					<div class="groupForm" id="menarquia">
+					<div class="groupForm">
 						<label for="menarquia">Menarquía:</label>
-						<input type="text" id="menarquia" placeholder="Ingrese menarquía" name="menarquia">
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="menarquia" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="menarquia" class="No">
+						</div>
 					</div>
 					
-					<div class="groupForm" id="vidSexAct">
+					<div class="groupForm">
 						<label for="vidSexAct">Vida sexual activa:</label>
-						<input type="text" id="vidSexAct"  placeholder="Ingrese vida sexual activa" name="vidSexAct">
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="vidSexAct" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="vidSexAct" class="No">
+						</div>
 					</div>
 					
-					<div class="groupForm" id="aborto">
+					<div class="groupForm">
 						<label for="aborto">Aborto:</label>
-						<input type="text" id="aborto"  placeholder="Ingrese cantidad de abortos" name="aborto">
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="aborto" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="aborto" class="No">
+						</div>
 					</div>
-					<div class="groupForm" id="cesarea">
-						<label for="cesarea" >Cesarea:</label>
-						<input type="text" id="cesarea"  placeholder="Ingrese cantidad de cesarea" name="cesarea">
+					<div class="groupForm">
+						<label for="cesarea">Cesarea:</label>
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="cesarea" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="cesarea" class="No">
+						</div>
 					</div>
-					<div class="groupForm" id="legradoUt">
+					<div class="groupForm">
 						<label for="legradoUt">Legrado uterino:</label>
-						<input type="text" id="legradoUt"  placeholder="Ingrese legrado uterino" name="legradoUt">
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="legradoUt" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="legradoUt" class="No">
+						</div>
 					</div>
-					<div class="groupForm" id="pruebaEmb">
+					<div class="groupForm">
 						<label for="pruebaEmb">Prueba embarazo:</label>
-						<select id="pruebaEmb" name="pruebaEmb">
-							<option selected value="seleccione">Seleccione...</option>
-							<option value="positiva">Positiva</option>
-							<option value="negativa">Negativa</option>
-						</select>
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="pruebaEmb" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="pruebaEmb" class="No">
+						</div>
 					</div>
-					<div class="groupForm" id="citologia">
+					<div class="groupForm">
 						<label for="citologia">Citología:</label>
-						<input type="text" id="citologia" placeholder="Ingrese cotilogía" name="citologia">
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="citologia" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="citologia" class="No">
+						</div>
 					</div>
 					
-					<div class="groupForm" id="tipoAnticoncep">
+					<div class="groupForm">
 						<label for="tipoAnticoncep">Tipo anticonceptivo:</label>
-						<input type="text" id="tipoAnticoncep" placeholder="Ingrese tipo de anticonceptivo" name="tipoAnticoncep">
+						
+						<div style="clear: both"></div>
+						<div class="groupLabel">
+							<label for="Si">Si</label>
+							<input type="radio" name="tipoAnticoncep" class="Si">
+						</div>
+						<div class="groupLabel">
+							<label for="No">No</label>
+							<input type="radio" name="tipoAnticoncep" class="No">
+						</div>
 					</div>
 					<div style="clear:both;"></div>
 					<button class="btn btn-success" type="submit">Guardar</button>
@@ -1031,15 +1083,6 @@
 			<!-- <div class="actions">
 				<button>Iniciar consulta</button>
 			</div> -->
-			<form style="margin-bottom: 2%;" id="buscarExpPorCurp">
-				<div class="groupForm buscarExpCurp">
-					<label for="buscarExpCurp">Ingrese CURP:</label>
-					<input placeholder="Ingrese curp para buscar expediente" required type="text" id="buscarExpCurp" name="buscarExpCurp">
-				</div>
-				<div class="groupForm buscarExpCurp">
-					<button id="buscarEXP" style="margin-top: 45px; width: 50%;" type="button" class="btn btn-primary">Buscar</button>
-				</div>
-			</form>
 			<div style="clear: both;"></div>
 			<div class="progressConsulta">
 				<div class="progressGroup">
@@ -1064,30 +1107,6 @@
 					<div class="circle3"></div><p>Diagnóstico</p>
 				</div>
 			</div>
-			<div class="consultaViewer resultExpCurp">
-				<table style="margin-top: 3%;" class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">ID del expediente</th>
-							<th scope="col">Nombre del paciente</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Larry the Bird</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 			<div class="consultaViewer sigVit">
 				<div class="viewerTitle">
 					<p>Signos vitales</p>
@@ -1096,16 +1115,15 @@
 					<form id="sigVit" action="">
 						<div class="groupForm">
 							<label for="talla">Talla:</label>
-							<input placeholder="Ingrese talla en cm" required type="number" min="40" max="220" id="talla" name="talla">
+							<input placeholder="Ingrese talla" required type="text" id="talla" name="talla">
 						</div>
 						<div class="groupForm">
 							<label for="ta">TA:</label>
-							<input placeholder="80" required type="number" min="0" max="200" id="ta1" name="ta"> / 
-							<input placeholder="80" required type="number" min="0" max="200" id="ta2" name="ta">
+							<input placeholder="Ingrese TA" required type="text" id="ta" name="ta">
 						</div>
 						<div class="groupForm">
 							<label for="peso">Peso:</label>
-							<input placeholder="Ingrese peso" required type="number" min="2" max="220" id="peso" name="peso">
+							<input placeholder="Ingrese peso" required type="text" id="peso" name="peso">
 						</div>
 						<div class="groupForm">
 							<label for="temperatura">Temperatura:</label>
@@ -1113,12 +1131,11 @@
 						</div>
 						<div class="groupForm">
 							<label for="imc">IMC:</label>
-							<!-- Talla^2/Peso -->
-							<input  placeholder="Ingrese IMC" required type="number" step="any" id="imc" name="imc">
+							<input  placeholder="Ingrese IMC" required type="text" id="talla" name="talla">
 						</div>
 						<div class="groupForm">
 							<label for="pulso">Pulso:</label>
-							<input placeholder="Ingrese pulso" required type="number" min="50" max="100" id="pulso" name="pulso">
+							<input placeholder="Ingrese pulso" required type="text" id="pulso" name="pulso">
 						</div>
 						<button class="btn btn-success" data-toggle="modal" data-target=".continuar" type="button">Continuar</button>
 						<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar" type="reset">Cancelar</button>
@@ -1198,11 +1215,10 @@
 						<div class="groupForm">
 							<label for="obesidad">Nivel de obesidad:</label>
 							<select id="obesidad" name="obesidad">
-								<option selected value="seleccione">Seleccione...</option>
-								<option value="obesidad">Obesidad</option>
-								<option value="sobrepeso">Sobrepeso</option>
-								<option value="normal">Normal</option>
-								<option value="bajoPeso">Bajo de peso</option>
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="fiat">Fiat</option>
+								<option value="audi">Audi</option>
 							</select>
 						</div>
 						<div class="groupForm">
@@ -1279,12 +1295,10 @@
 						<div class="groupForm">
 							<label for="programMotivo">Programa según motivo:</label>
 							<select id="programMotivo" name="programMotivo">
-								<option value="seleccione">Seleccione...</option>
-								<option value="enfermedadesTransmisibles">Enfermedades transmisibles</option>
-								<option value="cronicoDegenerativas">Crónico degenerativas</option>
-								<option value="otrasEnfermedades">Otras enfermedades</option>
-								<option value="aSanos">A sanos</option>
-								<option value="planificacionFamiliar">Planificación familiar</option>
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="fiat">Fiat</option>
+								<option value="audi">Audi</option>
 							</select>
 						</div>
 						<div class="groupForm">

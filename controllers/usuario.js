@@ -72,7 +72,16 @@ function modificar(req,res)
 }
 function eliminar(req,res)
 {
-    
+    let userId = req.params.userId
+
+    Product.findById(userId, (err, user) => {
+    if (err) res.send({message: `Error al borrar el Usuario: ${err}`})
+
+    product.remove(err => {
+      if (err) res.send({message: `Error al borrar el Usuario: ${err}`})
+      res.send({message: 'El Usuario ha sido eliminado'});
+    })
+  })
 }
 function guardar(info){
     Permiso.findOne({"tipo":info.TipoUsuario},(err,permiso)=>{

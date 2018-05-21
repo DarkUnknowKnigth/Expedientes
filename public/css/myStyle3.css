@@ -291,10 +291,6 @@ header p{
 	height: 280px;
 	resize: none;
 }
-#ta1,#ta2{
-	display: inline-block;
-	width: 70px;
-}
 
 /*end estilos a clases*/
 
@@ -462,9 +458,7 @@ header p{
 	-webkit-text-stroke: #383C41;
 	-webkit-text-stroke-width: 3px; 
 }
-.resultExpCurp{
-	display: none;
-}
+
 .sigVit{
 	display: none;
 }

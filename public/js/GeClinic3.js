@@ -6,7 +6,6 @@ $(document).ready(function(){
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
-	insertarEstadoCivil(estadosCiviles);
 	$("#failUser").css("display","none");
 });
 
@@ -149,26 +148,11 @@ $(".modifUser .edit").click(function(){
 });
 
 /*end eventos de modificación de usuario*/
-$("#buscarEXP").click(function(){
-	if ($("#buscarExpCurp").val() != "") {
-		$(".resultExpCurp").css("display","block");
-	}
-	else{
-		alert("Usted no ha ingresado un expediente");
-	}
-	
-});
+
 $(".actions button").click(function(){
-	if ($(".resultExpCurp").css("display") == "block") {
-		$("#buscarExpPorCurp").css("display","none");
-		$(".resultExpCurp").css("display","none");
-		$(this).css("opacity","0");
+	$(this).css("opacity","0");
 	$(".sigVit").css("display","block");
 	$(".circle1").css("background-color","#88d392");
-	}
-	else{
-		alert("Debe buscar la CURP del paciente");
-	}
 	
 });
 $(".modal.cancelar .modal-footer .btn-danger").click(function(){
@@ -243,7 +227,6 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 		alert("¡Registro de consulta exitosa!");
 		$(".circle1,.circle2,.circle3").css("background-color","transparent");
 		$(".consultaViewer form")[0].reset();
-		$("#buscarExpPorCurp").css("display","block");
 	}
 	else{
 		alert("Falta rellenar algunos campos");
@@ -281,22 +264,6 @@ var enfermedades = [
 						{nombre:"ITS", value: "its"},
 						{nombre:"Sífilis", value: "sifilis"}
 					];
-
-					var estadosCiviles = [
-		{nombre:"Soltero(a)", value: "soltero"},
-		{nombre:"Casado(a)", value: "casado"},
-		{nombre:"Madre (p) soltero", value: "MPSoltero"},
-		{nombre:"Viudo(a)", value: "viuda"},
-		{nombre:"Divorciado(a)", value: "divorciado"},
-		{nombre:"Unión libre", value: "unionLibre"},
-		{nombre:"Separado", value: "separado"}
-];
-
-function insertarEstadoCivil(arrayEstadoCivil){
-	arrayEstadoCivil.forEach(element =>{
-		$("#formFichIde #estadoCivil").append("<option value='"+element.value+"'>"+element.nombre+"</option>");
-	});
-}
 
 function insertarEnfermedades(arrayEnfer){
 	arrayEnfer.forEach(element => {
@@ -368,26 +335,3 @@ $(".delete").click((event)=>{
 	var nombre = $(".delete").parent().child().child().text();
 	$("#usuElim").text(nombre);
 });
-
-$("#talla").keyup(function(){
-	let talla = $("#talla").val();
-	let peso = $("#peso").val();
-	asignarIMC(talla,peso);
-});
-
-
-$("#peso").keyup(function(){
-	let talla = $("#talla").val();
-	let peso = $("#peso").val();
-	asignarIMC(talla,peso);
-});
-
-function asignarIMC(talla,peso){
-	// $("#imc").val(talla*peso);
-	let tb = talla/100;
-	if (talla > 0 && peso > 0) {
-		let imc = peso/(tb*tb);
-		$("#imc").val(imc);
-	}
-	
-}

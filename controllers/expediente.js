@@ -1,4 +1,4 @@
-
+'use strict'
 var Expediente=require("../models/expediente");
 function modificar(req,res)
 {
@@ -9,11 +9,10 @@ function eliminar(req,res)
     
 }
 function guardar(req,res){
-
+    expediente= new Expediente();
     newExp=req.body;
     console.log("recibi");
     console.log(newExp);
-    expediente= new Exp();
     for (let i = 0; i < expediente.AntecedentesHF.length; i++) {
         
         expediente.AntecedentesHF[i].parentesco=newExp.AntecedentesHF[i].parentesco;

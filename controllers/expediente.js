@@ -18,7 +18,7 @@ function guardar(req,res){
         AntecedentesG:newExp.AntecedentesG
     });
     console.log("recibi");
-    console.log(newExp);
+    console.log(expediente);
     // for (let i = 0; i < expediente.AntecedentesHF.length; i++) {
         
     //     expediente.AntecedentesHF[i].parentesco=newExp.AntecedentesHF[i].parentesco;

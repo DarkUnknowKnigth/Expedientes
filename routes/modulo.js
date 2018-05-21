@@ -64,6 +64,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
+                        usuarios:"",
                         localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                     });
                     console.log("fine");

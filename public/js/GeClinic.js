@@ -353,6 +353,10 @@ $("#guardarUsuario").click((e)=>{
 		}
 	}).done((r)=>{
 		console.log(r);
+		if(r.usl)
+		{
+			window.location.href=r.url;
+		}
 		$("#failUser").css("display","block");
 		$("#failUser").html("<p>"+r+"</p>");
 	}).fail((r)=>{

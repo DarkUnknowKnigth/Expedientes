@@ -1,5 +1,5 @@
 
-Exp=require("../models/expediente");
+var Exp=require("../models/expediente");
 function modificar(req,res)
 {
 
@@ -11,7 +11,12 @@ function eliminar(req,res)
 function guardar(req,res){
     newExp=req.body;
     expediente= new Exp();
-    expediente=newExp;
+    expediente.AntecedentesHF=newExp.AntecedentesHF;
+    expediente.FichaId=newExp.FichaId;
+    expediente.APNP=newExp.APNP;
+    expediente.Inmunizaciones=newExp.Inmunizaciones;
+    expediente.APP=newExp.APP;
+    expediente.AntecedentesG=newExp.AntecedentesG;
     expediente.save((err,StoredExp)=>{
         if(err){
             res.status(500).send("Error en almacenamiento");

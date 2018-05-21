@@ -77,7 +77,7 @@ var ExpedienteSchema= Schema({
         tipoAnt:{type:String,required: false}
 
     },
-    Consulta:{type:Schema.ObjectId,ref:'Consulta'}
+    //Consulta:{type:Schema.ObjectId,ref:'Consulta'}
 
 });
 module.exports=mongoose.model('Expediente',ExpedienteSchema);

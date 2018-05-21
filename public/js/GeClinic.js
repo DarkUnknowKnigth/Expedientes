@@ -438,7 +438,6 @@ $("#formAPNP button").click(function(){
 		"promiscuidad": $("#promiscuidad input:radio[name=promiscuidad]:checked").val(),
 		"tabaco": $("#tabaco input:radio[name=tabaco]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"alcohol": $("#alcohol input:radio[name=alcohol]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"direccion": $("#direccion input:radio[name=direccion]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"fauna": $("#fauna input:radio[name=fauna]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"hacinamiento": $("#hacinamiento input:radio[name=hacinamiento]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"dieta": $("#dieta input:radio[name=dieta]:checked").val(),
@@ -520,4 +519,41 @@ $("#formAntecGine button").click(function(){
 		console.log(e);
 	});
 	console.log(Expediente);
+});
+var sigVit;
+var formatConsulta;
+var formatDiagnostico;
+$(".modal.continuar .modal-footer .btn-success").click(function(){
+	sigVit =
+	{
+		"talla": $("#talla").val(),
+		"ta": $("#ta").val(),
+		"peso": $("#peso").val(),
+		"temperatura": $("#temperatura").val(),
+		"imc": $("#imc").val(),
+		"pulso": $("#pulso").val()
+	};
+	console.log(formAntecGine);
+});
+
+$(".modal.continuar2 .modal-footer .btn-success").click(function(){
+	formatConsulta =
+	{
+		"deteccion": $("#deteccion").val(),
+		"primeravez": $("#primAnio").val(),
+		"sitomasTB": $(".formatConsulta #tb").val(),
+		"nivelObesidad": $("#obesidad").val(),
+		"saludReprod": $("#saludRepro").val()
+	};
+	console.log(formatConsulta);
+});
+
+$(".modal.continuar3 .modal-footer .btn-success").click(function(){
+	formatDiagnostico =
+	{
+		"diagnostico": $("#diagnostico").val(),
+		"programa": $("#programMotivo").val(),
+		"fecha": $(".fechaDiagnostico").val()
+	};
+	console.log(formatDiagnostico);
 });

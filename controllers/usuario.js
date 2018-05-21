@@ -119,9 +119,9 @@ function buscar(req,res){
     console.log(req.body);
     var valor=req.body.valor;
     var tb="";
-    if(!/[a-zA-Z0-9]/.test(valor))
+    if(/[a-zA-Z0-9]/.test(valor))
     {
-        Usuario.find({$regex:'.*'+valor+'.*'}).populate('permiso').exec((err,usuario)=>{
+        Usuario.find({$regex:'.*'+valor+'.*'}).populate('permiso').limit(1).exec((err,usuario)=>{
             if(err)
             {
                 console.log(err);

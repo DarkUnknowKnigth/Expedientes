@@ -140,7 +140,8 @@ $(".modifExp .edit").click(function(){
 
 /*Eventos de modificación de usuario*/
 
-$(".modifUser .edit").click(function(){
+$(".modifUser .edit").click(function(e){
+	let url=
 	$(".modifUser").css("display","none");
 	$(".createUser").css("display","block");
     texto = $(".createUser p").text();
@@ -396,3 +397,110 @@ function asignarIMC(talla,peso){
 	}
 	
 }
+var formAntec = [];
+var formFichIde = [];
+var formAPNP = [];
+var formInmu = [];
+var formAntecGine = [];
+
+$("#agregar").click(function(){
+	formAntec.push(
+	{
+		"parentesco": $("#parentesco").val(),
+		"HA": $("#Ha input:radio[name=Ha]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"cancer": $("#cancer input:radio[name=cancer]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"sida": $("#sida input:radio[name=sida]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"diabetes": $("#diabetes input:radio[name=diabetes]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"otro": $("#otros").val()
+	});
+	console.log(formAntec);
+});
+
+$("#formFichIde button").click(function(){
+	formFichIde.push(
+	{
+		"nombre": $("#idNombrePaciente").val(),
+		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
+		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
+		"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
+		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
+		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
+		"ocupacion": $("#sinOcupacion").val()
+	});
+	console.log(formFichIde);
+});
+
+$("#formAPNP button").click(function(){
+	formAPNP.push(
+	{
+		"promiscuidad": $("#promiscuidad input:radio[name=promiscuidad]:checked").val(),
+		"tabaco": $("#tabaco input:radio[name=tabaco]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"alcohol": $("#alcohol input:radio[name=alcohol]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"direccion": $("#direccion input:radio[name=direccion]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"Fauna": $("#fauna input:radio[name=fauna]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"hacinamiento": $("#hacinamiento input:radio[name=hacinamiento]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"dieta": $("#dieta input:radio[name=dieta]:checked").val(),
+		"vivienda": $("#vivienda").val()
+		
+	});
+	console.log(formAPNP);
+});
+
+$("#formInmu button").click(function(){
+	formInmu.push(
+	{
+		"sabin": $("#sabin input:radio[name=sabin]:checked").val(),
+		"bcg": $("#bcg input:radio[name=bcg]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"dpt": $("#dpt input:radio[name=dpt]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+		"antisarampion": $("#antisarampion input:radio[name=antisarampion]:checked").val()//este solo es uno debes verificar cual esta avtivo
+		
+	});
+	console.log(formInmu);
+});
+
+$("#formAPP button").click(function(){
+	formAPP.push(
+	{
+		"sonrie": $("#sonrie input:radio[name=sonrie]:checked").val(),
+		"ingresoHos": $("#ingresoHospital input:radio[name=ingresoHospital]:checked").val(),
+		"sostieneCab": $("#sostieneCabeza input:radio[name=sostieneCabeza]:checked").val(),
+		"sienta": $("#seSienta input:radio[name=seSienta]:checked").val(),
+		"gatea": $("#gatea input:radio[name=gatea]:checked").val(),
+		"habla": $("#habla input:radio[name=habla]:checked").val(),
+		"traumatismo": $("#traumatismos input:radio[name=traumatismos]:checked").val(),
+		"sarampion": $("#sarampion input:radio[name=sarampion]:checked").val(),
+		"rubeola": $("#rubeola input:radio[name=rubeola]:checked").val(),
+		"tosferina": $("#tosferina input:radio[name=tosferina]:checked").val(),
+		"varicela": $("#varicela input:radio[name=varicela]:checked").val(),
+		"escarlatina": $("#escarlatina input:radio[name=escarlatina]:checked").val(),
+		"amigdalitis": $("#amigdalitis input:radio[name=amigdalitis]:checked").val(),
+		"parasitosis": $("#parasitoIntestinal input:radio[name=parasitoIntestinal]:checked").val(),
+		"convulsiones": $("#convulsiones input:radio[name=convulsiones]:checked").val(),
+		"urosepsis": $("#urosepsis input:radio[name=urosepsis]:checked").val(),
+		"cirugia": $("#cirugia input:radio[name=cirugia]:checked").val()
+		
+	});
+	console.log(formAPP);
+});
+
+$("#formAntecGine button").click(function(){
+	formAntecGine.push(
+	{
+		"ultimaMenst": $("#ultMens").val(),
+		"fechaAnti": $("#fechaAnticonceptivo input:radio[name=ingresoHospital]:checked").val(),
+		"gesta": $("#gesta").val(),
+		"ritmo": $("#ritmo").val(),
+		"magnitudSang": $("#magSang").val(),
+		"menarquia": $("#menarquia").val(),
+		"aborto": $("#aborto").val(),
+		"cesarea": $("#cesarea").val(),
+		"vidaSex": $("#vidSexAct").val(),
+		"legradoUt": $("#legradoUt").val(),
+		"pruebaEnb": $("#pruebaEmb").val(),
+		"citologia": $("#citologia").val(),
+		"tipoAnt": $("#tipoAnticoncep").val()
+		
+	});
+	console.log(formAntecGine);
+});

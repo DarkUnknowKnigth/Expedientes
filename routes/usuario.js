@@ -13,7 +13,7 @@ const usuario=express.Router();
 //     res.status(200).render("../views/partials/eliminarUsuario.ejs");
 // });
 usuario.post('/nuevoUsuario',controladorUsuario.validar);
-usuario.put('/modificaUsuario',controladorUsuario.modificar);
+usuario.put('/modificaUsuario/:id',controladorUsuario.modificar);
 usuario.delete('/eliminarUsuario/:id',controladorUsuario.eliminar);
 usuario.post('/buscarUsuario',controladorUsuario.buscar);
 module.exports=usuario;

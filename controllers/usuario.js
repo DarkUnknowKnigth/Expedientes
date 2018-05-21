@@ -66,8 +66,14 @@ function validar(req,res)
 }
 function modificar(req,res)
 {
-    var params= req.body;
-
+    let id = req.params.id
+    let update = req.body
+  
+    Usuario.findByIdAndUpdate(id, update, (err, user) => {
+      if (err) res.status(500).send({message: `Error al actualizar el producto: ${err}`})
+  
+      res.status(200).send({ product: user })
+    })
 }
 function eliminar(req,res)
 {

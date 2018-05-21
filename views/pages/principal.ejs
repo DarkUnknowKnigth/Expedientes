@@ -506,7 +506,7 @@
 						<h5>Antecedentes Perinatales</h5>
 					</div>
 					<div style="clear: both"></div>
-					<div class="groupForm">
+					<div class="groupForm" id="ingresoHospital">
 						<label for="ingresoHospital">Ingreso a hospital:</label>
 						<div style="clear: both"></div>
 						<div class="groupLabel">
@@ -520,7 +520,7 @@
 					</div>
 					<div class="groupForm" id="sonrie">
 						<label for="sonrie">Sonríe:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -531,10 +531,10 @@
 							<input type="radio" name="sonrie" class="No" value="No">
 						</div>
 					</div>
-
+				
 					<div class="groupForm" id="sostieneCabeza">
 						<label for="sostieneCabeza">Sostiene su cabeza:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -547,7 +547,7 @@
 					</div>
 					<div class="groupForm" id="seSienta">
 						<label for="seSienta">Se sienta:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -560,7 +560,7 @@
 					</div>
 					<div class="groupForm" id="gatea">
 						<label for="gatea">Gatea:</label>
-
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -573,7 +573,7 @@
 					</div>
 					<div class="groupForm" id="habla">
 						<label for="habla">Habla:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -589,7 +589,7 @@
 						<h5>Enfermedades y alergias</h5>
 					</div>
 					<div style="clear: both"></div>
-					<div class="groupForm" >
+					<div class="groupForm" id="traumatismos">
 						<label for="traumatismos">Traumatismos:</label>
 						<div style="clear: both"></div>
 						<div class="groupLabel">
@@ -603,7 +603,7 @@
 					</div>
 					<div class="groupForm" id="sarampion">
 						<label for="sarampion">Sarampión:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -616,7 +616,7 @@
 					</div>
 					<div class="groupForm" id="rubeola">
 						<label for="rubeola">Rubeola:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -629,7 +629,7 @@
 					</div>
 					<div class="groupForm" id="tosferina">
 						<label for="tosferina">Tosferina:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -642,7 +642,7 @@
 					</div>
 					<div class="groupForm" id="varicela">
 						<label for="varicela">Varicela:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -655,7 +655,7 @@
 					</div>
 					<div class="groupForm" id="escarlatina">
 						<label for="escarlatina">Escarlatina:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -668,7 +668,7 @@
 					</div>
 					<div class="groupForm" id="amigdalitis">
 						<label for="amigdalitis">Amigdalitis:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -680,8 +680,8 @@
 						</div>
 					</div>
 					<div class="groupForm" id="parasitoIntestinal">
-						<label for="parasitoIntestinal">Parasitosis intestinal:</label>
-						
+						<label for="parasitoIntestinal">Parásito intestinal:</label>
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -694,7 +694,7 @@
 					</div>
 					<div class="groupForm" id="convulsiones">
 						<label for="convulsiones">Convulsiones:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -707,7 +707,7 @@
 					</div>
 					<div class="groupForm" id="urosepsis">
 						<label for="urosepsis">Urosepsis:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -718,10 +718,10 @@
 							<input type="radio" name="urosepsis" class="No" value="No">
 						</div>
 					</div>
-					
+				
 					<div class="groupForm" id="cirugia">
 						<label for="cirugia">Cirugía:</label>
-						
+				
 						<div style="clear: both"></div>
 						<div class="groupLabel">
 							<label for="Si">Si</label>
@@ -977,7 +977,7 @@
 									<td><%= usuario.TipoUsuario %></td>
 									<td><%= usuario.activo %></td>
 									<td>
-										<button class="edit" value= <%=usuario.id %> >
+										<button class="edit" name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> >
 											<i class="fas fa-edit"></i>
 										</button>
 								

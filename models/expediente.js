@@ -1,4 +1,5 @@
 var mongoose=require("mongoose");
+var Consulta=require("../models/consulta");
 var Schema=mongoose.Schema;
 var ExpedinteSchema= Schema({
     AntecedentesHF:[
@@ -33,7 +34,7 @@ var ExpedinteSchema= Schema({
     },
     Inmunizaciones:{
         sabin:{type:Boolean,required: true},
-        bgg:{type:Boolean,required: true},
+        bcg:{type:Boolean,required: true},
         dpt:{type:Boolean,required: true},
         antisarampion:{type:Boolean,required: true}
     }
@@ -74,7 +75,8 @@ var ExpedinteSchema= Schema({
         citologia:{type:String,required: false},
         tipoAnt:{type:String,required: false}
 
-    }
+    },
+    Consulta:{type:Schema.ObjectId,ref:'Consulta',required:true}
 
 });
 module.exports=mongoose.model('Expediente',ExpedienteSchema);

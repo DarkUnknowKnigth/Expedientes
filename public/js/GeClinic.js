@@ -504,12 +504,12 @@ $("#formAntecGine button").click(function(){
 	};
 	var Expediente=
 	{
-		AntecedentesHF :formAntec ,
-		FichaId:formFichIde,
-		APNP:formAPNP,
-		Inmunizaciones:formInmu,
-		APP:formAPP,
-		AntecedentesG:formAntecGine
+		'AntecedentesHF' :formAntec ,
+		'FichaId':formFichIde,
+		'APNP':formAPNP,
+		'Inmunizaciones':formInmu,
+		'APP':formAPP,
+		'AntecedentesG':formAntecGine
 	};
 	$.ajax({
 		type: "POST",

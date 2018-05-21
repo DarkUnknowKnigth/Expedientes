@@ -519,5 +519,5 @@ $("#formAntecGine button").click(function(){
 	}).done((e)=>{
 		console.log(e);
 	});
-	console.log(formAntecGine);
+	console.log(Expediente);
 });

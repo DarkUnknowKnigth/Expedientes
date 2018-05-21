@@ -18,10 +18,10 @@ function validar(req,res)
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {  
                     console.log("ingresando: "+params.usuario);
-                    Usuario.find({"usuario":params.usuario}).exec((err,user)=>{
+                    Usuario.findOne({"usuario":params.usuario}).exec((err,user)=>{
                         if(err)
                         {
-                            report="Error";
+                            report="Error en la busqueda";
                             res.send(report);
                         }
                         else

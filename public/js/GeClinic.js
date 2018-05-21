@@ -404,7 +404,7 @@ var formInmu;
 var formAntecGine;
 
 $("#agregar").click(function(){
-	formAntec =
+	formAntec.push(
 	{
 		"parentesco": $("#parentesco").val(),
 		"HA": $("#Ha input:radio[name=Ha]:checked").val(),//este solo es uno debes verificar cual esta avtivo
@@ -413,7 +413,7 @@ $("#agregar").click(function(){
 		"diabetes": $("#diabetes input:radio[name=diabetes]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"otro": $("#otros").val()
-	};
+	});
 	console.log(formAntec);
 });
 

@@ -11,6 +11,7 @@ function eliminar(req,res)
 function guardar(req,res){
 
     newExp=req.body;
+    console.log("recibi");
     console.log(newExp);
     expediente= new Exp();
     expediente.AntecedentesHF=newExp.AntecedentesHF;
@@ -19,6 +20,7 @@ function guardar(req,res){
     expediente.Inmunizaciones=newExp.Inmunizaciones;
     expediente.APP=newExp.APP;
     expediente.AntecedentesG=newExp.AntecedentesG;
+    console.log("expedinete");
     console.log(expediente);
     expediente.save((err,StoredExp)=>{
         if(err){
@@ -27,6 +29,7 @@ function guardar(req,res){
         else{
             if(StoredExp)
             {
+                console.log("pude");
                 console.log(StoredExp);
                 res.status(200).send("Guardado exitosamente");
             }

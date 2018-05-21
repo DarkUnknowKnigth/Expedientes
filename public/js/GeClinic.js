@@ -271,7 +271,7 @@ function insertarEnfermedades(arrayEnfer){
 	});
 }
 $("#RefreshUser").click((e)=>{
-	$("#result").append(RefreshUser);
+	$("#result").append(localResource);
 });
 $("#buscadorUser").keyup((e)=>{
 	if(/[A-Za-z]/.test($("#buscadorUser").val()))

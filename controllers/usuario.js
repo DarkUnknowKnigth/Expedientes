@@ -72,28 +72,41 @@ function modificar(req,res)
 }
 function eliminar(req,res)
 {
-    let userId = req.params.userId
-    Product.findById(userId, (err, user) => {
-    if (err) res.send(
-        '<div class="alert alert-danger alert-dismissible fade in" role="alert">'+
-           ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+    let id = req.params.id  
+    Product.findById(id, (err, user) => {
+        if (err)
+        { 
+            res.send(
+                '<div class="alert alert-danger alert-dismissible fade in" role="alert">'+
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
                 '<span aria-hidden="true">&times;</span>'+
                 '<span class="sr-only">Close</span>'+
-            '</button>'+
-           ' <strong>Error al borrar el Usuario</strong>'+
-        '</div>');
-
-    product.remove(err => {
-      if (err) res.send({message: `Error al borrar el Usuario: ${err}`})
-      res.send('<div class="alert alert-success alert-dismissible fade in" role="alert">'+
-      ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-           '<span aria-hidden="true">&times;</span>'+
-           '<span class="sr-only">Close</span>'+
-       '</button>'+
-      ' <strong>El Usuario se elimino correctamente</strong>'+
-   '</div>');
-    })
-  })
+                '</button>'+
+                '<strong>Error al borrar el Usuario</strong>'+
+                '</div>');
+        }
+        user.remove(err => {
+            if (err)
+            { 
+                res.send(
+                    '<div class="alert alert-danger alert-dismissible fade in" role="alert">'+
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+                    '<span aria-hidden="true">&times;</span>'+
+                    '<span class="sr-only">Close</span>'+
+                    '</button>'+
+                    ' <strong>Error al borrar el Usuario</strong>'+
+                    '</div>');
+            }
+            res.send(
+                '<div class="alert alert-success alert-dismissible fade in" role="alert">'+
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+                '<span aria-hidden="true">&times;</span>'+
+                '<span class="sr-only">Close</span>'+
+                '</button>'+
+                ' <strong>El Usuario se elimino correctamente</strong>'+
+                '</div>');
+        });
+  });
 }
 function guardar(info){
     Permiso.findOne({"tipo":info.TipoUsuario},(err,permiso)=>{

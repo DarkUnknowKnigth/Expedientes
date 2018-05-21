@@ -26,7 +26,7 @@ function validar(req,res)
                         }
                         else
                         {
-                            if(user.nombre==params.usuario)
+                            if(user)
                             {
                                 report="En nombre de usuario: "+user.usuario+"\nya existe.";
                                 res.send(report)

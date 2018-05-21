@@ -353,7 +353,7 @@ $("#guardarUsuario").click((e)=>{
 		}
 	}).done((r)=>{
 		console.log(r);
-		if(r.usl)
+		if(r.url)
 		{
 			window.location.href=r.url;
 		}

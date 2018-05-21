@@ -363,6 +363,7 @@ $("#guardarUsuario").click((e)=>{
 });
 
 $(".delete").click((e)=>{
+	console.log(e);
 	$.ajax({
 		type: "delete",
 		url: this.attr("name"),

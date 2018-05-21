@@ -17,6 +17,7 @@ function validar(req,res)
             {
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {  
+                    console.log("ingresando: "+params.usuario);
                     Usuario.find({"usuario":params.usuario}).exec((err,user)=>{
                         if(err)
                         {
@@ -25,7 +26,7 @@ function validar(req,res)
                         }
                         else
                         {
-                            if(user)
+                            if(user.nombre==params.usuario)
                             {
                                 report="En nombre de usuario: "+user.usuario+"\nya existe.";
                                 res.send(report)

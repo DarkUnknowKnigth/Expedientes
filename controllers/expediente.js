@@ -11,11 +11,11 @@ function eliminar(req,res)
 function guardar(req,res){
     var newExp=req.body;
     var expediente= new Expediente({
-        FichaId=newExp.FichaId,
-        APNP=newExp.APNP,
-        Inmunizaciones=newExp.Inmunizaciones,
-        APP=newExp.APP,
-        AntecedentesG=newExp.AntecedentesG
+        FichaId:newExp.FichaId,
+        APNP:newExp.APNP,
+        Inmunizaciones:newExp.Inmunizaciones,
+        APP:newExp.APP,
+        AntecedentesG:newExp.AntecedentesG
     });
     console.log("recibi");
     console.log(newExp);

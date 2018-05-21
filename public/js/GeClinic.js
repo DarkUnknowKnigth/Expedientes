@@ -398,13 +398,13 @@ function asignarIMC(talla,peso){
 	
 }
 var formAntec = [];
-var formFichIde = [];
-var formAPNP = [];
-var formInmu = [];
-var formAntecGine = [];
+var formFichIde;
+var formAPNP;
+var formInmu;
+var formAntecGine;
 
 $("#agregar").click(function(){
-	formAntec.push(
+	formAntec =
 	{
 		"parentesco": $("#parentesco").val(),
 		"HA": $("#Ha input:radio[name=Ha]:checked").val(),//este solo es uno debes verificar cual esta avtivo
@@ -413,12 +413,12 @@ $("#agregar").click(function(){
 		"diabetes": $("#diabetes input:radio[name=diabetes]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"otro": $("#otros").val()
-	});
+	};
 	console.log(formAntec);
 });
 
 $("#formFichIde button").click(function(){
-	formFichIde.push(
+	formFichIde=
 	{
 		"nombre": $("#idNombrePaciente").val(),
 		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
@@ -427,12 +427,12 @@ $("#formFichIde button").click(function(){
 		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
 		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
 		"ocupacion": $("#sinOcupacion").val()
-	});
+	};
 	console.log(formFichIde);
 });
 
 $("#formAPNP button").click(function(){
-	formAPNP.push(
+	formAPNP=
 	{
 		"promiscuidad": $("#promiscuidad input:radio[name=promiscuidad]:checked").val(),
 		"tabaco": $("#tabaco input:radio[name=tabaco]:checked").val(),//este solo es uno debes verificar cual esta avtivo
@@ -443,24 +443,24 @@ $("#formAPNP button").click(function(){
 		"dieta": $("#dieta input:radio[name=dieta]:checked").val(),
 		"vivienda": $("#vivienda").val()
 		
-	});
+	};
 	console.log(formAPNP);
 });
 
 $("#formInmu button").click(function(){
-	formInmu.push(
+	formInmu=
 	{
 		"sabin": $("#sabin input:radio[name=sabin]:checked").val(),
 		"bcg": $("#bcg input:radio[name=bcg]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"dpt": $("#dpt input:radio[name=dpt]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"antisarampion": $("#antisarampion input:radio[name=antisarampion]:checked").val()//este solo es uno debes verificar cual esta avtivo
 		
-	});
+	};
 	console.log(formInmu);
 });
 
 $("#formAPP button").click(function(){
-	formAPP.push(
+	formAPP=
 	{
 		"sonrie": $("#sonrie input:radio[name=sonrie]:checked").val(),
 		"ingresoHos": $("#ingresoHospital input:radio[name=ingresoHospital]:checked").val(),
@@ -480,12 +480,12 @@ $("#formAPP button").click(function(){
 		"urosepsis": $("#urosepsis input:radio[name=urosepsis]:checked").val(),
 		"cirugia": $("#cirugia input:radio[name=cirugia]:checked").val()
 		
-	});
+	};
 	console.log(formAPP);
 });
 
 $("#formAntecGine button").click(function(){
-	formAntecGine.push(
+	formAntecGine=
 	{
 		"ultimaMenst": $("#ultMens").val(),
 		"fechaAnti": $("#fechaAnticonceptivo input:radio[name=ingresoHospital]:checked").val(),
@@ -501,6 +501,6 @@ $("#formAntecGine button").click(function(){
 		"citologia": $("#citologia").val(),
 		"tipoAnt": $("#tipoAnticoncep").val()
 		
-	});
+	};
 	console.log(formAntecGine);
 });

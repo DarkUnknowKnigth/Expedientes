@@ -1,9 +1,25 @@
 var mongoose=require("mongoose");
 var Schema=mongoose.Schema;
 var ConsultaSchema= Schema({
-    PrimeraVezAnio:String,
-    IMC_10_19a:String,
-    SintRespTB:Boolean
+    signosVitales:{
+        Talla:String,
+        Peso:String,
+        IMC:String,
+        Pulso:String,
+        TA:String,
+        Temp:String
+    },
+    formatoConsulta:{
+        deteccion:String,
+        primeravez:Boolean,
+        sitomasTB:Boolean,
+        nivelObesidad:String,
+        saludReprod:String
+    },
+    diagnostico:{
+        diagnostico:String,
+        programa:String,
+        fecha:Date
+    }
     });
-
     module.exports=mongoose.model('Consulta',ConsultaSchema);

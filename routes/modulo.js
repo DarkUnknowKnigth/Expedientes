@@ -31,7 +31,6 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     {
                         //variables para la vista --->principal.ejs
                         //nombre
-                        data:usuario,
                         user:usuario.nombre+" "+usuario.apPaterno+" "+usuario.apMaterno,
                         //permisos de acceso
                         permiso:{
@@ -99,7 +98,6 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                         res.render("../views/pages/principal.ejs",
                                         {
                                             //permisos de acceso
-                                            data:admin,
                                             user:admin.usuario,
                                             permiso:{
                                                 expediente:true,

@@ -108,7 +108,7 @@ function buscar(req,res){
     console.log(req.body);
     var valor=req.body.valor;
     var tb="";
-    if(valor=="")
+    if(!/[a-zA-Z0-9]/.test(valor))
     {
         Usuario.find({}).exec((err, u) => {
             if (!err) 

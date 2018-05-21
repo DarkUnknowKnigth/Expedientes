@@ -5,11 +5,11 @@ var ExpedinteSchema= Schema({
         Parientes:[
             {
                 parentesco:{type:String,required: true},
-                HA:{type:Boolean,required: true},
-                cancer:{type:Boolean,required: true},
-                sida:{type:Boolean,required: true},
-                diabetes:{type:Boolean,required: true},
-                TB:{type:Boolean,required: true},
+                HA:{type:String,required: true},
+                cancer:{type:String,required: true},
+                sida:{type:String,required: true},
+                diabetes:{type:String,required: true},
+                TB:{type:String,required: true},
                 otro:{type:String,required: true}
             }
         ]

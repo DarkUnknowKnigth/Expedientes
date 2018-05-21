@@ -98,6 +98,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                         res.render("../views/pages/principal.ejs",
                                         {
                                             //permisos de acceso
+                                            data:admin,
                                             user:admin.usuario,
                                             permiso:{
                                                 expediente:true,

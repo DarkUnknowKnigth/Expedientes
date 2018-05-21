@@ -46,17 +46,17 @@ function guardar(req,res){
     //console.log(expediente);
     expediente.save((err,StoredExp)=>{
         if(err){
-            res.status(500).send("Error en almacenamiento");
+            res.send("Error en almacenamiento");
         }
         else{
             if(StoredExp)
             {
                 console.log("pude");
                 console.log(StoredExp);
-                res.status(200).send("Guardado exitosamente");
+                res.send("Guardado exitosamente");
             }
             else{
-                res.status(500).send("Error en el almacenamiento");
+                res.send("Error en el almacenamiento");
 
             }
         }

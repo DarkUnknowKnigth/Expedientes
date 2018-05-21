@@ -365,7 +365,6 @@ $("#guardarUsuario").click((e)=>{
 		$("#failUser").html("<p>"+r+"</p>");
 	});;
 });
-
 $(".delete").click((e)=>{
 	$.ajax({
 		type: "delete",

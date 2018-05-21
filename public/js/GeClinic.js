@@ -362,11 +362,13 @@ $("#guardarUsuario").click((e)=>{
 	});;
 });
 
-$(".delete").click((event)=>{
-	// console.log(event.currentTarget.value);
-	// $("#usuElim").text(event.currentTarget.value);
-	var nombre = $(".delete").parent().child().child().text();
-	$("#usuElim").text(nombre);
+$(".delete").click((e)=>{
+	$.ajax({
+		type: "delete",
+		url: this.attr("name"),
+	}).done((r)=>{
+		$("#elimStatus").html(r);
+	});
 });
 
 $("#talla").keyup(function(){

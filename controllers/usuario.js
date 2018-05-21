@@ -73,7 +73,7 @@ function modificar(req,res)
 function eliminar(req,res)
 {
     let id = req.params.id  
-    Product.findById(id, (err, user) => {
+    Usuario.findById(id, (err, user) => {
         if (err)
         { 
             res.send(

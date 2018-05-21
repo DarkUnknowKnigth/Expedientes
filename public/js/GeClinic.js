@@ -547,7 +547,6 @@ $(".modal.continuar2 .modal-footer .btn-success").click(function(){
 	};
 	console.log(formatConsulta);
 });
-
 $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	formatDiagnostico =
 	{

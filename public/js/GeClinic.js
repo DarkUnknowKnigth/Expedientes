@@ -402,6 +402,7 @@ var formFichIde;
 var formAPNP;
 var formInmu;
 var formAntecGine;
+var formAPP;
 
 $("#agregar").click(function(){
 	formAntec.push(
@@ -502,5 +503,18 @@ $("#formAntecGine button").click(function(){
 		"tipoAnt": $("#tipoAnticoncep").val()
 		
 	};
+	$.ajax({
+		type: "POST",
+		url: $("#formAntecGine").attr("action"),
+		Expediente: 
+		{
+			AntecedentesHF :formAntec ,
+			FichaId:formFichIde,
+			APNP:formAPNP,
+			Inmunizaciones:formInmu,
+			APP:formAPP,
+			AntecedentesG:formAntecGine
+		}
+	});
 	console.log(formAntecGine);
 });

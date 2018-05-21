@@ -1,3 +1,4 @@
+'use strict'
 var mongoose=require("mongoose");
 var Consulta=require("../models/consulta");
 var Schema=mongoose.Schema;
@@ -76,7 +77,7 @@ var ExpedienteSchema= Schema({
         tipoAnt:{type:String,required: false}
 
     },
-    Consulta:{type:Schema.ObjectId,ref:'Consulta',required:true}
+    Consulta:{type:Schema.ObjectId,ref:'Consulta'}
 
 });
 module.exports=mongoose.model('Expediente',ExpedienteSchema);

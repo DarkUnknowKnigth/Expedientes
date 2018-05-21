@@ -1,5 +1,5 @@
 
-var Exp=require("../models/expediente");
+var Expediente=require("../models/expediente");
 function modificar(req,res)
 {
 

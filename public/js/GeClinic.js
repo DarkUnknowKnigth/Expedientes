@@ -397,7 +397,7 @@ function asignarIMC(talla,peso){
 	}
 	
 }
-var formAntec = [];
+var formAntec=[];
 var formFichIde;
 var formAPNP;
 var formInmu;

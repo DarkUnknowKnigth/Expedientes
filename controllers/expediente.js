@@ -1,5 +1,5 @@
 'use strict'
-var Expediente=require("../models/expediente");
+const Expediente=require("../models/expediente");
 function modificar(req,res)
 {
 
@@ -10,9 +10,10 @@ function eliminar(req,res)
 }
 function guardar(req,res){
     var newExp=req.body;
-    console.log(newExp);
-    
-    var expediente= new Expediente();
+    expediente= new Expediente({
+        'FichaId':newExp.FichaId,
+    });
+
     console.log("recibi");
     console.log(expediente);
     console.log("expedinete");

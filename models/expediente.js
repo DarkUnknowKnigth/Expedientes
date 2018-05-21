@@ -1,7 +1,7 @@
 var mongoose=require("mongoose");
 var Consulta=require("../models/consulta");
 var Schema=mongoose.Schema;
-var ExpedinteSchema= Schema({
+var ExpedienteSchema= Schema({
     AntecedentesHF:[
             {
                 parentesco:{type:String,required: true},

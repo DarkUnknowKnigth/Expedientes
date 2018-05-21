@@ -38,8 +38,7 @@ var ExpedienteSchema= Schema({
         bcg:{type:String,required: true},
         dpt:{type:String,required: true},
         antisarampion:{type:String,required: true}
-    }
-    ,
+    },
     APP:{
         sonrie:{type:String,required: false},
         ingresoHos:{type:String,required: false},

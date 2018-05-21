@@ -1,8 +1,7 @@
 var mongoose=require("mongoose");
 var Schema=mongoose.Schema;
 var ExpedinteSchema= Schema({
-    AntecedentesHF:{
-        Parientes:[
+    AntecedentesHF:[
             {
                 parentesco:{type:String,required: true},
                 HA:{type:String,required: true},
@@ -12,8 +11,8 @@ var ExpedinteSchema= Schema({
                 TB:{type:String,required: true},
                 otro:{type:String,required: true}
             }
-        ]
-    },
+    ]
+    ,
     FichaId:{
         nombre:{type:String,required: true},
         apPaterno:{type:String,required: true},

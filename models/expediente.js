@@ -25,39 +25,39 @@ var ExpedienteSchema= Schema({
         ocupacion:{type:String,required: true}
     },
     APNP:{
-        promiscuidad:{type:Boolean,required: true},
-        tabaco:{type:Boolean,required: true},
-        alcohol:{type:Boolean,required: true},
-        fauna:{type:Boolean,required: true},
-        hacinamiento:{type:Boolean,required: true},
-        dieta:{type:Boolean,required: true},
+        promiscuidad:{type:String,required: true},
+        tabaco:{type:String,required: true},
+        alcohol:{type:String,required: true},
+        fauna:{type:String,required: true},
+        hacinamiento:{type:String,required: true},
+        dieta:{type:String,required: true},
         vivienda:{type:String,required: true}
     },
     Inmunizaciones:{
-        sabin:{type:Boolean,required: true},
-        bcg:{type:Boolean,required: true},
-        dpt:{type:Boolean,required: true},
-        antisarampion:{type:Boolean,required: true}
+        sabin:{type:String,required: true},
+        bcg:{type:String,required: true},
+        dpt:{type:String,required: true},
+        antisarampion:{type:String,required: true}
     }
     ,
     APP:{
-        sonrie:{type:Boolean,required: false},
-        ingresoHos:{type:Boolean,required: false},
-        sostieneCab:{type:Boolean,required: false},
-        sienta:{type:Boolean,required: false},
-        gatea:{type:Boolean,required: false},
-        habla:{type:Boolean,required: false},
-        traumatismo:{type:Boolean,required: true},
-        sarampion:{type:Boolean,required: true},
-        rubeola:{type:Boolean,required: true},
-        tosferina:{type:Boolean,required: true},
-        varicela:{type:Boolean,required: true},
-        escarlatina:{type:Boolean,required: true},
-        amigdalitis:{type:Boolean,required: true},
-        parasitosis:{type:Boolean,required: true},
-        convulsiones:{type:Boolean,required: true},
-        urosepsis:{type:Boolean,required: true},
-        cirugia:{type:Boolean,required: true}
+        sonrie:{type:String,required: false},
+        ingresoHos:{type:String,required: false},
+        sostieneCab:{type:String,required: false},
+        sienta:{type:String,required: false},
+        gatea:{type:String,required: false},
+        habla:{type:String,required: false},
+        traumatismo:{type:String,required: true},
+        sarampion:{type:String,required: true},
+        rubeola:{type:String,required: true},
+        tosferina:{type:String,required: true},
+        varicela:{type:String,required: true},
+        escarlatina:{type:String,required: true},
+        amigdalitis:{type:String,required: true},
+        parasitosis:{type:String,required: true},
+        convulsiones:{type:String,required: true},
+        urosepsis:{type:String,required: true},
+        cirugia:{type:String,required: true}
 
 
     },

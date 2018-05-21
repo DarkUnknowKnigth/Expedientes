@@ -321,11 +321,11 @@ $("#guardarUsuario").click((e)=>{
 	}).done((r)=>{
 		console.log(r);
 		$("#failUser").css("display","block");
-		$("#failUser").text("<p>"+r+"</p>");
+		$("#failUser").html("<p>"+r+"</p>");
 	}).fail((r)=>{
 		console.log(r);
 		$("#failUser").css("display","block");
-		$("#failUser").append("<p>"+r+"</p>");
+		$("#failUser").html("<p>"+r+"</p>");
 	});;
 });
 

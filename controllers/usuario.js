@@ -20,13 +20,23 @@ function validar(req,res)
                     Usuario.find({"usuario":params.usuario}).exec((err,user)=>{
                         if(err)
                         {
-                            guardar(params);
-                            res.redirect(req.baseUrl.replace("/usuarios",""));  
+                            report="Error";
+                            res.send(report);
                         }
                         else
                         {
-                            report="El usuario ya existe";
-                            res.send(report);
+                            if(user)
+                            {
+                                report="En nombre de usuario: "+user.usuario+"\nya existe.";
+                                res.send(report)
+                            }
+                            else
+                            {
+                                guardar(params);
+                                res.redirect(req.baseUrl.replace("/usuarios","")); 
+                            }
+                           
+                            
                         }
                     })      
                 }

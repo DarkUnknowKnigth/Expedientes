@@ -75,14 +75,14 @@ function eliminar(req,res)
     Usuario.findById(id, (err, user) => {
         if (err)
         { 
-            res.send(baseUrl.replace('/usuarios/eliminarUsuario/',""));
+            res.send(req.baseUrl.replace('/usuarios/eliminarUsuario/',""));
         }
         user.remove(err => {
             if (err)
             { 
-                res.send(baseUrl.replace('/usuarios/eliminarUsuario/',""));
+                res.send(req.baseUrl.replace('/usuarios/eliminarUsuario/',""));
             }
-            res.send(baseUrl.replace('/usuarios/eliminarUsuario/',""));
+            res.send(req.baseUrl.replace('/usuarios/eliminarUsuario/',""));
         });
   });
 }

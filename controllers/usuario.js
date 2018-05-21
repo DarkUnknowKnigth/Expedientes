@@ -33,7 +33,7 @@ function validar(req,res)
                             else
                             {
                                 guardar(params);
-                                res.send(req.baseUrl.replace("/usuarios","")); 
+                                res.send({url:req.baseUrl.replace("/usuarios","")}); 
                             }
                            
                             

@@ -2,7 +2,6 @@ const bcrypt=require("bcrypt-nodejs");
 const Usuario=require("../models/usuario");
 const Permiso=require("../models/permiso");
 const Administrador=require("../models/administrador");
-
 function validar(req,res)
 {  
     console.log("validando...")
@@ -76,35 +75,14 @@ function eliminar(req,res)
     Usuario.findById(id, (err, user) => {
         if (err)
         { 
-            res.send(
-                '<div class="alert alert-danger alert-dismissible fade in" role="alert">'+
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-                '<span aria-hidden="true">&times;</span>'+
-                '<span class="sr-only">Close</span>'+
-                '</button>'+
-                '<strong>Error al borrar el Usuario</strong>'+
-                '</div>');
+            res.send(baseUrl.replace('/usuarios/eliminarUsuario/',""));
         }
         user.remove(err => {
             if (err)
             { 
-                res.send(
-                    '<div class="alert alert-danger alert-dismissible fade in" role="alert">'+
-                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-                    '<span aria-hidden="true">&times;</span>'+
-                    '<span class="sr-only">Close</span>'+
-                    '</button>'+
-                    ' <strong>Error al borrar el Usuario</strong>'+
-                    '</div>');
+                res.send(baseUrl.replace('/usuarios/eliminarUsuario/',""));
             }
-            res.send(
-                '<div class="alert alert-success alert-dismissible fade in" role="alert">'+
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-                '<span aria-hidden="true">&times;</span>'+
-                '<span class="sr-only">Close</span>'+
-                '</button>'+
-                ' <strong>El Usuario se elimino correctamente</strong>'+
-                '</div>');
+            res.send(baseUrl.replace('/usuarios/eliminarUsuario/',""));
         });
   });
 }

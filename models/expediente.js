@@ -78,4 +78,4 @@ var ExpedinteSchema= Schema({
     }
 
 });
-module.exports=mongoose.model('SignosVitales',SignosVitalesSchema);
+module.exports=mongoose.model('Expediente',ExpedienteSchema);

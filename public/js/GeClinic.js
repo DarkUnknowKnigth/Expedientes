@@ -367,7 +367,7 @@ $(".delete").click((e)=>{
 		type: "delete",
 		url: e.target.name,
 	}).done((r)=>{
-		$("#elimStatus").html(r);
+		window.location.href=r;
 	});
 });
 

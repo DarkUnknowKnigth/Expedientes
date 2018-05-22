@@ -8,21 +8,58 @@ function eliminar(req,res)
 {
     
 }
-function guardar(req,res){
-    var nuevo=req.body;
-    var antecedentes=nuevo.AntecedentesHF;
-    var ficha=nuevo.FichaId;
-    var apnp=nuevo.APNP;
-    var inmu=nuevo.Inmunizaciones;
-    var app=nuevo.APP;
-    var antg=nuevo.AntecedentesG;
-    var expediente=new Expediente({
-       // 'AntecedentesHF':antecedentes,
-        'FichaId':ficha,
-        'APNP':apnp,
-        'Inmunizaciones':inmu,
-        'APP':app,
-        'AntecedentesG':antg
+function guardar(req, res) {
+    var nuevo = req.body;
+    var expediente = new Expediente({
+        AntecedentesHF: nuevo.AntecedentesHF,
+        nombre: nuevo.nombre,
+        apPaterno: nuevo.apPaterno,
+        apMaterno: nuevo.apMaterno,
+        direccion: nuevo.direccion,
+        curp: nuevo.curp,
+        estadoCivil: nuevo.estadoCivil,
+        ocupacion: nuevo.ocupacion,
+        promiscuidad: nuevo.promiscuidad,
+        tabaco: nuevo.tabaco,
+        alcohol: nuevo.alcohol,
+        fauna: nuevo.fauna,
+        hacinamiento: nuevo.hacinamiento,
+        dieta: nuevo.dieta,
+        vivienda: nuevo.vivienda,
+        sabin: nuevo.sabin,
+        bcg: nuevo.bcg,
+        dpt: nuevo.dpt,
+        antisarampion: nuevo.antisarampion,
+        sonrie: nuevo.sonrie,
+        ingresoHos: nuevo.ingresoHos,
+        sostieneCab: nuevo.sostieneCab,
+        sienta: nuevo.sienta,
+        gatea: nuevo.gatea,
+        habla: nuevo.habla,
+        traumatismo: nuevo.traumatismo,
+        sarampion: nuevo.sarampion,
+        rubeola: nuevo.rubeola,
+        tosferina: nuevo.tosferina,
+        varicela: nuevo.varicela,
+        escarlatina: nuevo.escarlatina,
+        amigdalitis: nuevo.amigdalitis,
+        parasitosis: nuevo.parasitosis,
+        convulsiones: nuevo.convulsiones,
+        urosepsis: nuevo.urosepsis,
+        cirugia: nuevo.cirugia,
+        ultimaMenst: nuevo.ultimaMenst,
+        fechaAnti: nuevo.fechaAnti,
+        gesta: nuevo.gesta,
+        ritmo: nuevo.ritmo,
+        magnitudSang: nuevo.magnitudSang,
+        menarquia: nuevo.menarquia,
+        aborto: nuevo.aborto,
+        cesarea: nuevo.cesarea,
+        vidaSex: nuevo.vidaSex,
+        legradoUt: nuevo.legradoUt,
+        pruebaEnb: nuevo.pruebaEnb,
+        citologia: nuevo.citologia,
+        tipoAnt: nuevo.tipoAnt,
     });
     expediente.save((err)=>{
         if(err)

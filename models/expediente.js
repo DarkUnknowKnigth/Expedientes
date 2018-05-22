@@ -50,7 +50,7 @@ var ExpedienteSchema = Schema({
     convulsiones: { type: String, required: true },
     urosepsis: { type: String, required: true },
     cirugia: { type: String, required: true },
-    ultimaMenst: { type: String, required: false },
+    ultimaMenst: { type: Date, required: false },
     fechaAnti: { type: Date, required: false },
     gesta: { type: String, required: false },
     ritmo: { type: String, required: false },

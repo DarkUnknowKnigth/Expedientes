@@ -508,7 +508,7 @@ $("#formAntecGine button").click(function(){
 	};
 	var Expediente=
 	{
-		"AntecedentesHF":formAntec,
+		"AntecedentesHF":[formAntec[0],formAntec[1]],
 		"nombre": $("#idNombrePaciente").val(),
 		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
 		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo

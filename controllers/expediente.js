@@ -10,6 +10,7 @@ function eliminar(req,res)
 }
 function guardar(req, res) {
     var nuevo = req.body;
+    console.log(nuevo);
     var expediente = new Expediente({
         AntecedentesHF: [
             {

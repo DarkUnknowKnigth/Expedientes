@@ -619,7 +619,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	console.log(formatDiagnostico);
 });
 $("#nextAntec").click(()=>{
-	if(formAntec.length<3)
+	if(formAntec.length>1)
 	{
 		$("#fi").click();
 	}

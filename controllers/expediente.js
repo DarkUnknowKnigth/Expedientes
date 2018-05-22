@@ -16,7 +16,7 @@ function guardar(req,res){
     var inmu=nuevo.Inmunizaciones;
     var app=nuevo.APP;
     var antg=nuevo.AntecedentesG;
-    expediente=new Expediente({
+    var expediente=new Expediente({
        // 'AntecedentesHF':antecedentes,
         'FichaId':ficha,
         'APNP':apnp,

@@ -429,6 +429,7 @@ $("#formFichIde button").click(function(){
 		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
 		"ocupacion": $("#sinOcupacion").val()
 	};
+	$("#an").click();
 	console.log(formFichIde);
 });
 
@@ -444,6 +445,7 @@ $("#formAPNP button").click(function(){
 		"vivienda": $("#vivienda").val()
 		
 	};
+	$("#in").click();
 	console.log(formAPNP);
 });
 
@@ -456,6 +458,7 @@ $("#formInmu button").click(function(){
 		"antisarampion": $("#antisarampion input:radio[name=antisarampion]:checked").val()//este solo es uno debes verificar cual esta avtivo
 		
 	};
+	$("#ap").click();
 	console.log(formInmu);
 });
 
@@ -481,6 +484,7 @@ $("#formAPP button").click(function(){
 		"cirugia": $("#cirugia input:radio[name=cirugia]:checked").val()
 		
 	};
+	$("#anGi").click();
 	console.log(formAPP);
 });
 
@@ -601,5 +605,5 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	console.log(formatDiagnostico);
 });
 $("#nextAntec").click(()=>{
-	$("#antec").click();
+	$("#fi").click();
 });

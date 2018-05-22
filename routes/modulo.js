@@ -25,16 +25,14 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
             {
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
-                    console.log(usuario.permiso);
-                    var Usuariosfinded="0 results";
-                    var Expfinded="0 results";
-                    Expediente.find({}).exec((err,expedientes)=>{
-                        if(!err)
-                        {
-                            Expfinded=expedientes;
+                    var Usuariosfinded = "0 results";
+                    var Expfined = "0 results";
+                    Expediente.find({}).exec((err, expedientes) => {
+                        if (!err) {
+                            Expfined = expedientes;
                         }
-                        else{
-                            console.info("error: "+err);
+                        else {
+                            console.info("error: " + err);
                         }
 
                     });
@@ -58,7 +56,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             crearUser:usuario.permiso.CrearUser,
                             modificarUser:usuario.permiso.ModificarUser,
                             eliminarUser:usuario.permiso.EliminarUser,
-                            usuarios:Usuariosfinded,
+                            
                         },
                         //links usuarios
                         crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
@@ -76,7 +74,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         usuarios:"",
-                        expedientes:Expfinded,
+                        expedientes:Expfined,
                         localURL:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/`
                     });
                     console.log("fine");

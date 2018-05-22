@@ -857,6 +857,7 @@
 							<td>@mdo</td>
 							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
 						</tr> -->
+						<% if(expediente.length>0)%>
 						<% expedientes.forEach(element => {%>
 						<tr name=<%= element.id %>>
 							<th scope="col"><%=element.id %></th>
@@ -877,6 +878,7 @@
 							</td>
 						</tr>
 						<% }); %>
+						<%}%>
 					</tbody>
 				</table>
 				<!-- Modal confirmación eliminación -->

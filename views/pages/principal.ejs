@@ -878,26 +878,6 @@
 						</tr>
 						<% }); %>
 						<% } %>	
-						<% else { %>
-							<tr name=<%= expedientes.id %>>
-								<th scope="col"><%=expedeintes.id %></th>
-								<td> <%=expedientes.nombre %></td>
-								<td><%=expedeintes.curp %></td>
-								<td><%=expedientes.direccion %></td>
-								<td><%=expedientes.sexo%></td>
-								<td>
-									<button name=<%= expedientes.id %> class="edit">
-										<i class="far fa-eye"></i>
-									</button>
-									<button name=<%= expedientes.id %> class="edit">
-										<i class="fas fa-edit"></i>
-									</button>
-									<button name=<%= expedientes.id %> data-target=".eliminar" data-toggle="modal" class="delete">
-										<i class="fas fa-trash-alt"></i>
-									</button>
-								</td>
-							</tr>
-						<%}%>
 					</tbody>
 				</table>
 				<!-- Modal confirmación eliminación -->

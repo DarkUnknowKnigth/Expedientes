@@ -27,11 +27,11 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 {
                     console.log(usuario.permiso);
                     var Usuariosfinded="0 results";
-                    var Expfined="0 results";
+                    var Expfinded="0 results";
                     Expediente.find({}).exec((err,expedientes)=>{
                         if(!err)
                         {
-                            Expfined=expedientes;
+                            Expfinded=expedientes;
                         }
                         else{
                             console.info("error: "+err);
@@ -76,7 +76,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         usuarios:"",
-                        expedientes:Expfined,
+                        expedientes:Expfinded,
                         localURL:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/`
                     });
                     console.log("fine");

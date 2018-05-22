@@ -830,7 +830,7 @@
 				<!-- Fin de form Antec. Ginecoobstétricos -->
 			</div>
 		</div>
-
+		<% if(permiso.modificarExp)%>
 		<div class="containerForms modifExp">
 			<!-- botón de retroceso -->
 			<div id="Prev"><a href=<%localURL%>><i class="fas fa-arrow-left"></i></a>
@@ -903,6 +903,7 @@
 				</div>
 			</div>
 		</div>
+		<%}%>
 		<%}%>
 		<%if(permiso.usuario){%>
 		<div class="containerForms createUser">

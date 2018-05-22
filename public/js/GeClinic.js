@@ -600,3 +600,6 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	};
 	console.log(formatDiagnostico);
 });
+$("#nextAntec").click(()=>{
+	$("#antec").click();
+});

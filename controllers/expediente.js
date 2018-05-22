@@ -11,7 +11,26 @@ function eliminar(req,res)
 function guardar(req, res) {
     var nuevo = req.body;
     var expediente = new Expediente({
-        AntecedentesHF: [nuevo.AntecedentesHF],
+        AntecedentesHF: [
+            {
+                parentesco: nuevo.AntecedentesHF[0].parentesco,
+                HA: nuevo.AntecedentesHF[0].HA,
+                cancer: nuevo.AntecedentesHF[0].cancer,
+                sida: nuevo.AntecedentesHF[0].sida,
+                diabetes: nuevo.AntecedentesHF[0].diabetes,
+                TB: nuevo.AntecedentesHF[0].TB,
+                otro: nuevo.AntecedentesHF[0].otro
+            },
+            {
+                parentesco: nuevo.AntecedentesHF[1].parentesco,
+                HA: nuevo.AntecedentesHF[1].HA,
+                cancer: nuevo.AntecedentesHF[1].cancer,
+                sida: nuevo.AntecedentesHF[1].sida,
+                diabetes: nuevo.AntecedentesHF[1].diabetes,
+                TB: nuevo.AntecedentesHF[1].TB,
+                otro: nuevo.AntecedentesHF[1].otro
+            }
+        ],
         nombre: nuevo.nombre,
         apPaterno: nuevo.apPaterno,
         apMaterno: nuevo.apMaterno,

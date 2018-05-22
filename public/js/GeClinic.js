@@ -492,7 +492,7 @@ $("#formAntecGine button").click(function(){
 	formAntecGine=
 	{
 		"ultimaMenst": $("#ultMens").val(),
-		"fechaAnti": $("#fechaAnticonceptivo input:radio[name=ingresoHospital]:checked").val(),
+		"fechaAnti": $("#fechaAnticonceptivo").val(),
 		"gesta": $("#gesta").val(),
 		"ritmo": $("#ritmo").val(),
 		"magnitudSang": $("#magSang").val(),

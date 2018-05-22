@@ -9,32 +9,29 @@ function eliminar(req,res)
     
 }
 function guardar(req,res){
-    var newExp=req.body;
-    expediente= new Expediente({
-        'FichaId':newExp.FichaId,
+    var nuevo=req.body;
+    var antecedentes=nuevo.AntecedentesHF;
+    var ficha=nuevo.FichaId;
+    var apnp=nuevo.APNP;
+    var inmu=nuevo.Inmunizaciones;
+    var app=nuevo.APP;
+    var antg=nuevo.AntecedentesG;
+    expediente=new Expediente({
+        'AntecedentesHF':antecedentes,
+        'FichaId':ficha,
+        'APNP':apnp,
+        'Inmunizaciones':inmu,
+        'APP':app,
+        'AntecedentesG':antg
     });
-
-    console.log("recibi");
-    console.log(expediente);
-    console.log("expedinete");
+    expediente.save((err)=>{
+        if(err)
+        {
+            console.log("ERROR:"+err);
+            res.send("No se pudo guardar el expediente, Porfavor intente de nuevo");
+        }
+    });
     //console.log(expediente);
-    expediente.save((err,StoredExp)=>{
-        if(err){
-            res.send("Error en almacenamiento:"+err);
-        }
-        else{
-            if(StoredExp)
-            {
-                console.log("pude");
-                console.log(StoredExp);
-                res.send("Guardado exitosamente");
-            }
-            else{
-                res.send("Error en el almacenamiento"+err);
-
-            }
-        }
-    });
 }
 module.exports={
     modificar,

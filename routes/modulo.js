@@ -28,7 +28,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     console.log(usuario.permiso);
                     var Usuariosfinded="0 results";
                     var Expfined="0 results";
-                    Expediente.find({},(err,expedientes)=>{
+                    Expediente.find({}).exec((err,expedientes)=>{
                         if(!err)
                         {
                             Expfined=expedientes;
@@ -104,7 +104,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             {
                                 var Usuariosfinded="0 results";
                                 var Expfined="0 results";
-                                Expediente.find({},(err,expedientes)=>{
+                                Expediente.find({}).exec((err,expedientes)=>{
                                     if(!err)
                                     {
                                         Expfined=expedientes;

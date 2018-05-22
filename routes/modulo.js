@@ -8,6 +8,7 @@ var RutasCoordinador=require("./coordinador");
 var RutasConsulta=require("./consulta");
 var Usuario=require("../models/usuario");
 var Permiso=require("../models/permiso");
+var Expediente=require("../models/expediente");
 var Administrador=require("../models/administrador");
 const ejsLint = require('ejs-lint');
     
@@ -22,11 +23,21 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         {
             if(usuario)
             {
-                console.log("usuarios enonctrado: "+usuario);
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
                     console.log(usuario.permiso);
                     var Usuariosfinded="0 results";
+                    var Expfined="0 results";
+                    Expediente.find({},(err,expedientes)=>{
+                        if(!err)
+                        {
+                            Expfined=expedientes;
+                        }
+                        else{
+                            console.info("error: "+err);
+                        }
+
+                    });
                     res.render("../views/pages/principal.ejs",
                     {
                         //variables para la vista --->principal.ejs
@@ -65,6 +76,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         usuarios:"",
+                        expedientes:Expfined,
                         localURL:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/`
                     });
                     console.log("fine");
@@ -91,10 +103,20 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
                                 var Usuariosfinded="0 results";
+                                var Expfined="0 results";
+                                Expediente.find({},(err,expedientes)=>{
+                                    if(!err)
+                                    {
+                                        Expfined=expedientes;
+                                    }
+                                    else{
+                                        console.info("error: "+err);
+                                    }
+            
+                                });
                                 Usuario.find({}).exec((err,usuarios)=>{
                                     if(!err)
                                     {
-                                        console.log(usuarios);
                                         Usuariosfinded=usuarios;
                                         res.render("../views/pages/principal.ejs",
                                         {
@@ -130,6 +152,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
                                             //link consulta
                                             nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
+                                            //feed de tabla
+                                            expedientes:Expfined,
                                             usuarios: Usuariosfinded,
                                             localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                                         });

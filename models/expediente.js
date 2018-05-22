@@ -1,20 +1,20 @@
 'use strict'
-var mongoose=require("mongoose");
+const mongoose = require('mongoose');
 var Consulta=require("../models/consulta");
 var Schema=mongoose.Schema;
 var ExpedienteSchema= Schema({
-    AntecedentesHF:[
-            {
-                parentesco:{type:String,required: true},
-                HA:{type:String,required: true},
-                cancer:{type:String,required: true},
-                sida:{type:String,required: true},
-                diabetes:{type:String,required: true},
-                TB:{type:String,required: true},
-                otro:{type:String,required: true}
-            }
-    ]
-    ,
+    // AntecedentesHF:[
+    //         {
+    //             parentesco:{type:String,required: true},
+    //             HA:{type:String,required: true},
+    //             cancer:{type:String,required: true},
+    //             sida:{type:String,required: true},
+    //             diabetes:{type:String,required: true},
+    //             TB:{type:String,required: true},
+    //             otro:{type:String,required: true}
+    //         }
+    // ]
+    //,
     FichaId:{
         nombre:{type:String,required: true},
         apPaterno:{type:String,required: true},

@@ -17,7 +17,7 @@ function guardar(req,res){
     var app=nuevo.APP;
     var antg=nuevo.AntecedentesG;
     expediente=new Expediente({
-        'AntecedentesHF':antecedentes,
+       // 'AntecedentesHF':antecedentes,
         'FichaId':ficha,
         'APNP':apnp,
         'Inmunizaciones':inmu,
@@ -36,5 +36,5 @@ function guardar(req,res){
 module.exports={
     modificar,
     eliminar,
-    guardar
+    guardar,
 }

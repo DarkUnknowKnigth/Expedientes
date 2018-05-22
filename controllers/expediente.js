@@ -11,7 +11,7 @@ function eliminar(req,res)
 function guardar(req, res) {
     var nuevo = req.body;
     var expediente = new Expediente({
-        AntecedentesHF: nuevo.AntecedentesHF,
+        AntecedentesHF: [nuevo.AntecedentesHF[0],nuevo.AntecedentesHF[1]],
         nombre: nuevo.nombre,
         apPaterno: nuevo.apPaterno,
         apMaterno: nuevo.apMaterno,
@@ -66,6 +66,9 @@ function guardar(req, res) {
         {
             console.log("ERROR:"+err);
             res.send("No se pudo guardar el expediente, Porfavor intente de nuevo");
+        }
+        else{
+            res.send("Expedeinte creado Exitosamente1 !");
         }
     });
     //console.log(expediente);

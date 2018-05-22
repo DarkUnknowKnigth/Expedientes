@@ -11,7 +11,7 @@ function eliminar(req,res)
 function guardar(req, res) {
     var nuevo = req.body;
     var expediente = new Expediente({
-        AntecedentesHF: [nuevo.AntecedentesHF[0],nuevo.AntecedentesHF[1]],
+        AntecedentesHF: [nuevo.AntecedentesHF],
         nombre: nuevo.nombre,
         apPaterno: nuevo.apPaterno,
         apMaterno: nuevo.apMaterno,

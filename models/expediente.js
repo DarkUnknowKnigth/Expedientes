@@ -11,7 +11,7 @@ var ExpedienteSchema = Schema({
             sida: { type: String, required: true },
             diabetes: { type: String, required: true },
             TB: { type: String, required: true },
-            otro: { type: String, required: true }
+            otro: { type: String, required: false }
         }
     ]
     ,

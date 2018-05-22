@@ -39,6 +39,7 @@ function guardar(req, res) {
         curp: nuevo.curp,
         estadoCivil: nuevo.estadoCivil,
         ocupacion: nuevo.ocupacion,
+        sexo:nuevo.sexo,
         promiscuidad: nuevo.promiscuidad,
         tabaco: nuevo.tabaco,
         alcohol: nuevo.alcohol,

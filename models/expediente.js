@@ -22,6 +22,7 @@ var ExpedienteSchema = Schema({
     curp: { type: String, required: true },
     estadoCivil: { type: String, required: true },
     ocupacion: { type: String, required: true },
+    sexo: { type: String, required: true },
     promiscuidad: { type: String, required: true },
     tabaco: { type: String, required: true },
     alcohol: { type: String, required: true },

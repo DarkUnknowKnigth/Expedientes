@@ -427,7 +427,8 @@ $("#formFichIde button").click(function(){
 		"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
 		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
 		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
-		"ocupacion": $("#sinOcupacion").val()
+		"ocupacion": $("#sinOcupacion").val(),
+		"sexo": $("#sexo").val()
 	};
 	$("#an").click();
 	console.log(formFichIde);
@@ -530,6 +531,7 @@ $("#formAntecGine button").click(function(){
 		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
 		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
 		"ocupacion": $("#sinOcupacion").val(),
+		"sexo": $("#sexo").val(),
 		"promiscuidad": $("#promiscuidad input:radio[name=promiscuidad]:checked").val(),
 		"tabaco": $("#tabaco input:radio[name=tabaco]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"alcohol": $("#alcohol input:radio[name=alcohol]:checked").val(),//este solo es uno debes verificar cual esta avtivo

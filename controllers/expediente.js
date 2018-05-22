@@ -14,22 +14,22 @@ function guardar(req, res) {
     var expediente = new Expediente({
         AntecedentesHF: [
             {
-                parentesco: nuevo.AntecedentesHF[0]['parentesco'],
-                HA: nuevo.AntecedentesHF[0]['HA'],
-                cancer: nuevo.AntecedentesHF[0]['cancer'],
-                sida: nuevo.AntecedentesHF[0]['sida'],
-                diabetes: nuevo.AntecedentesHF[0]['diabetes'],
-                TB: nuevo.AntecedentesHF[0]['TB'],
-                otro: nuevo.AntecedentesHF[0]['otro']
+                parentesco: nuevo.parentesco,
+                HA: nuevo.HA,
+                cancer: nuevo.cancer,
+                sida: nuevo.sida,
+                diabetes: nuevo.diabetes,
+                TB: nuevo.TB,
+                otro: nuevo.otro
             },
             {
-                parentesco: nuevo.AntecedentesHF[1]['parentesco'],
-                HA: nuevo.AntecedentesHF[1]['HA'],
-                cancer: nuevo.AntecedentesHF[1]['cancer'],
-                sida: nuevo.AntecedentesHF[1]['sida'],
-                diabetes: nuevo.AntecedentesHF[1]['diabetes'],
-                TB: nuevo.AntecedentesHF[1]['TB'],
-                otro: nuevo.AntecedentesHF[1]['otro']
+                parentesco: nuevo.parentesco2,
+                HA: nuevo.HA2,
+                cancer: nuevo.cancer2,
+                sida: nuevo.sida2,
+                diabetes: nuevo.diabetes2,
+                TB: nuevo.TB2,
+                otro: nuevo.otro2
             }
         ],
         nombre: nuevo.nombre,

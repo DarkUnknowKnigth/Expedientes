@@ -508,7 +508,21 @@ $("#formAntecGine button").click(function(){
 	};
 	var Expediente=
 	{
-		"AntecedentesHF":[formAntec[0],formAntec[1]],
+		
+		"parentesco": formAntec[0].parentesco,
+		"HA": formAntec[0].HA,
+		"cancer":formAntec[0].cancer, 
+		"sida":formAntec[0].sida,
+		"diabetes":formAntec[0].diabetes,
+		"TB": formAntec[0].TB,
+		"otro": formAntec[0].otro,
+		"parentesco2": formAntec[1].parentesco,
+		"HA2": formAntec[1].HA,
+		"cancer2":formAntec[1].cancer, 
+		"sida2":formAntec[1].sida,
+		"diabetes2":formAntec[1].diabetes,
+		"TB2": formAntec[1].TB,
+		"otro2": formAntec[1].otro,
 		"nombre": $("#idNombrePaciente").val(),
 		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
 		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo

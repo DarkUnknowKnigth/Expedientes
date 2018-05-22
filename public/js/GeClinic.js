@@ -619,5 +619,13 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	console.log(formatDiagnostico);
 });
 $("#nextAntec").click(()=>{
-	$("#fi").click();
+	if(formAntec.length<3)
+	{
+		$("#fi").click();
+	}
+	else
+	{
+		alert("Debe de contar con 2 antecedentes para continuar");
+	}
+	
 });

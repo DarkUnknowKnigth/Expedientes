@@ -910,10 +910,10 @@
 								<td scope="col"><%=expediente.direccion%></td>
 								<td scope="col"><%=expediente.sexo%></td>
 								<td>
-									<button class="edit" name=<%=expediente._id%>>
+									<button class="edit" name=<%=expediente.id%>>
 										<i class="fas fa-edit"></i>
 									</button>
-									<button class="delete" name=<%=expediente._id%>>
+									<button class="delete" name=<%=eliminarExpediente + expediente.id%>>
 										<i class="fas fa-trash-alt"></i>
 									</button>
 								</td>
@@ -945,7 +945,7 @@
 								</tr>
 							</thead>
 							<tbody id="results">
-								<% collection_expedientes.forEach(expediente => {  %>
+								<!-- <% collection_expedientes.forEach(expediente => {  %>
 								<tr>
 									<th scope="col">
 										<%= expediente._id%>
@@ -973,7 +973,7 @@
 										</button>
 									</td>
 								</tr>
-								<% }); %>
+								<% }); %> -->
 							</tbody>
 						</table>
 

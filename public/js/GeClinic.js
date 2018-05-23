@@ -21,18 +21,6 @@ $(document).ready(function(){
 
 /*end precargar elementos*/
 
-$("#buscadorExp").keyup((e)=>{
-	$.ajax({
-		type: "method",
-		url: "url",
-		data: "data",
-		dataType: "dataType",
-		success: function (response) {
-			
-		}
-	});
-});
-
 /*Eventos de accordion*/
 $("#crearExp a").click(function(){
 	darColorVinetas("#crearExp");

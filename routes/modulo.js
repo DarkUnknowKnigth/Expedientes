@@ -28,14 +28,20 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
                     Expediente.find({}).exec((err, expedientes) => {
-                        if (!err) {
-                            console.log(expediente);
-                            Expfined = expedientes;
+                        if (err) {
+                            throw err;
                         }
                         else {
-                            console.info("error: " + err);
+                            if(expedientes)
+                            {
+                                console.log(expediente);
+                                Expfined = expedientes;
+                            }
+                            else
+                            {
+                               throw err;
+                            }   
                         }
-
                     });
                     res.render("../views/pages/principal.ejs",
                     {
@@ -104,15 +110,21 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
                                
-                                Expediente.find({}).exec((err,expedientes)=>{
-                                    if(!err)
-                                    {
-                                        Expfined=expedientes;
+                                Expediente.find({}).exec((err, expedientes) => {
+                                    if (err) {
+                                        throw err;
                                     }
-                                    else{
-                                        console.info("error: "+err);
+                                    else {
+                                        if(expedientes)
+                                        {
+                                            console.log(expediente);
+                                            Expfined = expedientes;
+                                        }
+                                        else
+                                        {
+                                           throw err;
+                                        }   
                                     }
-            
                                 });
                                 Usuario.find({}).exec((err,usuarios)=>{
                                     if(!err)

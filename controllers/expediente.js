@@ -6,7 +6,21 @@ function modificar(req,res)
 }
 function eliminar(req,res)
 {
-    
+    let id = req.params.id  
+    Expediente.findById(id, (err, exp) => {
+        if (err)
+        { 
+            res.send(req.baseUrl.replace('/expedientes',""));
+        }
+        exp.remove(err => {
+            if (err)
+            { 
+                console.log("la url: "+req.baseUrl.replace('/expedientes',""))
+                res.send(req.baseUrl.replace('/expedientes',""));
+            }
+            res.send(req.baseUrl.replace('/expedientes',""));
+        });
+  });
 }
 function guardar(req, res) {
     var nuevo = req.body;

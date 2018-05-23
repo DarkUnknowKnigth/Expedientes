@@ -435,10 +435,12 @@ function asignarIMC(talla,peso){
 		let imc = peso/(tb*tb);
 		$("#imc").val(imc);
 	}
-	
 }
+$("#buscarExpCurp").keyup((k)=>{
 
-$("#agregar").click(function(){
+});
+
+$("#agregar").click(function(e){
 	dec--;
 	formAntec.push(
 	{
@@ -452,7 +454,7 @@ $("#agregar").click(function(){
 	});
 	if(dec<=0)
 	{
-		e.preventDefault();
+		e.preventDefault();	
 		$("#parentRest").text("Presione continuar");
 	}
 	$("#parentRest").text(dec);

@@ -11,7 +11,6 @@ var formAntecGine;
 var formAPP;
 var added=2;
 $(document).ready(function(){
-	$("#contAntecedentes").prop('disabled',true);
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);

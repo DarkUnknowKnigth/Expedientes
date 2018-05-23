@@ -15,7 +15,7 @@ function buscar(req,res)
         else{
             if(exp)
             {
-               res.send( '<table>'+
+               res.send( '<table class="table">'+
 				'		<tr>'+
 				'			<th colspan="2">Ficha identificacion</th>'+
 				'		</tr>'+

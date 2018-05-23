@@ -355,7 +355,6 @@ $("#buscadorUser").keyup((e)=>{
 				valor:$("#buscadorUser").val()
 			}
 		}).done((r)=>{
-			console.log(r);
 			$("#results").html(r);
 		});
 	}
@@ -391,13 +390,22 @@ $("#guardarUsuario").click((e)=>{
 			'activo':a.val()
 		}
 	}).done((r)=>{
-		console.log(r);
-		if(r.url)
-		{
-			window.location.href=r.url;
-		}
-		$("#failUser").css("display","block");
-		$("#failUser").html("<p>"+r+"</p>");
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+				"Aceptar": function () {
+					$("#informe").text(r);
+					if(r.url)
+					{
+						window.location.href=r.url;
+					}
+					$(this).dialog("close");
+				}
+			}
+		});
 	}).fail((r)=>{
 		console.log(r);
 		$("#failUser").css("display","block");
@@ -409,6 +417,18 @@ $(".delete").click((e)=>{
 		type: "delete",
 		url: e.target.name,
 	}).done((r)=>{
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+				"Aceptar": function () {
+					$("#informe").text(r);
+					$(this).dialog("close");
+				}
+			}
+		});
 		window.location.href=r;
 	});
 });
@@ -619,8 +639,20 @@ $("#formAntecGine button").click(function(){
 		url: $("#formAntecGine").attr("action"),
 		data:Expediente
 	}).done((e)=>{
-		alert(e.msg);
-		window.location.href=e.url;
+		$("#dialog-confirm").dialog({
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+				"Aceptar": function () {
+					$("#informe").text(e.msg);
+					$(this).dialog("close");
+					window.location.href=e.url;
+				}
+			}
+		});
+		
 	});
 	console.log(Expediente);
 });

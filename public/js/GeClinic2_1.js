@@ -1,4 +1,3 @@
-import { Query } from "mongoose";
 
 
 /*Precargar elementos*/
@@ -21,17 +20,7 @@ $(document).ready(function(){
 
 /*end precargar elementos*/
 
-$("#buscadorExp").keyup((e)=>{
-	$.ajax({
-		type: "method",
-		url: "url",
-		data: "data",
-		dataType: "dataType",
-		success: function (response) {
-			
-		}
-	});
-});
+
 
 /*Eventos de accordion*/
 $("#crearExp a").click(function(){
@@ -112,13 +101,11 @@ $anGi = false;
 		$("#formFichIde").css("display","block");
 		$(".continuarExp .btn-success").click(function(){//guardar ficha identificacion
 				$fi = true;
-				$("#fi").css("background-color","#6CDE71");
 				darColorTD("#antec");///////////////
 				$(".putForm form").css("display","none");
 				$("#formAntec").css("display","block");
 				$(".continuarExp .btn-success").click(function(e){
 						$antec = true;
-						$("#antec").css("background-color","#6CDE71");
 						if(formAntec.length<2)
 						{
 							e,preventDefault();
@@ -129,19 +116,16 @@ $anGi = false;
 						$("#formAPNP").css("display","block");
 						$(".continuarExp .btn-success").click(function(){
 								$an = true;
-								$("#an").css("background-color","#6CDE71");
 								darColorTD("#in");
 								$(".putForm form").css("display","none");
 								$("#formInmu").css("display","block");
 								$(".continuarExp .btn-success").click(function(){
 										$in = true;
-										$("#in").css("background-color","#6CDE71");
 										darColorTD("#ap");
 										$(".putForm form").css("display","none");
 										$("#formAPP").css("display","block");
 										$(".continuarExp .btn-success").click(function(){
 												$ap = true;
-												$("#ap").css("background-color","#6CDE71");
 												darColorTD("#anGi");
 												$(".putForm form").css("display","none");
 												if(formFichIde.sexo=="Mujer")
@@ -154,7 +138,7 @@ $anGi = false;
 												}
 												$(".continuarExp .btn-success").click(function(){
 														$anGi = true;
-														$("#fi,#antec,#an,#in,#ap,#anGi").css("background-color","#2F789F");
+													
 														$(".statusTable td").removeClass("active");
 														$(".statusTable td").css("color","#fff");
 														$(".putForm form").css("display","none");
@@ -576,7 +560,17 @@ $("#formAPP button").click(function(){
 	};
 	console.log(formAPP);
 });
-
+$("#buscadorExp").keyup((e)=>{
+	$.ajax({
+		type: "method",
+		url: "url",
+		data: "data",
+		dataType: "dataType",
+		success: function (response) {
+			
+		}
+	});
+});
 $("#formAntecGine button").click(function(){
 	formAntecGine=
 	{

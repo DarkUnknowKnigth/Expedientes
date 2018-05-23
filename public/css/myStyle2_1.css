@@ -246,21 +246,7 @@ header p{
 /*Forms*/
 
 /*Estilos a clases directo*/
-.logoNombre{
-	float: left !important;
-}
-.logoNombre .nombre p{
-	padding-left: 10px;
-}
-.logoNombre .nombre{
-	width: 300px;
-}
 
-.logoNombre img{
-	width: 30%;
-	display: block;
-	margin: auto;
-}
 
 .actionColumn{
 	width: 250px;

@@ -74,6 +74,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         modificarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/modificarExpediente`,
                         eliminarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/eliminarExpediente/`,
                         buscarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarExpediente`,
+                        buscarUno:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarUno`,
                         //link coordinador
                         generarHoja:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarHojaDiaria`,
                         generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
@@ -139,6 +140,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             modificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/modificarExpediente`,
                                             eliminarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/eliminarExpediente/`,
                                             buscarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarExpediente`,
+                                            buscarUno:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarUno`,
                                             //link coordinador
                                             generarHoja:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
                                             generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,

@@ -19,15 +19,6 @@
 <body>
 	<!-- Nombre de la institución: Centro de Salud Santa Cruz -->
 	<header>
-		<div class="logoNombre">
-			<div class="nombre top-barActions">
-				<p>CENTRO DE SALUD SANTA CRUZ</p>
-				
-			</div>
-			<div class="logo top-barActions">
-				<img src="/public/assets/logoSSA.gif">
-			</div>
-		</div>
 		<div class="top-barActions">
 			<div class="conf"><a href="#"><i class="fas fa-cog"></i></a></div>
 			<div class="logOut"><a href="https://stark-sea-10471.herokuapp.com/"><i class="fas fa-sign-out-alt"></i></a></div>
@@ -162,7 +153,28 @@
 		</div>
 		<!-- End accordion -->
 	</div>
-	<!-- Modal continuarExp -->
+	<div class="rightSide">
+		<!-- Forms -->
+		<%if(permiso.expediente){%>
+		<div class="containerForms createExp">
+			<!-- botón de retroceso -->
+			<div id="Prev"><a href=<%localURL%>><i class="fas fa-arrow-left"></i></a>
+				<p>CREAR EXPEDIENTE</p>
+			</div>
+			<!-- barra de estado -->
+			<div class="statusBar">
+				<table class="statusTable">
+					<tr>
+						<td id="fi">Ficha de identificación</td>
+						<td id="antec">Antecedentes Heredo Familiares</td>
+						<td id="an">Antecedentes Personales No Patológicos</td>
+						<td id="in">Inmunizaciones</td>
+						<td id="ap">Antecedentes Personales Patológicos</td>
+						<td id="anGi">Antecedentes Ginecoobstétricos</td>
+					</tr>
+				</table>
+			</div>
+			<!-- Modal continuarExp -->
 						<div class="modal fade continuarExp" tabindex="-1" role="dialog">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
@@ -205,28 +217,6 @@
 								</div>
 							</div>
 						</div>
-	<div class="rightSide">
-		<!-- Forms -->
-		<%if(permiso.expediente){%>
-		<div class="containerForms createExp">
-			<!-- botón de retroceso -->
-			<div id="Prev"><a href=<%localURL%>><i class="fas fa-arrow-left"></i></a>
-				<p>CREAR EXPEDIENTE</p>
-			</div>
-			<!-- barra de estado -->
-			<div class="statusBar">
-				<table class="statusTable">
-					<tr>
-						<td id="fi">Ficha de identificación</td>
-						<td id="antec">Antecedentes Heredo Familiares</td>
-						<td id="an">Antecedentes Personales No Patológicos</td>
-						<td id="in">Inmunizaciones</td>
-						<td id="ap">Antecedentes Personales Patológicos</td>
-						<td id="anGi">Antecedentes Ginecoobstétricos</td>
-					</tr>
-				</table>
-			</div>
-			
 			<!-- Formulario -->
 			<div class="putForm">
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
@@ -897,6 +887,7 @@
 			<div class="groupForm buscar">
 				<label for="buscadorExp">Buscar:</label>
 				<input placeholder="Ingrese el expediente que desea buscar" type="text" id="buscadorExp" name="buscadorExp">
+				
 			</div>
 			<div class="tablaResultados">
 				<table class="table table-hover">

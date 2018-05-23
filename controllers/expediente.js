@@ -1,5 +1,80 @@
 'use strict'
 const Expediente=require("../models/expediente");
+function query(req,res)
+{
+    query=req.body.query;
+    type=req.body.tipo;
+    Expediente.find({tipo:query},(err,exp)=>{
+        if(err)
+        {
+            res.send("No se encontro el expediente");
+        }
+        else{
+            if(exp)
+            {
+
+                res.send( 
+                    '<table class="table">'+
+                    '		<tr>'+
+                    '			<th colspan="2">Ficha identificacion</th>'+
+                    '			<th colspan="2">APNP</th>'+
+                    '			<th colspan="2">Inmunizaciones</th>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>Campo</td>'+
+                    '			<td>Informacion</td>'+
+                    '			<td>Patologia</td>'+
+                    '			<td>estado</td>'+
+                    '			<td>Inmunizacion</td>'+
+                    '			<td>Aplicado</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>nombre</td>'+
+                    '			<td>'+exp.nombre+'</td>'+
+                    '			<td>Promiscuidad</td>'+
+                    '			<td>'+exp.promiscuidad+'</td>'+
+                    '			<td>SABIN</td>'+
+                    '			<td>'+exp.sabin+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>direccion</td>'+
+                    '			<td>'+exp.direccion+'</td>'+
+                    '			<td>Hacinamiento</td>'+
+                    '			<td>'+exp.hacinamiento+'</td>'+
+                    '			<td>BCG</td>'+
+                    '			<td>'+exp.bcg+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>curp</td>'+
+                    '			<td>'+exp.curp+'</td>'+
+                    '			<td>Tabaco</td>'+
+                    '			<td>'+exp.tabaco+'</td>'+
+                    '			<td>DPT</td>'+
+                    '			<td>'+exp.dpt+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>sexo</td>'+
+                    '			<td>'+exp.sexo+'</td>'+
+                    '			<td>Alcohol</td>'+
+                    '			<td>'+exp.alcohol+'</td>'+
+                    '			<td>Antisarampion</td>'+
+                    '			<td>'+exp.antisarampion+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>ocupacion</td>'+
+                    '			<td>'+exp.ocupacion+'</td>'+
+                    '			<td>Dieta</td>'+
+                    '			<td>'+exp.dieta+'</td>'+
+                    '		</tr>'+
+                    '	</table>');
+            }
+            else
+            {
+                res.send("No se encontro el expediente");
+            }
+        }
+    });
+}
 function modificar(req,res)
 {
 
@@ -186,5 +261,6 @@ module.exports={
     modificar,
     eliminar,
     guardar,
-    buscar
+    buscar,
+    query
 }

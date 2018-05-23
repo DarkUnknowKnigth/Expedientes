@@ -427,7 +427,7 @@ $("#guardarUsuario").click((e)=>{
 		$("#failUser").html("<p>"+r+"</p>");
 	});;
 });
-$(".see").click((e)=>{
+$(".modifExp .see").click((e)=>{
 	console.log(e.target.name);
 
 	$.ajax({
@@ -447,7 +447,7 @@ $(".see").click((e)=>{
 		});
 	});
 });
-$(".delete").click((e)=>{
+$(".modifExp .delete").click((e)=>{
 	$.ajax({
 		type: "delete",
 		url: e.target.name,

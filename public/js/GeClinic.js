@@ -448,11 +448,12 @@ $("#agregar").click(function(){
 		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"otro": $("#otros").val()
 	});
-	$("#parentRest").text(dec);
-	if(dec==0)
+	if(dec<=0)
 	{
+		e.preventDefault();
 		$("#parentRest").text("Presione continuar");
 	}
+	$("#parentRest").text(dec);
 	console.log(formAntec);
 });
 

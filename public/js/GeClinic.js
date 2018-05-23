@@ -127,7 +127,10 @@ $anGi = false;
 												$ap = true;
 												darColorTD("#anGi");
 												$(".putForm form").css("display","none");
-												$("#formAntecGine").css("display","block");
+												if(formFichIde.sexo=="Mujer")
+												{
+													$("#formAntecGine").css("display","block");
+												}
 												$(".continuarExp .btn-success").click(function(){
 														$anGi = true;
 														$(".statusTable td").removeClass("active");

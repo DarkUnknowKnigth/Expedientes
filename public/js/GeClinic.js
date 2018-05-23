@@ -444,6 +444,10 @@ $("#agregar").click(function(){
 		"otro": $("#otros").val()
 	});
 	$("#parentRest").text(dec);
+	if(dec==0)
+	{
+		$("#parentRest").text("Presione continuar");
+	}
 	console.log(formAntec);
 });
 

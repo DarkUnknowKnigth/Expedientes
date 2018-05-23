@@ -412,7 +412,9 @@ $(".delete").click((e)=>{
 		window.location.href=r;
 	});
 });
-
+$("#YesElimUser").click((e)=>{
+	console.log(e);
+});
 $("#talla").keyup(function(){
 	let talla = $("#talla").val();
 	let peso = $("#peso").val();

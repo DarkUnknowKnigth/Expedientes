@@ -54,7 +54,7 @@ function validar(req,res)
         }
         else
         {
-           report="La Cedula no posee un formato adecuado";
+           report="La Cedula no posee un formato adecuado (8 caracteres)";
            res.send(report);
         }
     }   

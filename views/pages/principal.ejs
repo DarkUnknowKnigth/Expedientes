@@ -857,20 +857,20 @@
 							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
 						</tr> -->
 						<%  for(i=0;i<ExpeT.length;i++){%>
-						<tr name=<%= ExpeT.id %>>
-							<th scope="col"><%=ExpeT.id %></th>
-							<td> <%=ExpeT.nombre %></td>
-							<td><%=ExpeT.curp %></td>
-							<td><%=ExpeT.direccion %></td>
-							<td><%=ExpeT.sexo%></td>
+						<tr name=<%= ExpeT[i].id %>>
+							<th scope="col"><%=ExpeT[i].id %></th>
+							<td> <%=ExpeT[i].nombre %></td>
+							<td><%=ExpeT[i].curp %></td>
+							<td><%=ExpeT[i].direccion %></td>
+							<td><%=ExpeT[i].sexo%></td>
 							<td>
-								<button name=<%= ExpeT.id %> class="edit">
+								<button name=<%= ExpeT[i].id %> class="edit">
 									<i class="far fa-eye"></i>
 								</button>
-								<button name=<%= ExpeT.id %> class="edit">
+								<button name=<%= ExpeT[i].id %> class="edit">
 									<i class="fas fa-edit"></i>
 								</button>
-								<button name=<%= ExpeT.id %> data-target=".eliminar" data-toggle="modal" class="delete">
+								<button name=<%= ExpeT[i].id %> data-target=".eliminar" data-toggle="modal" class="delete">
 									<i class="fas fa-trash-alt"></i>
 								</button>
 							</td>

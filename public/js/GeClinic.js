@@ -409,6 +409,7 @@ $("#guardarUsuario").click((e)=>{
 	});;
 });
 $(".see").click((e)=>{
+	console.log(e.target.name);
 	$.ajax({
 		type: "post",
 		url: e.target.name,

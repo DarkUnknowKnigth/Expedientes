@@ -6,6 +6,7 @@ function modificar(req,res)
 }
 function buscar(req,res)
 {
+    console.log(req.body.id);
     Expediente.findById(req.body.id,(err,exp)=>{
         if(err)
         {

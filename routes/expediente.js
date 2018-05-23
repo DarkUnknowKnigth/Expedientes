@@ -2,7 +2,6 @@
 const express = require('express');
 const controladorExpediente=require('../controllers/expediente');
 const expediente=express.Router();
-
 expediente.get('/crear',(req,res)=>{
     res.status(200).render("../views/partials/crearExpedeinte.ejs");
 });

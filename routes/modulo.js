@@ -21,7 +21,6 @@ Expediente.find({}).exec((err, expedientes) => {
     else {
         if(expedientes)
         {
-            console.log(expedientes);
             Expfined = expedientes;
         }
         else

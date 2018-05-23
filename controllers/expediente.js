@@ -15,33 +15,58 @@ function buscar(req,res)
         else{
             if(exp)
             {
-               res.send( '<table class="table">'+
+               res.send( 
+                '<table class="table">'+
 				'		<tr>'+
-				'			<th colspan="2">Ficha identificacion</th>'+
+                '			<th colspan="2">Ficha identificacion</th>'+
+                '			<th colspan="2">APNP</th>'+
+                '			<th colspan="2">Inmunizaciones</th>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>Campo</td>'+
-				'			<td>Valor</td>'+
+                '			<td>Informacion</td>'+
+                '			<td>Patologia</td>'+
+                '			<td>estado</td>'+
+                '			<td>Inmunizacion</td>'+
+				'			<td>Aplicado</td>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>nombre</td>'+
-				'			<td>'+exp.nombre+'</td>'+
+                '			<td>'+exp.nombre+'</td>'+
+                '			<td>Promiscuidad</td>'+
+                '			<td>'+exp.promiscuidad+'</td>'+
+                '			<td>SABIN</td>'+
+				'			<td>'+exp.sabin+'</td>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>direccion</td>'+
-				'			<td>'+exp.direccion+'</td>'+
+                '			<td>'+exp.direccion+'</td>'+
+                '			<td>Hacinamiento</td>'+
+                '			<td>'+exp.hacinamiento+'</td>'+
+                '			<td>BCG</td>'+
+				'			<td>'+exp.bcg+'</td>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>curp</td>'+
-				'			<td>'+exp.curp+'</td>'+
+                '			<td>'+exp.curp+'</td>'+
+                '			<td>Tabaco</td>'+
+                '			<td>'+exp.tabaco+'</td>'+
+                '			<td>DPT</td>'+
+				'			<td>'+exp.dpt+'</td>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>sexo</td>'+
-				'			<td>'+exp.sexo+'</td>'+
+                '			<td>'+exp.sexo+'</td>'+
+                '			<td>Alcohol</td>'+
+                '			<td>'+exp.alcohol+'</td>'+
+                '			<td>Antisarampion</td>'+
+				'			<td>'+exp.antisarampion+'</td>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>ocupacion</td>'+
-				'			<td>'+exp.ocupacion+'</td>'+
+                '			<td>'+exp.ocupacion+'</td>'+
+                '			<td>Dieta</td>'+
+				'			<td>'+exp.dieta+'</td>'+
 				'		</tr>'+
 				'	</table>');
             }

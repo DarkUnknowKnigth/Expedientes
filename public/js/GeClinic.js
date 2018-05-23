@@ -410,12 +410,13 @@ $("#guardarUsuario").click((e)=>{
 });
 $(".see").click((e)=>{
 	console.log(e.target.name);
+
 	$.ajax({
 		type: "post",
 		url: e.target.name,
 		data: {id:e.target.value},
 	}).done((e)=>{
-		$("#informe").text(e);
+		$("#informe").html(e);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {

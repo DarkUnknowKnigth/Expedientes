@@ -5,7 +5,7 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* @import url('https://fonts.googleapis.com/css?family=Arial, Helvetica, sans-serif'); */
 /*end universal*/
 /*Header*/
 
@@ -18,7 +18,7 @@ header{
 }
 
 header p{
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 	text-align: center;
 	padding: 5px;
 	color: #fff;
@@ -85,7 +85,7 @@ header p{
 .userDescription{
 	/*float: left;*/
 	color: #000;
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 	margin-left: 5%;
 	margin-top: 10%;
 	font-size: 16px;
@@ -207,7 +207,7 @@ header p{
 	display: block;
 	margin: auto;
 	font-size: 12px;
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 	font-weight: bold;
 }
 .statusBar table tr td{
@@ -346,7 +346,7 @@ header p{
 	height: 45px;
 	border: 1px solid #E4E4E4;
 	border-radius: 10px;
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 	padding: 2%
 }
 .containerForms input,select,textarea{
@@ -369,7 +369,7 @@ header p{
 	margin-left: 5%;
 	margin-top: 3%;
 	font-size: 18px;
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 	font-weight: bold;
 }
 .containerForms textarea{
@@ -378,7 +378,7 @@ header p{
 	height: 100px;
 	border-radius: 10px;
 	padding: 3%;
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 }
 .groupForm{
 	float: left;
@@ -398,11 +398,10 @@ header p{
 }
 .tablaResultados .edit .delete .see{
 	margin-left: 5%;
-	width: 30%;
+	width: 33%;
 	height: 40px;
 	display: inline;
 	margin-top: auto;
-	background-color: transparent;
 	border: 1px solid transparent;
 	border-radius: 5px;
 	color: #fff;
@@ -475,7 +474,7 @@ header p{
 	padding: 1%;
 	border: 1px solid #979797;
 	color: #383C41;
-	font-family: "Montserrat";
+	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	font-weight: bold;
 	transition: ease all 0.2s;
@@ -493,7 +492,7 @@ header p{
 }
 .viewerTitle p{
 	text-align: center;
-	font-family: "Montserrat";
+	font-family: "Arial, Helvetica, sans-serif";
 	font-weight: bold;
 	font-size: 40px;
 	color: #383C41;

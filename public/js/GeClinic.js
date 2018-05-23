@@ -580,7 +580,8 @@ $("#formAntecGine button").click(function(){
 		url: $("#formAntecGine").attr("action"),
 		data:Expediente
 	}).done((e)=>{
-		console.log(e);
+		alert(e.msg);
+		window.location.href=e.url;
 	});
 	console.log(Expediente);
 });

@@ -86,10 +86,11 @@ function guardar(req, res) {
         if(err)
         {
             console.log("ERROR:"+err);
-            res.send("No se pudo guardar el expediente, Porfavor intente de nuevo");
+            res.send({meg:"Ha ocurrido un erro en el guardado, porfavor intente de nuevo",url:req.baseUrl.replace("/expedientes/nuevoExpediente","")});
         }
         else{
-            res.send("Expedeinte creado Exitosamente1 !");
+
+            res.send({meg:"Expedeinte creado Exitosamente1 !",url:req.baseUrl.replace("/expedientes/nuevoExpediente","")});
         }
     });
     //console.log(expediente);

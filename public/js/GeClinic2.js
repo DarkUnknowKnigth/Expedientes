@@ -78,65 +78,44 @@ function darColorVinetas(element){
 
 /*Eventos de Tabla*/
 
-$("#initExp").click(function(){
-
-	$antec = false;
-$fi = false;
-$an = false;
-$in = false;
-$ap = false;
-$anGi = false;
-	if ($fi == false) {
-		darColorTD("#fi");
-		$(".putForm form").css("display","none");
-		$("#formFichIde").css("display","block");
-		$(".continuarExp .btn-success").click(function(){
-				$fi = true;
-				darColorTD("#antec");
-				$(".putForm form").css("display","none");
-				$("#formAntec").css("display","block");
-				$(".continuarExp .btn-success").click(function(){
-						$antec = true;
-						darColorTD("#an");
-						$(".putForm form").css("display","none");
-						$("#formAPNP").css("display","block");
-						$(".continuarExp .btn-success").click(function(){
-								$an = true;
-								darColorTD("#in");
-								$(".putForm form").css("display","none");
-								$("#formInmu").css("display","block");
-								$(".continuarExp .btn-success").click(function(){
-										$in = true;
-										darColorTD("#ap");
-										$(".putForm form").css("display","none");
-										$("#formAPP").css("display","block");
-										$(".continuarExp .btn-success").click(function(){
-												$ap = true;
-												darColorTD("#anGi");
-												$(".putForm form").css("display","none");
-												$("#formAntecGine").css("display","block");
-												$(".continuarExp .btn-success").click(function(){
-														$anGi = true;
-														$(".statusTable td").removeClass("active");
-														$(".statusTable td").css("color","#fff");
-														$(".putForm form").css("display","none");
-														$("#firstForm").css("display","block");
-												});
-											
-										});
-
-									
-								});
-						});
-					
-					
-				});
-			
-			
-
-		});
-	}
+$("#antec").click(function(){
+	darColorTD("#antec");
+	$(".putForm form").css("display","none");
+	// $(".putForm").append(`<form id="formAntec" action=""><div class="groupForm"><label for="idAntec">Clave de antecedentes:</label><input type="text" id="idAntec" name="idAntec"></div><div class="groupForm"><label for="parentesco">Parentesco:</label><select id="parentesco" name="parentesco"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="HA">HA:</label><select id="HA" name="HA"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="diabetes">Diabetes:</label><select id="diabetes" name="diabetes"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="cancer">Cáncer:</label><select id="cancer" name="cancer"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="TB">TB:</label><select id="TB" name="TB"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="sida">SIDA:</label><select id="sida" name="sida"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="otros">Otros:</label><textarea name="otros" id="otros" placeholder="Especifique..."></textarea></div><div style="clear:both;"></div><button class="btn btn-success" type="submit">Guardar</button></form>`);
+	$("#formAntec").css("display","block");
 });
+
+$("#fi").click(function(){
+	darColorTD("#fi");
+	$(".putForm form").css("display","none");
+	// $(".putForm").append(`<form id="formAntec" action=""><div class="groupForm"><label for="idFicha">Clave de identificación:</label><input type="text" id="idFicha" name="idFicha"></div><div class="groupForm"><label for="divorciado">Divorciado:</label><select id="divorciado" name="divorciado"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="casado">Casado:</label><select id="casado" name="casado"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="unionLibre">Unión libre:</label><select id="unionLibre" name="unionLibre"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="soltero">Soltero:</label><select id="soltero" name="soltero"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="separado">Separado:</label><select id="separado" name="separado"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="viudo">Viudo:</label><select id="viudo" name="viudo"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="sinOcupacion">Sin ocupación:</label><select id="sinOcupacion" name="sinOcupacion"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="estudia">Estudia:</label><select id="estudia" name="estudia"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="laboresHogar">Labores de hogar:</label><select id="laboresHogar" name="laboresHogar"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="trabaja">Trabaja:</label><select id="trabaja" name="trabaja"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="jubilado">Jubilado:</label><select id="jubilado" name="jubilado"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="padreSoltero">Padre soltero:</label><select id="padreSoltero" name="padreSoltero"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div style="clear:both;"></div><button class="btn btn-success" type="submit">Guardar</button></form>`);
+	$("#formFichIde").css("display","block");
+});
+$("#an").click(function(){
+	darColorTD("#an");
+	$(".putForm form").css("display","none");
+	// $(".putForm").append(`<form id="formAntec" action=""><div class="groupForm"><label for="idApnp">Clave APNP:</label><input type="text" id="idApnp" name="idApnp"></div><div class="groupForm"><label for="tabaco">Tabaco:</label><select id="tabaco" name="tabaco"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="dieta">Dieta:</label><select id="dieta" name="dieta"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="alcohol">Alcohol:</label><select id="alcohol" name="alcohol"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="vivienda">Vivienda:</label><select id="vivienda" name="vivienda"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="fauna">Fauna:</label><select id="fauna" name="fauna"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="promiscuidad">Promiscuidad:</label><select id="promiscuidad" name="promiscuidad"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="hacimiento">Hacimiento:</label><select id="hacimiento" name="hacimiento"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div style="clear:both;"></div><button class="btn btn-success" type="submit">Guardar</button></form>`);
+	$("#formAPNP").css("display","block");
+});
+$("#in").click(function(){
+	darColorTD("#in");
+	$(".putForm form").css("display","none");
+	// $(".putForm").append(`<form id="formAntec" action=""><div class="groupForm"><label for="idInmu">Clave de inmunizaciones:</label><input type="text" id="idInmu" name="idInmu"></div><div class="groupForm"><label for="sabin">SABIN:</label><select id="sabin" name="sabin"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="dpt">DPT:</label><select id="dpt" name="dpt"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="bcg">BCG:</label><select id="bcg" name="bcg"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="antisarampion">Antisarampión:</label><select id="antisarampion" name="antisarampion"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div style="clear:both;"></div><button class="btn btn-success" type="submit">Guardar</button></form>`);
+	$("#formInmu").css("display","block");
+});
+$("#ap").click(function(){
+	darColorTD("#ap");
+	$(".putForm form").css("display","none");
+	// $(".putForm").append(`<form id="formAntec" action=""><div class="groupForm"><label for="idApp">APP:</label><input type="text" id="idApp" name="idApp"></div><div class="groupForm"><label for="sonrie">Sonríe:</label><select id="sonrie" name="sonrie"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="sostieneCabeza">Sostiene su cabeza:</label><select id="sostieneCabeza" name="sostieneCabeza"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="seSienta">Se sienta:</label><select id="seSienta" name="seSienta"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="gatea">Gatea:</label><select id="gatea" name="gatea"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="habla">Habla:</label><select id="habla" name="habla"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="sarampion">Sarampión:</label><select id="sarampion" name="sarampion"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="rubeola">Rubeola:</label><select id="rubeola" name="rubeola"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="tosferina">Tosferina:</label><select id="tosferina" name="tosferina"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="varicela">Varicela:</label><select id="varicela" name="varicela"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="escarlatina">Escarlatina:</label><select id="escarlatina" name="escarlatina"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="amigdalitis">Amigdalitis:</label><select id="amigdalitis" name="amigdalitis"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="parasitoIntestinal">Parásito intestinal:</label><select id="parasitoIntestinal" name="parasitoIntestinal"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="convulsiones">Convulsiones:</label><select id="convulsiones" name="convulsiones"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="urosepsis">Urosepsis:</label><select id="urosepsis" name="urosepsis"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="traumatismos">Traumatismos:</label><select id="traumatismos" name="traumatismos"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="ingresoHospital">Ingreso a hospital:</label><input type="date" id="ingresoHospital" name="ingresoHospital"></div><div class="groupForm"><label for="cirugia">Cirugía:</label><select id="cirugia" name="cirugia"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div style="clear:both;"></div><button class="btn btn-success" type="submit">Guardar</button></form>`);
+	$("#formAPP").css("display","block");
+});
+$("#anGi").click(function(){
+	darColorTD("#anGi");
+	$(".putForm form").css("display","none");
+	// $(".putForm").append(`<form id="formAntec" action=""><div class="groupForm"><label for="idGine">Clave Ginecoobstétricos:</label><input type="text" id="idGine" name="idGine"></div><div class="groupForm"><label for="menarquia">Menarquía:</label><select id="menarquia" name="menarquia"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="ritmo">Ritmo:</label><input type="text" id="ritmo" name="ritmo"></div><div class="groupForm"><label for="magSang">Magnitud sanguínea:</label><input type="text" id="magSang" name="magSang"></div><div class="groupForm"><label for="vidSexAct">Vida sexual activa:</label><select id="vidSexAct" name="vidSexAct"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="ultMens">Última menstruación:</label><input type="date" id="ultMens" name="ultMens"></div><div class="groupForm"><label for="gesta">Gesta:</label><input type="text" id="gesta" name="gesta"></div><div class="groupForm"><label for="aborto">Aborto:</label><select id="aborto" name="aborto"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="cesarea">Cesarea:</label><select id="cesarea" name="cesarea"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="legradoUt">Legrado uterino:</label><select id="legradoUt" name="legradoUt"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="pruebaEmb">Prueba embarazo:</label><select id="pruebaEmb" name="pruebaEmb"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="citologia">Citología:</label><select id="citologia" name="citologia"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div class="groupForm"><label for="fechaAnticonceptivo">Fecha anticonceptivo:</label><input type="date" id="fechaAnticonceptivo" name="fechaAnticonceptivo"></div><div class="groupForm"><label for="tipoAnticoncep">Tipo anticonceptivo:</label><select id="tipoAnticoncep" name="tipoAnticoncep"><option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select></div><div style="clear:both;"></div><button class="btn btn-success" type="submit">Guardar</button></form>`);
+	$("#formAntecGine").css("display","block");
+});
+
 
 function darColorTD(element){
 	$(".statusTable td").removeClass("active");

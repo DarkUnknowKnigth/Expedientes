@@ -172,69 +172,20 @@
 					</tr>
 				</table>
 			</div>
-			<!-- Modal continuarExp -->
-						<div class="modal fade continuarExp" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Continuar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de guardar así estos datos?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Fin modal continuarExp -->
-
-			<div class="modal fade cancelarExp" tabindex="-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title">Cancelar</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>¿Está seguro de que desea cancelar esta consulta?</p>
-										<p>Se perderán los datos ingresados hasta ahora en
-										todas las partes de la consulta.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="submit" data-dismiss="modal" class="btn btn-danger">¡Sí!</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
-									</div>
-								</div>
-							</div>
-						</div>
 			<!-- Formulario -->
 			<div class="putForm">
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
-				<form id="firstForm">
-				<div class="bienvenidaExp">
-					<label>De click en iniciar expediente</label>
-					<input type="button" name="initExp" id="initExp" value="Iniciar expediente" class="btn btn-primary">
-				</div>
-				</form>
 
 				<!-- Form antecedentes -->
 				<form id="formAntec" action="#">
 					<div class="groupForm parent">
-						<label for="parentesco">Ingrese datos de parentesco paterno y materno:</label>
+						<label for="parentesco">Parentesco:</label>
 						<select id="parentesco" name="parentesco">
+							<option selected value="seleccione">Seleccione...</option>
 							<option value="paterno">Paterno</option>
 							<option value="materno">Materno</option>
 						</select>
-						<input type="button" id="agregar" name="Agregar" value="Agregar" class="btn btn-primary">
-						<input type="button" id="sinDatos" name="sinDatos" value="Sin datos" class="btn btn-primary">
+						<input type="button" id="agregar" value="Agregar" class="btn btn-primary">
 					</div>
 					<div style="clear: both"></div>
 					<div class="groupForm" id="Ha">
@@ -304,7 +255,7 @@
 					</div>
 					<div class="groupForm"><label for="otros">Otros:</label><textarea name="otros" id="otros" placeholder="Especifique..."></textarea></div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-success" id="nextAntec" type="button">Continuar</button>
 				</form>
 
 				<!-- Fin de form antecedentes -->
@@ -413,7 +364,7 @@
 						</div>
 					</div> -->
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-success" type="button">Continuar</button>
 				</form>
 				<!-- Fin de form Ficha identificación -->
 
@@ -508,7 +459,7 @@
 					</div>
 					
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-success" type="button">Continuar</button>
 				</form>
 				<!-- Fin de form APNP -->
 
@@ -567,7 +518,7 @@
 						</div>
 					</div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-success" type="button">Continuar</button>
 				</form>
 				<!-- Fin de form inmunizaciones -->
 
@@ -805,7 +756,7 @@
 						</div>
 					</div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-success" type="button">Continuar</button>
 				</form>
 
 				<!-- Fin de form APP -->
@@ -873,7 +824,7 @@
 						<input type="text" id="tipoAnticoncep" placeholder="Ingrese tipo de anticonceptivo" name="tipoAnticoncep">
 					</div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-primary" type="button">Terminar</button>
 				</form>
 
 				<!-- Fin de form Antec. Ginecoobstétricos -->
@@ -898,74 +849,33 @@
 						</tr>
 					</thead>
 					<tbody>
+						<% collection_expedientes.forEach(expediente => {  %>
+						<tr>
+								<th scope="col"><%= expediente._id%></th>
+								<td scope="col"><%=expediente.nombre%> <%=expediente.apPaterno%> <%=expediente.apMaterno%></td>
+								<td scope="col"><%=expediente.curp%></td>
+								<td scope="col"><%=expediente.direccion%></td>
+								<td scope="col"><%=expediente.sexo%></td>
+								<td>
+									<button class="edit" name=<%=expediente._id%>>
+										<i class="fas fa-edit"></i>
+									</button>
+									<button data-target=".eliminar" data-toggle="modal" class="delete" name=<%=expediente._id%>>
+										<i class="fas fa-trash-alt"></i>
+									</button>
+								</td>
+						</tr>
+						<% }); %>
 						<!-- <tr>
 							<th scope="row">1</th>
 							<td>Mark</td>
 							<td>Otto</td>
 							<td>@mdo</td>
-							<td class="actionColumn"><button class="edit"><i class="fas fa-edit"></i></button>
-								<button data-toggle="modal" data-target=".seeExp" class="see"><i class="fas fa-eye"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
+							<td><button class="edit"><i class="fas fa-edit"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
 						</tr> -->
 						
 					</tbody>
 				</table>
-				<!-- Modal ver -->
-
-		<div class="modal seeExp fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">EXPEDIENTE</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">Nombre</th>
-									<th scope="col">Ap. Materno</th>
-									<th scope="col">Ap. Paterno</th>
-									<th scope="col">Tipo de usuario</th>
-									<th scope="col">Activo</th>
-								</tr>
-							</thead>
-							<tbody id="results">
-								<%=usuarios%>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark 1</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Mark 2</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Mark 3</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
-								</tr>
-
-							</tbody>
-						</table>
-
-					</div>
-					<div class="modal-footer">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Fin modal ver -->
 				<!-- Modal confirmación eliminación -->
 				<div class="modal fade eliminar" tabindex="-1" role="dialog">
 					<div class="modal-dialog" role="document">

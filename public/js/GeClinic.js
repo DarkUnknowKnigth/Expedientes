@@ -1,6 +1,3 @@
-import { Query } from "mongoose";
-
-
 /*Precargar elementos*/
 var localResource='';
 var formAntec=[];
@@ -21,6 +18,24 @@ $(document).ready(function(){
 
 /*end precargar elementos*/
 
+$("#buscadorExp").keyup((e)=>{
+	$.ajax({
+		type: "POST",
+		url: e.target.name,
+	}).done((e)=>{
+		$("#informe").text(e);
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+					window.location.href=e.url;
+				}
+			}
+		});
+
+	});
+});
 /*Eventos de accordion*/
 $("#crearExp a").click(function(){
 	darColorVinetas("#crearExp");

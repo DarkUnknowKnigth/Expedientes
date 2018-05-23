@@ -23,10 +23,10 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         {
             if(usuario)
             {
+                var Usuariosfinded = "0 results";
+                var Expfined = "0 results";
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
-                    var Usuariosfinded = "0 results";
-                    var Expfined = "0 results";
                     Expediente.find({}).exec((err, expedientes) => {
                         if (!err) {
                             console.log(expediente);
@@ -98,11 +98,12 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     {
                         if(admin)
                         {
+                            var Usuariosfinded="0 results";
+                            var Expfined="0 results";
                             
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
-                                var Usuariosfinded="0 results";
-                                var Expfined="0 results";
+                               
                                 Expediente.find({}).exec((err,expedientes)=>{
                                     if(!err)
                                     {

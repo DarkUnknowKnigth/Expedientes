@@ -429,12 +429,12 @@ header p{
 .tablaResultados .see{
 	background-color: rgb(49, 221, 92);
 }
-.tablaResultados .edit:hover,.delete:hover{
+.tablaResultados .edit:hover, .tablaResultados .delete:hover, .tablaResultados .see:hover{
 	cursor: pointer;
 	background-color: #35414F;
 }
 
-.tablaResultados .edit:focus,.delete:focus{
+.tablaResultados .edit:focus, .tablaResultados .delete:focus, .tablaResultados .see:focus{
 	outline: none;
 }
 

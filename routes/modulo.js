@@ -14,22 +14,22 @@ const ejsLint = require('ejs-lint');
 //variables
 var Usuariosfinded = "0 results";
 var Expfined = "0 results";
-Expediente.find({}).exec((err, expedientes) => {
-    if (err) {
-        throw err;
-    }
-    else {
-        if(expedientes)
-        {
-            Expfined = expedientes;
-        }
-        else
-        {
-           throw err;
-        }   
-    }
-});
 modulo.get("/:id&:user&:pass",(req,res)=>{
+    Expediente.find({}).exec((err, expedientes) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            if(expedientes)
+            {
+                Expfined = expedientes;
+            }
+            else
+            {
+               throw err;
+            }   
+        }
+    });
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
     {
         if(err)

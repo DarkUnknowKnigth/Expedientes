@@ -4,6 +4,52 @@ function modificar(req,res)
 {
 
 }
+function buscar(req,res)
+{
+    Expediente.findById(req.body.id,(err,exp)=>{
+        if(err)
+        {
+            res.send("Error en la busqueda del Expedeinte: "+req.body.id);
+        }
+        else{
+            if(exp)
+            {
+               res.send( '<table>'+
+				'		<tr>'+
+				'			<th colspan="2">Ficha identificacion</th>'+
+				'		</tr>'+
+				'		<tr>'+
+				'			<td>Campo</td>'+
+				'			<td>Valor</td>'+
+				'		</tr>'+
+				'		<tr>'+
+				'			<td>nombre</td>'+
+				'			<td>'+exp.nombre+'</td>'+
+				'		</tr>'+
+				'		<tr>'+
+				'			<td>direccion</td>'+
+				'			<td>'+exp.direccion+'</td>'+
+				'		</tr>'+
+				'		<tr>'+
+				'			<td>curp</td>'+
+				'			<td>'+exp.curp+'</td>'+
+				'		</tr>'+
+				'		<tr>'+
+				'			<td>sexo</td>'+
+				'			<td>'+exp.sexo+'</td>'+
+				'		</tr>'+
+				'		<tr>'+
+				'			<td>ocupacion</td>'+
+				'			<td>'+exp.ocupacion+'</td>'+
+				'		</tr>'+
+				'	</table>');
+            }
+            else{
+                res.send("Error en la captura de los datos");
+            }
+        }
+    });
+}
 function eliminar(req,res)
 {
     let id = req.params.id  
@@ -114,4 +160,5 @@ module.exports={
     modificar,
     eliminar,
     guardar,
+    buscar
 }

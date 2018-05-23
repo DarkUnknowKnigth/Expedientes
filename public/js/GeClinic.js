@@ -408,12 +408,29 @@ $("#guardarUsuario").click((e)=>{
 		$("#failUser").html("<p>"+r+"</p>");
 	});;
 });
+$(".see").click((e)=>{
+	$.ajax({
+		type: "post",
+		url: e.target.name,
+		data: {id:e.target.value},
+	}).done((e)=>{
+		$("#informe").text(e);
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+	});
+});
 $(".delete").click((e)=>{
-	$("#informe").text(r);
 	$.ajax({
 		type: "delete",
 		url: e.target.name,
 	}).done((r)=>{
+		$("#informe").text(r);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {

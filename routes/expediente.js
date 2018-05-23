@@ -15,6 +15,6 @@ expediente.get('/eliminar',(req,res)=>{
 expediente.post('/nuevoExpediente',controladorExpediente.guardar);
 expediente.put('/modificarExpediente',controladorExpediente.modificar);
 expediente.delete('/eliminarExpediente/:id',controladorExpediente.eliminar);
-expediente.post('/buscarExpediente',controladorExpediente.eliminar);
+expediente.post('/buscarExpediente',controladorExpediente.buscar);
 module.exports=expediente;
 

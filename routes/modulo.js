@@ -80,8 +80,9 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
+                        //datos de apoyo
                         usuarios:"",
-                        ExpeT:Expfined,
+                        collection_expedientes:Expfined,
                         localURL:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/`
                     });
                     console.log("fine");
@@ -145,7 +146,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             //link consulta
                                             nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
                                             //feed de tabla
-                                            ExpeT:Expfined,
+                                            collection_expedientes:Expfined,
                                             usuarios: Usuariosfinded,
                                             localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                                         });

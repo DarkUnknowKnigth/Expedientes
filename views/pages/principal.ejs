@@ -932,29 +932,35 @@
 								</tr>
 							</thead>
 							<tbody id="results">
-								<%=usuarios%>
+								<% collection_expedientes.forEach(expediente => {  %>
 								<tr>
-									<th scope="row">1</th>
-									<td>Mark 1</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
+									<th scope="col">
+										<%= expediente._id%>
+									</th>
+									<td scope="col">
+										<%=expediente.nombre%>
+											<%=expediente.apPaterno%>
+												<%=expediente.apMaterno%>
+									</td>
+									<td scope="col">
+										<%=expediente.curp%>
+									</td>
+									<td scope="col">
+										<%=expediente.direccion%>
+									</td>
+									<td scope="col">
+										<%=expediente.sexo%>
+									</td>
+									<td>
+										<button class="edit" name=<%=expediente._id%>>
+											<i class="fas fa-edit"></i>
+										</button>
+										<button data-target=".eliminar" data-toggle="modal" class="delete" name=<%=expediente._id%>>
+											<i class="fas fa-trash-alt"></i>
+										</button>
+									</td>
 								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Mark 2</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Mark 3</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
-								</tr>
-
+								<% }); %>
 							</tbody>
 						</table>
 

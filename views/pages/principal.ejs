@@ -849,7 +849,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%= collection_expedientes %>
+						<%= collection_expedientes.forEach(expediente => {  %>
+						<tr>
+								<th scope="col"><%= expediente._id%></th>
+								<td scope="col"><%=expediente.nombre%> <%=expediente.apPaterno%> <%=expediente.apMaterno%></td>
+								<td scope="col"><%=expediente.curp%></td>
+								<td scope="col"><%=expediente.direccion%></td>
+								<td scope="col"><%=expediente.sexo%></td>
+								<td>
+									<button class="edit" name=<%=expediente._id%>>
+										<i class="fas fa-edit"></i>
+									</button>
+									<button data-target=".eliminar" data-toggle="modal" class="delete" name=<%=expediente._id%>>
+										<i class="fas fa-trash-alt"></i>
+									</button>
+								</td>
+						</tr>
+						<% } %>
 						<!-- <tr>
 							<th scope="row">1</th>
 							<td>Mark</td>

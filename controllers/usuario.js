@@ -81,12 +81,13 @@ function eliminar(req,res)
     Usuario.findById(id, (err, user) => {
         if (err)
         { 
+            console.log(err);
             res.send(req.baseUrl.replace('/usuarios',""));
         }
         user.remove(err => {
             if (err)
             { 
-                console.log("la url: "+req.baseUrl.replace('/usuarios',""))
+                console.log(err);
                 res.send(req.baseUrl.replace('/usuarios',""));
             }
             res.send(req.baseUrl.replace('/usuarios',""));

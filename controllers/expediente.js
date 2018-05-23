@@ -10,12 +10,13 @@ function eliminar(req,res)
     Expediente.findById(id, (err, exp) => {
         if (err)
         { 
+            console.log(err);
             res.send(req.baseUrl.replace('/expedientes',""));
         }
         exp.remove(err => {
             if (err)
             { 
-                console.log("la url: "+req.baseUrl.replace('/expedientes',""))
+                console.log(err);
                 res.send(req.baseUrl.replace('/expedientes',""));
             }
             res.send(req.baseUrl.replace('/expedientes',""));

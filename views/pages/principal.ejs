@@ -898,15 +898,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						<!-- <tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
-							<td class="actionColumn"><button class="edit"><i class="fas fa-edit"></i></button>
-								<button data-toggle="modal" data-target=".seeExp" class="see"><i class="fas fa-eye"></i></button><button data-target=".eliminar" data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>
-						</tr> -->
-						
+						<% collection_expedientes.forEach(expediente => {  %>
+						<tr>
+								<th scope="col"><%= expediente._id%></th>
+								<td scope="col"><%=expediente.nombre%> <%=expediente.apPaterno%> <%=expediente.apMaterno%></td>
+								<td scope="col"><%=expediente.curp%></td>
+								<td scope="col"><%=expediente.direccion%></td>
+								<td scope="col"><%=expediente.sexo%></td>
+								<td>
+									<button class="edit" name=<%=expediente._id%>>
+										<i class="fas fa-edit"></i>
+									</button>
+									<button data-target=".eliminar" data-toggle="modal" class="delete" name=<%=expediente._id%>>
+										<i class="fas fa-trash-alt"></i>
+									</button>
+								</td>
+						</tr>
+						<% }); %>
 					</tbody>
 				</table>
 				<!-- Modal ver -->
@@ -1053,9 +1061,8 @@
 						</select>
 					</div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success" type="button" id="ContinuarUsuario">Continuar</button>
+					<button class="btn btn-success" type="button" id="guardarUsuario">Continuar</button>
 				</form>
-				
 			</div>
 		</div>
 		<div class="containerForms modifUser">

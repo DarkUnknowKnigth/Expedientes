@@ -1,10 +1,10 @@
 'use strict'
-const Expediente=require("../models/expediente");
-function query(req,res)
+const Expediente=require("../models/expediente");//llamamos al modelo
+function query(req,res) 
 {
     query=req.body.query;
     type=req.body.tipo;
-    Expediente.find({tipo:query},(err,exp)=>{
+    Expediente.find({type:query},(err,exp)=>{
         if(err)
         {
             res.send("No se encontro el expediente");

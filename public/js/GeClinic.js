@@ -390,11 +390,11 @@ $("#guardarUsuario").click((e)=>{
 			'activo':a.val()
 		}
 	}).done((r)=>{
+		$("#informe").text(r);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
 				Ok: function () {
-					$("#informe").text(r);
 					$(this).dialog("close");
 					if (r.url) {
 						window.location.href = r.url;
@@ -409,6 +409,7 @@ $("#guardarUsuario").click((e)=>{
 	});;
 });
 $(".delete").click((e)=>{
+	$("#informe").text(r);
 	$.ajax({
 		type: "delete",
 		url: e.target.name,
@@ -417,7 +418,6 @@ $(".delete").click((e)=>{
 			modal: true,
 			buttons: {
 				Ok: function () {
-					$("#informe").text(r);
 					$(this).dialog("close");
 					window.location.href=r;
 				}
@@ -632,11 +632,11 @@ $("#formAntecGine button").click(function(){
 		url: $("#formAntecGine").attr("action"),
 		data:Expediente
 	}).done((e)=>{
+		$("#informe").text(e.msg);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
 				Ok: function () {
-					
 					$(this).dialog("close");
 					window.location.href=e.url;
 				}

@@ -410,7 +410,7 @@ header p{
 	width: 25%;
 
 }
-.tablaResultados .edit .delete .see{
+.tablaResultados .edit, .delete, .see{
 	margin-left: 5%;
 	width: 33%;
 	height: 40px;

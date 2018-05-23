@@ -29,6 +29,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     var Expfined = "0 results";
                     Expediente.find({}).exec((err, expedientes) => {
                         if (!err) {
+                            console.log(expediente);
                             Expfined = expedientes;
                         }
                         else {

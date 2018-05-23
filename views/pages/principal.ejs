@@ -849,7 +849,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%= collection_expedientes.forEach(expediente => {  %>
+						<% collection_expedientes.forEach(expediente => {  %>
 						<tr>
 								<th scope="col"><%= expediente._id%></th>
 								<td scope="col"><%=expediente.nombre%> <%=expediente.apPaterno%> <%=expediente.apMaterno%></td>

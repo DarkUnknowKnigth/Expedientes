@@ -425,6 +425,8 @@ header p{
 }
 .tablaResultados .delete{
 	background-color: #DD3131;
+	font-family: "FontAwesome" !important;
+	content: '\f06e' !important;
 }
 .tablaResultados .see{
 	background-color: rgb(49, 221, 92);

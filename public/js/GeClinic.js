@@ -122,7 +122,7 @@ $anGi = false;
 				$(".continuarExp .btn-success").click(function(e){
 						$antec = true;
 						$("#antec").css("background-color","#6CDE71");
-						if(formAntec.length<2)
+						if(dec==01)
 						{	
 							$("#parentRest").css("color","red");
 							e.preventDefault();
@@ -410,7 +410,7 @@ $("#guardarUsuario").click((e)=>{
 			'activo':a.val()
 		}
 	}).done((r)=>{
-		$("#informe").text(r);
+		$("#informe").text(r.msg);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {

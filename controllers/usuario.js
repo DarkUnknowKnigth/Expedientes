@@ -12,7 +12,7 @@ function validar(req,res)
     {
         if(params.cedula.length<=8 && params.cedula.length>=7 && !/[a-zA-Z`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/.test(params.cedula))
         {
-            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ADMINISTRADOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
+            if(params.TipoUsuario == "DOCTOR" || params.TipoUsuario == "ENFERMERA" || params.TipoUsuario=="COORDINADOR")
             {
                 if(params.password == params.cpassword && params.password!="" && params.cpassword!="")
                 {  
@@ -33,7 +33,7 @@ function validar(req,res)
                             else
                             {
                                 guardar(params);
-                                res.send({url:req.baseUrl.replace("/usuarios","")}); 
+                                res.send({url:req.baseUrl.replace("/usuarios",""),msg:"Usuario creado exitosamente!"}); 
                             }
                            
                             
@@ -77,7 +77,7 @@ function modificar(req,res)
 }
 function eliminar(req,res)
 {
-    let id = req.params.id  
+    let id = req.params.id  //
     Usuario.findById(id, (err, user) => {
         if (err)
         { 

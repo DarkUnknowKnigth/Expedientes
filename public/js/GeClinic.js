@@ -134,6 +134,7 @@ $anGi = false;
 												}
 												$(".continuarExp .btn-success").click(function(){
 														$anGi = true;
+														$("#formAntecGine button").click();
 														$(".statusTable td").removeClass("active");
 														$(".statusTable td").css("color","#fff");
 														$(".putForm form").css("display","none");

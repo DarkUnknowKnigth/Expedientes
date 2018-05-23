@@ -636,7 +636,7 @@ $("#formAntecGine button").click(function(){
 			modal: true,
 			buttons: {
 				Ok: function () {
-					$("#informe").text(e.msg);
+					
 					$(this).dialog("close");
 					window.location.href=e.url;
 				}

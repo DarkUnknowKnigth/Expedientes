@@ -908,9 +908,11 @@
 									<button class="edit" name=<%=expediente.id%>>
 										<i class="fas fa-edit"></i>
 									</button>
+									<%if(permiso.eliminarExp){%>
 									<button class="delete" name=<%=eliminarExpediente + expediente.id%>>
 										<i class="fas fa-trash-alt"></i>
 									</button>
+									<%}%>
 								</td>
 						</tr>
 						<% }); %>

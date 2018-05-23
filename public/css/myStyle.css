@@ -414,6 +414,9 @@ header p{
 .tablaResultados .delete{
 	background-color: #DD3131;
 }
+.tablaResultados .see{
+	background-color: rgb(49, 221, 92);
+}
 .tablaResultados .edit:hover,.delete:hover{
 	cursor: pointer;
 	background-color: #35414F;

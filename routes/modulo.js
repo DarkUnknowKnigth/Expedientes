@@ -75,7 +75,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         usuarios:"",
-                        expedientes:Expfined,
+                        ExpeT:Expfined,
                         localURL:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/`
                     });
                     console.log("fine");
@@ -152,7 +152,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             //link consulta
                                             nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
                                             //feed de tabla
-                                            expedientes:Expfined,
+                                            ExpeT:Expfined,
                                             usuarios: Usuariosfinded,
                                             localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                                         });

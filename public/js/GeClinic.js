@@ -123,9 +123,10 @@ $anGi = false;
 						$antec = true;
 						$("#antec").css("background-color","#6CDE71");
 						if(formAntec.length<2)
-						{
-							e,preventDefault();
-							alert("Debe de agregar 2 antecedentes para continuar");
+						{	
+							$("#parentRest").css("color","red");
+							e.preventDefault();
+							
 						}
 						darColorTD("#an");
 						$(".putForm form").css("display","none");

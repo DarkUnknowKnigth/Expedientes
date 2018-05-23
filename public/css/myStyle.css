@@ -396,10 +396,10 @@ header p{
 	width: 25%;
 
 }
-.tablaResultados .edit,.delete{
+.tablaResultados .edit .delete .see{
 	margin-left: 5%;
 	width: 30%;
-	height: 30px;
+	height: 40px;
 	display: inline;
 	margin-top: auto;
 	background-color: transparent;

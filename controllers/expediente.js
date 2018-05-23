@@ -86,11 +86,11 @@ function guardar(req, res) {
         if(err)
         {
             console.log("ERROR:"+err);
-            res.send({meg:"Ha ocurrido un erro en el guardado, porfavor intente de nuevo",url:req.baseUrl.replace("/expedientes/nuevoExpediente","")});
+            res.send({msg:"Ha ocurrido un erro en el guardado, porfavor intente de nuevo",url:req.baseUrl.replace("/expedientes/nuevoExpediente","")});
         }
         else{
 
-            res.send({meg:"Expedeinte creado Exitosamente1 !",url:req.baseUrl.replace("/expedientes/nuevoExpediente","")});
+            res.send({msg:"Expedeinte creado Exitosamente1 !",url:req.baseUrl.replace("/expedientes/nuevoExpediente","")});
         }
     });
     //console.log(expediente);

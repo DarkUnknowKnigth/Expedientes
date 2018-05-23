@@ -8,12 +8,14 @@ var formAPNP;
 var formInmu;
 var formAntecGine;
 var formAPP;
+var dec=2;
 $(document).ready(function(){
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
 	insertarEstadoCivil(estadosCiviles);
 	$("#failUser").css("display","none");
+	$("#parentRest").text(dec);
 });
 
 /*end precargar elementos*/
@@ -430,6 +432,7 @@ function asignarIMC(talla,peso){
 }
 
 $("#agregar").click(function(){
+	dec--;
 	formAntec.push(
 	{
 		"parentesco": $("#parentesco").val(),
@@ -440,6 +443,7 @@ $("#agregar").click(function(){
 		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"otro": $("#otros").val()
 	});
+	$("#parentRest").text(dec);
 	console.log(formAntec);
 });
 

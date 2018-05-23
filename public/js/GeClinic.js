@@ -390,19 +390,15 @@ $("#guardarUsuario").click((e)=>{
 			'activo':a.val()
 		}
 	}).done((r)=>{
-		$("#dialog-confirm").dialog({
-			resizable: false,
-			height: "auto",
-			width: 400,
+		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
-				"Aceptar": function () {
+				Ok: function () {
 					$("#informe").text(r);
-					if(r.url)
-					{
-						window.location.href=r.url;
-					}
 					$(this).dialog("close");
+					if (r.url) {
+						window.location.href = r.url;
+					}
 				}
 			}
 		});
@@ -417,19 +413,16 @@ $(".delete").click((e)=>{
 		type: "delete",
 		url: e.target.name,
 	}).done((r)=>{
-		$("#dialog-confirm").dialog({
-			resizable: false,
-			height: "auto",
-			width: 400,
+		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
-				"Aceptar": function () {
+				Ok: function () {
 					$("#informe").text(r);
 					$(this).dialog("close");
+					window.location.href=r;
 				}
 			}
 		});
-		window.location.href=r;
 	});
 });
 $("#YesElimUser").click((e)=>{
@@ -639,20 +632,16 @@ $("#formAntecGine button").click(function(){
 		url: $("#formAntecGine").attr("action"),
 		data:Expediente
 	}).done((e)=>{
-		$("#dialog-confirm").dialog({
-			resizable: false,
-			height: "auto",
-			width: 400,
+		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
-				"Aceptar": function () {
+				Ok: function () {
 					$("#informe").text(e.msg);
 					$(this).dialog("close");
 					window.location.href=e.url;
 				}
 			}
 		});
-		
 	});
 	console.log(Expediente);
 });

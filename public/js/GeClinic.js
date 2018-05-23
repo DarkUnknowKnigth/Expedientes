@@ -2,6 +2,13 @@
 
 /*Precargar elementos*/
 var localResource='';
+var formAntec=[];
+var formFichIde;
+var formAPNP;
+var formInmu;
+var formAntecGine;
+var formAPP;
+
 $(document).ready(function(){
 	localResource=$("#results").html();
 	insertarAnios();
@@ -81,7 +88,7 @@ function darColorVinetas(element){
 
 $("#initExp").click(function(){
 
-	$antec = false;
+$antec = false;
 $fi = false;
 $an = false;
 $in = false;
@@ -91,11 +98,25 @@ $anGi = false;
 		darColorTD("#fi");
 		$(".putForm form").css("display","none");
 		$("#formFichIde").css("display","block");
-		$(".continuarExp .btn-success").click(function(){
+		$(".continuarExp .btn-success").click(function(){//guardar ficha identificacion
 				$fi = true;
 				darColorTD("#antec");
+				/////////////// guardando los datos de ficha identificacion
+				formFichIde=
+				{
+					"nombre": $("#idNombrePaciente").val(),
+					"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
+					"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
+					"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
+					"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
+					"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
+					"ocupacion": $("#sinOcupacion").val(),
+					"sexo": $("#sexo").val()
+				};
+				console.log(formFichIde);
 				$(".putForm form").css("display","none");
 				$("#formAntec").css("display","block");
+				///////////////////////////////////////////////////////
 				$(".continuarExp .btn-success").click(function(){
 						$antec = true;
 						darColorTD("#an");
@@ -129,12 +150,7 @@ $anGi = false;
 									
 								});
 						});
-					
-					
 				});
-			
-			
-
 		});
 	}
 });
@@ -419,12 +435,6 @@ function asignarIMC(talla,peso){
 	}
 	
 }
-var formAntec=[];
-var formFichIde;
-var formAPNP;
-var formInmu;
-var formAntecGine;
-var formAPP;
 
 $("#agregar").click(function(){
 	formAntec.push(
@@ -441,19 +451,8 @@ $("#agregar").click(function(){
 });
 
 $("#formFichIde button").click(function(){
-	formFichIde=
-	{
-		"nombre": $("#idNombrePaciente").val(),
-		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
-		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
-		"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
-		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
-		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
-		"ocupacion": $("#sinOcupacion").val(),
-		"sexo": $("#sexo").val()
-	};
 	$("#an").click();
-	console.log(formFichIde);
+	
 });
 
 $("#formAPNP button").click(function(){

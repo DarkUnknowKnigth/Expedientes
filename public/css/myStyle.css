@@ -246,15 +246,7 @@ header p{
 /*Forms*/
 
 /*Estilos a clases directo*/
-.seeExp .modal-content{
-	width: 1100px !important;
-}
-.seeExp{
-	padding-left: 5%;
-}
-.modal-dialog{
-	margin-left: 0%;
-}
+
 
 .actionColumn{
 	width: 250px;

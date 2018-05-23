@@ -100,23 +100,9 @@ $anGi = false;
 		$("#formFichIde").css("display","block");
 		$(".continuarExp .btn-success").click(function(){//guardar ficha identificacion
 				$fi = true;
-				darColorTD("#antec");
-				/////////////// guardando los datos de ficha identificacion
-				formFichIde=
-				{
-					"nombre": $("#idNombrePaciente").val(),
-					"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
-					"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
-					"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
-					"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
-					"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
-					"ocupacion": $("#sinOcupacion").val(),
-					"sexo": $("#sexo").val()
-				};
-				console.log(formFichIde);
+				darColorTD("#antec");///////////////
 				$(".putForm form").css("display","none");
 				$("#formAntec").css("display","block");
-				///////////////////////////////////////////////////////
 				$(".continuarExp .btn-success").click(function(){
 						$antec = true;
 						darColorTD("#an");
@@ -451,8 +437,18 @@ $("#agregar").click(function(){
 });
 
 $("#formFichIde button").click(function(){
-	$("#an").click();
-	
+	formFichIde=
+	{
+		"nombre": $("#idNombrePaciente").val(),
+		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
+		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
+		"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
+		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
+		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
+		"ocupacion": $("#sinOcupacion").val(),
+		"sexo": $("#sexo").val()
+	};
+	console.log(formFichIde);
 });
 
 $("#formAPNP button").click(function(){
@@ -467,7 +463,6 @@ $("#formAPNP button").click(function(){
 		"vivienda": $("#vivienda").val()
 		
 	};
-	$("#in").click();
 	console.log(formAPNP);
 });
 
@@ -480,7 +475,6 @@ $("#formInmu button").click(function(){
 		"antisarampion": $("#antisarampion input:radio[name=antisarampion]:checked").val()//este solo es uno debes verificar cual esta avtivo
 		
 	};
-	$("#ap").click();
 	console.log(formInmu);
 });
 
@@ -506,7 +500,6 @@ $("#formAPP button").click(function(){
 		"cirugia": $("#cirugia input:radio[name=cirugia]:checked").val()
 		
 	};
-	$("#anGi").click();
 	console.log(formAPP);
 });
 
@@ -645,7 +638,6 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 $("#nextAntec").click(()=>{
 	if(formAntec.length>1)
 	{
-		$("#fi").click();
 	}
 	else
 	{

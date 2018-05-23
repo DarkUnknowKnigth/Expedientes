@@ -228,7 +228,7 @@
 				<!-- Form antecedentes -->
 				<form id="formAntec" action="#">
 					<div class="groupForm parent">
-						<label for="parentesco">Ingrese datos de parentesco paterno y materno:</label>
+						<label for="parentesco">Ingrese datos de parentesco: <span id="parentRest"></span></label>
 						<select id="parentesco" name="parentesco">
 							<option value="paterno">Paterno</option>
 							<option value="materno">Materno</option>
@@ -304,7 +304,7 @@
 					</div>
 					<div class="groupForm"><label for="otros">Otros:</label><textarea name="otros" id="otros" placeholder="Especifique..."></textarea></div>
 					<div style="clear:both;"></div>
-					<button class="btn btn-success continuarButton" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
+					<button class="btn btn-success continuarButton" id="contAntecedentes" data-toggle="modal" data-target=".continuarExp" type="button">Continuar</button>
 				</form>
 
 				<!-- Fin de form antecedentes -->

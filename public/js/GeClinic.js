@@ -1,3 +1,4 @@
+import { Collection } from "mongoose";
 
 
 /*Precargar elementos*/
@@ -8,13 +9,15 @@ var formAPNP;
 var formInmu;
 var formAntecGine;
 var formAPP;
-
+var added=2;
 $(document).ready(function(){
+	$("#contAntecedentes").prop('disabled',true);
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
 	insertarEstadoCivil(estadosCiviles);
 	$("#failUser").css("display","none");
+	$("#parentRest").text(added).css("color","red");
 });
 
 /*end precargar elementos*/
@@ -441,6 +444,12 @@ $("#agregar").click(function(){
 		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 		"otro": $("#otros").val()
 	});
+	added--;
+	$("#parentRest").text(added).css("color","red");
+	if(adde==0)
+	{
+		$("#contAntecedentes").prop('disabled',false);
+	}
 	console.log(formAntec);
 });
 

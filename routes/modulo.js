@@ -14,7 +14,7 @@ const ejsLint = require('ejs-lint');
 //variables
 var Usuariosfinded = "0 results";
 var Expfined = "0 results";
-Expediente.find({}).exec((err, expedientes) => {
+Expediente.find({}).populate('AntecedentesHF').exec((err, expedientes) => {
     if (err) {
         throw err;
     }

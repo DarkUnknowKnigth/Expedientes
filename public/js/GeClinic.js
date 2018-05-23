@@ -445,10 +445,6 @@ $("#agregar").click(function(){
 	});
 	added--;
 	$("#parentRest").text(added).css("color","red");
-	if(adde==0)
-	{
-		$("#contAntecedentes").prop('disabled',false);
-	}
 	console.log(formAntec);
 });
 

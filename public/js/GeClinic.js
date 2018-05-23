@@ -103,8 +103,13 @@ $anGi = false;
 				darColorTD("#antec");///////////////
 				$(".putForm form").css("display","none");
 				$("#formAntec").css("display","block");
-				$(".continuarExp .btn-success").click(function(){
+				$(".continuarExp .btn-success").click(function(e){
 						$antec = true;
+						if(formAntec.length<2)
+						{
+							e,preventDefault();
+							$(".continuarExp .btn-success").append("Debe de agregar 2 antecedentes para continuar");
+						}
 						darColorTD("#an");
 						$(".putForm form").css("display","none");
 						$("#formAPNP").css("display","block");
@@ -636,12 +641,5 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	console.log(formatDiagnostico);
 });
 $("#nextAntec").click(()=>{
-	if(formAntec.length>1)
-	{
-	}
-	else
-	{
-		alert("Debe de contar con 2 antecedentes para continuar");
-	}
-	
+
 });

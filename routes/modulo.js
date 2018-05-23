@@ -34,7 +34,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         else {
                             if(expedientes)
                             {
-                                console.log(expediente);
+                                console.log(expedientes);
                                 Expfined = expedientes;
                             }
                             else

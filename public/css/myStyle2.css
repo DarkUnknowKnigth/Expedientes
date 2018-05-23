@@ -1,11 +1,9 @@
 /*universal*/
 *{
+	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
 }
-
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
 /*end universal*/
 /*Header*/
 

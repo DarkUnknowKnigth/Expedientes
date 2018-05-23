@@ -108,7 +108,7 @@ $anGi = false;
 						if(formAntec.length<2)
 						{
 							e,preventDefault();
-							$(".continuarExp .btn-success").append("Debe de agregar 2 antecedentes para continuar");
+							alert("Debe de agregar 2 antecedentes para continuar");
 						}
 						darColorTD("#an");
 						$(".putForm form").css("display","none");

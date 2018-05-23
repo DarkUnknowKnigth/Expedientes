@@ -11,7 +11,25 @@ var Permiso=require("../models/permiso");
 var Expediente=require("../models/expediente");
 var Administrador=require("../models/administrador");
 const ejsLint = require('ejs-lint');
-    
+//variables
+var Usuariosfinded = "0 results";
+var Expfined = "0 results";
+Expediente.find({}).exec((err, expedientes) => {
+    if (err) {
+        throw err;
+    }
+    else {
+        if(expedientes)
+        {
+            console.log(expedientes);
+            Expfined = expedientes;
+        }
+        else
+        {
+           throw err;
+        }   
+    }
+});
 modulo.get("/:id&:user&:pass",(req,res)=>{
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
     {
@@ -23,26 +41,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
         {
             if(usuario)
             {
-                var Usuariosfinded = "0 results";
-                var Expfined = "0 results";
                 if(req.params.user==usuario.usuario && req.params.pass==usuario.password)
                 {
-                    Expediente.find({}).exec((err, expedientes) => {
-                        if (err) {
-                            throw err;
-                        }
-                        else {
-                            if(expedientes)
-                            {
-                                console.log(expedientes);
-                                Expfined = expedientes;
-                            }
-                            else
-                            {
-                               throw err;
-                            }   
-                        }
-                    });
                     res.render("../views/pages/principal.ejs",
                     {
                         //variables para la vista --->principal.ejs
@@ -104,28 +104,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                     {
                         if(admin)
                         {
-                            var Usuariosfinded="0 results";
-                            var Expfined="0 results";
-                            
                             if(req.params.user==admin.usuario && req.params.pass==admin.password)
                             {
-                               
-                                Expediente.find({}).exec((err, expedientes) => {
-                                    if (err) {
-                                        throw err;
-                                    }
-                                    else {
-                                        if(expedientes)
-                                        {
-                                            console.log(expedientes);
-                                            Expfined = expedientes;
-                                        }
-                                        else
-                                        {
-                                           throw err;
-                                        }   
-                                    }
-                                });
                                 Usuario.find({}).exec((err,usuarios)=>{
                                     if(!err)
                                     {
@@ -170,8 +150,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             localURL:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/`
                                         });
                                     }
-                                });
-                                
+                                });   
                             }
                             else
                             {

@@ -166,8 +166,8 @@ function buscar(req,res){
             {
                 if(usuario)
                 {
-                    console.log(usuario);
-                    if(usuario.length>1)//seguir
+                    console.log(typeof usuario);
+                    if(typeof usuario == 'string')//seguir
                     {
                         usuario.forEach(user =>{
                         tb+=

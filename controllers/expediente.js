@@ -163,23 +163,7 @@ function modificar(req,res)
 }
 function buscar(req,res)
 {
-    var find;
-    switch(tipo)
-    {
-        case "_id":
-            find={'_id':query};
-        break;
-        case "curp":
-            find={'curp':query};
-        break;
-        case "nombre":
-            find={'nombre':query}; 
-        break;
-        default:
-            find={'_id':query};
-        break;
-    }
-    Expediente.find(find,(err,exp)=>{
+    Expediente.findById(req.body.id,(err,exp)=>{
         if(err)
         {
             res.send("Error en la busqueda del Expedeinte: "+req.body.id);

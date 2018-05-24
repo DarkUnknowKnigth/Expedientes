@@ -25,7 +25,7 @@
 				
 			</div>
 			<div class="logo top-barActions">
-				<img src="/public/assets/secretaria.png">
+				<img src="/public/assets/secretaria.png" style="width: 100%;height: 100%;">
 			</div>
 		</div>
 		<div class="top-barActions">
@@ -896,7 +896,15 @@
 			</div>
 			<div class="groupForm buscar">
 				<label for="buscadorExp">Buscar:</label>
-				<input placeholder="Ingrese el expediente que desea buscar" type="text" id="buscadorExp" name=<%= buscarUno %>>
+				<div class="form-inline">
+					<input placeholder="Ingrese el expediente que desea buscar" type="text" id="buscadorExp" name=<%= buscarUno %>>
+					<label for="tipoBusquedaExp">Filtro</label>
+					<select  class="form-control" name="tipo" id="tipoBusquedaExp">
+						<option value="id">ID</option>
+						<option value="curp">CURP</option>
+						<option value="nombre">Nombre</option>
+					</select>
+				</div>
 			</div>
 			<div class="tablaResultados">
 				<table class="table table-hover">

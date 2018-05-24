@@ -70,7 +70,7 @@ function query(req,res)
             }
             else
             {
-                res.send("<p>No se encontro el expediente</p>");
+                res.send("<p>No se cargo el expediente</p>");
             }
         }
     });

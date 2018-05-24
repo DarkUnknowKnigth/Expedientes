@@ -19,7 +19,6 @@ $(document).ready(function(){
 /*end precargar elementos*/
 
 $("#SearchExp").click((r)=>{
-	console.log($("#tipoBusquedaExp").val());
 	$.ajax({
 		type: "POST",
 		url: $("#buscadorExp").attr('name'),

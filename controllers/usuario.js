@@ -167,7 +167,7 @@ function buscar(req,res){
                 if(usuario)
                 {
                     console.log(typeof usuario);
-                    if(usuario.isArray())//seguir
+                    if(Array.isArray(usuario))//seguir
                     {
                         usuario.forEach(user =>{
                         tb+=

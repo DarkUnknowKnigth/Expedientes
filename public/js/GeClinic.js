@@ -21,7 +21,7 @@ $(document).ready(function(){
 $("#SearchExp").click((r)=>{
 	$.ajax({
 		type: "POST",
-		url: r.target.name,
+		url: $("#buscadorExp").attr('name'),
 		data:{type:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
 		console.log(e);

@@ -38,6 +38,7 @@ function query(req,res)
                     '			<th colspan="2">Ficha identificacion</th>'+
                     '			<th colspan="2">APNP</th>'+
                     '			<th colspan="2">Inmunizaciones</th>'+
+                    '			<th colspan="2">APP</th>'+
                     '		</tr>'+
                     '		<tr>'+
                     '			<th>Campo</th>'+
@@ -46,6 +47,8 @@ function query(req,res)
                     '			<th>estado</th>'+
                     '			<th>Inmunizacion</th>'+
                     '			<th>Aplicado</th>'+
+                    '			<th>Enfermedad</th>'+
+                    '			<th>Padecida</th>'+
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>nombre</td>'+
@@ -54,6 +57,8 @@ function query(req,res)
                     '			<td>'+exp.promiscuidad+'</td>'+
                     '			<td>SABIN</td>'+
                     '			<td>'+exp.sabin+'</td>'+
+                    '			<td>Traumatismo</td>'+
+                    '			<td>'+exp.traumatismo+'</td>'+
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>direccion</td>'+
@@ -62,6 +67,8 @@ function query(req,res)
                     '			<td>'+exp.hacinamiento+'</td>'+
                     '			<td>BCG</td>'+
                     '			<td>'+exp.bcg+'</td>'+
+                    '			<td>Rubeola</td>'+
+                    '			<td>'+exp.rubeola+'</td>'+
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>curp</td>'+
@@ -70,6 +77,8 @@ function query(req,res)
                     '			<td>'+exp.tabaco+'</td>'+
                     '			<td>DPT</td>'+
                     '			<td>'+exp.dpt+'</td>'+
+                    '			<td>Varicela</td>'+
+                    '			<td>'+exp.varicela+'</td>'+                    
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>sexo</td>'+
@@ -78,12 +87,68 @@ function query(req,res)
                     '			<td>'+exp.alcohol+'</td>'+
                     '			<td>Antisarampion</td>'+
                     '			<td>'+exp.antisarampion+'</td>'+
+                    '			<td>Sarampion</td>'+
+                    '			<td>'+exp.sarampion+'</td>'+
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>ocupacion</td>'+
                     '			<td>'+exp.ocupacion+'</td>'+
                     '			<td>Dieta</td>'+
                     '			<td>'+exp.dieta+'</td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Tosferina</td>'+
+                    '			<td>'+exp.tosferina+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>Estado Civil</td>'+
+                    '			<td>'+exp.estadoCivil+'</td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Escarlatina</td>'+
+                    '			<td>'+exp.tosferina+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Amigdalitis</td>'+
+                    '			<td>'+exp.amigdalitis+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Parasitosis</td>'+
+                    '			<td>'+exp.parasitosis+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Convulsiones</td>'+
+                    '			<td>'+exp.convulsiones+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Urosepsis</td>'+
+                    '			<td>'+exp.urosepsis+'</td>'+
                     '		</tr>'+
                     '	</table>');
             }
@@ -112,58 +177,123 @@ function buscar(req,res)
             {
                res.send( 
                 '<table class="table">'+
-				'		<tr>'+
-                '			<th colspan="2">Ficha identificacion</th>'+
-                '			<th colspan="2">APNP</th>'+
-                '			<th colspan="2">Inmunizaciones</th>'+
-				'		</tr>'+
-				'		<tr>'+
-				'			<th>Campo</th>'+
-                '			<th>Informacion</th>'+
-                '			<th>Patologia</th>'+
-                '			<th>estado</th>'+
-                '			<th>Inmunizacion</th>'+
-				'			<th>Aplicado</th>'+
-				'		</tr>'+
-				'		<tr>'+
-				'			<td>nombre</td>'+
-                '			<td>'+exp.nombre+'</td>'+
-                '			<td>Promiscuidad</td>'+
-                '			<td>'+exp.promiscuidad+'</td>'+
-                '			<td>SABIN</td>'+
-				'			<td>'+exp.sabin+'</td>'+
-				'		</tr>'+
-				'		<tr>'+
-				'			<td>direccion</td>'+
-                '			<td>'+exp.direccion+'</td>'+
-                '			<td>Hacinamiento</td>'+
-                '			<td>'+exp.hacinamiento+'</td>'+
-                '			<td>BCG</td>'+
-				'			<td>'+exp.bcg+'</td>'+
-				'		</tr>'+
-				'		<tr>'+
-				'			<td>curp</td>'+
-                '			<td>'+exp.curp+'</td>'+
-                '			<td>Tabaco</td>'+
-                '			<td>'+exp.tabaco+'</td>'+
-                '			<td>DPT</td>'+
-				'			<td>'+exp.dpt+'</td>'+
-				'		</tr>'+
-				'		<tr>'+
-				'			<td>sexo</td>'+
-                '			<td>'+exp.sexo+'</td>'+
-                '			<td>Alcohol</td>'+
-                '			<td>'+exp.alcohol+'</td>'+
-                '			<td>Antisarampion</td>'+
-				'			<td>'+exp.antisarampion+'</td>'+
-				'		</tr>'+
-				'		<tr>'+
-				'			<td>ocupacion</td>'+
-                '			<td>'+exp.ocupacion+'</td>'+
-                '			<td>Dieta</td>'+
-				'			<td>'+exp.dieta+'</td>'+
-				'		</tr>'+
-				'	</table>');
+                    '		<tr>'+
+                    '			<th colspan="2">Ficha identificacion</th>'+
+                    '			<th colspan="2">APNP</th>'+
+                    '			<th colspan="2">Inmunizaciones</th>'+
+                    '			<th colspan="2">APP</th>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<th>Campo</th>'+
+                    '			<th>Informacion</th>'+
+                    '			<th>Patologia</th>'+
+                    '			<th>estado</th>'+
+                    '			<th>Inmunizacion</th>'+
+                    '			<th>Aplicado</th>'+
+                    '			<th>Enfermedad</th>'+
+                    '			<th>Padecida</th>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>nombre</td>'+
+                    '			<td>'+exp.nombre+'</td>'+
+                    '			<td>Promiscuidad</td>'+
+                    '			<td>'+exp.promiscuidad+'</td>'+
+                    '			<td>SABIN</td>'+
+                    '			<td>'+exp.sabin+'</td>'+
+                    '			<td>Traumatismo</td>'+
+                    '			<td>'+exp.traumatismo+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>direccion</td>'+
+                    '			<td>'+exp.direccion+'</td>'+
+                    '			<td>Hacinamiento</td>'+
+                    '			<td>'+exp.hacinamiento+'</td>'+
+                    '			<td>BCG</td>'+
+                    '			<td>'+exp.bcg+'</td>'+
+                    '			<td>Rubeola</td>'+
+                    '			<td>'+exp.rubeola+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>curp</td>'+
+                    '			<td>'+exp.curp+'</td>'+
+                    '			<td>Tabaco</td>'+
+                    '			<td>'+exp.tabaco+'</td>'+
+                    '			<td>DPT</td>'+
+                    '			<td>'+exp.dpt+'</td>'+
+                    '			<td>Varicela</td>'+
+                    '			<td>'+exp.varicela+'</td>'+                    
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>sexo</td>'+
+                    '			<td>'+exp.sexo+'</td>'+
+                    '			<td>Alcohol</td>'+
+                    '			<td>'+exp.alcohol+'</td>'+
+                    '			<td>Antisarampion</td>'+
+                    '			<td>'+exp.antisarampion+'</td>'+
+                    '			<td>Sarampion</td>'+
+                    '			<td>'+exp.sarampion+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>ocupacion</td>'+
+                    '			<td>'+exp.ocupacion+'</td>'+
+                    '			<td>Dieta</td>'+
+                    '			<td>'+exp.dieta+'</td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Tosferina</td>'+
+                    '			<td>'+exp.tosferina+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>Estado Civil</td>'+
+                    '			<td>'+exp.estadoCivil+'</td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Escarlatina</td>'+
+                    '			<td>'+exp.tosferina+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Amigdalitis</td>'+
+                    '			<td>'+exp.amigdalitis+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Parasitosis</td>'+
+                    '			<td>'+exp.parasitosis+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Convulsiones</td>'+
+                    '			<td>'+exp.convulsiones+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Urosepsis</td>'+
+                    '			<td>'+exp.urosepsis+'</td>'+
+                    '		</tr>'+
+                    '	</table>');
             }
             else{
                 res.send("Error en la captura de los datos");

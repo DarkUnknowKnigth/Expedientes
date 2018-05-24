@@ -153,7 +153,7 @@ function buscar(req,res){
         break;
     }
     var tb="";
-    if(/[a-zA-Z0-9]/.test(valor))
+    if(/[a-zA-Z0-9]/.test(campo))
     {
         Usuario.find(find).populate('permiso').exec((err,usuario)=>{
             if(err)

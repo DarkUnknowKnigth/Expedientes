@@ -24,6 +24,7 @@ $("#SearchExp").click((e)=>{
 		url: e.target.name,
 		data:{type:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
+		console.log(e);
 		$("#informe").html(e);
 		$("#dialog-message").dialog({
 			modal: true,

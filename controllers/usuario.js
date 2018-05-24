@@ -166,6 +166,7 @@ function buscar(req,res){
             {
                 if(usuario)
                 {
+                    console.log(usuario);
                     if(usuario.length>1)//seguir
                     {
                         usuario.forEach(user =>{

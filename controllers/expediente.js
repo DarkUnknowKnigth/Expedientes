@@ -5,9 +5,10 @@ function query(req,res)
     let query=req.body.query;
     let type=req.body.type;
     console.log(req.body);
-    Expediente.find({type:query}).limit(1).exec((err,exp)=>{
+    Expediente.findOne({type:query}).exec((err,exp)=>{
         if(err)
         {
+            console.log(err);
             res.send("<p>No se encontro el expediente</p>");
         }
         else{
@@ -70,6 +71,7 @@ function query(req,res)
             }
             else
             {
+                console.log(exp);
                 res.send("<p>No se cargo el expediente</p>");
             }
         }

@@ -21,7 +21,7 @@ $("#SearchUsr").click((r)=>{
 	$.ajax({
 		type: "POST",
 		url: $("#buscadorUser").attr('name'),
-		data:{tipo:$("#tipoBusquedaUsr").val(),query:$("#buscadorUser").val()}
+		data:{tipo:$("#tipoBusquedaUsr").val(),campo:$("#buscadorUser").val()}
 	}).done((e)=>{
 		$("#results").html(e);
 	});

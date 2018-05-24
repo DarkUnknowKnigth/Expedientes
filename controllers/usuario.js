@@ -4,7 +4,6 @@ const Permiso=require("../models/permiso");
 const Administrador=require("../models/administrador");
 function validar(req,res)
 {  
-    console.log("validando...")
     var report="Creacion Exitosa";
     var params=req.body; 
     var patron=/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/;
@@ -136,12 +135,27 @@ function guardar(info){
     });
 }
 function buscar(req,res){
-    console.log(req.body);
-    var valor=req.body.valor;
+    var tipo=req.body.tipo;
+    var campo=req.body.campo
+    switch(tipo)
+    {
+        case "_id":
+            find={'_id':campo};
+        break;
+        case "TipoUsuario":
+            find={'TipoUsuario':campo};
+        break;
+        case "nombre":
+            find={'nombre':campo}; 
+        break;
+        default:
+            find={'_id':campo};
+        break;
+    }
     var tb="";
     if(/[a-zA-Z0-9]/.test(valor))
     {
-        Usuario.findById(valor).populate('permiso').limit(1).exec((err,usuario)=>{
+        Usuario.find(find).populate('permiso').exec((err,usuario)=>{
             if(err)
             {
                 console.log(err);
@@ -152,28 +166,39 @@ function buscar(req,res){
             {
                 if(usuario)
                 {
-                    console.log(">>>>>>>>>>>>USUARIOSSSS>>>>>>>>>>>>>>"+usuario);
-                   // var i=1;
-                    //usuarios.forEach(usuario =>{
-                    //console.log("!!!!!!!!!!!USER!!!!!!!!!!!!!!!!!!!!!"+usuario);
-                    tb=
-                    '<tr>'+
-                        '<th scope="row">'+usuario._id +'</th>'+
-                        '<th>'+usuario.nombre+'</th>'+
-                        '<td>'+usuario.apPaterno+'</td>'+
-                        '<td>'+usuario.apMaterno+'</td>'+
-                        '<td>'+usuario.TipoUsuario+'</td>'+
-                        '<td>'+usuario.activo+'</td>'+
-                        '<td><button class="edit" value='+ usuario.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+usuario._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
-                    '</tr>';
-                   // i++   
-                    //});
-                    res.send(tb);
-                }
-                else
-                {
-                    tb='<tr><th scope="row"> 0 resultados </th></tr>';
-                    res.send(tb);
+                    if(usuario.length>1)//seguir
+                    {
+                        usuario.forEach(user =>{
+                        tb+=
+                            '<tr>'+
+                                '<th scope="row">'+user._id +'</th>'+
+                                '<th>'+user.nombre+'</th>'+
+                                '<td>'+user.apPaterno+'</td>'+
+                                '<td>'+user.apMaterno+'</td>'+
+                                '<td>'+user.Tipouser+'</td>'+
+                                '<td>'+user.activo+'</td>'+
+                                '<td><button class="edit" value='+ user.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+user._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
+                            '</tr>';
+                        });
+                        res.send(tb);
+                    }
+                    else
+                    {
+                        tb=
+                        '<tr>'+
+                            '<th scope="row">'+usuario._id +'</th>'+
+                            '<th>'+usuario.nombre+'</th>'+
+                            '<td>'+usuario.apPaterno+'</td>'+
+                            '<td>'+usuario.apMaterno+'</td>'+
+                            '<td>'+usuario.TipoUsuario+'</td>'+
+                            '<td>'+usuario.activo+'</td>'+
+                            '<td><button class="edit" value='+ usuario.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+usuario._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
+                        '</tr>';
+                       // i++   
+                        //});
+                        res.send(tb);
+                    }
+
                 }
             }
         });

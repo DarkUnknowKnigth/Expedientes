@@ -9,7 +9,7 @@ function query(req,res)
     switch(tipo)
     {
         case "_id":
-            find={'_id': { $regex: '/'+query+'/', $options: 'i' } };
+            find={'_id':query};
         break;
         case "curp":
             find={'curp':query};

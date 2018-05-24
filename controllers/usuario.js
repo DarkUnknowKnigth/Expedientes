@@ -33,7 +33,7 @@ function validar(req,res)
                             else
                             {
                                 guardar(params);
-                                res.send({url:req.baseUrl.replace("/usuarios",""),msg:"Usuario creado exitosamente!"}); 
+                                res.send({"url":req.baseUrl.replace("/usuarios",""),"msg":"Usuario creado exitosamente!"}); 
                             }
                            
                             

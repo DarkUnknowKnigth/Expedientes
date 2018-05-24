@@ -2,10 +2,10 @@
 const Expediente=require("../models/expediente");//llamamos al modelo
 function query(req,res) 
 {
-    var query=req.body.query;
+    var j=req.body.query;
     var tipo=req.body.tipo;
     var params=req.body;
-    let find={tipo:query};
+    let find={tipo:j};
     console.log("recibi: "+params);
     console.log(find);
     Expediente.findOne(find).exec((err,exp)=>{

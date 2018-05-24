@@ -1100,10 +1100,16 @@
 			</div>
 
 			<div class="groupForm buscar">
-				<form id="buscadorUsuarios" method="POST" action=<%= buscarUsuario %>>
-					<label for="buscadorUser">Buscar:</label>
-					<input placeholder="el ID del usuario" type="text" id="buscadorUser" name="buscadorUser">
-				</form>
+				<div class="btn-group">
+					<label class="form-control btn">Filtro</label>
+					<select  class="form-control btn" name="tipo" id="tipoBusquedaUsr" style="width: 300px;">
+						<option value="_id" selected>ID</option>
+						<option value="TipoUsuario">Tipo de Usuario</option>
+						<option value="nombre">Nombre</option>
+					</select>
+					<button class="btn btn-secondary" id="SearchUsr" >Buscar</button>
+				</div>
+				<input placeholder="el ID del usuario" type="text" id="buscadorUser" name=<%= buscarUsuario %>>
 			</div>
 			<div class="tablaResultados">
 				<table class="table table-hover">

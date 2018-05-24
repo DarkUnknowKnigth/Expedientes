@@ -4,7 +4,6 @@ function query(req,res)
 {
     var query=req.body.query;
     var tipo=req.body.tipo;
-    var params=req.body;
     var find;
     switch(tipo)
     {
@@ -21,8 +20,6 @@ function query(req,res)
             find={'_id':query};
         break;
     }
-    console.log("recibi: "+JSON.stringify(params));
-    console.log(find);
     Expediente.findOne(find).exec((err,exp)=>{
         if(err)
         {
@@ -166,8 +163,23 @@ function modificar(req,res)
 }
 function buscar(req,res)
 {
-    console.log(req.body.id);
-    Expediente.findById(req.body.id,(err,exp)=>{
+    var find;
+    switch(tipo)
+    {
+        case "_id":
+            find={'_id':query};
+        break;
+        case "curp":
+            find={'curp':query};
+        break;
+        case "nombre":
+            find={'nombre':query}; 
+        break;
+        default:
+            find={'_id':query};
+        break;
+    }
+    Expediente.find(find,(err,exp)=>{
         if(err)
         {
             res.send("Error en la busqueda del Expedeinte: "+req.body.id);

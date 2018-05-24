@@ -17,7 +17,15 @@ $(document).ready(function(){
 });
 
 /*end precargar elementos*/
-
+$("#SearchUsr").click((r)=>{
+	$.ajax({
+		type: "POST",
+		url: $("#buscadorUser").attr('name'),
+		data:{tipo:$("#tipoBusquedaUsr").val(),query:$("#buscadorUser").val()}
+	}).done((e)=>{
+		$("#results").html(e);
+	});
+});
 $("#SearchExp").click((r)=>{
 	$.ajax({
 		type: "POST",
@@ -28,7 +36,7 @@ $("#SearchExp").click((r)=>{
 		$("#informe").html(e);
 		$("#dialog-message").dialog({
 			modal: true,
-			width:900,
+			width:1200,
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
@@ -367,26 +375,26 @@ function insertarEnfermedades(arrayEnfer){
 $("#RefreshUser").click((e)=>{
 	$("#result").append(localResource);
 });
-$("#buscadorUser").keyup((e)=>{
-	if(/[A-Za-z]/.test($("#buscadorUser").val()))
-	{
-		$.ajax({
-			method:"POST",
-			url: $("#buscadorUsuarios").attr('action'),
-			data:{
-				valor:$("#buscadorUser").val()
-			}
-		}).done((r)=>{
-			$("#results").html(r);
-		});
-	}
-	else
-	{
-		console.log("No permitido");
-		e.preventDefault();
-	}
+// $("#buscadorUser").keyup((e)=>{
+// 	if(/[A-Za-z]/.test($("#buscadorUser").val()))
+// 	{
+// 		$.ajax({
+// 			method:"POST",
+// 			url: $("#buscadorUsuarios").attr('action'),
+// 			data:{
+// 				valor:$("#buscadorUser").val()
+// 			}
+// 		}).done((r)=>{
+// 			$("#results").html(r);
+// 		});
+// 	}
+// 	else
+// 	{
+// 		console.log("No permitido");
+// 		e.preventDefault();
+// 	}
 	
-});
+// });
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");

@@ -19,6 +19,7 @@ $(document).ready(function(){
 /*end precargar elementos*/
 
 $("#SearchExp").click((r)=>{
+	console.log($("#buscadorExp").val());
 	$.ajax({
 		type: "POST",
 		url: $("#buscadorExp").attr('name'),

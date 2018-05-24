@@ -18,10 +18,10 @@ $(document).ready(function(){
 
 /*end precargar elementos*/
 
-$("#SearchExp").click((e)=>{
+$("#SearchExp").click((r)=>{
 	$.ajax({
 		type: "POST",
-		url: e.target.name,
+		url: r.target.name,
 		data:{type:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
 		console.log(e);

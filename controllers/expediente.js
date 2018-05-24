@@ -5,7 +5,7 @@ function query(req,res)
     var j=req.body.query;
     var tipo=req.body.tipo;
     var params=req.body;
-    let find={tipo:j};
+    let find={"curp":j};
     console.log("recibi: "+JSON.stringify(params));
     console.log(find);
     Expediente.findOne(find).exec((err,exp)=>{

@@ -22,12 +22,12 @@ function query(req,res)
                     '			<th colspan="2">Inmunizaciones</th>'+
                     '		</tr>'+
                     '		<tr>'+
-                    '			<td>Campo</td>'+
-                    '			<td>Informacion</td>'+
-                    '			<td>Patologia</td>'+
-                    '			<td>estado</td>'+
-                    '			<td>Inmunizacion</td>'+
-                    '			<td>Aplicado</td>'+
+                    '			<th>Campo</th>'+
+                    '			<th>Informacion</th>'+
+                    '			<th>Patologia</th>'+
+                    '			<th>estado</th>'+
+                    '			<th>Inmunizacion</th>'+
+                    '			<th>Aplicado</th>'+
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>nombre</td>'+
@@ -99,12 +99,12 @@ function buscar(req,res)
                 '			<th colspan="2">Inmunizaciones</th>'+
 				'		</tr>'+
 				'		<tr>'+
-				'			<td>Campo</td>'+
-                '			<td>Informacion</td>'+
-                '			<td>Patologia</td>'+
-                '			<td>estado</td>'+
-                '			<td>Inmunizacion</td>'+
-				'			<td>Aplicado</td>'+
+				'			<th>Campo</th>'+
+                '			<th>Informacion</th>'+
+                '			<th>Patologia</th>'+
+                '			<th>estado</th>'+
+                '			<th>Inmunizacion</th>'+
+				'			<th>Aplicado</th>'+
 				'		</tr>'+
 				'		<tr>'+
 				'			<td>nombre</td>'+

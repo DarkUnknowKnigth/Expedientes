@@ -18,13 +18,13 @@ $(document).ready(function(){
 
 /*end precargar elementos*/
 
-$("#buscadorExp").keyup((e)=>{
+$("#SearchExp").click((e)=>{
 	$.ajax({
 		type: "POST",
 		url: e.target.name,
 		data:{type:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
-		$("#informe").text(e);
+		$("#informe").html(e);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {

@@ -31,7 +31,6 @@ $("#SearchExp").click((r)=>{
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
-					window.location.href=e.url;
 				}
 			}
 		});

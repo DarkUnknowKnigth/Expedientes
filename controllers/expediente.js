@@ -8,12 +8,11 @@ function query(req,res)
     Expediente.find({type:query},(err,exp)=>{
         if(err)
         {
-            res.send("No se encontro el expediente");
+            res.send("<p>No se encontro el expediente</p>");
         }
         else{
             if(exp)
             {
-
                 res.send( 
                     '<table class="table">'+
                     '		<tr>'+
@@ -71,7 +70,7 @@ function query(req,res)
             }
             else
             {
-                res.send("No se encontro el expediente");
+                res.send("<p>No se encontro el expediente</p>");
             }
         }
     });

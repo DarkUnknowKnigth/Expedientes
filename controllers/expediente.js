@@ -13,7 +13,6 @@ function query(req,res)
         else{
             if(exp)
             {
-                console.log(exp);
                 res.send( 
                     '<table class="table">'+
                     '		<tr>'+

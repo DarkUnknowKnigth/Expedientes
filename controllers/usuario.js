@@ -21,19 +21,19 @@ function validar(req,res)
                         if(err)
                         {
                             report="Error en la busqueda";
-                            res.send(report);
+                            res.send({msg:report});
                         }
                         else
                         {
                             if(user)
                             {
                                 report="En nombre de usuario: "+user.usuario+"\nya existe.";
-                                res.send(report)
+                                res.send({msg:report})
                             }
                             else
                             {
                                 guardar(params);
-                                res.send({"url":req.baseUrl.replace("/usuarios",""),"msg":"Usuario creado exitosamente!"}); 
+                                res.send({url:req.baseUrl.replace("/usuarios",""),msg:"Usuario creado exitosamente!"}); 
                             }
                            
                             
@@ -43,25 +43,25 @@ function validar(req,res)
                 else
                 {
                     report="Las contraseñas no son iguales"
-                    res.send(report);
+                    res.send({msg:report});
                 }
             }
             else
             {
                 report="El tipo de usuario es invalido"
-                res.send(report);
+                res.send({msg:report});
             }
         }
         else
         {
            report="La Cedula no posee un formato adecuado (8 caracteres)";
-           res.send(report);
+           res.send({msg:report});
         }
     }   
     else
     {
        report="Todos los campos deben ser alfanumericos";
-       res.send(report);
+       res.send({msg:report});
     }
 }
 function modificar(req,res)

@@ -22,7 +22,7 @@ $("#SearchExp").click((r)=>{
 	$.ajax({
 		type: "POST",
 		url: $("#buscadorExp").attr('name'),
-		data:{type:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
+		data:{tipo:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
 		console.log(e);
 		$("#informe").html(e);

@@ -3,8 +3,8 @@ const Expediente=require("../models/expediente");//llamamos al modelo
 function query(req,res) 
 {
     var query=req.body.query;
-    var type=req.body.type;
-    let find={type:query};
+    var tipo=req.body.tipo;
+    let find={tipo:query};
     console.log(find);
     Expediente.findOne(find).exec((err,exp)=>{
         if(err)

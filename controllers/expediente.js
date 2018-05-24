@@ -2,7 +2,7 @@
 const Expediente=require("../models/expediente");//llamamos al modelo
 function query(req,res) 
 {
-    var query=req.body.query.toString();
+    var query=req.body.query.toString().trim();
     var type=req.body.type.toString();
     console.log(req.body);
     Expediente.findOne({ type:query}).exec((err,exp)=>{
@@ -72,7 +72,7 @@ function query(req,res)
             else
             {
                 console.log(exp);
-                res.send("<p>No se cargo el expediente</p>");
+                res.send("<p>No existe el expediente</p>");
             }
         }
     });

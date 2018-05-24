@@ -2,9 +2,9 @@
 const Expediente=require("../models/expediente");//llamamos al modelo
 function query(req,res) 
 {
-    query=req.body.query;
-    type=req.body.tipo;
-    Expediente.find({type:query},(err,exp)=>{
+    value=req.body.value;
+    type=req.body.type;
+    Expediente.find({type:value},(err,exp)=>{
         if(err)
         {
             res.send("No se encontro el expediente");

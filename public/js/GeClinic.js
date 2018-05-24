@@ -22,6 +22,7 @@ $("#buscadorExp").keyup((e)=>{
 	$.ajax({
 		type: "POST",
 		url: e.target.name,
+		data:{type:$("#tipoBusquedaExp").val(),value:$("#buscadorExp").val()}
 	}).done((e)=>{
 		$("#informe").text(e);
 		$("#dialog-message").dialog({
@@ -490,7 +491,8 @@ function asignarIMC(talla,peso){
 	}
 }
 $("#buscarExpCurp").keyup((k)=>{
-
+	let type=$("#tipoBusquedaExp").val();
+	let value=$("#buscarExpCurp").val();
 });
 
 $("#agregar").click(function(e){

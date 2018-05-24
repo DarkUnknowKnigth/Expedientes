@@ -896,15 +896,16 @@
 			</div>
 			<div class="groupForm buscar">
 				
-				<div class="form-inline">
+				<div class="form-group">
 					<label class="form-control" for="tipoBusquedaExp">Filtro</label>
 					<select  class="form-control" name="tipo" id="tipoBusquedaExp">
 						<option value selected="id">ID</option>
 						<option value="curp">CURP</option>
 						<option value="nombre">Nombre</option>
 					</select>
-					<input placeholder="Ingrese el expediente que desea buscar" type="text" id="buscadorExp" name=<%= buscarUno %>>
 				</div>
+				<input placeholder="Ingrese el expediente que desea buscar" type="text" id="buscadorExp" name=<%= buscarUno %>>
+				
 			</div>
 			<div class="tablaResultados">
 				<table class="table table-hover">

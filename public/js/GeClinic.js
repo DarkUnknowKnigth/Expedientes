@@ -22,7 +22,7 @@ $("#buscadorExp").keyup((e)=>{
 	$.ajax({
 		type: "POST",
 		url: e.target.name,
-		data:{type:$("#tipoBusquedaExp").val(),value:$("#buscadorExp").val()}
+		data:{type:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
 		$("#informe").text(e);
 		$("#dialog-message").dialog({

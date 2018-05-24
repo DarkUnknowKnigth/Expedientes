@@ -2,8 +2,9 @@
 const Expediente=require("../models/expediente");//llamamos al modelo
 function query(req,res) 
 {
-    value=req.body.value;
-    type=req.body.type;
+    let query=req.body.query;
+    let type=req.body.type;
+    console.log(req.body);
     Expediente.find({type:value},(err,exp)=>{
         if(err)
         {

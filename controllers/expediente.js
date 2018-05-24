@@ -5,7 +5,7 @@ function query(req,res)
     let query=req.body.query;
     let type=req.body.type;
     console.log(req.body);
-    Expediente.find({type:value},(err,exp)=>{
+    Expediente.find({type:query},(err,exp)=>{
         if(err)
         {
             res.send("No se encontro el expediente");

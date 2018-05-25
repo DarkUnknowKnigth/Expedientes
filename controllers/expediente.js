@@ -20,6 +20,10 @@ function query(req,res)
             find={'_id':query};
         break;
     }
+    if(campo==" " || campo==null || campo=="" )
+    {
+        find={};
+    }
     if(/[a-zA-Z0-9]/.test(query))
     {
         Expediente.findOne(find).exec((err,exp)=>{

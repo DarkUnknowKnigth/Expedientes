@@ -153,6 +153,10 @@ function buscar(req,res){
             find={};
         break;
     }
+    if(campo==" " || campo==null || campo=="" )
+    {
+        find={};
+    }
     var tb="";
     if(/[a-zA-Z0-9]/.test(campo))
     {

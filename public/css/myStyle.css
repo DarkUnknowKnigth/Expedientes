@@ -420,6 +420,10 @@ header p{
 	color: #fff;
 	transition: ease 0.2s all;
 }
+
+.tablaResultados table{
+	padding: 0 !important;
+}
 .tablaResultados .edit{
 	background-color: #EDB015;
 }

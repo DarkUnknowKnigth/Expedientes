@@ -150,7 +150,7 @@ function buscar(req,res){
             find={'nombre':campo}; 
         break;
         default:
-            find={'_id':campo};
+            find={};
         break;
     }
     var tb="";

@@ -143,7 +143,8 @@ function buscar(req,res){
             find={'_id':campo};
         break;
         case "TipoUsuario":
-            find={'TipoUsuario':campo};
+            var tipo=campo.toUpperCase();
+            find={'TipoUsuario':tipo};
         break;
         case "nombre":
             find={'nombre':campo}; 

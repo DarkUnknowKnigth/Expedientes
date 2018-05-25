@@ -24,7 +24,7 @@ $("#SearchUsr").click((r)=>{
 		data:{tipo:$("#tipoBusquedaUsr").val(),campo:$("#buscadorUser").val()}
 	}).done((e)=>{
 		console.log(e);
-		$("#results").html(e);
+		$("#resUser").html(e);
 	});
 });
 $("#SearchExp").click((r)=>{

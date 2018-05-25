@@ -172,10 +172,10 @@ function buscar(req,res){
                         usuario.forEach(user =>{
                         tb+=
                             '<tr>'+
-                                '<th scope="row">'+user._id +'</th>'+
-                                '<th>'+user.usuario+'</th>'+
-                                '<th>'+user.password+'</th>'+
-                                '<th>'+user.nombre+'</th>'+
+                                '<td scope="row">'+user._id +'</td>'+
+                                '<td>'+user.usuario+'</td>'+
+                                '<td>'+user.password+'</td>'+
+                                '<td>'+user.nombre+'</td>'+
                                 '<td>'+user.apPaterno+'</td>'+
                                 '<td>'+user.apMaterno+'</td>'+
                                 '<td>'+user.TipoUsuario+'</td>'+

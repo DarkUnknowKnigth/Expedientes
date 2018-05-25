@@ -922,7 +922,7 @@
 					<tbody>
 						<% collection_expedientes.forEach(expediente => {  %>
 						<tr>
-								<th scope="col"><%= expediente._id%></th>
+								<td scope="col"><%= expediente._id%></td>
 								<td scope="col"><%=expediente.nombre%> <%=expediente.apPaterno%> <%=expediente.apMaterno%></td>
 								<td scope="col"><%=expediente.curp%></td>
 								<td scope="col"><%=expediente.direccion%></td>
@@ -1136,10 +1136,10 @@
 						</tr> -->
 						<% usuarios.forEach(usuario => { %>
 							<tr>
-									<th name= <%= usuario.id %> scope="row"><%= usuario.id %></th>
-									<td><%= usuario.usuario %></th>
-									<td><%= usuario.password %></th>
-									<th><%= usuario.nombre%></th>
+									<td name= <%= usuario.id %> scope="row"><%= usuario.id %></td>
+									<td><%= usuario.usuario %></td>
+									<td><%= usuario.password %></td>
+									<td><%= usuario.nombre%></td>
 									<td><%= usuario.apPaterno %></td>
 									<td><%= usuario.apMaterno %></td>
 									<td><%= usuario.TipoUsuario %></td>

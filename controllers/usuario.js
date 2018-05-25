@@ -172,6 +172,7 @@ function buscar(req,res){
                         tb+=
                             '<tr>'+
                                 '<th scope="row">'+user._id +'</th>'+
+                                '<th>'+user.usuario+'</th>'+
                                 '<th>'+user.nombre+'</th>'+
                                 '<td>'+user.apPaterno+'</td>'+
                                 '<td>'+user.apMaterno+'</td>'+

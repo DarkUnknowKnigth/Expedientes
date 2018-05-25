@@ -1037,7 +1037,6 @@
 			<div id="Prev"><a href=<%localURL%>><i class="fas fa-arrow-left"></i></a>
 				<p>CREAR USUARIO</p>
 			</div>
-			
 			<!-- Formulario -->
 			<div class="putForm">
 				<!-- Aquí se ponen los forms desde GeClinic.js -->
@@ -1116,6 +1115,7 @@
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
+							<th scope="col">Nickname</th>
 							<th scope="col">Nombre</th>
 							<th scope="col">Ap. Materno</th>
 							<th scope="col">Ap. Paterno</th>
@@ -1136,6 +1136,7 @@
 						<% usuarios.forEach(usuario => { %>
 							<tr>
 									<th name= <%= usuario.id %> scope="row"><%= usuario.id %></th>
+									<td><%= usuario.usuario %></th>
 									<th><%= usuario.nombre%></th>
 									<td><%= usuario.apPaterno %></td>
 									<td><%= usuario.apMaterno %></td>
@@ -1555,6 +1556,7 @@
 		<%}%>
 	</div>
 	<!-- End rightSide -->
+	<!-- cuadro de dialogo -->
 	<div id="dialog-message" style="display: none">
 		<div class="card">
 			<div class="card-body">
@@ -1563,6 +1565,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- end cuadro de dialogo -->
 	<!-- Descripción de pie -->
 	<div class="footerRightSide">
 		<p><i class="far fa-copyright"></i> 2018 - GeClinic. Todos los derechos reservados.</p>

@@ -78,6 +78,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link coordinador
                         generarHoja:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarHojaDiaria`,
                         generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
+                        estadistica:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/estadistica`,
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         //datos de apoyo
@@ -146,6 +147,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
                                             //link consulta
                                             nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
+                                            //link coordinador
+                                            estadistica:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/estadistica`,
                                             //feed de tabla
                                             collection_expedientes:Expfined,
                                             usuarios: Usuariosfinded,

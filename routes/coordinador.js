@@ -11,5 +11,5 @@ coordinador.get("/hojaDiaria",(req,res)=>{
 });
 coordinador.post("/generaInforme",controladorCoordinador.generarInforme);
 coordinador.post("/generarHojaDiaria",controladorCoordinador.generarHojaDiaria);
-
+coordinador.post("/estadistica",controladorCoordinador.estadistica);
 module.exports=coordinador;

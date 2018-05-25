@@ -23,6 +23,7 @@ $("#SearchUsr").click((r)=>{
 		url: $("#buscadorUser").attr('name'),
 		data:{tipo:$("#tipoBusquedaUsr").val(),campo:$("#buscadorUser").val()}
 	}).done((e)=>{
+		console.log(e);
 		$("#results").html(e);
 	});
 });

@@ -176,7 +176,7 @@ function buscar(req,res){
                                 '<th>'+user.nombre+'</th>'+
                                 '<td>'+user.apPaterno+'</td>'+
                                 '<td>'+user.apMaterno+'</td>'+
-                                '<td>'+user.Tipouser+'</td>'+
+                                '<td>'+user.TipoUsuario+'</td>'+
                                 '<td>'+user.activo+'</td>'+
                                 '<td><button class="edit" value='+ user.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+user._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
                             '</tr>';

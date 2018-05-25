@@ -180,7 +180,7 @@ function buscar(req,res){
                                 '<td>'+user.apMaterno+'</td>'+
                                 '<td>'+user.TipoUsuario+'</td>'+
                                 '<td>'+user.activo+'</td>'+
-                                '<td><button class="edit" value='+ user.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+user._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></td>'
+                                '<td><div class="btn-group"><button class="edit" value='+ user.id+'><i class="fas fa-edit"></i></button><button data-target=".eliminarUser" value='+user._id+'data-toggle="modal" class="delete"><i class="fas fa-trash-alt"></i></button></div></td>'
                             '</tr>';
                         });
                         res.send(tb);

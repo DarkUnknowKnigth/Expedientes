@@ -23,7 +23,6 @@ $("#SearchUsr").click((r)=>{
 		url: $("#buscadorUser").attr('name'),
 		data:{tipo:$("#tipoBusquedaUsr").val(),campo:$("#buscadorUser").val()}
 	}).done((e)=>{
-		console.log(e);
 		$("#resUser").html(e);
 	});
 });
@@ -33,7 +32,6 @@ $("#SearchExp").click((r)=>{
 		url: $("#buscadorExp").attr('name'),
 		data:{tipo:$("#tipoBusquedaExp").val(),query:$("#buscadorExp").val()}
 	}).done((e)=>{
-		console.log(e);
 		$("#informe").html(e);
 		$("#dialog-message").dialog({
 			modal: true,

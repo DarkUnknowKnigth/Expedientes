@@ -42,7 +42,7 @@ function estadistica(req,res)
         case 'urosepsis':
         query={"urosepsis":"Si"}
         break;
-        case 'aborto':
+        case 'cancer':
         query={"aborto":"Si"}
         break;
         case 'amigdalitis':

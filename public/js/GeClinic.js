@@ -8,6 +8,7 @@ var formAntecGine;
 var formAPP;
 var dec=2;
 $(document).ready(function(){
+	console.log($("#parentesco , #otros"));
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
@@ -394,6 +395,7 @@ $("#RefreshUser").click((e)=>{
 // 	}
 	
 // });
+//Envio de datos al servidor 
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");
@@ -734,3 +736,5 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 $("#nextAntec").click(()=>{
 
 });
+
+///campos seguros

@@ -30,6 +30,22 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
             }   
         }
     });
+    Usuario.find({}).exec((err,usuarios)=>{
+        if (err) {
+            throw err;
+        }
+        else {
+            if(usuarios)
+            {
+                Usuariosfinded = usuarios;
+            }
+            else
+            {
+               throw err;
+            }   
+        }
+
+    });
     Usuario.findById(req.params.id).populate('permiso').exec((err,usuario)=>
     {
         if(err)
@@ -82,7 +98,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         //link consulta
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
                         //datos de apoyo
-                        usuarios:"",
+                        usuarios:Usuariosfinded,
                         collection_expedientes:Expfined,
                         localURL:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/`
                     });

@@ -1116,7 +1116,9 @@
 						<tr>
 							<th scope="col">ID</th>
 							<th scope="col">Nickname</th>
+							<% if(permiso.eliminarUser){ %>
 							<th scope="col">Password</th>
+							<% } %>
 							<th scope="col">Nombre</th>
 							<th scope="col">Ap. Materno</th>
 							<th scope="col">Ap. Paterno</th>
@@ -1138,7 +1140,9 @@
 							<tr>
 									<td name= <%= usuario.id %> scope="row"><%= usuario.id %></td>
 									<td><%= usuario.usuario %></td>
+									<% if(permiso.eliminarUser){ %>
 									<td><%= usuario.password %></td>
+									<% } %>
 									<td><%= usuario.nombre%></td>
 									<td><%= usuario.apPaterno %></td>
 									<td><%= usuario.apMaterno %></td>
@@ -1547,6 +1551,24 @@
 						<label for="anioInfo">Año:</label>
 						<select id="anioInfo" name="anioInfo">
 							<option selected value="Seleccione">Seleccione</option>
+						</select>
+					</div>
+					<div class="groupForm">
+						<label for="estadistica">Mes:</label>
+						<select id="estadi" name="estadi">
+							<option selected value="Seleccione">Seleccione</option>
+							<option value="Enero">Enero</option>
+							<option value="Febrero">Febrero</option>
+							<option value="Marzo">Marzo</option>
+							<option value="Abril">Abril</option>
+							<option value="Mayo">Mayo</option>
+							<option value="Junio">Junio</option>
+							<option value="Julio">Julio</option>
+							<option value="Agosto">Agosto</option>
+							<option value="Septiembre">Septiembre</option>
+							<option value="Octubre">Octubre</option>
+							<option value="Noviembre">Noviembre</option>
+							<option value="Diciembre">Diciembre</option>
 						</select>
 					</div>
 					<div style="clear: both"></div>

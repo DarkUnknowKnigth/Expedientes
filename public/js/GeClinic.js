@@ -8,7 +8,6 @@ var formAntecGine;
 var formAPP;
 var dec=2;
 $(document).ready(function(){
-	console.log($("#parentesco , #otros"));
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
@@ -507,23 +506,32 @@ $("#buscarExpCurp").keyup((k)=>{
 
 $("#agregar").click(function(e){
 	dec--;
-	formAntec.push(
+	if(/[a-zA-Z]/.test($("#otros").val()))
 	{
-		"parentesco": $("#parentesco").val(),
-		"HA": $("#Ha input:radio[name=Ha]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"cancer": $("#cancer input:radio[name=cancer]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"sida": $("#sida input:radio[name=sida]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"diabetes": $("#diabetes input:radio[name=diabetes]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
-		"otro": $("#otros").val()
-	});
-	if(dec<=0)
-	{
-		e.preventDefault();	
-		$("#parentRest").text("Presione continuar");
+		formAntec.push(
+			{
+				"parentesco": $("#parentesco").val(),
+				"HA": $("#Ha input:radio[name=Ha]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+				"cancer": $("#cancer input:radio[name=cancer]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+				"sida": $("#sida input:radio[name=sida]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+				"diabetes": $("#diabetes input:radio[name=diabetes]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+				"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
+				"otro": $("#otros").val()
+			});
 	}
-	$("#parentRest").text(dec);
-	console.log(formAntec);
+	else{
+		e.preventDefault();
+		$("#informe").text("Solo caracteres alfanumericos");
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+
+	}
 });
 
 $("#formFichIde button").click(function(){

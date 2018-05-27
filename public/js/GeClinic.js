@@ -453,9 +453,6 @@ $("#guardarUsuario").click((e)=>{
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
-					if (r.url) {
-						window.location.href = r.url;
-					}
 				}
 			}
 		});

@@ -311,15 +311,15 @@ function eliminar(req,res)
         if (err)
         { 
             console.log(err);
-            res.send(req.baseUrl.replace('/expedientes',""));
+        res.send({msg:"Ha ocurrido un error \nmientras se buscaba el expedeinte",url:req.baseUrl.replace('/expedientes',"")});
         }
         exp.remove(err => {
             if (err)
             { 
                 console.log(err);
-                res.send(req.baseUrl.replace('/expedientes',""));
+                res.send({msg:"Ha ocurrido un error \nmientras se eliminaba el expedeinte",url:req.baseUrl.replace('/expedientes',"")});
             }
-            res.send(req.baseUrl.replace('/expedientes',""));
+            res.send({msg:"Se elimino correctamente el expediente",url:req.baseUrl.replace('/expedientes',"")});
         });
   });
 }

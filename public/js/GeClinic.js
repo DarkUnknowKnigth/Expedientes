@@ -412,7 +412,7 @@ $("#guardarUsuario").click((e)=>{
 	if(/\s/.test(u))
 	{
 		e.preventDefault();
-		$("#informe").text("No se permiten espacios en el nombre de usuario");
+		$("#informe").text("No se permiten espacios \n en el nombre de usuario");
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
@@ -483,13 +483,30 @@ $(".modifExp .delete").click((e)=>{
 		type: "delete",
 		url: e.target.name,
 	}).done((r)=>{
-		$("#informe").text(r);
+		$("#informe").text(r.msg);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
-					window.location.href=r;
+					window.location.href=r.url;
+				}
+			}
+		});
+	});
+});
+$(".tablaResultados .delete").click((e)=>{
+	$.ajax({
+		type: "delete",
+		url: e.target.name,
+	}).done((r)=>{
+		$("#informe").text(r.msg);
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+					window.location.href=r.url;
 				}
 			}
 		});

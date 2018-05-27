@@ -131,7 +131,7 @@ $anGi = false;
 				$(".continuarExp .btn-success").click(function(e){
 						$antec = true;
 						$("#antec").css("background-color","#6CDE71");
-						if(dec==01)
+						if(formAntec.length<2 )
 						{	
 							$("#parentRest").css("color","red");
 							e.preventDefault();
@@ -521,7 +521,7 @@ $("#agregar").click(function(e){
 	}
 	else{
 		e.preventDefault();
-		$("#informe").text("Solo caracteres alfanumericos");
+		$("#informe").text("Los campos solo permiten caracteres alfanumericos");
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {

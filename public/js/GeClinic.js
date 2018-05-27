@@ -479,21 +479,36 @@ $(".modifExp .see").click((e)=>{
 	});
 });
 $(".modifExp .delete").click((e)=>{
-	$.ajax({
-		type: "delete",
-		url: e.target.name,
-	}).done((r)=>{
-		$("#informe").text(r.msg);
+	$("#informe").text("Esta apunto de eliminar a: "+e.target.value);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
-				Ok: function () {
+				eliminar: function () 
+				{
 					$(this).dialog("close");
-					window.location.href=r.url;
+					$.ajax({
+						type: "delete",
+						url: e.target.name,
+					}).done((r)=>{
+						$("#informe").text(r.msg);
+						$("#dialog-message").dialog({
+							modal: true,
+							buttons: {
+								Ok: function () {
+									$(this).dialog("close");
+									window.location.href=r.url;
+								}
+							}
+						});
+					});
+				},
+				cancelar:()=>{
+					this.dialog("close");
 				}
+
 			}
 		});
-	});
+	
 });
 $(".tablaResultados .delete").click((e)=>{
 	$.ajax({

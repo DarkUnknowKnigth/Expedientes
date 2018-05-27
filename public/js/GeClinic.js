@@ -122,21 +122,22 @@ $anGi = false;
 		darColorTD("#fi");
 		$(".putForm form").css("display","none");
 		$("#formFichIde").css("display","block");
-		$(".continuarExp .btn-success").click(function(){//guardar ficha identificacion
+		$(".continuarExp .btn-success").click(function(e){//guardar ficha identificacion
 				$fi = true;
 				$("#fi").css("background-color","#6CDE71");
 				darColorTD("#antec");///////////////
 				$(".putForm form").css("display","none");
 				$("#formAntec").css("display","block");
 				$(".continuarExp .btn-success").click(function(e){
-						$antec = true;
-						$("#antec").css("background-color","#6CDE71");
 						if(formAntec.length<2 )
 						{	
 							$("#parentRest").css("color","red");
+							console.log("no");
 							e.preventDefault();
 							
 						}
+						$antec = true;
+						$("#antec").css("background-color","#6CDE71");
 						darColorTD("#an");
 						$(".putForm form").css("display","none");
 						$("#formAPNP").css("display","block");
@@ -559,7 +560,6 @@ $("#formFichIde button").click(function(e){
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
-					window.location.href=e.url;
 				}
 			}
 		});

@@ -397,7 +397,7 @@ $("#RefreshUser").click((e)=>{
 // });
 //Envio de datos al servidor 
 $("#curp").keydown(()=>{
-	this.val()=this.val().toUpperCase();
+	$("#curp").val()=$("#curp").val().toUpperCase();
 });
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");

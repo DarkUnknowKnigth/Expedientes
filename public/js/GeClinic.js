@@ -534,9 +534,11 @@ $("#agregar").click(function(e){
 	}
 });
 
-$("#formFichIde button").click(function(){
-	formFichIde=
+$("#formFichIde button").click(function(e){
+	if(/[a-zA-ZZ0-9.,]/.test($("#direccion").val()+$("#curp").val()) && /[a-zA-Z]/.test($("#idNombrePaciente").val()+$("#idApPat").val()+$("#idApMat").val()))
 	{
+		formFichIde=
+		{
 		"nombre": $("#idNombrePaciente").val(),
 		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
 		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
@@ -545,8 +547,25 @@ $("#formFichIde button").click(function(){
 		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
 		"ocupacion": $("#sinOcupacion").val(),
 		"sexo": $("#sexo").val()
-	};
-	console.log(formFichIde);
+		};
+		console.log(formFichIde);
+	}
+	else
+	{
+		e.preventDefault();
+		$("#informe").text("Los campos deben poseer solo caracteres alfanumericos, \n\n porfavor intentelo de nuevo.");
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+					window.location.href=e.url;
+				}
+			}
+		});
+	}
+	
+	
 });
 
 $("#formAPNP button").click(function(){

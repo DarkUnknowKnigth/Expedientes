@@ -389,9 +389,6 @@ $("#RefreshUser").click((e)=>{
 	
 // });
 //Envio de datos al servidor 
-$("#curp").keyup(()=>{
-	$("#curp").text($("#curp").val().toUpperCase());
-});
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");

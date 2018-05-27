@@ -396,6 +396,9 @@ $("#RefreshUser").click((e)=>{
 	
 // });
 //Envio de datos al servidor 
+$("#curp").keydown(()=>{
+	this.val()=this.val().toUpperCase();
+});
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");
@@ -406,6 +409,22 @@ $("#guardarUsuario").click((e)=>{
 	var tu=$("#tipoUser");
 	var cp=$("#cedulaProfesional");
 	var a=$("#activeUser");
+	if(/\s/.test(u))
+	{
+		e.preventDefault();
+		$("#informe").text("No se permiten espacios en el nombre de usuario");
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+					if (r.url) {
+						window.location.href = r.url;
+					}
+				}
+			}
+		});
+	}
 	$.ajax({
 		method:"POST",
 		url: $("#formUser").attr('action'),
@@ -518,6 +537,16 @@ $("#agregar").click(function(e){
 				"diabetes": $("#diabetes input:radio[name=diabetes]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 				"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 				"otro": $("#otros").val()
+			});
+			$("#parentRest").css("color","green").text(dec);
+			$("#informe").text("Se agrego correctamente");
+			$("#dialog-message").dialog({
+				modal: true,
+				buttons: {
+					Ok: function () {
+						$(this).dialog("close");
+					}
+				}
 			});
 	}
 	else{

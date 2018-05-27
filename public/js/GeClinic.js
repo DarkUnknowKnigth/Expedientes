@@ -424,39 +424,39 @@ $("#guardarUsuario").click((e)=>{
 				}
 			}
 		});
-	}
-	$.ajax({
-		method:"POST",
-		url: $("#formUser").attr('action'),
-		data: {
-			'usuario':u.val(),
-			'password':c.val(),
-			'cpassword':cc.val(),
-			'nombre':n.val(),
-			'apPaterno':ap.val(),
-			'apMaterno':am.val(),
-			'TipoUsuario':tu.val(),
-			'cedula':cp.val(),
-			'activo':a.val()
-		}
-	}).done((r)=>{
-		$("#informe").text(r.msg);
-		$("#dialog-message").dialog({
-			modal: true,
-			buttons: {
-				Ok: function () {
-					$(this).dialog("close");
-					if (r.url) {
-						window.location.href = r.url;
+		$.ajax({
+			method:"POST",
+			url: $("#formUser").attr('action'),
+			data: {
+				'usuario':u.val(),
+				'password':c.val(),
+				'cpassword':cc.val(),
+				'nombre':n.val(),
+				'apPaterno':ap.val(),
+				'apMaterno':am.val(),
+				'TipoUsuario':tu.val(),
+				'cedula':cp.val(),
+				'activo':a.val()
+			}
+		}).done((r)=>{
+			$("#informe").text(r.msg);
+			$("#dialog-message").dialog({
+				modal: true,
+				buttons: {
+					Ok: function () {
+						$(this).dialog("close");
+						if (r.url) {
+							window.location.href = r.url;
+						}
 					}
 				}
-			}
+			});
+		}).fail((r)=>{
+			console.log(r);
+			$("#failUser").css("display","block");
+			$("#failUser").html("<p>"+r+"</p>");
 		});
-	}).fail((r)=>{
-		console.log(r);
-		$("#failUser").css("display","block");
-		$("#failUser").html("<p>"+r+"</p>");
-	});;
+	}
 });
 $(".modifExp .see").click((e)=>{
 	console.log(e.target.name);

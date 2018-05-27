@@ -400,7 +400,7 @@ function guardar(req, res) {
     expediente.save((err)=>{
         if(err)
         {
-            console.log("ERROR:"+err);
+            console.log(err);
             res.send({msg:"Ha ocurrido un erro en el guardado, porfavor intente de nuevo",url:req.baseUrl.replace("/expedientes","")});
         }
         else{

@@ -179,8 +179,8 @@ function buscar(req,res)
             if(exp)
             {
                res.send( 
-                '<table class="table">'+
-                    '		<tr>'+
+                '<table class="table table-bordered table-striped">'+
+                    '		<tr class="thead-dark">'+
                     '			<th colspan="2">Ficha identificacion</th>'+
                     '			<th colspan="2">APNP</th>'+
                     '			<th colspan="2">Inmunizaciones</th>'+
@@ -311,13 +311,13 @@ function eliminar(req,res)
         if (err)
         { 
             console.log(err);
-        res.send({msg:"Ha ocurrido un error \nmientras se buscaba el expedeinte",url:req.baseUrl.replace('/expedientes',"")});
+        res.send({msg:"Ha ocurrido un error \nmientras se buscaba el expediente",url:req.baseUrl.replace('/expedientes',"")});
         }
         exp.remove(err => {
             if (err)
             { 
                 console.log(err);
-                res.send({msg:"Ha ocurrido un error \nmientras se eliminaba el expedeinte",url:req.baseUrl.replace('/expedientes',"")});
+                res.send({msg:"Ha ocurrido un error \nmientras se eliminaba el expediente",url:req.baseUrl.replace('/expedientes',"")});
             }
             res.send({msg:"Se elimino correctamente el expediente",url:req.baseUrl.replace('/expedientes',"")});
         });

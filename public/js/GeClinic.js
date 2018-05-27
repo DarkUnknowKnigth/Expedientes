@@ -479,13 +479,12 @@ $(".modifExp .see").click((e)=>{
 	});
 });
 $(".modifExp .delete").click((e)=>{
-	$("#informe").text("Esta apunto de eliminar a: "+e.target.value);
+	$("#informe").text("Esta apunto de eliminar el expedeinte: "+e.target.value);
 		$("#dialog-message").dialog({
 			modal: true,
 			buttons: {
 				eliminar: function () 
 				{
-					$(this).dialog("close");
 					$.ajax({
 						type: "delete",
 						url: e.target.name,
@@ -501,31 +500,44 @@ $(".modifExp .delete").click((e)=>{
 							}
 						});
 					});
+					$(this).dialog("close");
 				},
 				cancelar:()=>{
 					this.dialog("close");
 				}
-
 			}
 		});
 	
 });
-$(".tablaResultados .delete").click((e)=>{
-	$.ajax({
-		type: "delete",
-		url: e.target.name,
-	}).done((r)=>{
-		$("#informe").text(r.msg);
-		$("#dialog-message").dialog({
-			modal: true,
-			buttons: {
-				Ok: function () {
-					$(this).dialog("close");
-					window.location.href=r.url;
-				}
+$(".tablaResultados .delete").click((e) => {
+	$("#informe").text("Esta a punto de eliminar al usuario: " + e.target.value);
+	$("#dialog-message").dialog({
+		modal: true,
+		buttons: {
+			Ok: function () {
+				$.ajax({
+					type: "delete",
+					url: e.target.name,
+				}).done((r) => {
+					$("#informe").text(r.msg);
+					$("#dialog-message").dialog({
+						modal: true,
+						buttons: {
+							Ok: function () {
+								$(this).dialog("close");
+								window.location.href = r.url;
+							}
+						}
+					});
+				});
+				$(this).dialog("close");
+			},
+			cancelar:()=>{
+				this.dialog("close");
 			}
-		});
+		}
 	});
+	
 });
 $("#YesElimUser").click((e)=>{
 	console.log(e);

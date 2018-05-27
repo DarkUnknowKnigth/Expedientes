@@ -9,11 +9,12 @@ function generarHojaDiaria(req,res)
 function estadistica(req,res)
 {
     var busqueda=req.campoBusqueda;
-    var query={};
+    var query={},query2={};
     switch(busqueda)
     {
         case 'sida':
-        query={"sida":"Si"}
+        query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.sida":"Si"} ]}
+        query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.sida":"Si"} ] };
         break;
         case 'alcohol':
         query={"alcohol":"Si"}
@@ -51,25 +52,33 @@ function estadistica(req,res)
         default:
         break;
     }
-    Expedientes.find(query).count().exec((err,conteo)=>{
+    Expedientes.find(query).count().exec((err,mujeres)=>{
         if(err)
         {
             res.send("Lo sentimos ocurrio un error inesperado");
         }
         else
         {
-            if(conteo)
+            if(mujeres)
             {
-                Expedientes.find({}).count().exec((err,total)=>{
+                console.log(mujeres);
+                Expedientes.find(query2).count().exec((err,hombres)=>{
                     if(err)
                     {
                         res.send("Lo sentimos ocurrio un error inesperado");
                     }
                     else
                     {
-                        if (total)
+                        if (hombres)
                         {
-                            res.send([busqueda,conteo],["Total",total]);
+                            console.log(hombres)
+                            Expedientes.find({}).count().exec((err,total)=>{
+                                if(!err)
+                                {
+                                    console.log(total);
+                                    res.send({m:mujeres,h:hombres,t:total});
+                                }
+                            });
                         }
                         else
                         {

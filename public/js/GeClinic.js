@@ -389,6 +389,16 @@ $("#RefreshUser").click((e)=>{
 	
 // });
 //Envio de datos al servidor 
+$("#nuevaEstadistica").click((e)=>{
+	$.ajax({
+		type: "POST",
+		url: e.target.value,
+		data: {campoBusqueda:$("#estadi").val()},
+		dataType: "dataType",
+	}).done((r)=>{
+		console.log(r);
+	});
+});
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");

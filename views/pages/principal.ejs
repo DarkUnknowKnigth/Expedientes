@@ -1565,11 +1565,13 @@
 							<option selected value="Seleccione">Seleccione</option>
 						</select>
 					</div>
+					<button class="btn btn-dark" type="button">Generar informe mensual</button>
+				</form>
 					<div class="groupForm">
 						<label for="estadistica">Estadistica de padecimientos detectados:</label>
-						<select id="estadi" name="estadi">
+						<select id="estadi" name="genearEsta">
 							<option selected value="Seleccione">Seleccione un Padecimieto</option>
-							<option value="cancer">Padecimiento Oncologico</option>
+							<option value="cancer">Padecimientos Oncologico</option>
 							<option value="sida">VIH</option>
 							<option value="alcohol">Alcoholismo</option>
 							<option value="tabaco">Tabaquismo</option>
@@ -1581,11 +1583,16 @@
 							<option value="Parasitosis">Parasitosis</option>
 							<option value="urosepsis">Urosepsis</option>
 							<option value="amigdalitis">Amigdalitis</option>
+							<option value="HA">Hipertensión arterial</option>
+							<option value="diabetes">Diabetes</option>
+							<option value="TB">Tuberculosis</option>
+							<option value="otro">Otras enfermedades</option>
 						</select>
+						<button class="btn btn-primary" id="nuevaEstadistica" value=<%= estadistica %> type="button">Generar Estadisticas</button>
 					</div>
 					<div style="clear: both"></div>
-					<button class="btn btn-dark" type="submit">Generar informe mensual</button>
-				</form>
+					
+				
 			</div>
 		</div>
 		<%}%>

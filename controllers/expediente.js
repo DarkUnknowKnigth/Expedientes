@@ -173,7 +173,7 @@ function buscar(req,res)
     Expediente.findById(req.body.id,(err,exp)=>{
         if(err)
         {
-            res.send("Error en la busqueda del Expedeinte: "+req.body.id);
+            res.send("Error en la busqueda del Expediente: "+req.body.id);
         }
         else{
             if(exp)
@@ -405,7 +405,7 @@ function guardar(req, res) {
         }
         else{
 
-            res.send({msg:"Expedeinte creado Exitosamente1 !",url:req.baseUrl.replace("/expedientes","")});
+            res.send({msg:"Expediente creado Exitosamente1 !",url:req.baseUrl.replace("/expedientes","")});
         }
     });
     //console.log(expediente);

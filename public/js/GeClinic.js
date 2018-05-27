@@ -110,77 +110,70 @@ function darColorVinetas(element){
 
 /*Eventos de Tabla*/
 
-$("#initExp").click(function(){
+$("#initExp").click(function () {
 
-$antec = false;
-$fi = false;
-$an = false;
-$in = false;
-$ap = false;
-$anGi = false;
+	$antec = false;
+	$fi = false;
+	$an = false;
+	$in = false;
+	$ap = false;
+	$anGi = false;
 	if ($fi == false) {
 		darColorTD("#fi");
-		$(".putForm form").css("display","none");
-		$("#formFichIde").css("display","block");
-		$(".continuarExp .btn-success").click(function(e){//guardar ficha identificacion
-				$fi = true;
-				$("#fi").css("background-color","#6CDE71");
-				darColorTD("#antec");///////////////
-				$(".putForm form").css("display","none");
-				$("#formAntec").css("display","block");
-				$(".continuarExp .btn-success").click(function(e){
-						if(formAntec.length<2 )
-						{	
-							$("#parentRest").css("color","red");
-							console.log("no");
-							e.preventDefault();
-							
-						}
-						$antec = true;
-						$("#antec").css("background-color","#6CDE71");
-						darColorTD("#an");
-						$(".putForm form").css("display","none");
-						$("#formAPNP").css("display","block");
-						$(".continuarExp .btn-success").click(function(){
-								$an = true;
-								$("#an").css("background-color","#6CDE71");
-								darColorTD("#in");
-								$(".putForm form").css("display","none");
-								$("#formInmu").css("display","block");
-								$(".continuarExp .btn-success").click(function(){
-										$in = true;
-										$("#in").css("background-color","#6CDE71");
-										darColorTD("#ap");
-										$(".putForm form").css("display","none");
-										$("#formAPP").css("display","block");
-										$(".continuarExp .btn-success").click(function(){
-												$ap = true;
-												$("#ap").css("background-color","#6CDE71");
-												darColorTD("#anGi");
-												$(".putForm form").css("display","none");
-												if(formFichIde.sexo=="Mujer")
-												{
-													$("#formAntecGine").css("display","block");
-												}
-												else
-												{
-													$("#formAntecGine button").click();
-												}
-												$(".continuarExp .btn-success").click(function(){
-														$anGi = true;
-														$("#fi,#antec,#an,#in,#ap,#anGi").css("background-color","#2F789F");
-														$(".statusTable td").removeClass("active");
-														$(".statusTable td").css("color","#fff");
-														$(".putForm form").css("display","none");
-														$("#firstForm").css("display","block");
-												});
-											
-										});
-
-									
+		$(".putForm form").css("display", "none");
+		$("#formFichIde").css("display", "block");
+		$(".continuarExp .btn-success").click(function (e) {//guardar ficha identificacion
+			$fi = true;
+			$("#fi").css("background-color", "#6CDE71");
+			darColorTD("#antec");///////////////
+			$(".putForm form").css("display", "none");
+			$("#formAntec").css("display", "block");
+			$(".continuarExp .btn-success").click(function (e) {
+				if (formAntec.length < 2) {
+					$("#parentRest").css("color", "red");
+					console.log("no");
+					e.preventDefault();
+					$antec = true;
+					$("#antec").css("background-color", "#6CDE71");
+					darColorTD("#an");
+					$(".putForm form").css("display", "none");
+					$("#formAPNP").css("display", "block");
+					$(".continuarExp .btn-success").click(function () {
+						$an = true;
+						$("#an").css("background-color", "#6CDE71");
+						darColorTD("#in");
+						$(".putForm form").css("display", "none");
+						$("#formInmu").css("display", "block");
+						$(".continuarExp .btn-success").click(function () {
+							$in = true;
+							$("#in").css("background-color", "#6CDE71");
+							darColorTD("#ap");
+							$(".putForm form").css("display", "none");
+							$("#formAPP").css("display", "block");
+							$(".continuarExp .btn-success").click(function () {
+								$ap = true;
+								$("#ap").css("background-color", "#6CDE71");
+								darColorTD("#anGi");
+								$(".putForm form").css("display", "none");
+								if (formFichIde.sexo == "Mujer") {
+									$("#formAntecGine").css("display", "block");
+								}
+								else {
+									$("#formAntecGine button").click();
+								}
+								$(".continuarExp .btn-success").click(function () {
+									$anGi = true;
+									$("#fi,#antec,#an,#in,#ap,#anGi").css("background-color", "#2F789F");
+									$(".statusTable td").removeClass("active");
+									$(".statusTable td").css("color", "#fff");
+									$(".putForm form").css("display", "none");
+									$("#firstForm").css("display", "block");
 								});
+							});
 						});
-				});
+					});
+				}
+			});
 		});
 	}
 });
@@ -396,7 +389,7 @@ $("#RefreshUser").click((e)=>{
 	
 // });
 //Envio de datos al servidor 
-$("#curp").keypress(()=>{
+$("#curp").keyup(()=>{
 	$("#curp").text($("#curp").val().toUpperCase());
 });
 $("#guardarUsuario").click((e)=>{

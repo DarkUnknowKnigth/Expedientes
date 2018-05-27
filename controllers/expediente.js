@@ -33,7 +33,7 @@ function query(req,res)
                 {
                     res.send( 
                         '<table class="table table-bordered table-striped"'+
-                        '		<tr> class="thead-dark"'+
+                        '		<tr class="thead-dark">'+
                         '			<th colspan="2">Ficha identificacion</th>'+
                         '			<th colspan="2">APNP</th>'+
                         '			<th colspan="2">Inmunizaciones</th>'+

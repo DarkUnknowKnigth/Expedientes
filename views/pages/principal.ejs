@@ -928,17 +928,17 @@
 								<td scope="col"><%=expediente.direccion%></td>
 								<td scope="col"><%=expediente.sexo%></td>
 								<td>
-									<button class="edit" name=<%=expediente.id%>>
+									<button class="edit btn" name=<%=expediente.id%>>
 										<!-- <i class="fas fa-edit"></i> -->
 										Editar
 									</button>
 									<%if(permiso.eliminarExp){%>
-									<button class="delete" name=<%=eliminarExpediente + expediente.id%>>
+									<button class="delete btn " name=<%=eliminarExpediente + expediente.id%>>
 										<!-- <i class="fas fa-trash-alt"></i> -->
 										Eliminar
 									</button>
 									<%}%>
-									<button class="see" value=<%=expediente.id %> name=<%=buscarExpediente%>>
+									<button class="see btn" value=<%=expediente.id %> name=<%=buscarExpediente%>>
 										<!-- <i class="fas fa-eye"></i> -->
 										Ver
 									</button>
@@ -1152,11 +1152,11 @@
 									<td><%= usuario.TipoUsuario %></td>
 									<td><%= usuario.activo %></td>
 									<td>
-										<button class="edit" name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> >
+										<button class="edit btn" name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> >
 											<!-- <i class="fas fa-edit"></i> -->
 											Editar
 										</button>
-										<button name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> class="delete">
+										<button name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> class="btn delete">
 											<!-- <i class="fas fa-trash-alt"></i> -->
 											Eliminar
 										</button>

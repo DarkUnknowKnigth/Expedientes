@@ -450,7 +450,7 @@ $(".modifExp .see").click((e)=>{
 		$("#informe").html(e);
 		$("#dialog-message").dialog({
 			modal: true,
-			width: 900,
+			width: 1200,
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");

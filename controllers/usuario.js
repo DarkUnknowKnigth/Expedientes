@@ -81,15 +81,15 @@ function eliminar(req,res)
         if (err)
         { 
             console.log(err);
-            res.send(req.baseUrl.replace('/usuarios',""));
+            res.send({msg:"No se encontro al usuario",url:req.baseUrl.replace('/usuarios',"")});
         }
         user.remove(err => {
             if (err)
             { 
                 console.log(err);
-                res.send(req.baseUrl.replace('/usuarios',""));
+                res.send({msg:"No se elimino correctamente al usuario",url:req.baseUrl.replace('/usuarios',"")});
             }
-            res.send(req.baseUrl.replace('/usuarios',""));
+            res.send({msg:"Eliminado exitosamente",url:req.baseUrl.replace('/usuarios',"")});
         });
   });
 }

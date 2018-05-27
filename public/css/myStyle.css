@@ -411,7 +411,7 @@ header p{
 }
 .tablaResultados .edit, .delete, .see{
 	margin-left: 5%;
-	/* width: 33%; */
+	width: 120px;
 	height: 40px;
 	display: inline;
 	margin-top: auto;

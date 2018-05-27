@@ -411,19 +411,6 @@ $("#guardarUsuario").click((e)=>{
 	var a=$("#activeUser");
 	if(!/\s/.test(u))
 	{
-		e.preventDefault();
-		$("#informe").text("No se permiten espacios \n en el nombre de usuario");
-		$("#dialog-message").dialog({
-			modal: true,
-			buttons: {
-				Ok: function () {
-					$(this).dialog("close");
-					if (r.url) {
-						window.location.href = r.url;
-					}
-				}
-			}
-		});
 		$.ajax({
 			method:"POST",
 			url: $("#formUser").attr('action'),
@@ -455,6 +442,22 @@ $("#guardarUsuario").click((e)=>{
 			console.log(r);
 			$("#failUser").css("display","block");
 			$("#failUser").html("<p>"+r+"</p>");
+		});
+	}
+	else
+	{
+		e.preventDefault();
+		$("#informe").text("No se permiten espacios \n en el nombre de usuario");
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+					if (r.url) {
+						window.location.href = r.url;
+					}
+				}
+			}
 		});
 	}
 });

@@ -314,7 +314,7 @@ header p{
 
 .containerForms .buscar{
 	margin-bottom: 2%;
-	width: 100% !important;
+	width: 90% !important;
 	float: none;
 }
 
@@ -411,7 +411,7 @@ header p{
 }
 .tablaResultados .edit, .delete, .see{
 	margin-left: 5%;
-	width: 120px;
+	width: 90px;
 	height: 40px;
 	display: inline;
 	margin-top: auto;

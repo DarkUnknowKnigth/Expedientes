@@ -409,7 +409,7 @@ $("#guardarUsuario").click((e)=>{
 	var tu=$("#tipoUser");
 	var cp=$("#cedulaProfesional");
 	var a=$("#activeUser");
-	if(/\s/.test(u))
+	if(!/\s/.test(u))
 	{
 		e.preventDefault();
 		$("#informe").text("No se permiten espacios \n en el nombre de usuario");

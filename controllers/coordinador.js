@@ -13,9 +13,9 @@ function estadistica(req,res)
     switch(busqueda)
     {
         case 'sida':
-        query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.sida":"Si"} ]}
-        query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.sida":"Si"}]};
-        query3={ $and: [{"AntecedentesHF.sida":"No"}] };
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.sida":"Si"} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.sida":"Si"}]};
+            query3={ $and: [{"AntecedentesHF.sida":"No"}] };
         break;
         case 'alcohol':
         query={"alcohol":"Si"}
@@ -45,10 +45,32 @@ function estadistica(req,res)
         query={"urosepsis":"Si"}
         break;
         case 'cancer':
-        query={"aborto":"Si"}
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.cancer":"Si"} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.cancer":"Si"}]};
+            query3={ $and: [{"AntecedentesHF.cancer":"No"}] };
         break;
         case 'amigdalitis':
         query={"amigdalitis":"Si"}
+        break;
+        case 'HA':
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.HA":"Si"} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.HA":"Si"}]};
+            query3={ $and: [{"AntecedentesHF.HA":"No"}] };
+        break;
+        case 'diabetes':
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.diabetes":"Si"} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.diabetes":"Si"}]};
+            query3={ $and: [{"AntecedentesHF.diabetes":"No"}] };
+        break;
+        case 'TB':
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.TB":"Si"} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.TB":"Si"}]};
+            query3={ $and: [{"AntecedentesHF.TB":"No"}] };
+        break;
+        case 'otro':
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.otro":"Si"} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.otro":"Si"}]};
+            query3={ $and: [{"AntecedentesHF.otro":"No"}] };
         break;
         default:
         break;

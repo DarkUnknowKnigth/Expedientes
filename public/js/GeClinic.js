@@ -403,7 +403,7 @@ $("#nuevaEstadistica").click((e)=>{
 				['Poblacion','Detecciones'],
 				['Hombres', r.h],
 				['Mujeres', r.m],
-				['Sanos', r.t]
+				['', r.t]
 			]);
 			var options = {
 				title: "Estadistica de "+r.e
@@ -414,7 +414,7 @@ $("#nuevaEstadistica").click((e)=>{
 			$("#dialog-message").dialog({
 				modal: true,
 				width: 900,
-				heigth:500,
+				heigth:900,
 				buttons: {
 					Ok: function () {
 						$(this).dialog("close");

@@ -395,6 +395,7 @@ $("#nuevaEstadistica").click((e)=>{
 		url: e.target.value,
 		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
+		console.log(r);
 		google.charts.load('current', { 'packages': ['corechart'] });
 		google.charts.setOnLoadCallback(drawChart);
 		function drawChart() 
@@ -403,7 +404,7 @@ $("#nuevaEstadistica").click((e)=>{
 				['Poblacion','Detecciones'],
 				['Hombres', r.h],
 				['Mujeres', r.m],
-				['', r.t]
+				['Sin Enfermedad', r.t],
 			]);
 			var options = {
 				title: "Estadistica de "+r.e

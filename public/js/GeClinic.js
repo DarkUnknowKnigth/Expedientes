@@ -129,7 +129,7 @@ $("#initExp").click(function () {
 			$(".putForm form").css("display", "none");
 			$("#formAntec").css("display", "block");
 			$(".continuarExp .btn-success").click(function (e) {
-				if (formAntec.length >1) {
+				if (formAntec.length <1) {
 					$("#parentRest").css("color", "red");
 					$antec = true;
 					$("#antec").css("background-color", "#6CDE71");

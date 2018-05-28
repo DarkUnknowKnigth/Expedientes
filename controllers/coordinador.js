@@ -56,7 +56,8 @@ function estadistica(req,res)
     Expedientes.find(query).count().exec((err,mujeres)=>{
         if(err)
         {
-            res.send("Lo sentimos ocurrio un error inesperado");
+            console.log(err);
+            res.send("Lo sentimos ocurrio un error en la coleccion Mujeres");
         }
         else
         {
@@ -66,7 +67,8 @@ function estadistica(req,res)
                 Expedientes.find(query2).count().exec((err,hombres)=>{
                     if(err)
                     {
-                        res.send("Lo sentimos ocurrio un error inesperado");
+                        console.log(err);
+                        res.send("Lo sentimos ocurrio un error en la coleccion Hombres");
                     }
                     else
                     {

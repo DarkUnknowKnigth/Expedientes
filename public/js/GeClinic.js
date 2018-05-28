@@ -412,6 +412,8 @@ $("#nuevaEstadistica").click((e)=>{
 		}
 			$("#dialog-message").dialog({
 				modal: true,
+				width: 900,
+				heigth:500,
 				buttons: {
 					Ok: function () {
 						$(this).dialog("close");

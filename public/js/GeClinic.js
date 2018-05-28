@@ -395,25 +395,30 @@ $("#nuevaEstadistica").click((e)=>{
 		url: e.target.value,
 		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
-		console.log(r);
 		google.charts.load('current', { 'packages': ['corechart'] });
 		google.charts.setOnLoadCallback(drawChart);
-
 		function drawChart() 
 		{
-
 			var data = google.visualization.arrayToDataTable([
 				['Hombres', r.h],
 				['Mujeres', r.m],
 				['Sanos', r.t],
 			]);
-
 			var options = {
-				title: r.e
+				title: "Estadistica de "+r.e
 			};
-			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			var chart = new google.visualization.PieChart(document.getElementById('informe'));
 			chart.draw(data, options);
 		}
+			$("#dialog-message").dialog({
+				modal: true,
+				buttons: {
+					Ok: function () {
+						$(this).dialog("close");
+					}
+				}
+			});
+		
 	}).fail((r)=>{
 		console.log("fallo");
 		console.log(r);

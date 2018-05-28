@@ -15,7 +15,7 @@ function estadistica(req,res)
         case 'sida':
         query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.sida":"Si"} ]}
         query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.sida":"Si"}]};
-        query3={ $and: [{"AntecedentesHF.HA":"No"}] };
+        query3={ $and: [{"AntecedentesHF.sida":"No"}] };
         break;
         case 'alcohol':
         query={"alcohol":"Si"}
@@ -61,7 +61,7 @@ function estadistica(req,res)
         }
         else
         {
-            if(mujeres)
+            if(mujeres>=0)
             {
                 console.log(mujeres);
                 Expedientes.find(query2).count().exec((err,hombres)=>{
@@ -72,7 +72,7 @@ function estadistica(req,res)
                     }
                     else
                     {
-                        if (hombres)
+                        if (hombres>=0)
                         {
                             console.log(hombres)
                             Expedientes.find(query3).count().exec((err,total)=>{

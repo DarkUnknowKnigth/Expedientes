@@ -407,33 +407,49 @@ $("#nuevaEstadistica").click((e)=>{
 		url: e.target.value,
 		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
-		console.log(r);
-		$("#informe").html('<div id="piechart" style="width: 900px; height: 500px;"></div>');
-		google.charts.load('current', { 'packages': ['corechart'] });
-		google.charts.setOnLoadCallback(drawChart);
-		function drawChart(){
-			var data = google.visualization.arrayToDataTable([
-				['Poblacion','Detecciones'],
-				['Hombres', r.h],
-				['Mujeres', r.m],
-				['Sin Padecimiento', r.t],
-			]);
-			var options = {
-				title: "Estadistica de "+r.e
-			};
-			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-			chart.draw(data, options);
-		}
+		if(r.h && r.m && r.t && r.e)
+		{
+			$("#informe").html('<div id="piechart" style="width: 900px; height: 500px;"></div>');
+			google.charts.load('current', { 'packages': ['corechart'] });
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Poblacion', 'Detecciones'],
+					['Hombres', r.h],
+					['Mujeres', r.m],
+					['Sin Padecimiento', r.t],
+				]);
+				var options = {
+					title: "Estadistica de " + r.e
+				};
+				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+				chart.draw(data, options);
+			}
 			$("#dialog-message").dialog({
-				modal:true,
+				modal: true,
 				width: 900,
-				heigth:900,
+				heigth: 900,
 				buttons: {
 					Ok: function () {
 						$(this).dialog("close");
 					}
 				}
 			});
+		}
+		else
+		{
+			$("#informe").text(r);
+			$("#dialog-message").dialog({
+				modal: true,
+				width: 200,
+				heigth: 200,
+				buttons: {
+					Ok: function () {
+						$(this).dialog("close");
+					}
+				}
+			});
+		}
 		
 	}).fail((r)=>{
 		console.log("fallo");

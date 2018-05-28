@@ -93,7 +93,8 @@ function estadistica(req,res)
             query3={ $and: [{"AntecedentesHF.otro":{ $exists: false }}] };
         break;
         default:
-
+           res.send("No se selecciono una modelidad");
+           res.end();        
         break;
     }
     Expedientes.find(query).count().exec((err,mujeres)=>{

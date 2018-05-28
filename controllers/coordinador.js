@@ -28,11 +28,6 @@ function estadistica(req,res)
             query2={"sexo":"Hombre","tabaco":"Si"};
             query3={"tabaco":"No"};
         break;
-        case 'parasitosis':
-        query={"sexo":"Mujer","parasitosis":"Si"}
-        query2={"sexo":"Hombre","parasitosis":"Si"};
-        query3={"parasitosis":"No"};
-    break;
         case 'varicela':
             query={"sexo":"Mujer","varicela":"Si"}
             query2={"sexo":"Hombre","varicela":"Si"};

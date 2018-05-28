@@ -8,13 +8,14 @@ function generarHojaDiaria(req,res)
 }
 function estadistica(req,res)
 {
-    var busqueda=req.campoBusqueda;
-    var query={},query2={};
+    var busqueda=req.body.campoBusqueda;
+    var query={},query2={},query3={};
     switch(busqueda)
     {
         case 'sida':
         query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.sida":"Si"} ]}
-        query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.sida":"Si"} ] };
+        query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.sida":"Si"}]};
+        query3={ $and: [{"AntecedentesHF.HA":"No"}] };
         break;
         case 'alcohol':
         query={"alcohol":"Si"}
@@ -72,7 +73,7 @@ function estadistica(req,res)
                         if (hombres)
                         {
                             console.log(hombres)
-                            Expedientes.find({}).count().exec((err,total)=>{
+                            Expedientes.find(query3).count().exec((err,total)=>{
                                 if(!err)
                                 {
                                     console.log(total);

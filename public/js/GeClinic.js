@@ -393,10 +393,12 @@ $("#nuevaEstadistica").click((e)=>{
 	$.ajax({
 		type: "POST",
 		url: e.target.value,
-		data: {campoBusqueda:$("#estadi").val()},
-		dataType: "dataType",
+		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
-		console.log(r.h);
+		console.log(r);
+	}).fail((r)=>{
+		console.log("fallo");
+		console.log(r);
 	});
 });
 $("#guardarUsuario").click((e)=>{

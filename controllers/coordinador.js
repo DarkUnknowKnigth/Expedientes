@@ -85,7 +85,7 @@ function estadistica(req,res)
                         }
                         else
                         {
-                            res.send("Lo sentimos ocurrio un error inesperado");
+                            res.send("Lo sentimos ocurrio un error inesperado no existe Hombres");
                         }
 
                     }
@@ -94,7 +94,7 @@ function estadistica(req,res)
             }
             else
             {
-                res.send("Lo sentimos ocurrio un error inesperado");
+                res.send("Lo sentimos ocurrio un error inesperado no existe mujeres");
             }
         } 
     });

@@ -570,7 +570,7 @@ $("#buscarExpCurp").keyup((k)=>{
 
 $("#agregar").click(function(e){
 	dec--;
-	if(/[a-zA-Z\s]/.test($("#otros").val()))
+	if(!/[{$´'+}]/.test($("#otros").val()))
 	{
 		if(dec>=0)
 		{

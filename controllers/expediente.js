@@ -51,7 +51,7 @@ function query(req,res)
                         '		</tr>'+
                         '		<tr>'+
                         '			<td>nombre</td>'+
-                        '			<td>'+exp.nombre+'</td>'+
+                        '			<td>'+exp.nombre+' '+exp.apPaterno+' '+exp.apMaterno+'</td>'+
                         '			<td>Promiscuidad</td>'+
                         '			<td>'+exp.promiscuidad+'</td>'+
                         '			<td>SABIN</td>'+
@@ -198,7 +198,7 @@ function buscar(req,res)
                     '		</tr>'+
                     '		<tr>'+
                     '			<td>nombre</td>'+
-                    '			<td>'+exp.nombre+'</td>'+
+                    '			<td>'+exp.nombre+' '+exp.apPaterno+' '+exp.apMaterno+'</td>'+
                     '			<td>Promiscuidad</td>'+
                     '			<td>'+exp.promiscuidad+'</td>'+
                     '			<td>SABIN</td>'+

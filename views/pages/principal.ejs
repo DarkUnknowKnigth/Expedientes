@@ -930,8 +930,8 @@
 					<tbody>
 						<% collection_expedientes.forEach(expediente => {  %>
 						<tr>
-								<td scope="col"><%= expediente._id%></td>
-								<td scope="col"><%=expediente.nombre%> <%=expediente.apPaterno%> <%=expediente.apMaterno%></td>
+								<td scope="col"><%=expediente._id %></td>
+								<td scope="col"><%=expediente.nombre+' '+expediente.apPaterno+' '+expediente.apMaterno%></td>
 								<td scope="col"><%=expediente.curp%></td>
 								<td scope="col"><%=expediente.direccion%></td>
 								<td scope="col"><%=expediente.sexo%></td>

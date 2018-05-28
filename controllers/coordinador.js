@@ -10,6 +10,7 @@ function estadistica(req,res)
 {
     var busqueda=req.body.campoBusqueda;
     var query={},query2={},query3={};
+    var proceder=true;
     switch(busqueda)
     {
         case 'sida':
@@ -93,51 +94,56 @@ function estadistica(req,res)
             query3={ $and: [{"AntecedentesHF.otro":{ $exists: false }}] };
         break;
         default:
-           res.send("No se selecciono una modalidad de padecimientos");    
+            proceder=false;
+            res.send("No se selecciono una modalidad de padecimientos");    
         break;
     }
-    Expedientes.find(query).count().exec((err,mujeres)=>{
-        if(err)
-        {
-            console.log(err);
-            res.send("Lo sentimos ocurrio un error en la coleccion Mujeres");
-        }
-        else
-        {
-            if(mujeres>=0)
+    if(proceder)
+    {
+        Expedientes.find(query).count().exec((err,mujeres)=>{
+            if(err)
             {
-                Expedientes.find(query2).count().exec((err,hombres)=>{
-                    if(err)
-                    {
-                        console.log(err);
-                        res.send("Lo sentimos ocurrio un error en la coleccion Hombres");
-                    }
-                    else
-                    {
-                        if (hombres>=0)
-                        {                          
-                            Expedientes.find(query3).count().exec((err,total)=>{
-                                if(!err)
-                                {
-                                    res.send({m:mujeres,h:hombres,t:total,e:busqueda.toUpperCase()});
-                                }
-                            });
-                        }
-                        else
-                        {
-                            res.send("Lo sentimos ocurrio un error inesperado no existe Hombres");
-                        }
-
-                    }
-
-                }); 
+                console.log(err);
+                res.send("Lo sentimos ocurrio un error en la coleccion Mujeres");
             }
             else
             {
-                res.send("Lo sentimos ocurrio un error inesperado no existe mujeres");
-            }
-        } 
-    });
+                if(mujeres>=0)
+                {
+                    Expedientes.find(query2).count().exec((err,hombres)=>{
+                        if(err)
+                        {
+                            console.log(err);
+                            res.send("Lo sentimos ocurrio un error en la coleccion Hombres");
+                        }
+                        else
+                        {
+                            if (hombres>=0)
+                            {                          
+                                Expedientes.find(query3).count().exec((err,total)=>{
+                                    if(!err)
+                                    {
+                                        res.send({m:mujeres,h:hombres,t:total,e:busqueda.toUpperCase()});
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                res.send("Lo sentimos ocurrio un error inesperado no existe Hombres");
+                            }
+    
+                        }
+    
+                    }); 
+                }
+                else
+                {
+                    res.send("Lo sentimos ocurrio un error inesperado no existe mujeres");
+                }
+            } 
+        });
+
+    }  
 }
 module.exports={
     generarHojaDiaria,

@@ -400,9 +400,10 @@ $("#nuevaEstadistica").click((e)=>{
 		function drawChart() 
 		{
 			var data = google.visualization.arrayToDataTable([
+				['Poblacion','Detecciones'],
 				['Hombres', r.h],
 				['Mujeres', r.m],
-				['Sanos', r.t],
+				['Sanos', r.t]
 			]);
 			var options = {
 				title: "Estadistica de "+r.e

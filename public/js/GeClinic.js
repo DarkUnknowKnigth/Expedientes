@@ -570,10 +570,11 @@ $("#buscarExpCurp").keyup((k)=>{
 
 $("#agregar").click(function(e){
 	dec--;
-	if(/[a-zA-Z]/.test($("#otros").val()))
+	if(/[a-zA-Z\s]/.test($("#otros").val()))
 	{
-		formAntec.push(
-			{
+		if(dec>=0)
+		{
+			formAntec.push({
 				"parentesco": $("#parentesco").val(),
 				"HA": $("#Ha input:radio[name=Ha]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 				"cancer": $("#cancer input:radio[name=cancer]:checked").val(),//este solo es uno debes verificar cual esta avtivo
@@ -582,7 +583,7 @@ $("#agregar").click(function(e){
 				"TB": $("#tb input:radio[name=TB]:checked").val(),//este solo es uno debes verificar cual esta avtivo
 				"otro": $("#otros").val()
 			});
-			$("#parentRest").css("color","green").text(dec);
+			$("#parentRest").css("color", "green").text(dec);
 			$("#informe").text("Se agrego correctamente");
 			$("#dialog-message").dialog({
 				modal: true,
@@ -592,6 +593,11 @@ $("#agregar").click(function(e){
 					}
 				}
 			});
+		}
+		else
+		{
+			$("#agregar").attr("disable",true);
+		}
 	}
 	else{
 		e.preventDefault();
@@ -613,14 +619,14 @@ $("#formFichIde button").click(function(e){
 	{
 		formFichIde=
 		{
-		"nombre": $("#idNombrePaciente").val(),
-		"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
-		"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
-		"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
-		"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
-		"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
-		"ocupacion": $("#sinOcupacion").val(),
-		"sexo": $("#sexo").val()
+			"nombre": $("#idNombrePaciente").val(),
+			"apPaterno": $("#idApPat").val(),//este solo es uno debes verificar cual esta avtivo
+			"apMaterno": $("#idApMat").val(),//este solo es uno debes verificar cual esta avtivo
+			"direccion": $("#direccion").val(),//este solo es uno debes verificar cual esta avtivo
+			"curp": $("#curp").val(),//este solo es uno debes verificar cual esta avtivo
+			"estadoCivil": $("#estadoCivil").val(),//este solo es uno debes verificar cual esta avtivo
+			"ocupacion": $("#sinOcupacion").val(),
+			"sexo": $("#sexo").val()
 		};
 		console.log(formFichIde);
 	}

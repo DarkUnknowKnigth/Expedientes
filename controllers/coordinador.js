@@ -79,7 +79,7 @@ function estadistica(req,res)
                                 if(!err)
                                 {
                                     console.log(total);
-                                    res.send({m:mujeres,h:hombres,t:total});
+                                    res.send({m:mujeres,h:hombres,t:total,e:busqueda.toUpperCase()});
                                 }
                             });
                         }

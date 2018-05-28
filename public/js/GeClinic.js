@@ -396,6 +396,24 @@ $("#nuevaEstadistica").click((e)=>{
 		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
 		console.log(r);
+		google.charts.load('current', { 'packages': ['corechart'] });
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() 
+		{
+
+			var data = google.visualization.arrayToDataTable([
+				['Hombres', r.h],
+				['Mujeres', r.m],
+				['Sanos', r.t],
+			]);
+
+			var options = {
+				title: r.e
+			};
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(data, options);
+		}
 	}).fail((r)=>{
 		console.log("fallo");
 		console.log(r);

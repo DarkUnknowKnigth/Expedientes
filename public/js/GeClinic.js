@@ -129,10 +129,8 @@ $("#initExp").click(function () {
 			$(".putForm form").css("display", "none");
 			$("#formAntec").css("display", "block");
 			$(".continuarExp .btn-success").click(function (e) {
-				if (formAntec.length < 2) {
+				if (formAntec.length >1) {
 					$("#parentRest").css("color", "red");
-					console.log("no");
-					e.preventDefault();
 					$antec = true;
 					$("#antec").css("background-color", "#6CDE71");
 					darColorTD("#an");
@@ -171,6 +169,19 @@ $("#initExp").click(function () {
 								});
 							});
 						});
+					});
+				}
+				else
+				{
+					e.preventDefault();
+					$("#informe").text("Se necesitan 2 antecedentes para continuar");
+					$("#dialog-message").dialog({
+						modal: true,
+						buttons: {
+							Ok: function (){
+								$(this).dialog("close");
+							}
+						}
 					});
 				}
 			});

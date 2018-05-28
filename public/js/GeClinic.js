@@ -412,7 +412,6 @@ $("#nuevaEstadistica").click((e)=>{
 			chart.draw(data, options);
 		}
 			$("#dialog-message").dialog({
-				modal: true,
 				width: 900,
 				heigth:900,
 				buttons: {

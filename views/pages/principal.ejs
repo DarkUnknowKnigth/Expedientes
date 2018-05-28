@@ -1519,29 +1519,35 @@
 		</div>
 		<%}%>
 		<%if(permiso.coordinador){%>
-		<div class="containerForms genHojaDiaria">
-			<!-- botón de retroceso -->
-			<div id="Prev"><a href=<%localURL%>><i class="fas fa-arrow-left"></i></a>
-				<p>GENERAR HOJA DIARIA</p>
+			<div class="containerForms genHojaDiaria">
+				<!-- botón de retroceso -->
+				<div id="Prev">
+					<a href=<%localURL%>>
+						<i class="fas fa-arrow-left"></i>
+					</a>
+					<p>GENERAR HOJA DIARIA</p>
+				</div>
+				<div class="formHojaDiaria">
+					<form id="formHojaDiaria" action="">
+						<div class="groupForm">
+							<label for="fechaHoja">Ingrese día para generar hoja:</label>
+							<input type="date" id="fechaHoja" name="fechaHoja">
+						</div>
+						<button class="btn btn-dark" type="submit">Generar hoja diaria</button>
+					</form>
+				</div>
 			</div>
-			<div class="formHojaDiaria">
-				<form id="formHojaDiaria" action="">
-					<div class="groupForm">
-						<label for="fechaHoja">Ingrese día para generar hoja:</label>
-						<input type="date" id="fechaHoja" name="fechaHoja">
-					</div>
-					<button class="btn btn-dark" type="submit">Generar hoja diaria</button>
-				</form>
-			</div>
-		</div>
-		<div class="containerForms genInformeMensual">
-			<!-- botón de retroceso -->
-			<div id="Prev"><a href=<%localURL%>><i class="fas fa-arrow-left"></i></a>
-				<p>GENERAR INFORME MENSUAL</p>
-				<p style="font-size: 20px;-webkit-text-stroke: #000;-webkit-text-stroke-width: 0px; ">Ingrese el mes y año del que desea generar informe</p>
-			</div>
-			<div class="formHojaDiaria">
-				<form id="formHojaDiaria2" action="">
+			<div class="containerForms genInformeMensual">
+				<!-- botón de retroceso -->
+				<div id="Prev">
+					<a href=<%localURL%>>
+						<i class="fas fa-arrow-left"></i>
+					</a>
+					<p>GENERAR INFORMES</p>
+					<p style="font-size: 20px;-webkit-text-stroke: #000;-webkit-text-stroke-width: 0px; ">Ingrese el mes y año del que desea generar informe</p>
+				</div>
+				<div class="formHojaDiaria">
+		
 					<div class="groupForm">
 						<label for="mesInfo">Mes:</label>
 						<select id="mesInfo" name="mesInfo">
@@ -1566,8 +1572,10 @@
 							<option selected value="Seleccione">Seleccione</option>
 						</select>
 					</div>
-					<button class="btn btn-dark" type="button">Generar informe mensual</button>
-				</form>
+					<button class="btn btn-dark" type="button">Generar informe Diario</button>
+		
+		
+		
 					<div class="groupForm">
 						<label for="estadistica">Estadistica de padecimientos detectados:</label>
 						<select id="estadi" name="genearEsta">
@@ -1589,15 +1597,13 @@
 							<option value="TB">Tuberculosis</option>
 							<option value="otro">Otras enfermedades</option>
 						</select>
-						<button class="btn btn-primary" id="nuevaEstadistica" value=<%= estadistica %> type="button">Generar Estadisticas</button>
+						<button class="btn btn-primary" id="nuevaEstadistica" value=<%=e stadistica %> type="button">Generar Estadisticas</button>
 					</div>
 					<div style="clear: both"></div>
-					
-				
+				</div>
 			</div>
-		</div>
 		<%}%>
-	</div>
+				</div>
 	<!-- End rightSide -->
 	<!-- cuadro de dialogo -->
 	<div id="dialog-message" style="display: none">

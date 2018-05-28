@@ -396,7 +396,7 @@ $("#nuevaEstadistica").click((e)=>{
 		data: {campoBusqueda:$("#estadi").val()},
 		dataType: "dataType",
 	}).done((r)=>{
-		console.log(r);
+		console.log(r.h);
 	});
 });
 $("#guardarUsuario").click((e)=>{

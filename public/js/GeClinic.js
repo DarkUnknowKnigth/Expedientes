@@ -396,10 +396,10 @@ $("#nuevaEstadistica").click((e)=>{
 		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
 		console.log(r);
+		$("#informe").html('<div id="piechart" style="width: 900px; height: 500px;"></div>');
 		google.charts.load('current', { 'packages': ['corechart'] });
 		google.charts.setOnLoadCallback(drawChart);
-		function drawChart() 
-		{
+		function drawChart(){
 			var data = google.visualization.arrayToDataTable([
 				['Poblacion','Detecciones'],
 				['Hombres', r.h],
@@ -409,10 +409,11 @@ $("#nuevaEstadistica").click((e)=>{
 			var options = {
 				title: "Estadistica de "+r.e
 			};
-			var chart = new google.visualization.PieChart(document.getElementById('informe'));
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 			chart.draw(data, options);
 		}
 			$("#dialog-message").dialog({
+				modal:true,
 				width: 900,
 				heigth:900,
 				buttons: {

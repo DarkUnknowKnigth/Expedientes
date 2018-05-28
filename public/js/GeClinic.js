@@ -407,7 +407,7 @@ $("#nuevaEstadistica").click((e)=>{
 		url: e.target.value,
 		data: {"campoBusqueda":$("#estadi").val()}
 	}).done((r)=>{
-		if(r.h && r.m && r.t && r.e)
+		if(r.e)
 		{
 			$("#informe").html('<div id="piechart" style="width: 900px; height: 500px;"></div>');
 			google.charts.load('current', { 'packages': ['corechart'] });

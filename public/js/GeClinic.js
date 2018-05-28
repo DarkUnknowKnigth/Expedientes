@@ -409,6 +409,7 @@ $("#nuevaEstadistica").click((e)=>{
 	}).done((r)=>{
 		if(r.e)
 		{
+			console.log(r);
 			$("#informe").html('<div id="piechart" style="width: 900px; height: 500px;"></div>');
 			google.charts.load('current', { 'packages': ['corechart'] });
 			google.charts.setOnLoadCallback(drawChart);

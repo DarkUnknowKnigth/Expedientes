@@ -404,7 +404,7 @@ $("#nuevaEstadistica").click((e)=>{
 				['Poblacion','Detecciones'],
 				['Hombres', r.h],
 				['Mujeres', r.m],
-				['Sin Enfermedad', r.t],
+				['Sin Padecimiento', r.t],
 			]);
 			var options = {
 				title: "Estadistica de "+r.e

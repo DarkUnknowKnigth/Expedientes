@@ -18,31 +18,49 @@ function estadistica(req,res)
             query3={ $and: [{"AntecedentesHF.sida":"No"}] };
         break;
         case 'alcohol':
-        query={"alcohol":"Si"}
+            query={"sexo":"Mujer","alcohol":"Si"}
+            query2={"sexo":"Hombre","alcohol":"Si"};
+            query3={"alcohol":"No"};
         break;
         case 'tabaco':
-        query={"tabaco":"Si"}
+            query={"sexo":"Mujer","tabaco":"Si"}
+            query2={"sexo":"Hombre","tabaco":"Si"};
+            query3={"tabaco":"No"};
         break;
         case 'varicela':
-        query={"varicela":"Si"}
+            query={"sexo":"Mujer","varicela":"Si"}
+            query2={"sexo":"Hombre","varicela":"Si"};
+            query3={"varicela":"No"};
         break;
         case 'escarlatina':
-        query={"escarlatina":"Si"}
+            query={"sexo":"Mujer","escarlatina":"Si"}
+            query2={"sexo":"Hombre","escarlatina":"Si"};
+            query3={"escarlatina":"No"};
         break;
         case 'sarampion':
-        query={"sarampion":"Si"}
+            query={"sexo":"Mujer","sarampion":"Si"}
+            query2={"sexo":"Hombre","sarampion":"Si"};
+            query3={"sarampion":"No"};
         break;
         case 'rubeola':
-        query={"rubeola":"Si"}
+            query={"sexo":"Mujer","rubeola":"Si"}
+            query2={"sexo":"Hombre","rubeola":"Si"};
+            query3={"rubeola":"No"};
         break;
         case 'tosferina':
-        query={"tosferina":"Si"}
+            query={"sexo":"Mujer","tosferina":"Si"}
+            query2={"sexo":"Hombre","tosferina":"Si"};
+            query3={"tosferina":"No"};
         break;
         case 'parasitosis':
-        query={"parasitosis":"Si"}
+            query={"sexo":"Mujer","parasitosis":"Si"}
+            query2={"sexo":"Hombre","parasitosis":"Si"};
+            query3={"parasitosis":"No"};
         break;
         case 'urosepsis':
-        query={"urosepsis":"Si"}
+            query={"sexo":"Mujer","urosepsis":"Si"}
+            query2={"sexo":"Hombre","urosepsis":"Si"};
+            query3={"urosepsis":"No"};
         break;
         case 'cancer':
             query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.cancer":"Si"} ]}
@@ -50,7 +68,9 @@ function estadistica(req,res)
             query3={ $and: [{"AntecedentesHF.cancer":"No"}] };
         break;
         case 'amigdalitis':
-        query={"amigdalitis":"Si"}
+            query={"sexo":"Mujer","amigdalitis":"Si"}
+            query2={"sexo":"Hombre","amigdalitis":"Si"};
+            query3={"amigdalitis":"No"};
         break;
         case 'HA':
             query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.HA":"Si"} ]}
@@ -68,11 +88,12 @@ function estadistica(req,res)
             query3={ $and: [{"AntecedentesHF.TB":"No"}] };
         break;
         case 'otro':
-            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.otro":"Si"} ]}
-            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.otro":"Si"}]};
-            query3={ $and: [{"AntecedentesHF.otro":"No"}] };
+            query={$and: [ {"sexo":"Mujer"},{"AntecedentesHF.otro":{ $exists: true }} ]}
+            query2={$and: [ {"sexo":"Hombre"},{"AntecedentesHF.otro":{ $exists: true }}]};
+            query3={ $and: [{"AntecedentesHF.otro":{ $exists: false }}] };
         break;
         default:
+
         break;
     }
     Expedientes.find(query).count().exec((err,mujeres)=>{
@@ -85,7 +106,6 @@ function estadistica(req,res)
         {
             if(mujeres>=0)
             {
-                console.log(mujeres);
                 Expedientes.find(query2).count().exec((err,hombres)=>{
                     if(err)
                     {
@@ -95,12 +115,10 @@ function estadistica(req,res)
                     else
                     {
                         if (hombres>=0)
-                        {
-                            console.log(hombres)
+                        {                          
                             Expedientes.find(query3).count().exec((err,total)=>{
                                 if(!err)
                                 {
-                                    console.log(total);
                                     res.send({m:mujeres,h:hombres,t:total,e:busqueda.toUpperCase()});
                                 }
                             });

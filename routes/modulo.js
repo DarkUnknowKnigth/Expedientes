@@ -154,7 +154,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             eliminarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/eliminarUsuario/`,
                                             //link expedientes
                                             crearExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/nuevoExpediente`,
-                                            modificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/modificarExpediente`,
+                                            SolicitarModificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/SolicitarModificarExpediente`,
                                             eliminarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/eliminarExpediente/`,
                                             buscarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarExpediente`,
                                             buscarUno:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarUno`,

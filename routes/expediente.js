@@ -12,7 +12,7 @@ expediente.get('/eliminar',(req,res)=>{
     res.status(200).render("../views/partials/eliminarExpedeinte.ejs");
 });
 expediente.post('/nuevoExpediente',controladorExpediente.guardar);
-expediente.put('/modificarExpediente',controladorExpediente.modificar);
+expediente.get('/SolicitarModificarExpediente',controladorExpediente.modificar);
 expediente.delete('/eliminarExpediente/:id',controladorExpediente.eliminar);
 expediente.post('/buscarExpediente',controladorExpediente.buscar);
 expediente.post('/buscarUno',controladorExpediente.query);

@@ -201,12 +201,19 @@ function darColorTD(element){
 
 /*Eventos de modificación de expediente*/
 
-$(".modifExp .edit").click(function(){
-	$(".modifExp").css("display","none");
-	$(".createExp").css("display","block");
-	var texto = $(".createExp p").text();
-	texto = texto.replace("CREAR", "MODIFICAR");
-	$(".createExp p").text(texto);
+$(".modifExp .edit").click(function(e){
+	// $(".modifExp").css("display","none");
+	// $(".createExp").css("display","block");
+	// var texto = $(".createExp p").text();
+	// texto = texto.replace("CREAR", "MODIFICAR");
+	// $(".createExp p").text(texto);
+	$.ajax({
+		type: "GET",
+		url: e.target.value
+	}).done((res)=>{
+		console.log(res);
+
+	});
 });
 
 /*end eventos de modificación de expediente*/

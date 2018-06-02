@@ -611,7 +611,7 @@ header p{
 /*End dialogMessage*/
 
 /*Modificando Filtro*/
-#buscadorExp,#SearchUsr{
+#buscadorExp,#buscadorUser{
 	margin-top: 30px !important;
 }
 .groupBuscar{

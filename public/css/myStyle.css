@@ -611,13 +611,13 @@ header p{
 /*End dialogMessage*/
 
 /*Modificando Filtro*/
-#buscadorExp{
+#buscadorExp,#SearchUsr{
 	margin-top: 30px !important;
 }
 .groupBuscar{
 	margin-bottom: 50px !important;
 }
-#tipoBusquedaExp{
+#tipoBusquedaExp,#tipoBusquedaUsr{
 	width: 300px !important;
 	margin-left: 30px !important;
 }

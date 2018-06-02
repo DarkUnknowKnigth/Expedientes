@@ -585,3 +585,21 @@ header p{
 }
 
 /*end hidding*/
+
+
+/*DialogMessage Modifications*/
+
+.ui-dialog button{
+	background-color: #29719C !important;
+	color: #fff;
+	font-weight: bold;
+	font-family: 'Montserrat';
+	border-radius: 5px;
+	text-align: center;
+}
+.ui-dialog{
+	border-radius: 5px;
+}
+
+
+/*End dialogMessage*/

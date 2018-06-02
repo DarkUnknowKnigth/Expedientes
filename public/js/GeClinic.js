@@ -629,10 +629,10 @@ function asignarIMC(talla,peso){
 		$("#imc").val(imc);
 	}
 }
-$("#buscarExpCurp").keyup((k)=>{
-	let type=$("#tipoBusquedaExp").val();
-	let value=$("#buscarExpCurp").val();
-});
+// $("#buscarExpCurp").keyup((k)=>{
+// 	let type=$("#tipoBusquedaExp").val();
+// 	let value=$("#buscarExpCurp").val();
+// });
 
 $("#agregar").click(function(e){
 	dec--;

@@ -489,6 +489,7 @@ function guardar(req, res) {
             }
         ],
         nombre: nuevo.nombre,
+        creacion: nuevo.creacion,
         apPaterno: nuevo.apPaterno,
         apMaterno: nuevo.apMaterno,
         direccion: nuevo.direccion,

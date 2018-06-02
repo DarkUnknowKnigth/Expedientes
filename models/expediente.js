@@ -16,6 +16,7 @@ var ExpedienteSchema = Schema({
     ]
     ,
     nombre: { type: String, required: true },
+    creacion:{type: Date, required: true},
     apPaterno: { type: String, required: true },
     apMaterno: { type: String, required: true },
     direccion: { type: String, required: true },

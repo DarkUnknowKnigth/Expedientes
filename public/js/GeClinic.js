@@ -766,6 +766,7 @@ $("#formAPP button").click(function(){
 });
 
 $("#formAntecGine button").click(function(){
+	
 	formAntecGine=
 	{
 		"ultimaMenst": $("#ultMens").val(),
@@ -848,8 +849,8 @@ $("#formAntecGine button").click(function(){
 		"legradoUt": $("#legradoUt").val(),
 		"pruebaEnb": $("#pruebaEmb").val(),
 		"citologia": $("#citologia").val(),
-		"tipoAnt": $("#tipoAnticoncep").val()
-
+		"tipoAnt": $("#tipoAnticoncep").val(),
+		"creacion": new Date()
 	};
 	$.ajax({
 		type: "POST",

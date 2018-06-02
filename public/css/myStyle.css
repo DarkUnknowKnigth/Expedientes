@@ -613,7 +613,13 @@ header p{
 /*Modificando Filtro*/
 
 #tipoBusquedaExp{
-	
+	width: 50%;
+	margin-left: 2%;
 }
+#SearchExp{
+	margin-left: 3%;
+	border-radius: 3px !important;
+	font-weight: bold;
 
+}
 /*End Modificando fitro*/

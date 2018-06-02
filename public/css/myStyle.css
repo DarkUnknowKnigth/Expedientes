@@ -99,11 +99,11 @@ header p{
 	margin-top: 5%;
 }
 
-.card{
+/* .card{
 	/*border-radius: 0px;*/
 	/*border: 1px solid #296597;*/
-	/*margin-top: 1%;*/
-}
+	/*margin-top: 1%;
+} */
 .card-header{
 	background-color: #669BC7;
 	padding: 1%;
@@ -413,7 +413,7 @@ header p{
 	margin-left: 5%;
 	width: 90px;
 	height: 40px;
-	display: inline;
+	/* display: inline; */
 	margin-top: auto;
 	border: 1px solid transparent;
 	border-radius: 5px;

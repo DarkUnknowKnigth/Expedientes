@@ -233,7 +233,7 @@ $(".modifUser .edit").click(function(e){
 /*end eventos de modificación de usuario*/
 $("#buscarEXP").click(function(){
 	if ($("#buscarExpCurp").val() != "") {
-		$(".resultExpCurp").css("display","block !important");
+		$(".resultExpCurp").css("display","block");
 	}
 	else{
 		alert("Usted no ha ingresado un expediente");

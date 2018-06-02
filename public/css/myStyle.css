@@ -2,6 +2,7 @@
 *{
 	margin: 0;
 	padding: 0;
+	font-family: 'Montserrat', sans-serif !important;
 }
 
 
@@ -206,7 +207,7 @@ header p{
 	display: block;
 	margin: auto;
 	font-size: 12px;
-	font-family: "Arial, Helvetica, sans-serif";
+	font-family: "Montserrat, Arial, Helvetica, sans-serif";
 	font-weight: bold;
 }
 .statusBar table tr td{

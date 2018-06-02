@@ -597,6 +597,10 @@ header p{
 	border-radius: 5px !important;
 	text-align: center !important;
 }
+
+.ui-dialog span{
+	color: #fff !important;
+}
 .ui-dialog{
 	border-radius: 5px !important;
 }

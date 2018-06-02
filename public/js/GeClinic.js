@@ -208,8 +208,9 @@ $(".modifExp .edit").click(function(e){
 	// texto = texto.replace("CREAR", "MODIFICAR");
 	// $(".createExp p").text(texto);
 	$.ajax({
-		type: "GET",
-		url: e.target.value
+		type: "POST",
+		url: e.target.value,
+		data:{id:e.target.name}
 	}).done((res)=>{
 		console.log(res);
 

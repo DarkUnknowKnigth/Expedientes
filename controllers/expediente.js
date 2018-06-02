@@ -1,5 +1,6 @@
 'use strict'
 const Expediente=require("../models/expediente");//llamamos al modelo
+const Usuario=require('../models/usuario');
 function query(req,res) 
 {
     var query=req.body.query;
@@ -164,130 +165,149 @@ function query(req,res)
     }
     
 }
+function update(req,res)
+{
+
+}
 function modificar(req,res)
 {
+    var id=req.body.id;
     console.log(req.session.user_id);
-    res.send(
-    '<form method="POST" action="">'+
-    '<table class="table table-bordered table-striped">'+
-    '		<tr class="thead-dark">'+
-    '			<th colspan="2">Ficha identificacion</th>'+
-    '			<th colspan="2">APNP</th>'+
-    '			<th colspan="2">Inmunizaciones</th>'+
-    '			<th colspan="2">APP</th>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<th>Campo</th>'+
-    '			<th>Informacion</th>'+
-    '			<th>Patologia</th>'+
-    '			<th>estado</th>'+
-    '			<th>Inmunizacion</th>'+
-    '			<th>Aplicado</th>'+
-    '			<th>Enfermedad</th>'+
-    '			<th>Padecida</th>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td>nombre</td>'+
-    '			<td>'+exp.nombre+' '+exp.apPaterno+' '+exp.apMaterno+'</td>'+
-    '			<td>Promiscuidad</td>'+
-    '			<td>'+exp.promiscuidad+'</td>'+
-    '			<td>SABIN</td>'+
-    '			<td>'+exp.sabin+'</td>'+
-    '			<td>Traumatismo</td>'+
-    '			<td>'+exp.traumatismo+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td>direccion</td>'+
-    '			<td>'+exp.direccion+'</td>'+
-    '			<td>Hacinamiento</td>'+
-    '			<td>'+exp.hacinamiento+'</td>'+
-    '			<td>BCG</td>'+
-    '			<td>'+exp.bcg+'</td>'+
-    '			<td>Rubeola</td>'+
-    '			<td>'+exp.rubeola+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td>curp</td>'+
-    '			<td>'+exp.curp+'</td>'+
-    '			<td>Tabaco</td>'+
-    '			<td>'+exp.tabaco+'</td>'+
-    '			<td>DPT</td>'+
-    '			<td>'+exp.dpt+'</td>'+
-    '			<td>Varicela</td>'+
-    '			<td>'+exp.varicela+'</td>'+                    
-    '		</tr>'+
-    '		<tr>'+
-    '			<td>sexo</td>'+
-    '			<td>'+exp.sexo+'</td>'+
-    '			<td>Alcohol</td>'+
-    '			<td>'+exp.alcohol+'</td>'+
-    '			<td>Antisarampion</td>'+
-    '			<td>'+exp.antisarampion+'</td>'+
-    '			<td>Sarampion</td>'+
-    '			<td>'+exp.sarampion+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td>ocupacion</td>'+
-    '			<td>'+exp.ocupacion+'</td>'+
-    '			<td>Dieta</td>'+
-    '			<td>'+exp.dieta+'</td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td>Tosferina</td>'+
-    '			<td>'+exp.tosferina+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td>Estado Civil</td>'+
-    '			<td>'+exp.estadoCivil+'</td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td>Escarlatina</td>'+
-    '			<td>'+exp.tosferina+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td>Amigdalitis</td>'+
-    '			<td>'+exp.amigdalitis+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td>Parasitosis</td>'+
-    '			<td>'+exp.parasitosis+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td>Convulsiones</td>'+
-    '			<td>'+exp.convulsiones+'</td>'+
-    '		</tr>'+
-    '		<tr>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td></td>'+
-    '			<td>Urosepsis</td>'+
-    '			<td>'+exp.urosepsis+'</td>'+
-    '		</tr>'+
-    '	</table>'+
-    '</form>');
+    let URL= req.baseUrl.replace("/expedientes/modificar","");
+    Expediente.findById(id,(err,exp)=>{
+        if(err)
+        {
+            res.send("Error en la busqueda del Expediente: "+req.body.id);
+        }
+        else{
+            if(exp)
+            {
+               res.send( 
+                '<table class="table table-bordered table-striped">'+
+                    '		<tr class="thead-dark">'+
+                    '			<th colspan="2">Ficha identificacion</th>'+
+                    '			<th colspan="2">APNP</th>'+
+                    '			<th colspan="2">Inmunizaciones</th>'+
+                    '			<th colspan="2">APP</th>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<th>Campo</th>'+
+                    '			<th>Informacion</th>'+
+                    '			<th>Patologia</th>'+
+                    '			<th>estado</th>'+
+                    '			<th>Inmunizacion</th>'+
+                    '			<th>Aplicado</th>'+
+                    '			<th>Enfermedad</th>'+
+                    '			<th>Padecida</th>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>nombre</td>'+
+                    '			<td><input id="nom" type="text" value="'+exp.nombre+'"><input id="ap" type="text" value="'+exp.apPaterno+'"><input id="am" type="text" value="'+exp.apMaterno+'"></td>'+
+                    '			<td>Promiscuidad</td>'+
+                    '			<td>'+exp.promiscuidad+'</td>'+
+                    '			<td>SABIN</td>'+
+                    '			<td>'+exp.sabin+'</td>'+
+                    '			<td>Traumatismo</td>'+
+                    '			<td>'+exp.traumatismo+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>direccion</td>'+
+                    '			<td>'+exp.direccion+'</td>'+
+                    '			<td>Hacinamiento</td>'+
+                    '			<td>'+exp.hacinamiento+'</td>'+
+                    '			<td>BCG</td>'+
+                    '			<td>'+exp.bcg+'</td>'+
+                    '			<td>Rubeola</td>'+
+                    '			<td>'+exp.rubeola+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>curp</td>'+
+                    '			<td>'+exp.curp+'</td>'+
+                    '			<td>Tabaco</td>'+
+                    '			<td>'+exp.tabaco+'</td>'+
+                    '			<td>DPT</td>'+
+                    '			<td>'+exp.dpt+'</td>'+
+                    '			<td>Varicela</td>'+
+                    '			<td>'+exp.varicela+'</td>'+                    
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>sexo</td>'+
+                    '			<td>'+exp.sexo+'</td>'+
+                    '			<td>Alcohol</td>'+
+                    '			<td>'+exp.alcohol+'</td>'+
+                    '			<td>Antisarampion</td>'+
+                    '			<td>'+exp.antisarampion+'</td>'+
+                    '			<td>Sarampion</td>'+
+                    '			<td>'+exp.sarampion+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>ocupacion</td>'+
+                    '			<td>'+exp.ocupacion+'</td>'+
+                    '			<td>Dieta</td>'+
+                    '			<td>'+exp.dieta+'</td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Tosferina</td>'+
+                    '			<td>'+exp.tosferina+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td>Estado Civil</td>'+
+                    '			<td>'+exp.estadoCivil+'</td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Escarlatina</td>'+
+                    '			<td>'+exp.tosferina+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Amigdalitis</td>'+
+                    '			<td>'+exp.amigdalitis+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Parasitosis</td>'+
+                    '			<td>'+exp.parasitosis+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Convulsiones</td>'+
+                    '			<td>'+exp.convulsiones+'</td>'+
+                    '		</tr>'+
+                    '		<tr>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td></td>'+
+                    '			<td>Urosepsis</td>'+
+                    '			<td>'+exp.urosepsis+'</td>'+
+                    '		</tr>'+
+                    '	</table>');
+            }
+            else
+            {
+                res.send("Error en la captura de los datos");
+            }
+        }
+    });
 }
 function buscar(req,res)
 {

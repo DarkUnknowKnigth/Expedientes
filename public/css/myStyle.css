@@ -596,10 +596,11 @@ header p{
 	font-family: 'Montserrat' !important;
 	border-radius: 5px !important;
 	text-align: center !important;
+	border: none !important;
 }
 
 .ui-button-icon{
-	color: #fff !important;
+	border: none !important;
 	background-color: #fff !important;
 }
 .ui-dialog{

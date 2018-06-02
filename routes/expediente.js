@@ -5,7 +5,7 @@ const expediente=express.Router();
 expediente.get('/crear',(req,res)=>{
     res.status(200).render("../views/partials/crearExpedeinte.ejs");
 });
-expediente.put('/modificar',controladorExpediente.update);
+// expediente.put('/modificar',controladorExpediente.update);
 expediente.get('/eliminar',(req,res)=>{
     res.status(200).render("../views/partials/eliminarExpedeinte.ejs");
 });

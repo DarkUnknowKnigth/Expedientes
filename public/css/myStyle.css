@@ -598,8 +598,9 @@ header p{
 	text-align: center !important;
 }
 
-.ui-dialog span{
+.ui-button-icon{
 	color: #fff !important;
+	background-color: #fff !important;
 }
 .ui-dialog{
 	border-radius: 5px !important;

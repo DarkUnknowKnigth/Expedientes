@@ -282,6 +282,10 @@ $("#selectExp").click((e)=>{
 	consulta.id_exp=e.target.value;
 });
 $("#iniciar_consulta").click((e)=>{
+	
+});
+/* apartado de consultas */
+$(".actions button").click(function(e){
 	if(consulta.id_exp=="")
 	{
 		$("#informe").text("Parece que no ha agregado el expediente, Porfavor agreguelo para continuar");
@@ -298,20 +302,19 @@ $("#iniciar_consulta").click((e)=>{
 		});
 		e.preventDefault();
 	}
-});
-/* apartado de consultas */
-$(".actions button").click(function(){
-	if ($(".resultExpCurp").css("display") == "block") {
-		$("#buscarExpPorCurp").css("display","none");
-		$(".resultExpCurp").css("display","none");
-		$(this).css("opacity","0");
-	$(".sigVit").css("display","block");
-	$(".circle1").css("background-color","#88d392");
+	else
+	{
+		if ($(".resultExpCurp").css("display") == "block") {
+			$("#buscarExpPorCurp").css("display","none");
+			$(".resultExpCurp").css("display","none");
+			$(this).css("opacity","0");
+		$(".sigVit").css("display","block");
+		$(".circle1").css("background-color","#88d392");
+		}
+		else{
+			alert("Debe buscar la CURP del paciente");
+		}
 	}
-	else{
-		alert("Debe buscar la CURP del paciente");
-	}
-	
 });
 $(".modal.cancelar .modal-footer .btn-danger").click(function(){
 	$(".consultaViewer").css("display","none");

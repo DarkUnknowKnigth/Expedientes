@@ -1,6 +1,5 @@
 const Consulta=require('../models/consulta');
 const Expediente=require("../models/expediente");
-const Hoja=require('../models/hoja');
 function crear(req,res)
 {
     var curp=req.body.curp;

@@ -65,6 +65,6 @@ var ExpedienteSchema = Schema({
     pruebaEnb: { type: String, required: false },
     citologia: { type: String, required: false },
     tipoAnt: { type: String, required: false },
-    Consulta:{type:Schema.ObjectId,ref:'Consulta'}
+    Consulta:[{type:Schema.ObjectId,ref:'Consulta'}]
 });
 module.exports=mongoose.model('Expediente',ExpedienteSchema);

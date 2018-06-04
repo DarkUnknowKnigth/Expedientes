@@ -16,7 +16,40 @@ function crear(req,res)
         }
     });
 }
-function guardar(req,res) {  }
+function guardar(req,res) { 
+    let consulta=req.body;
+    con= new Consulta();
+    con.signosVitales.Talla=consulta.Talla;
+    con.signosVitales.Peso=consulta.Peso;
+    con.signosVitales.IMC=consulta.IMC;
+    con.signosVitales.TA=consulta.TA;
+    con.signosVitales.Temp=consulta.Temp;
+    con.formatoConsulta.deteccion=consulta.deteccion;
+    con.formatoConsulta.primeravez=consulta.primeravez;
+    con.formatoConsulta.sintomasTB=consulta.sintomasTB;
+    con.formatoConsulta.nivelObesidad=consulta.nivelObesidad;
+    con.formatoConsulta.saludReprod=consulta.saludReprod;
+    con.diagnostico.diagnostico=consulta.diagnostico;
+    con.diagnostico.programa=consulta.programa;
+    con.diagnostico.fecha=consulta.fecha;
+    con.save((err,saved)=>{
+        if(!err)
+        {
+            if(saved)
+            {
+                Expediente.update({_id:consulta.id_exp},{$push:{Consulta:saved._id}});
+            }
+            else
+            {
+                res.send({msg:"La consulta tuvo un error interno"})
+            }
+        }
+        else{
+            res.send({msg:"Error al guardar la consulta"});
+        }
+
+    });
+ }
 
 module.exports={
     crear,

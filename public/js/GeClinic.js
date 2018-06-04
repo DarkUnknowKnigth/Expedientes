@@ -956,7 +956,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	$.ajax({
 		type: "POST",
 		url: e.target.value,
-		data: "data",
+		data: consulta,
 		success: function (r) {
 			$("#informe").html(r.msg);
 			$("#dialog-message").dialog({

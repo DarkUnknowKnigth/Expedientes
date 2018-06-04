@@ -277,11 +277,11 @@ $("#buscarEXP").click(function(e){
 		e.preventDefault();
 	}
 });
-$("#selectExp").click((e)=>{
-	console.log("click: "+e.target.value);
-	$(".resultExpCurp").css("display","none");
-	consulta.id_exp=e.target.value;
-});
+// $("#selectExp").click((e)=>{
+// 	console.log("click: "+e.target.value);
+// 	$(".resultExpCurp").css("display","none");
+// 	consulta.id_exp=e.target.value;
+// });
 $("#iniciar_consulta").click((e)=>{
 	
 });

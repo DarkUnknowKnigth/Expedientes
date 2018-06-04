@@ -403,7 +403,7 @@ $("#generarHojaDiaria").click((e)=>{
 		data: {fecha:$("#fechaHoja").val()},
 		dataType: "dataType",
 		success: function (r) {
-			$("#informe").html(r);
+		$("#informe").html(r);
 		$("#dialog-message").dialog({
 			modal: true,
 			width: 400,

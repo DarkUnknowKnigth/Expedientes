@@ -239,7 +239,7 @@ $("#buscarEXP").click(function(e){
 			url: e.target.value,
 			data: {curp:$("#buscarExpCurp").val()},
 			success: function (r) {
-				$(".resultExpCurp").html(r);
+				$(".resultExpCurp").html(r.msg);
 			}
 		});
 		$(".resultExpCurp").css("display","block");

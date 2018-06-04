@@ -1204,7 +1204,7 @@
 			</div> -->
 			<div class="groupForm buscarExpCurp">
 				<label for="buscarExpCurp">Ingrese CURP:</label>
-				<input placeholder="Ingrese curp para buscar expediente" required type="text" id="buscarExpCurp" name="buscarExpCurp">
+				<input placeholder="Ingrese curp para buscar expediente" onkeyup="this.value = this.value.toUpperCase();" required type="text" id="buscarExpCurp" name="buscarExpCurp">
 			</div>
 			<div class="groupForm buscarExpCurp">
 				<button id="buscarEXP" style="margin-top: 45px; width: 50%;" type="button" class="btn btn-primary" value=<%= nuevaConsulta %>>Buscar</button>
@@ -1212,7 +1212,7 @@
 			<div style="clear: both;"></div>
 			<div class="progressConsulta">
 				<div class="progressGroup">
-					<p><img class="inicio" src="/public/assets/progress1.svg" alt=""> <span class="actions"><button>Iniciar consulta</button></span></p>
+					<p><img class="inicio" src="/public/assets/progress1.svg" alt=""> <span class="actions"><button id="iniciar_consulta">Iniciar consulta</button></span></p>
 				</div>
 				<div class="progressGroup">
 					<div class="bar"></div>
@@ -1457,10 +1457,10 @@
 							</select>
 						</div>
 						<div class="groupForm">
-							<label for="fechaDiagnostico">Fecha:</label>
-							<input required type="date" id="fechaDiagnostico" name="fechaDiagnostico">
+							<!-- <label for="fechaDiagnostico">Fecha:</label>
+							<input required type="date" id="fechaDiagnostico" name="fechaDiagnostico"> -->
 						</div>
-						<button class="btn btn-success" type="button" id="finConsulta" value=<%=guardarConsulta%>>Continuar</button>
+						<button class="btn btn-success" type="button" id="finConsulta">Continuar</button>
 						<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar3" type="reset">Cancelar</button>
 						<!-- Modal confirmación de registros -->
 
@@ -1478,7 +1478,7 @@
 										<p>¿Está seguro de guardar así estos datos?</p>
 									</div>
 									<div class="modal-footer">
-										<button type="button" data-dismiss="modal" class="btn btn-success">¡Sí!</button>
+										<button type="button" data-dismiss="modal" class="btn btn-success" value=<%=guardarConsulta%>>¡Sí!</button>
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Aún no</button>
 									</div>
 								</div>

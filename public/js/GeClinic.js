@@ -229,8 +229,25 @@ $(".modifUser .edit").click(function(e){
 	texto = texto.replace("CREAR", "MODIFICAR");
 	$(".createUser p").text(texto);
 });
-
+var consulta={
+	id_exp:"",
+	Talla:"",
+	Peso:"",
+	IMC:"",
+	Pulso:"",
+	TA:"",
+	Temp:"",
+	deteccion:"",
+	primeravez:false,
+	sitomasTB:false,
+	nivelObesidad:"",
+	saludReprod:"",
+	diagnostico:"",
+	programa:"",
+	fecha:""
+};
 /*end eventos de modificación de usuario*/
+/*Apartado de consultas */
 $("#buscarEXP").click(function(e){
 	if ($("#buscarExpCurp").val() != "") 
 	{
@@ -240,17 +257,47 @@ $("#buscarEXP").click(function(e){
 			data: {curp:$("#buscarExpCurp").val()},
 			success: function (r) {
 				$(".resultExpCurp").html(r.msg);
+				$(".resultExpCurp").css("display","block");
 			}
 		});
-		$(".resultExpCurp").css("display","block");
 	}
 	else{
-		alert("Usted no ha ingresado un expediente");
+		$("#informe").text("Usted no ha ingresado el CURP");
+		$("#dialog-message").dialog({
+			modal: true,
+			width: 200,
+			heigth: 200,
+			buttons: 
+			{
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
 	}
 });
-$("#finConsulta").click((e)=>{
-	
+$("#selectExp").click((e)=>{
+	$(".resultExpCurp").css("display","none");
+	consulta.id_exp=e.target.value;
 });
+$("#iniciar_consulta").click((e)=>{
+	if(consulta.id_exp=="")
+	{
+		$("#informe").text("Parece que no ha agregado el expediente, Porfavor agreguelo para continuar");
+		$("#dialog-message").dialog({
+			modal: true,
+			width: 200,
+			heigth: 200,
+			buttons: 
+			{
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+	}
+});
+/* apartado de consultas */
 $(".actions button").click(function(){
 	if ($(".resultExpCurp").css("display") == "block") {
 		$("#buscarExpPorCurp").css("display","none");
@@ -881,41 +928,51 @@ $("#formAntecGine button").click(function(){
 	});
 	console.log(Expediente);
 });
-var sigVit;
-var formatConsulta;
-var formatDiagnostico;
+
 $(".modal.continuar .modal-footer .btn-success").click(function(){
-	sigVit =
-	{
-		"talla": $("#talla").val(),
-		"ta": $("#ta").val(),
-		"peso": $("#peso").val(),
-		"temperatura": $("#temperatura").val(),
-		"imc": $("#imc").val(),
-		"pulso": $("#pulso").val()
-	};
-	console.log(formAntecGine);
+	
+	consulta.Talla=$("#talla").val();
+	consulta.TA=$("#ta").val();
+	consulta.Peso=$("#peso").val();
+	consulta.Temp=$("#temperatura").val();
+	consulta.IMC= $("#imc").val();
+	consulta.Pulso=$("#pulso").val();
 });
 
 $(".modal.continuar2 .modal-footer .btn-success").click(function(){
-	formatConsulta =
-	{
-		"deteccion": $("#deteccion").val(),
-		"primeravez": $("#primAnio").val(),
-		"sitomasTB": $(".formatConsulta #tb").val(),
-		"nivelObesidad": $("#obesidad").val(),
-		"saludReprod": $("#saludRepro").val()
-	};
-	console.log(formatConsulta);
+	
+	consulta.deteccion=$("#deteccion").val();
+	consulta.primeravez=$("#primAnio").prop('checked');
+	consulta.sitomasTB=$(".formatConsulta #tb").prop('checked');;
+	consulta.nivelObesidad=$("#obesidad").val();
+	consulta.saludReprod=$("#saludRepro").val();
 });
-$(".modal.continuar3 .modal-footer .btn-success").click(function(){
-	formatDiagnostico =
-	{
-		"diagnostico": $("#diagnostico").val(),
-		"programa": $("#programMotivo").val(),
-		"fecha": $(".fechaDiagnostico").val()
-	};
-	console.log(formatDiagnostico);
+$(".modal.continuar3 .modal-footer .btn-success").click(function(e){
+
+	consulta.diagnostico=$("#diagnostico").val();
+	consulta.programa=$("#programMotivo").val();
+	consulta.fecha=new Date();
+	$.ajax({
+		type: "POST",
+		url: e.target.value,
+		data: "data",
+		success: function (r) {
+			$("#informe").html(r.msg);
+			$("#dialog-message").dialog({
+			modal: true,
+			width: 200,
+			heigth: 200,
+			buttons: 
+			{
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+			
+		}
+	});
+
 });
 $("#nextAntec").click(()=>{
 

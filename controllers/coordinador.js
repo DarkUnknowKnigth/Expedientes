@@ -7,7 +7,7 @@ function generarHojaDiaria(req,res)
 {
     var fecha=req.body.fecha;
     console.log(fecha);
-    Consulta.find({"diagnostico":{"fecha":{$date:fecha}}}).exec((err,consultas)=>{
+    Consulta.find({"diagnostico":{"fecha":{$date:new Date(fecha)}}}).exec((err,consultas)=>{
         if(!err)
         {
             if(consultas)

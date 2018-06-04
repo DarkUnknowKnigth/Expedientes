@@ -414,7 +414,6 @@ var enfermedades = [
 						{nombre:"Diabetes Mellitus", value: "diabetesMellitus"},
 						{nombre:"Hipertensión arterial", value: "hipertensionArterial"},
 						{nombre:"Obesidad", value: "obesidad"},
-						{nombre:"Diabetes Mellitus", value: "diabetesMellitus"},
 						{nombre:"Dislipidemias", value: "dislipidemias"},
 						{nombre:"Depresión", value: "depresion"},
 						{nombre:"Alteración de memoria", value: "alteracionMemoria"},
@@ -939,7 +938,7 @@ $("#formAntecGine button").click(function(){
 $(".modal.continuar .modal-footer .btn-success").click(function(){
 	
 	consulta.Talla=$("#talla").val();
-	consulta.TA=$("#ta").val();
+	consulta.TA=$("#ta1").val()+"/"+$("#ta1").val();
 	consulta.Peso=$("#peso").val();
 	consulta.Temp=$("#temperatura").val();
 	consulta.IMC= $("#imc").val();

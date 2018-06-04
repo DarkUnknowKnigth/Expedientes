@@ -278,6 +278,7 @@ $("#buscarEXP").click(function(e){
 	}
 });
 $("#selectExp").click((e)=>{
+	console.log("click: "+e.target.value);
 	$(".resultExpCurp").css("display","none");
 	consulta.id_exp=e.target.value;
 });
@@ -304,12 +305,13 @@ $(".actions button").click(function(e){
 	}
 	else
 	{
-		if ($(".resultExpCurp").css("display") == "block") {
+		if($(".resultExpCurp").css("display") == "block") 
+		{
 			$("#buscarExpPorCurp").css("display","none");
 			$(".resultExpCurp").css("display","none");
 			$(this).css("opacity","0");
-		$(".sigVit").css("display","block");
-		$(".circle1").css("background-color","#88d392");
+			$(".sigVit").css("display","block");
+			$(".circle1").css("background-color","#88d392");
 		}
 		else{
 			alert("Debe buscar la CURP del paciente");

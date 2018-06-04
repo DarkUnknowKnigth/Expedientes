@@ -45,6 +45,7 @@ function guardar(req,res) {
                     }
                     else
                     {
+                        res.send({msg:"Se agrego la consulta al expediente"});
                         console.log(pass);                        
                     }
                 });

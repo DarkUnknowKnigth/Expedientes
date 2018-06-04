@@ -39,9 +39,10 @@ function generarHojaDiaria(req,res)
                 tb+="</table>";
                 res.send(tb);
             }
+            console.log(consultas);
             res.send("<p>No se pudeo realizar la busqueda</p>");
         }
-        throw err;
+        console.log(err);
         res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
     });
 

@@ -37,7 +37,16 @@ function guardar(req,res) {
         {
             if(saved)
             {
-                Expediente.update({_id:consulta.id_exp},{$push:{Consulta:saved._id}});
+                Expediente.where({_id:consulta.id_exp}).update({$push:{Consulta:saved._id}}).exec((err,pass)=>{
+                    if(err)
+                    {
+                        throw err
+                    }
+                    else{
+                        console.log(pass);
+                    }
+                });
+
             }
             else
             {

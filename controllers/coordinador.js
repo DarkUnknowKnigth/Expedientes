@@ -6,7 +6,7 @@ function generarInforme(req,res){
 function generarHojaDiaria(req,res)
 {
     var fecha=req.body;
-    Consulta.find({"diagnostico":{"fecha":{$date:fecha}}}).exec((err,consultas)=>{
+    Consulta.find({"diagnostico":{"fecha":ISODate(fecha)}}).exec((err,consultas)=>{
         if(!err)
         {
             if(consultas)

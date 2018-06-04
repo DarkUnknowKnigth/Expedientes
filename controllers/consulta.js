@@ -43,19 +43,9 @@ function guardar(req,res) {
                     {
                         throw err
                     }
-                    else{
-                        console.log(pass);
-                        hojaD=new Hoja();
-                        hojaD.Consulta.push(saved._id);
-                        hojaD.save((err,hoja)=>{
-                            if(!err)
-                            {
-                                res.send("Se ha agregado la consulta al expediente y se ha insertado en la Hoja Diaria");
-                            }
-                            throw err;
-                            res.send({msg:"No se pudo insertar en la hoja diaria"});
-                        });
-                        
+                    else
+                    {
+                        console.log(pass);                        
                     }
                 });
             }

@@ -1,5 +1,6 @@
 const Consulta=require('../models/consulta');
 const Expediente=require("../models/expediente");
+const Hoja=require('../models/hoja');
 function crear(req,res)
 {
     var curp=req.body.curp;
@@ -47,7 +48,8 @@ function guardar(req,res) {
                         res.send({msg:"Se ha agregado la consulta al expediente"});
                     }
                 });
-
+                hojaD=new Hoja();
+                hoja.Consulta.push(saved._id);
             }
             else
             {

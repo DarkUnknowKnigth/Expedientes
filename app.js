@@ -107,6 +107,18 @@ app.use((req,res,next)=>{ //middleware de autentificacion
     }
 });
 app.use("/modulo",RutasModulo);
+app.get('/logout',function(req,res){    
+    req.session.destroy(function(err){  
+        if(err){  
+            console.log(err);  
+        }  
+        else  
+        {  
+            res.redirect('/');  
+        }  
+    });  
+
+});  
 //ruta de error
 app.get("*",(req,res)=>{
 res.status(404).render("pages/error");

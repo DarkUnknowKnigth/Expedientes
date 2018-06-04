@@ -289,10 +289,10 @@ $("#iniciar_consulta").click((e)=>{
 $(".actions button").click(function(e){
 	if(consulta.id_exp=="")
 	{
-		$("#informe").text("Parece que no ha agregado el expediente, Porfavor agreguelo para continuar");
+		$("#informe").text("Parece que no ha seleccionado un expediente, Porfavor busque el expediente y seleccionelo para continuar");
 		$("#dialog-message").dialog({
 			modal: true,
-			width: 200,
+			width: 400,
 			heigth: 200,
 			buttons: 
 			{
@@ -387,7 +387,6 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 	if (validar) {
 		$(".consultaViewer.formatDiagnostico").css("display","none");
 		$(".actions button").css("opacity","1");
-		alert("¡Registro de consulta exitosa!");
 		$(".circle1,.circle2,.circle3").css("background-color","transparent");
 		$(".consultaViewer form")[0].reset();
 		$("#buscarExpPorCurp").css("display","block");

@@ -44,7 +44,7 @@
 					<p class="h5">Nombre :</p>
 				</div>
 				<div class="col-auto">
-					<p class="h5"><%=user%></p>
+					<p class="h5" style="margin-left: 40px"><%=user%></p>
 				</div>
 			</div>
 		</div>
@@ -71,7 +71,7 @@
                         <%}%>
                         <%if(permiso.modificarExp){%>
                         <div id="modifExp">
-                            <a href="#">Editar/Eliminar Expediente</a>
+                            <a href="#">Gestion de Expediente</a>
                         </div>
                         <%}%>
 
@@ -1549,7 +1549,7 @@
 				<div class="formHojaDiaria">
 		
 					<div class="groupForm">
-						<label for="estadistica">Estadistica de padecimientos detectados:</label>
+						<label for="estadistica">Estadistica de padecimientos detectados en primera visita:</label>
 						<select id="estadi" name="genearEsta">
 							<option selected value="Seleccione">Seleccione un Padecimieto</option>
 							<option value="cancer">Padecimientos Oncologico</option>

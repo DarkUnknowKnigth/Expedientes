@@ -274,6 +274,7 @@ $("#buscarEXP").click(function(e){
 				}
 			}
 		});
+		e.preventDefault();
 	}
 });
 $("#selectExp").click((e)=>{
@@ -295,6 +296,7 @@ $("#iniciar_consulta").click((e)=>{
 				}
 			}
 		});
+		e.preventDefault();
 	}
 });
 /* apartado de consultas */

@@ -231,13 +231,24 @@ $(".modifUser .edit").click(function(e){
 });
 
 /*end eventos de modificación de usuario*/
-$("#buscarEXP").click(function(){
-	if ($("#buscarExpCurp").val() != "") {
+$("#buscarEXP").click(function(e){
+	if ($("#buscarExpCurp").val() != "") 
+	{
+		$.ajax({
+			type: "POST",
+			url: e.target.value,
+			data: {curp:$("#buscarExpCurp").val()},
+			success: function (r) {
+				$(".resultExpCurp").html(r);
+			}
+		});
 		$(".resultExpCurp").css("display","block");
 	}
 	else{
 		alert("Usted no ha ingresado un expediente");
 	}
+});
+$("#finConsulta").click((e)=>{
 	
 });
 $(".actions button").click(function(){

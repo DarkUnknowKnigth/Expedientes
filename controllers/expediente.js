@@ -547,7 +547,7 @@ function guardar(req, res) {
         }
         else{
 
-            res.send({msg:"Expediente creado Exitosamente1 !",url:req.baseUrl.replace("/expedientes","")});
+            res.send({msg:"Expediente creado Exitosamente !",url:req.baseUrl.replace("/expedientes","")});
         }
     });
     //console.log(expediente);

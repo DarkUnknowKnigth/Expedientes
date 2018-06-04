@@ -1207,7 +1207,7 @@
 				<input placeholder="Ingrese curp para buscar expediente" required type="text" id="buscarExpCurp" name="buscarExpCurp">
 			</div>
 			<div class="groupForm buscarExpCurp">
-				<button id="buscarEXP" style="margin-top: 45px; width: 50%;" type="button" class="btn btn-primary">Buscar</button>
+				<button id="buscarEXP" style="margin-top: 45px; width: 50%;" type="button" class="btn btn-primary" value=<%= nuevaConsulta %>>Buscar</button>
 			</div>
 			<div style="clear: both;"></div>
 			<div class="progressConsulta">
@@ -1460,7 +1460,7 @@
 							<label for="fechaDiagnostico">Fecha:</label>
 							<input required type="date" id="fechaDiagnostico" name="fechaDiagnostico">
 						</div>
-						<button class="btn btn-success" data-toggle="modal" data-target=".continuar3" type="button">Continuar</button>
+						<button class="btn btn-success" type="button" id="finConsulta" value=<%=guardarConsulta%>>Continuar</button>
 						<button class="btn btn-danger" data-toggle="modal" data-target=".cancelar3" type="reset">Cancelar</button>
 						<!-- Modal confirmación de registros -->
 
@@ -1540,7 +1540,7 @@
 			<div class="containerForms genInformeMensual">
 				<!-- botón de retroceso -->
 				<div id="Prev">
-					<a href=<%= localURL%>>
+					<a href=<%= localURL %>>
 						<i class="fas fa-arrow-left"></i>
 					</a>
 					<p>GENERAR ESTADÍSTICAS</p>

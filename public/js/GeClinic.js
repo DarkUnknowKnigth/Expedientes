@@ -395,8 +395,30 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(){
 		alert("Falta rellenar algunos campos");
 	}
 });
-
-
+// 
+$("#generarHojaDiaria").click((e)=>{
+	$.ajax({
+		type: "POST",
+		url: e.target.value,
+		data: {fecha:$("#fechaHoja").val()},
+		dataType: "dataType",
+		success: function (r) {
+			$("#informe").html(r);
+		$("#dialog-message").dialog({
+			modal: true,
+			width: 400,
+			heigth: 200,
+			buttons: 
+			{
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+			
+		}
+	});
+});
 //Obtener año
 var fecha = new Date();
 // var ano = fecha.getFullYear();

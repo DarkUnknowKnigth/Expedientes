@@ -92,8 +92,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         buscarExpediente:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarExpediente`,
                         buscarUno:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarUno`,
                         //link coordinador
-                        generarHoja:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarHojaDiaria`,
-                        generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
+                        hojaD:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarHojaDiaria`,
+                        //generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
                         estadistica:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/estadistica`,
                         //link consulta 
                         nuevaConsulta:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/consulta/nuevaConsulta`,
@@ -160,13 +160,14 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             buscarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarExpediente`,
                                             buscarUno:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/buscarUno`,
                                             //link coordinador
-                                            generarHoja:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
-                                            generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
+                                           // generarHoja:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
+                                            //generarInforme:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarInforme`,
                                             //link consulta
                                             nuevaConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/nuevaConsulta`,
                                             guardarConsulta:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/consulta/guardarConsulta`,
                                             //link coordinador 
                                             estadistica:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/estadistica`,
+                                            hojaD:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
                                             //feed de tabla
                                             collection_expedientes:Expfined,
                                             usuarios: Usuariosfinded,

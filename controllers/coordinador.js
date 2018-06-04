@@ -1,9 +1,48 @@
 var Expedientes=require('../models/expediente');
+var Consulta=require('../models/consulta');
 function generarInforme(req,res){
 
 }
 function generarHojaDiaria(req,res)
 {
+    var fecha=req.body;
+    Consulta.find({"diagnostico.fecha":fecha}).exec((err,consultas)=>{
+        if(!err)
+        {
+            if(consultas)
+            {
+                tb='<table class="table table-striped"><tr><td colspan="6">Signos vitales</td><td colspan="5">Informacion de consulta</td><td colspan="3">Diagnostico</td></tr>'+
+                    '<tr><td>Talla</td><td>Peso</td><td>IMC</td><td>Pulso</td><td>TA</td><td>Temperatura</td>'+
+                    '<td>Deteccion</td><td>Primera vez en el Año</td><td>Tuberculosis</td><td>Obesidad</td><td>Salud reproductiva</td>'+
+                    '<td>Diagnostico</td><td>Programa de Salud</td><td>Fecha de Creacion</td></tr>';
+                consultas.forEach(con => {
+               
+                   tb+= '<tr>'+
+                        '<td>con.signosVitales.Talla</td>'+
+                        '<td>con.signosVitales.Peso</td>'+
+                       ' <td>con.signosVitales.IMC</td>'+
+                       ' <td>con.signosVitales.Pulso</td>'+
+                       ' <td>con.signosVitales.TA</td>'+
+                        '<td>con.signosVitales.Temp</td>'+
+                        '<td>con.formatoConsulta.deteccion</td>'+
+                        '<td>con.formatoConsulta.primeravez</td>'+
+                        '<td>con.formatoConsulta.sintomasTB</td>'+
+                        '<td>con.formatoConsulta.nivelObesidad</td>'+
+                       ' <td>con.formatoConsulta.saludReprod</td>'+
+                        '<td>con.diagnostico.diagnostico</td>'+
+                        '<td>con.diagnostico.programa</td>'+
+                        '<td>con.diagnostico.fecha</td>'+
+                   ' </tr>';
+                
+                });
+                tb+="</table>";
+                res.send(tb);
+            }
+            res.send("<p>No se pudeo realizar la busqueda</p>");
+        }
+        throw err;
+        res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
+    });
 
 }
 function estadistica(req,res)

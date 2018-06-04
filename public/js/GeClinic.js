@@ -952,6 +952,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	consulta.diagnostico=$("#diagnostico").val();
 	consulta.programa=$("#programMotivo").val();
 	consulta.fecha=new Date();
+	console.log(consulta);
 	$.ajax({
 		type: "POST",
 		url: e.target.value,

@@ -9,10 +9,9 @@ function generarHojaDiaria(req,res)
     var fecha=req.body.fecha;
     console.log(fecha);
     console.log( moment(fecha).millisecond(0).second(0).minute(0).hour(0).toISOString());
-    console.log(d2.toISOString());
     var query={ "fecha" :{
-        '$gte':d1.toISOString(),
-        '$lt':d2.toISOString()}
+        '$gte':moment(fecha).millisecond(0).second(0).minute(0).hour(0).toISOString(),
+        '$lt':moment(fecha).millisecond(0).second(0).minute(0).hour(24).toISOString()}
     }
 
     Consulta.find(query).exec((err,consultas)=>{

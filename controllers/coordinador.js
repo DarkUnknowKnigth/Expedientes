@@ -47,8 +47,11 @@ function generarHojaDiaria(req,res)
             }
            
         }
-        console.log("ha ocurrido:"+err);
-        res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
+        else{
+            console.log("ha ocurrido:"+err);
+            res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
+        }
+        
     });
 }
 function estadistica(req,res)

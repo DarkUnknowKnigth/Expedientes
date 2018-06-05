@@ -9,11 +9,11 @@ function generarHojaDiaria(req,res)
     console.log(fecha);
     var d1=fecha+"T00:00:00.000Z";
     var d2=fecha+"T24:00:00.000Z"
-    console.log(d1);
-    console.log(d2);
+    console.log(d1.toString());
+    console.log(d2.toString());
     var query={ "diagnostico.fecha" :{
-        '$gte':d1,
-        '$lt':d2}
+        '$gte':d1.toString(),
+        '$lt':d2.toString()}
     }
 
     Consulta.find(query).exec((err,consultas)=>{
@@ -55,7 +55,7 @@ function generarHojaDiaria(req,res)
             }
            
         }
-        throw err
+        console.log(err);
         res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
     });
 

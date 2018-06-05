@@ -18,11 +18,11 @@ function generarHojaDiaria(req,res)
     d2.second(0);
     d2.minute(0);
     d2.hour(24);
-    console.log(d1.format());
-    console.log(d2.format());
+    console.log(d1.toISOString());
+    console.log(d2.toISOString());
     var query={ "diagnostico.fecha" :{
-        '$gte':d1,
-        '$lt':d2}
+        '$gte':d1.toISOString(),
+        '$lt':d2.toISOString()}
     }
 
     Consulta.find(query).exec((err,consultas)=>{

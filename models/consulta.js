@@ -16,7 +16,7 @@ var ConsultaSchema= Schema({
         nivelObesidad:String,
         saludReprod:String
     },
-    diagnostico:{
+    Diagnostico:{
         diagnostico:String,
         programa:String,
         fecha:Date

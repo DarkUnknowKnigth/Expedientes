@@ -13,8 +13,8 @@ function generarHojaDiaria(req,res)
 
     Consulta.find({
         "diagnostico.fecha" :{
-            $gte:d1.getFullYear+"-"+d1.getMonth+"-"+d1.getDay+"T00:00:00.000Z",
-            $lt:d1.getFullYear+"-"+d1.getMonth+"-"+d1.getDay+"T24:00:00.000Z"
+            '$gte':d1,
+            '$lt':d1.getFullYear+"-"+d1.getMonth+"-"+d1.getDay+"T24:00:00.000Z"
         }
     }).exec((err,consultas)=>{
         if(!err)

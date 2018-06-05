@@ -38,7 +38,9 @@ function generarHojaDiaria(req,res)
                 
                 });
                 tb+="</table>";
+                console.log(tb);
                 res.send(tb);
+                
             }
             else
             {

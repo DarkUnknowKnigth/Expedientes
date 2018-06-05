@@ -13,10 +13,10 @@ function generarHojaDiaria(req,res)
         {
             if(consultas)
             {
-                tb='<table class="table table-striped"><tr><td colspan="6">Signos vitales</td><td colspan="5">Informacion de consulta</td><td colspan="3">Diagnostico</td></tr>'+
-                    '<tr><td>Talla</td><td>Peso</td><td>IMC</td><td>Pulso</td><td>TA</td><td>Temperatura</td>'+
-                    '<td>Deteccion</td><td>Primera vez en el Año</td><td>Tuberculosis</td><td>Obesidad</td><td>Salud reproductiva</td>'+
-                    '<td>Diagnostico</td><td>Programa de Salud</td><td>Fecha de Creacion</td></tr>';
+                tb='<table class="table table-striped table-bordered"><tr><td class="bg-primary" colspan="6">Signos vitales</td><td class="bg-primary" colspan="5">Informacion de consulta</td><td class="bg-primary" colspan="3">Diagnostico</td></tr>'+
+                    '<tr><td class="bg-secondary">Talla</td><td class="bg-secondary">Peso</td><td class="bg-secondary">IMC</td><td class="bg-secondary">Pulso</td><td class="bg-secondary">Tension Arterial</td><td class="bg-secondary">Temperatura</td>'+
+                    '<td class="bg-secondary">Deteccion</td><td class="bg-secondary">Primera vez en el Año</td><td class="bg-secondary">Tuberculosis</td><td class="bg-secondary">Obesidad</td><td class="bg-secondary">Salud reproductiva</td>'+
+                    '<td class="bg-secondary ">Diagnostico</td><td class="bg-secondary">Programa de Salud</td><td class="bg-secondary">Fecha de Creacion</td></tr>';
                 consultas.forEach(con => {
                
                    tb+= '<tr>'+

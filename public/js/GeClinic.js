@@ -402,7 +402,7 @@ $("#generarHojaDiaria").click((e)=>{
 		url: e.target.value,
 		data: { fecha: $("#fechaHoja").val() },
 		success: function (r) {
-			console.log(r);
+			//console.log(r);
 			$("#informe").html(r);
 			$("#dialog-message").dialog({
 				modal: true,
@@ -430,31 +430,31 @@ function insertarAnios(){
 }
 
 var enfermedades = [
-						{nombre:"Diabetes Mellitus", value: "diabetesMellitus"},
-						{nombre:"Hipertensión arterial", value: "hipertensionArterial"},
-						{nombre:"Obesidad", value: "obesidad"},
-						{nombre:"Dislipidemias", value: "dislipidemias"},
-						{nombre:"Depresión", value: "depresion"},
-						{nombre:"Alteración de memoria", value: "alteracionMemoria"},
-						{nombre:"Síntomas respiratorios", value: "sintomasRespiratorios"},
-						{nombre:"Alcoholismo", value: "alcoholismo"},
-						{nombre:"Tabaquismo", value: "tabaquismo"},
-						{nombre:"Fármacos", value: "farmacos"},
-						{nombre:"Incontinencia urinaria", value: "incontinenciaUrinaria"},
-						{nombre:"VIH", value: "vih"},
-						{nombre:"Gonorrea", value: "gonorrea"},
-						{nombre:"ITS", value: "its"},
-						{nombre:"Sífilis", value: "sifilis"}
+						{nombre:"Diabetes Mellitus", value: "Diabetes Mellitus"},
+						{nombre:"Hipertensión arterial", value: "Hipertensión arterial"},
+						{nombre:"Obesidad", value: "Obesidad"},
+						{nombre:"Dislipidemias", value: "Dislipidemias"},
+						{nombre:"Depresión", value: "Depresion"},
+						{nombre:"Alteración de memoria", value: "Alteración de memoria"},
+						{nombre:"Síntomas respiratorios", value: "Síntomas respiratorios"},
+						{nombre:"Alcoholismo", value: "Alcoholismo"},
+						{nombre:"Tabaquismo", value: "Tabaquismo"},
+						{nombre:"Fármacos", value: "Farmacos"},
+						{nombre:"Incontinencia urinaria", value: "Incontinencia urinaria"},
+						{nombre:"VIH", value: "VIH"},
+						{nombre:"Gonorrea", value: "Gonorrea"},
+						{nombre:"ITS", value: "ITS"},
+						{nombre:"Sífilis", value: "Sifilis"}
 					];
 
 					var estadosCiviles = [
-		{nombre:"Soltero(a)", value: "soltero"},
-		{nombre:"Casado(a)", value: "casado"},
-		{nombre:"Madre (p) soltero", value: "MPSoltero"},
-		{nombre:"Viudo(a)", value: "viuda"},
-		{nombre:"Divorciado(a)", value: "divorciado"},
-		{nombre:"Unión libre", value: "unionLibre"},
-		{nombre:"Separado", value: "separado"}
+		{nombre:"Soltero(a)", value: "Soltero"},
+		{nombre:"Casado(a)", value: "Casado"},
+		{nombre:"Madre (p) soltero", value: "Madre(p) Soltero"},
+		{nombre:"Viudo(a)", value: "Viudo"},
+		{nombre:"Divorciado(a)", value: "Divorciado(a)"},
+		{nombre:"Unión libre", value: "Union Libre"},
+		{nombre:"Separado", value: "Separado"}
 ];
 
 function insertarEstadoCivil(arrayEstadoCivil){
@@ -968,7 +968,7 @@ $(".modal.continuar2 .modal-footer .btn-success").click(function(){
 	
 	consulta.deteccion=$("#deteccion").val();
 	consulta.primeravez=$("#primAnio").prop('checked');
-	consulta.sitomasTB=$(".formatConsulta #tb").prop('checked');;
+	consulta.sintomasTB=$("#tb").prop('checked');
 	consulta.nivelObesidad=$("#obesidad").val();
 	consulta.saludReprod=$("#saludRepro").val();
 });

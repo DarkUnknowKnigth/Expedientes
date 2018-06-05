@@ -984,8 +984,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	$.ajax({
 		type: "POST",
 		url: e.target.value,
-		data: consulta,
-		success: function (r) {
+		data: consulta,}).done((r)=>{
 			$("#informe").html(r);
 			$("#dialog-message").dialog({
 			modal: true,
@@ -999,8 +998,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 			}
 		});
 			
-		}
-	});
+		});
 });
 $("#nextAntec").click(()=>{
 

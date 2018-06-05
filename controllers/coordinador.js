@@ -8,7 +8,7 @@ function generarHojaDiaria(req,res)
     var fecha=req.body.fecha;
     console.log(fecha);
     var d1=new Date(fecha+"T00:00:00.000Z");
-    console.log(d1+""+d2);
+    console.log(d1);
 
 
     Consulta.find({

@@ -16,10 +16,10 @@ var ConsultaSchema= Schema({
         nivelObesidad:String,
         saludReprod:String
     },
-    Diagnostico:{
+    diagnostico:{
         diagnostico:String,
         programa:String,
-        fecha:Date
-    }
+    },
+    fecha:Date
     });
     module.exports=mongoose.model('Consulta',ConsultaSchema);

@@ -8,19 +8,9 @@ function generarHojaDiaria(req,res)
 {
     var fecha=req.body.fecha;
     console.log(fecha);
-    var d1=moment(fecha);
-    var d2=moment(fecha);
-    d1.millisecond(0);
-    d1.second(0);
-    d1.minute(0);
-    d1.hour(0);
-    d2.millisecond(0);
-    d2.second(0);
-    d2.minute(0);
-    d2.hour(24);
-    console.log(d1.toISOString());
+    console.log( moment(fecha).millisecond(0).second(0).minute(0).hour(0).toISOString());
     console.log(d2.toISOString());
-    var query={ "diagnostico.fecha" :{
+    var query={ "fecha" :{
         '$gte':d1.toISOString(),
         '$lt':d2.toISOString()}
     }
@@ -50,7 +40,7 @@ function generarHojaDiaria(req,res)
                        ' <td>'+con.formatoConsulta.saludReprod+'</td>'+
                         '<td>'+con.diagnostico.diagnostico+'</td>'+
                         '<td>'+con.diagnostico.programa+'</td>'+
-                        '<td>'+con.diagnostico.fecha+'</td>'+
+                        '<td>'+con.fecha+'</td>'+
                    ' </tr>';
                 
                 });

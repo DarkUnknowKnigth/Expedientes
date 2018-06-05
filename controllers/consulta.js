@@ -31,7 +31,7 @@ function guardar(req,res) {
     con.formatoConsulta.saludReprod=consulta.saludReprod;
     con.diagnostico.diagnostico=consulta.diagnostico;
     con.diagnostico.programa=consulta.programa;
-    con.diagnostico.fecha=consulta.fecha;
+    con.fecha=consulta.fecha;
     con.save((err,saved)=>{
         if(!err)
         {

@@ -400,22 +400,20 @@ $("#generarHojaDiaria").click((e)=>{
 	$.ajax({
 		type: "POST",
 		url: e.target.value,
-		data: {fecha:$("#fechaHoja").val()},
-		dataType: "dataType",
+		data: { fecha: $("#fechaHoja").val() },
 		success: function (r) {
-		$("#informe").html(r);
-		$("#dialog-message").dialog({
-			modal: true,
-			width: 400,
-			heigth: 200,
-			buttons: 
-			{
-				Ok: function () {
-					$(this).dialog("close");
+			console.log(r);
+			$("#informe").html(r);
+			$("#dialog-message").dialog({
+				modal: true,
+				width: 400,
+				heigth: 200,
+				buttons:{
+					Ok: function () {
+						$(this).dialog("close");
+					}
 				}
-			}
-		});
-			
+			});
 		}
 	});
 });
@@ -985,23 +983,23 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 		type: "POST",
 		url: e.target.value,
 		data: consulta,
-	}).done((r)=>{
-		console.log(r);
-			$("#informe").html(r);
+		success: function (r) {
+			$("#informe").html(r.msg);
 			$("#dialog-message").dialog({
 			modal: true,
-			width: 900,
-			heigth: 500,
+			width: 200,
+			heigth: 200,
 			buttons: 
 			{
-				Ok: function () 
-				{
+				Ok: function () {
 					$(this).dialog("close");
 				}
 			}
 		});
 			
-		});
+		}
+	});
+
 });
 $("#nextAntec").click(()=>{
 

@@ -15,7 +15,7 @@ function generarHojaDiaria(req,res)
     Consulta.find({"diagnostico.fecha" :{$gte:d1,$lt:d2}}).exec((err,consultas)=>{
         if(!err)
         {
-            if(consultas.length>1)
+            if(consultas.length>0)
             {
                 tb='<table class="table table-striped"><tr><td colspan="6">Signos vitales</td><td colspan="5">Informacion de consulta</td><td colspan="3">Diagnostico</td></tr>'+
                     '<tr><td>Talla</td><td>Peso</td><td>IMC</td><td>Pulso</td><td>TA</td><td>Temperatura</td>'+
@@ -44,8 +44,12 @@ function generarHojaDiaria(req,res)
                 tb+="</table>";
                 res.send(tb);
             }
-            console.log(consultas);
-            res.send("<p>No se pudeo realizar la busqueda</p>");
+            else
+            {
+                console.log(consultas);
+                res.send("<p>No se pudeo realizar la busqueda</p>");
+            }
+           
         }
         console.log(err);
         res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');

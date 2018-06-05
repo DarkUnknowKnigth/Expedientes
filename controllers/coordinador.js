@@ -1,6 +1,6 @@
 var Expedientes=require('../models/expediente');
 var Consulta=require('../models/consulta');
-var Moment=require('moment');
+var moment=require('moment');
 function generarInforme(req,res){
 
 }
@@ -8,8 +8,16 @@ function generarHojaDiaria(req,res)
 {
     var fecha=req.body.fecha;
     console.log(fecha);
-    var d1=Moment(fecha+"T00:00:00.000");
-    var d2=Moment(fecha+"T24:00:00.000");
+    var d1=moment(fecha);
+    var d2=moment(fecha);
+    d1.millisecond(0);
+    d1.second(0);
+    d1.minute(0);
+    d1.hour(0);
+    d2.millisecond(0);
+    d2.second(0);
+    d2.minute(0);
+    d2.hour(24);
     console.log(d1);
     console.log(d2);
     var query={ "diagnostico.fecha" :{

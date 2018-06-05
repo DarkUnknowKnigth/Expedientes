@@ -19,7 +19,7 @@ function generarHojaDiaria(req,res)
     }).exec((err,consultas)=>{
         if(!err)
         {
-            if(Array.isArray(consultas))
+            if(Array.isArray(consultas) && consultas!=null)
             {
                 tb='<table class="table table-striped"><tr><td colspan="6">Signos vitales</td><td colspan="5">Informacion de consulta</td><td colspan="3">Diagnostico</td></tr>'+
                     '<tr><td>Talla</td><td>Peso</td><td>IMC</td><td>Pulso</td><td>TA</td><td>Temperatura</td>'+
@@ -50,7 +50,7 @@ function generarHojaDiaria(req,res)
             }
             else
             {
-                console.log(consultas);
+                console.log("VO consultas"+consultas);
                 res.send("<p>No se pudeo realizar la busqueda</p>");
             }
            

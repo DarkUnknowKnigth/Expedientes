@@ -986,7 +986,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 		url: e.target.value,
 		data: consulta,
 		success: function (r) {
-			$("#informe").html(msg);
+			$("#informe").html(r);
 			$("#dialog-message").dialog({
 			modal: true,
 			width: 900,
@@ -1001,7 +1001,6 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 			
 		}
 	});
-
 });
 $("#nextAntec").click(()=>{
 

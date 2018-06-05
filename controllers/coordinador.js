@@ -8,8 +8,7 @@ function generarHojaDiaria(req,res)
 {
     var fecha=req.body.fecha;
     console.log(fecha);
-    var query={ "fecha" : fecha}
-    }
+    var query={ "fecha" : fecha};
 
     Consulta.find(query).exec((err,consultas)=>{
         if(!err)
@@ -53,7 +52,6 @@ function generarHojaDiaria(req,res)
         console.log(err);
         res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
     });
-
 }
 function estadistica(req,res)
 {

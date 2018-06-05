@@ -986,11 +986,11 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 		url: e.target.value,
 		data: consulta,
 		success: function (r) {
-			$("#informe").html(r.msg);
+			$("#informe").html(msg);
 			$("#dialog-message").dialog({
 			modal: true,
-			width: 200,
-			heigth: 200,
+			width: 900,
+			heigth: 500,
 			buttons: 
 			{
 				Ok: function () {

@@ -8,12 +8,10 @@ function generarHojaDiaria(req,res)
 {
     var fecha=req.body.fecha;
     console.log(fecha);
-    var query={"fecha":fecha};
-
-    Consulta.find(query).exec((err,consultas)=>{
+    Consulta.find({"fecha":fecha}).exec((err,consultas)=>{
         if(!err)
         {
-            if(Array.isArray(consultas) && consultas!=null)
+            if(consultas)
             {
                 tb='<table class="table table-striped"><tr><td colspan="6">Signos vitales</td><td colspan="5">Informacion de consulta</td><td colspan="3">Diagnostico</td></tr>'+
                     '<tr><td>Talla</td><td>Peso</td><td>IMC</td><td>Pulso</td><td>TA</td><td>Temperatura</td>'+
@@ -49,7 +47,7 @@ function generarHojaDiaria(req,res)
             }
            
         }
-        console.log(err);
+        console.log("ha ocurrido:"+err);
         res.send('<p>Ja ocurrido un error en la busqueda de las consultas</p>');
     });
 }

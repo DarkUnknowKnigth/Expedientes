@@ -18,8 +18,8 @@ function generarHojaDiaria(req,res)
     d2.second(0);
     d2.minute(0);
     d2.hour(24);
-    console.log(d1);
-    console.log(d2);
+    console.log(d1.format());
+    console.log(d2.format());
     var query={ "diagnostico.fecha" :{
         '$gte':d1,
         '$lt':d2}

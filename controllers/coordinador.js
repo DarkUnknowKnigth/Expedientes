@@ -15,7 +15,7 @@ function generarHojaDiaria(req,res)
     Consulta.find({"diagnostico.fecha" :{$gte:d1,$lt:d2}}).exec((err,consultas)=>{
         if(!err)
         {
-            if(consultas)
+            if(true)
             {
                 tb='<table class="table table-striped"><tr><td colspan="6">Signos vitales</td><td colspan="5">Informacion de consulta</td><td colspan="3">Diagnostico</td></tr>'+
                     '<tr><td>Talla</td><td>Peso</td><td>IMC</td><td>Pulso</td><td>TA</td><td>Temperatura</td>'+
@@ -24,20 +24,20 @@ function generarHojaDiaria(req,res)
                 consultas.forEach(con => {
                
                    tb+= '<tr>'+
-                        '<td>con.signosVitales.Talla</td>'+
-                        '<td>con.signosVitales.Peso</td>'+
-                       ' <td>con.signosVitales.IMC</td>'+
-                       ' <td>con.signosVitales.Pulso</td>'+
-                       ' <td>con.signosVitales.TA</td>'+
-                        '<td>con.signosVitales.Temp</td>'+
-                        '<td>con.formatoConsulta.deteccion</td>'+
-                        '<td>con.formatoConsulta.primeravez</td>'+
-                        '<td>con.formatoConsulta.sintomasTB</td>'+
-                        '<td>con.formatoConsulta.nivelObesidad</td>'+
-                       ' <td>con.formatoConsulta.saludReprod</td>'+
-                        '<td>con.diagnostico.diagnostico</td>'+
-                        '<td>con.diagnostico.programa</td>'+
-                        '<td>con.diagnostico.fecha</td>'+
+                        '<td>'+con.signosVitales.Talla+'</td>'+
+                        '<td>'+con.signosVitales.Peso+'</td>'+
+                       ' <td>'+con.signosVitales.IMC+'</td>'+
+                       ' <td>'+con.signosVitales.Pulso+'</td>'+
+                       ' <td>'+con.signosVitales.TA+'</td>'+
+                        '<td>'+con.signosVitales.Temp+'</td>'+
+                        '<td>'+con.formatoConsulta.deteccion+'</td>'+
+                        '<td>'+con.formatoConsulta.primeravez+'</td>'+
+                        '<td>'+con.formatoConsulta.sintomasTB+'</td>'+
+                        '<td>'+con.formatoConsulta.nivelObesidad+'</td>'+
+                       ' <td>'+con.formatoConsulta.saludReprod+'</td>'+
+                        '<td>'+con.diagnostico.diagnostico+'</td>'+
+                        '<td>'+con.diagnostico.programa+'</td>'+
+                        '<td>'+con.diagnostico.fecha+'</td>'+
                    ' </tr>';
                 
                 });

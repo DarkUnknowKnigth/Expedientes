@@ -984,7 +984,9 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	$.ajax({
 		type: "POST",
 		url: e.target.value,
-		data: consulta,}).done((r)=>{
+		data: consulta,
+	}).done((r)=>{
+		console.log(r);
 			$("#informe").html(r);
 			$("#dialog-message").dialog({
 			modal: true,
@@ -992,7 +994,8 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 			heigth: 500,
 			buttons: 
 			{
-				Ok: function () {
+				Ok: function () 
+				{
 					$(this).dialog("close");
 				}
 			}

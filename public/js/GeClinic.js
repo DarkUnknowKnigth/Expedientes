@@ -978,7 +978,8 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 
 	consulta.diagnostico=$("#diagnostico").val();
 	consulta.programa=$("#programMotivo").val();
-	consulta.fecha=new Date();
+	var ff=new Date();
+	consulta.fecha=ff.getFullYear+"-"+ff.getMonth+"-"+ff.getDay;
 	console.log(consulta);
 	$.ajax({
 		type: "POST",

@@ -20,6 +20,6 @@ var ConsultaSchema= Schema({
         diagnostico:String,
         programa:String,
     },
-    fecha:Date
+    fecha:String
     });
     module.exports=mongoose.model('Consulta',ConsultaSchema);

@@ -406,8 +406,8 @@ $("#generarHojaDiaria").click((e)=>{
 			$("#informe").html(r);
 			$("#dialog-message").dialog({
 				modal: true,
-				width: 400,
-				heigth: 200,
+				width: 1000,
+				heigth: 500,
 				buttons:{
 					Ok: function () {
 						$(this).dialog("close");

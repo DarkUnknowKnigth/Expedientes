@@ -141,17 +141,14 @@ function buscar(req, res) {
                     if (Array.isArray(usuario) && usuario.length > 0)//seguir
                     {
                         usuario.forEach(user => {
-                            tb +=
-                                '<tr>' +
-                                '<td scope="row">' + user._id + '</td>' +
-                                '<td>' + user.usuario + '</td>' +
-                                '<td>' + user.password + '</td>' +
-                                '<td>' + user.nombre + '</td>' +
-                                '<td>' + user.apPaterno + '</td>' +
-                                '<td>' + user.apMaterno + '</td>' +
-                                '<td>' + user.TipoUsuario + '</td>' +
-                                '<td><div class="btn-group"><button class="edit" value="' + req.baseUrl + '/modificar/' + user.id + '>Editar</button>' +
-                                '<button value="' + req.baseUrl + '/eliminarUsuario/' + user.id + '" class="delete">Eliminar</button></div></td>';
+                            tb +='<tr>' +
+                            '<td scope="row">' + user._id + '</td>' +
+                            '<td>' + user.usuario + '</td>' +
+                            '<td>' + user.password + '</td>' +
+                            '<td>' + user.nombre + '</td>' +
+                            '<td>' + user.apPaterno + '</td>' +
+                            '<td>' + user.apMaterno + '</td>' +
+                            '<td>' + user.TipoUsuario + '</td>';
                             if (user.activo) {
                                 tb += '<td><button class="btn btn-success toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td></tr>';
                             }
@@ -159,8 +156,9 @@ function buscar(req, res) {
                                 tb += '<td><button class="btn btn-danger toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td></tr>';
 
                             }
+                            tb+='<td><div class="btn-group"><button class="edit" value="' + req.baseUrl + '/modificar/' + user.id + '>Editar</button>' +
+                                '<button value="' + req.baseUrl + '/eliminarUsuario/' + user.id + '" class="delete">Eliminar</button></div></td>';
                         });
-
                         res.send(tb);
                     }
                     else {

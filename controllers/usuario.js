@@ -178,7 +178,7 @@ function buscar(req, res) {
     }
 }
 function toggle(req, res) {
-    Usuario.findByIdAndUpdate(req.params.id, { "activo": req.params.activo }, (err, user) => {
+    Usuario.findByIdAndUpdate(req.params.id, { "activo": !req.params.activo }, (err, user) => {
         if (err) res.status(500).send({ message: `Error al actualizar los datos ${err}`})
         res.status(200).send({ msg: "usuario nuevo ACTIVO:"+user.activo })
     });

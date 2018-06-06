@@ -236,8 +236,7 @@ $(".modifUser .toggleUser").click((e)=>{
 		url: e.target.value,
 		data: "activo="+e.target.innerText,
 		success: function (response) {
-			console.log(response.msg);
-			
+			console.log(response.msg);	
 		}
 	});
 });

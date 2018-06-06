@@ -1008,7 +1008,7 @@ $("#formAntecGine button").click(function(){
 $(".modal.continuar .modal-footer .btn-success").click(function(){
 	
 	consulta.Talla=$("#talla").val();
-	consulta.TA=$("#ta1").val()+"/"+$("#ta1").val();
+	consulta.TA=$("#ta1").val()+"/"+$("#ta2").val();
 	consulta.Peso=$("#peso").val();
 	consulta.Temp=$("#temperatura").val();
 	consulta.IMC= $("#imc").val();

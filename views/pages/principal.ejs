@@ -1155,9 +1155,9 @@
 									<td><%= usuario.apMaterno %></td>
 									<td><%= usuario.TipoUsuario %></td>
 									<% if(usuario.activo){%>
-									<td><button class="btn btn-success toggleUser" value=<%=usuario.id %>><%= usuario.activo%></button></td>';
+									<td><button class="btn btn-success toggleUser" value=<%=toggle + usuario.id %>><%= usuario.activo%></button></td>
 									<%} else {%>
-										<td><button class="btn btn-danger toggleUser" value=<%=usuario.id %>><%= usuario.activo%></button></td>';
+										<td><button class="btn btn-danger toggleUser" value=<%=toggle +usuario.id %>><%= usuario.activo%></button></td>
 									<%}%>
 
 									<td>

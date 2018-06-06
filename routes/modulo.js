@@ -153,6 +153,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificar`,
                                             buscarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/buscarUsuario`,
                                             eliminarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/eliminarUsuario/`,
+                                            toggle:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/toggleUser/`,
                                             //link expedientes
                                             crearExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/nuevoExpediente`,
                                             SolicitarModificarExpediente:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/expedientes/SolicitarModificarExpediente`,

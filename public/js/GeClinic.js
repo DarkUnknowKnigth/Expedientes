@@ -233,7 +233,7 @@ $(".modifUser .edit").click(function(e){
 $(".modifUser .toggleUser").click((e)=>{
 	$.ajax({
 		type: "PUT",
-		url: "url",
+		url: e.target.value,
 		data: "activo="+e.target.innerText,
 		success: function (response) {
 			console.log(response.msg);

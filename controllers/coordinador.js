@@ -19,9 +19,9 @@ function generarHojaDiaria(req,res)
                     '<th class="bg-secondary ">Diagnostico</th><th class="bg-secondary">Programa de Salud</th><th class="bg-secondary">Fecha de Creacion</th></tr></thead><tbody>';
                 consultas.forEach(con => {
                    tb+= '<tr>'+
-                        '<td>'+con.signosVitales.Expediente.nombre+'</td>'+
-                        '<td>'+con.signosVitales.Expediente.sexo+'</td>'+
-                        '<td>'+con.signosVitales.Expediente.curp+'</td>'+
+                        // '<td>'+con.signosVitales.Expediente.nombre+'</td>'+
+                        // '<td>'+con.signosVitales.Expediente.sexo+'</td>'+
+                        // '<td>'+con.signosVitales.Expediente.curp+'</td>'+
                         '<td>'+con.signosVitales.Expediente.fechaNacimiento+'</td>'+
                         '<td>'+con.signosVitales.Talla+'</td>'+
                         '<td>'+con.signosVitales.Peso+'</td>'+

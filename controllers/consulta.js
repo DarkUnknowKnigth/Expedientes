@@ -22,7 +22,7 @@ function guardar(req,res) {
     con= new Consulta();
     con.signosVitales.Talla=consulta.Talla;
     con.signosVitales.Peso=consulta.Peso;
-    com.signosVitales.Pulso=consulta.Pulso
+    con.signosVitales.Pulso=consulta.Pulso
     con.signosVitales.IMC=consulta.IMC;
     con.signosVitales.TA=consulta.TA;
     con.signosVitales.Temp=consulta.Temp;

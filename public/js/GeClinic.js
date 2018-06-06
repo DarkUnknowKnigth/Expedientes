@@ -285,6 +285,16 @@ $("#buscarEXP").click(function(e){
 			success: function (r) {
 				$(".resultExpCurp").html(r.msg);
 				$(".resultExpCurp").css("display","block");
+				$("#informe").text('Porfavor seleccione el expediente y presione "iniciar Consulta" para continuar');
+				$("#dialog-message").dialog({
+					modal: true,
+					buttons: {
+						Aceptar: function () 
+						{
+							$(this).dialog("close");
+						}
+					}
+				});
 			}
 		});
 	}
@@ -518,18 +528,7 @@ $("#RefreshUser").click((e)=>{
 // 	}
 	
 // });
-$(".selectCURP").click((e)=>{
-	$("#informe").text('Expedeinte seleccionado,Porfavor presione "iniciar Consulta" para continuar');
-	$("#dialog-message").dialog({
-		modal: true,
-		buttons: {
-			Aceptar: function () 
-			{
-				$(this).dialog("close");
-			}
-		}
-	});
-});
+
 //Envio de datos al servidor 
 $("#nuevaEstadistica").click((e)=>{
 	$.ajax({

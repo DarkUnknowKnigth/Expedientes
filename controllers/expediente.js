@@ -14,8 +14,8 @@ function query(req,res)
         case "curp":
             find={'curp':query};
         break;
-        case "nombre":
-            find={'nombre':query}; 
+        case "apPatero":
+            find={'apPaterno':query}; 
         break;
         default:
             find={'_id':query};

@@ -13,10 +13,10 @@ function generarHojaDiaria(req,res)
         {
             if(consultas)
             {
-                tb='<table class="table table-striped table-bordered"><tr><td class="bg-primary" colspan="6">Signos vitales</td><td class="bg-primary" colspan="5">Informacion de consulta</td><td class="bg-primary" colspan="3">Diagnostico</td></tr>'+
-                    '<tr><td class="bg-secondary">Talla</td><td class="bg-secondary">Peso</td><td class="bg-secondary">IMC</td><td class="bg-secondary">Pulso</td><td class="bg-secondary">Tension Arterial</td><td class="bg-secondary">Temperatura</td>'+
-                    '<td class="bg-secondary">Deteccion</td><td class="bg-secondary">Primera vez en el Año</td><td class="bg-secondary">Tuberculosis</td><td class="bg-secondary">Obesidad</td><td class="bg-secondary">Salud reproductiva</td>'+
-                    '<td class="bg-secondary ">Diagnostico</td><td class="bg-secondary">Programa de Salud</td><td class="bg-secondary">Fecha de Creacion</td></tr>';
+                tb='<table class="table table-bordered table-striped"><thead><tr><th colspan="7">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr><tr><th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr>'+
+                    '<tr><th class="bg-secondary">Talla</th><th class="bg-secondary">Peso</th><th class="bg-secondary">IMC</th><th class="bg-secondary">Pulso</th><th class="bg-secondary">Tension Arterial</th><th class="bg-secondary">Temperatura</th>'+
+                    '<th class="bg-secondary">Deteccion</th><th class="bg-secondary">Primera vez en el Año</th><th class="bg-secondary">Tuberculosis</th><th class="bg-secondary">Obesidad</th><th class="bg-secondary">Salud reproductiva</th>'+
+                    '<th class="bg-secondary ">Diagnostico</th><th class="bg-secondary">Programa de Salud</th><th class="bg-secondary">Fecha de Creacion</th></tr></thead><tbody>';
                 consultas.forEach(con => {
                
                    tb+= '<tr>'+
@@ -37,7 +37,7 @@ function generarHojaDiaria(req,res)
                    ' </tr>';
                 
                 });
-                tb+="</table>";
+                tb+="</tbody></table>";
                 console.log(tb);
                 res.send(tb);
                 

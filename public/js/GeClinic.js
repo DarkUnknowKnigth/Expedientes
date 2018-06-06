@@ -8,6 +8,7 @@ var formAntecGine;
 var formAPP;
 var dec=2;
 $(document).ready(function(){
+	$('#EXPEDIENTES_TABLE').DataTable();
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);
@@ -481,7 +482,8 @@ var enfermedades = [
 						{nombre:"VIH", value: "VIH"},
 						{nombre:"Gonorrea", value: "Gonorrea"},
 						{nombre:"ITS", value: "ITS"},
-						{nombre:"Sífilis", value: "Sifilis"}
+						{nombre:"Sífilis", value: "Sifilis"},
+						{nombre:"Otros", value:"Otros"}
 					];
 
 					var estadosCiviles = [

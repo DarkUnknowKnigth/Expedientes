@@ -138,7 +138,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             permiso:{
                                                 expediente:true,
                                                 usuario:true,
-                                                consulta:true,
+                                                consulta:false,
                                                 coordinador:true,
                                                 //expedientes
                                                 crearExp:true,

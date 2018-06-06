@@ -179,6 +179,7 @@ function buscar(req, res) {
 }
 function toggle(req, res) {
     let st=req.params.activo ;
+    console.log(typeof st);
     if(st=="true")
     {
         st=false

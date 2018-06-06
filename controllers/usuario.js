@@ -178,9 +178,11 @@ function buscar(req, res) {
     }
 }
 function toggle(req, res) {
-    Usuario.findByIdAndUpdate(req.params.id, { "activo": !req.params.activo }, (err, user) => {
+    let st=!req.params.activo ;
+    console.log(st);
+    Usuario.findByIdAndUpdate(req.params.id, { "activo": st }, (err, user) => {
         if (err) res.status(500).send({ message: `Error al actualizar los datos ${err}`})
-        res.status(200).send({ msg: "usuario nuevo ACTIVO:"+user.activo })
+        res.status(200).send({ msg: "usuario nuevo ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")})
     });
 }
 module.exports = {

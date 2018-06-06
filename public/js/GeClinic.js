@@ -237,6 +237,10 @@ $(".modifUser .toggleUser").click((e)=>{
 		data: "activo="+e.target.innerText,
 		success: function (response) {
 			console.log(response.msg);	
+			if(response.url)
+			{
+				window.location.href=response.url;
+			}
 		}
 	});
 });

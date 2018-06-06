@@ -187,9 +187,12 @@ function toggle(req, res) {
 
                 if (err) 
                 {
-                     res.send({ msg: `Error al actualizar los datos ${err}`})
+                    res.send({ msg: `Error al actualizar los datos ${err}`});
                 }
-                res.status(200).send({ msg: "usuario: "+user.usuario+" ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")})
+                else
+                {
+                    res.status(200).send({ msg: "usuario: "+user.usuario+" ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")});
+                }
             });
         } 
         else

@@ -236,10 +236,22 @@ $(".modifUser .toggleUser").click((e)=>{
 		url: e.target.value,
 		success: function (response) {
 			console.log(response.msg);	
-			if(response.url)
-			{
-				window.location.href=response.url;
-			}
+			$("#informe").text(response.msg);
+			$("#dialog-message").dialog({
+				modal: true,
+				width: 200,
+				heigth: 200,
+				buttons: 
+				{
+					Ok: function () {
+						$(this).dialog("close");
+						if(response.url)
+						{
+							window.location.href=response.url;
+						}
+					}
+				}
+			});
 		}
 	});
 });

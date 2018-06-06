@@ -7,7 +7,7 @@ const usuario=express.Router();
 //     res.status(200).render("../views/partials/crearUsuario.ejs");
 // });
 usuario.get("/modificar/:id",(req,res)=>{
-    res.send(req.baseUrl+"/modificaUsuario/"+req.param.id);
+    res.send(req.baseUrl+"/modificaUsuario/"+req.params.id);
 });
 // usuario.get("/eliminar",(req,res)=>{
 //     res.status(200).render("../views/partials/eliminarUsuario.ejs");

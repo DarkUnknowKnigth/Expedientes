@@ -178,7 +178,14 @@ function buscar(req, res) {
     }
 }
 function toggle(req, res) {
-    let st=!req.params.activo ;
+    let st=req.params.activo ;
+    if(st==true)
+    {
+        st=false
+    }
+    else{
+        st=true;
+    }
     console.log(st);
     Usuario.findByIdAndUpdate(req.params.id, { "activo": st }, (err, user) => {
         if (err) res.status(500).send({ message: `Error al actualizar los datos ${err}`})

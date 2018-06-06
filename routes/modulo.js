@@ -150,7 +150,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             },
                                             //link de usuarios
                                             crearUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
-                                            modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificar`,
+                                            modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificar/`,
                                             buscarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/buscarUsuario`,
                                             eliminarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/eliminarUsuario/`,
                                             toggle:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/toggleUser/`,

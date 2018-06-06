@@ -183,7 +183,15 @@ function toggle(req, res) {
     Usuario.findById(req.params.id).exec((err,us)=>{
         if(!err)
         {
-            console.log(!us.activo);
+            console.log(us.activo);
+            if(us.activo==true)
+            {
+                console.log("wi");
+            }
+            if(us.activo=="true")
+            {
+                console.log("wu");
+            }
             Usuario.findByIdAndUpdate(req.params.id, { "activo": !us.activo }, (err, user) => {
                 if (err) res.status(500).send({ msg: `Error al actualizar los datos ${err}`})
                 res.status(200).send({ msg: "usuario: "+user.usuario+" ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")})

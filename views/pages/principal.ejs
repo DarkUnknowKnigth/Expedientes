@@ -903,7 +903,7 @@
 					<select name="tipo" id="tipoBusquedaExp" style="width: 300px;">
 						<option value="_id" selected>ID</option>
 						<option value="curp">CURP</option>
-						<option value="nombre">Nombre</option>
+						<option value="nombre">Primer Nombre</option>
 					</select>
 					<button class="btn btn-secondary" id="SearchExp" >Buscar</button>
 				</div>
@@ -1154,9 +1154,14 @@
 									<td><%= usuario.apPaterno %></td>
 									<td><%= usuario.apMaterno %></td>
 									<td><%= usuario.TipoUsuario %></td>
-									<td><%= usuario.activo %></td>
+									<% if(usuario.activo){%>
+									<td><button class="btn btn-success toggleUser" value=<%=usuario.id %>><%= usuario.activo%></button></td>';
+									<%} else {%>
+										<td><button class="btn btn-danger toggleUser" value=<%=usuario.id %>><%= usuario.activo%></button></td>';
+									<%}%>
+
 									<td>
-										<button class="edit btn" name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> >
+										<button class="edit btn" name=<%=modificarUsuario + usuario.id%> value=<%=usuario.id %> >
 											<!-- <i class="fas fa-edit"></i> -->
 											Editar
 										</button>

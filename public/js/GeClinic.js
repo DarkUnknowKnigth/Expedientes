@@ -222,12 +222,24 @@ $(".modifExp .edit").click(function(e){
 /*Eventos de modificación de usuario*/
 
 $(".modifUser .edit").click(function(e){
-	let url=
-	$(".modifUser").css("display","none");
-	$(".createUser").css("display","block");
-    texto = $(".createUser p").text();
-	texto = texto.replace("CREAR", "MODIFICAR");
-	$(".createUser p").text(texto);
+   $.ajax({
+	   type: "GET",
+	   url: e.target.name,
+	   success: function (response) {
+		   console.log(response);
+	   }
+   });
+});
+$(".modifUser .toggleUser").click((e)=>{
+	$.ajax({
+		type: "PUT",
+		url: "url",
+		data: "activo="+e.target.innerText,
+		success: function (response) {
+			console.log(response.msg);
+			
+		}
+	});
 });
 var consulta={
 	id_exp:"",
@@ -548,6 +560,10 @@ $("#nuevaEstadistica").click((e)=>{
 		console.log(r);
 	});
 });
+
+$(".toggleUser").click((e)=>{
+	
+});
 $("#guardarUsuario").click((e)=>{
 	var u=$("#nomUser");
 	var c=$("#password");
@@ -652,7 +668,7 @@ $(".modifExp .delete").click((e)=>{
 					$(this).dialog("close");
 				},
 				cancelar:()=>{
-					this.dialog("close");
+					$(this).dialog("close");
 				}
 			}
 		});
@@ -682,7 +698,7 @@ $(".tablaResultados .delete").click((e) => {
 				$(this).dialog("close");
 			},
 			cancelar:()=>{
-				this.dialog("close");
+				$(this).dialog("close");
 			}
 		}
 	});

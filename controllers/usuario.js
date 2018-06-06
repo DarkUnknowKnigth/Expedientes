@@ -150,14 +150,14 @@ function buscar(req, res) {
                             '<td>' + user.apMaterno + '</td>' +
                             '<td>' + user.TipoUsuario + '</td>';
                             if (user.activo) {
-                                tb += '<td><button class="btn btn-success toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td></tr>';
+                                tb += '<td><button class="btn btn-success toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td>';
                             }
                             else {
-                                tb += '<td><button class="btn btn-danger toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td></tr>';
+                                tb += '<td><button class="btn btn-danger toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td>';
 
                             }
                             tb+='<td><div class="btn-group"><button class="edit" value="' + req.baseUrl + '/modificar/' + user.id + '">Editar</button>' +
-                                '<button value="' + req.baseUrl + '/eliminarUsuario/' + user.id + '" class="delete">Eliminar</button></div></td>';
+                                '<button value="' + req.baseUrl + '/eliminarUsuario/' + user.id + '" class="delete">Eliminar</button></div></td></tr>';
                         });
                         res.send(tb);
                     }

@@ -22,7 +22,7 @@ function generarHojaDiaria(req,res)
                         // '<td>'+con.signosVitales.Expediente.nombre+'</td>'+
                         // '<td>'+con.signosVitales.Expediente.sexo+'</td>'+
                         // '<td>'+con.signosVitales.Expediente.curp+'</td>'+
-                        '<td>'+con.signosVitales.Expediente.fechaNacimiento+'</td>'+
+                        // '<td>'+con.signosVitales.Expediente.fechaNacimiento+'</td>'+
                         '<td>'+con.signosVitales.Talla+'</td>'+
                         '<td>'+con.signosVitales.Peso+'</td>'+
                        ' <td>'+con.signosVitales.IMC+'</td>'+

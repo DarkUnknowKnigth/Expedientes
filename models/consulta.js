@@ -20,6 +20,7 @@ var ConsultaSchema= Schema({
         diagnostico:String,
         programa:String,
     },
-    fecha:String
+    fecha:String,
+    Expediente:{type:Schema.ObjectId,ref:'Expediente'},
     });
     module.exports=mongoose.model('Consulta',ConsultaSchema);

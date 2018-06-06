@@ -34,6 +34,7 @@ function guardar(req,res) {
     con.diagnostico.diagnostico=consulta.diagnostico;
     con.diagnostico.programa=consulta.programa;
     con.fecha=consulta.fecha;
+    con.Expediente=consulta.id_exp;
     con.save((err,saved)=>{
         if(!err)
         {

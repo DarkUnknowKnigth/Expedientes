@@ -8,18 +8,21 @@ function generarHojaDiaria(req,res)
 {
     var fecha=req.body.fecha;
     console.log(fecha);
-    Consulta.find({"fecha":fecha}).exec((err,consultas)=>{
+    Consulta.find({"fecha":fecha}).populate('expediente').exec((err,consultas)=>{
         if(!err)
         {
             if(consultas)
             {
-                tb='<table class="table table-bordered table-striped"><thead><tr><th colspan="7">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr><tr><th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr>'+
-                    '<tr><th class="bg-secondary">Talla</th><th class="bg-secondary">Peso</th><th class="bg-secondary">IMC</th><th class="bg-secondary">Pulso</th><th class="bg-secondary">Tension Arterial</th><th class="bg-secondary">Temperatura</th>'+
+                tb='<table class="table table-bordered table-striped"><thead><tr><th colspan="11">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr><tr><th colspan="4">Identificacion</th> <th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr>'+
+                    '<tr><th></th>Nombre<th>sexo</th>CURP<th>Fecha Nacimiento</th><th></th> <th class="bg-secondary">Talla</th><th class="bg-secondary">Peso</th><th class="bg-secondary">IMC</th><th class="bg-secondary">Pulso</th><th class="bg-secondary">Tension Arterial</th><th class="bg-secondary">Temperatura</th>'+
                     '<th class="bg-secondary">Deteccion</th><th class="bg-secondary">Primera vez en el Año</th><th class="bg-secondary">Tuberculosis</th><th class="bg-secondary">Obesidad</th><th class="bg-secondary">Salud reproductiva</th>'+
                     '<th class="bg-secondary ">Diagnostico</th><th class="bg-secondary">Programa de Salud</th><th class="bg-secondary">Fecha de Creacion</th></tr></thead><tbody>';
                 consultas.forEach(con => {
-               
                    tb+= '<tr>'+
+                        '<td>'+con.signosVitales.Expediente.nombre+'</td>'+
+                        '<td>'+con.signosVitales.Expediente.sexo+'</td>'+
+                        '<td>'+con.signosVitales.Expediente.curp+'</td>'+
+                        '<td>'+con.signosVitales.Expediente.fechaNacimiento+'</td>'+
                         '<td>'+con.signosVitales.Talla+'</td>'+
                         '<td>'+con.signosVitales.Peso+'</td>'+
                        ' <td>'+con.signosVitales.IMC+'</td>'+

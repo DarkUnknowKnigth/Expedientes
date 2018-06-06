@@ -38,23 +38,39 @@ function validarUsuario(req, res) {
                             //compara la contraseña con la de la base de datos
                             //usuario.comparar(req.body.Password)
                             //req.body.Password == usuario.password
-                            if (req.body.Password == usuario.password && usuario.activo) {
-                                //console.log(usuario);
-                                //luego redireccionar con los parametros validos a principal
-                                res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                            if(usuario.activo)
+                            {
+                                if (req.body.Password == usuario.password) {
+                                    //console.log(usuario);
+                                    //luego redireccionar con los parametros validos a principal
+                                    res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                                }
+                                else {
+                                    res.send({
+                                        message:
+                                            '<div class="alert alert-dark" role="alert">' +
+                                            '<form action="' + address + '/" method="GET">' +
+                                            '<strong class="form-control">Usuario o contraseña no existe</strong>' +
+                                            '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                                            '</form>' +
+                                            '</div>'
+                                    });
+                                }
+    
                             }
-                            else {
+                            else
+                            {
                                 res.send({
                                     message:
                                         '<div class="alert alert-dark" role="alert">' +
                                         '<form action="' + address + '/" method="GET">' +
-                                        '<strong class="form-control">Usuario o contraseña no existe</strong>' +
+                                        '<strong class="form-control">Usuario deshabilitado, porfavor contacte al administrador</strong>' +
                                         '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
                                         '</form>' +
                                         '</div>'
                                 });
                             }
-
+                            
                         }
                         else {
                             Administrador.findOne({ usuario: req.body.Usuario, password: req.body.Password }, (err, admin) => {
@@ -108,7 +124,7 @@ function validarUsuario(req, res) {
             else {
                 res.status(400).send({ message: '<div class="alert alert-dark" role="alert">' +
                 '<form action="' + address + '/" method="GET">' +
-                '<strong class="form-control">Usted proporciono una contraseña invalida o tiene una cuenta deshabilitada</strong>' +
+                '<strong class="form-control">Usted proporciono una contraseña invalida</strong>' +
                 '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
                 '</form>' +
                 '</div>', url: address + "/" });

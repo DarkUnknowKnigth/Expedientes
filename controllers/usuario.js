@@ -178,20 +178,15 @@ function buscar(req, res) {
     }
 }
 function toggle(req, res) {
-    let st=req.params.activo ;
-    console.log(typeof st);
-    if(st=="true")
-    {
-        st=false
-    }
-    else
-    {
-        st=true;
-    }
+    var st;
+    Usuario.findById(req.params.id).exec((err,u)=>{
+        if(err) res.send({msg:"No se encontro usuario"});
+        st=!u.activo;
+    });
     console.log(st);
     Usuario.findByIdAndUpdate(req.params.id, { "activo": st }, (err, user) => {
-        if (err) res.status(500).send({ message: `Error al actualizar los datos ${err}`})
-        res.status(200).send({ msg: "usuario nuevo ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")})
+        if (err) res.status(500).send({ msg: `Error al actualizar los datos ${err}`})
+        res.status(200).send({ msg: "usuario: "+user.usuario+" ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")})
     });
 }
 module.exports = {

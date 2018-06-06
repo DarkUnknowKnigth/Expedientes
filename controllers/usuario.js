@@ -179,11 +179,12 @@ function buscar(req, res) {
 }
 function toggle(req, res) {
     let st=req.params.activo ;
-    if(st==true)
+    if(st=="true")
     {
         st=false
     }
-    else{
+    else
+    {
         st=true;
     }
     console.log(st);

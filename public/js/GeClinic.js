@@ -8,54 +8,8 @@ var formAntecGine;
 var formAPP;
 var dec=2;
 $(document).ready(function(){
-	$('#EXPEDIENTES_TABLE').DataTable({
-		"decimal":        "",
-		"emptyTable":     "No hay datos disponibles en la tabla",
-		"info":           "Showing _START_ to _END_ of _TOTAL_ entries",
-		"infoEmpty":      "Showing 0 to 0 of 0 entries",
-		"infoFiltered":   "(filtered from _MAX_ total entries)",
-		"infoPostFix":    "",
-		"thousands":      ",",
-		"lengthMenu":     "Show _MENU_ entries",
-		"loadingRecords": "Cargando...",
-		"processing":     "Procesando...",
-		"search":         "Buscador local:",
-		"zeroRecords":    "No se encontraron registros",
-		"paginate": {
-			"first":      "Primero",
-			"last":       "Ultimo",
-			"next":       "Siguiente",
-			"previous":   "Anteriro"
-		},
-		"aria": {
-			"sortAscending":  ": activate to sort column ascending",
-			"sortDescending": ": activate to sort column descending"
-		}
-	});
-	$("#TABLE_USER").DataTable({
-		"decimal":        "",
-		"emptyTable":     "No hay datos disponibles en la tabla",
-		"info":           "Showing _START_ to _END_ of _TOTAL_ entries",
-		"infoEmpty":      "Showing 0 to 0 of 0 entries",
-		"infoFiltered":   "(filtered from _MAX_ total entries)",
-		"infoPostFix":    "",
-		"thousands":      ",",
-		"lengthMenu":     "Show _MENU_ entries",
-		"loadingRecords": "Cargando...",
-		"processing":     "Procesando...",
-		"search":         "Buscador local:",
-		"zeroRecords":    "No se encontraron registros",
-		"paginate": {
-			"first":      "Primero",
-			"last":       "Ultimo",
-			"next":       "Siguiente",
-			"previous":   "Anteriro"
-		},
-		"aria": {
-			"sortAscending":  ": activate to sort column ascending",
-			"sortDescending": ": activate to sort column descending"
-		}
-	});
+	$('#EXPEDIENTES_TABLE').DataTable();
+	$("#TABLE_USER").DataTable();
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);

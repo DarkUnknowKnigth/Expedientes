@@ -54,7 +54,8 @@ $(document).ready(function(){
 		"aria": {
 			"sortAscending":  ": activate to sort column ascending",
 			"sortDescending": ": activate to sort column descending"
-		});
+		}
+	});
 	localResource=$("#results").html();
 	insertarAnios();
 	insertarEnfermedades(enfermedades);

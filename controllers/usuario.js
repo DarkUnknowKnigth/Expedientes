@@ -181,7 +181,7 @@ function toggle(req, res) {
     var st;
     Usuario.findById(req.params.id).exec((err,u)=>{
         if(err) res.send({msg:"No se encontro usuario"});
-        st=!u.activo;
+        st=u.activo;
     });
     console.log(st);
     Usuario.findByIdAndUpdate(req.params.id, { "activo": st }, (err, user) => {

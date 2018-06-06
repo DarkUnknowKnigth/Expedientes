@@ -451,6 +451,11 @@ $("#generarHojaDiaria").click((e)=>{
 				buttons:{
 					Ok: function () {
 						$(this).dialog("close");
+					},
+					Guardar:()=>{
+						var table= $("#HojaDiaria_clinica");
+  						var html = table.html();
+  						window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
 					}
 				}
 			});

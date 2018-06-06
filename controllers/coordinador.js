@@ -13,7 +13,7 @@ function generarHojaDiaria(req,res)
         {
             if(consultas)
             {
-                tb='<table class="table table-bordered table-striped"><thead><tr><th colspan="7">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr>'+
+                tb='<table id="HojaDiaria_clinica" class="table table-bordered table-striped"><thead><tr><th colspan="7">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr>'+
                 //'<tr><th colspan="4">Identificacion</th>'+
                 '<th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr><tr>'+
                    // '<tr><th></th>Nombre<th>sexo</th>CURP<th>Fecha Nacimiento</th><th></th>'+

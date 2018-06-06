@@ -180,8 +180,12 @@ function buscar(req, res) {
 function toggle(req, res) {
     var st;
     Usuario.findById(req.params.id).exec((err,u)=>{
-        if(err) res.send({msg:"No se encontro usuario"});
-        st=u.activo;
+        if(!err)
+        {
+            st=u.activo;
+        } 
+        res.send({msg:"No se encontro usuario"});
+       
     });
     console.log(st);
     Usuario.findByIdAndUpdate(req.params.id, { "activo": st }, (err, user) => {

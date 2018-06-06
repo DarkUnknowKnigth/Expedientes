@@ -689,13 +689,13 @@ $(".modifExp .delete").click((e)=>{
 								Ok: function () {
 									$(this).dialog("close");
 									window.location.href=r.url;
+								},
+								cancelar:()=>{
+									$(this).dialog("close");
 								}
 							}
 						});
 					});
-					$(this).dialog("close");
-				},
-				cancelar:()=>{
 					$(this).dialog("close");
 				}
 			}
@@ -719,13 +719,13 @@ $(".tablaResultados .delete").click((e) => {
 							Ok: function () {
 								$(this).dialog("close");
 								window.location.href = r.url;
+							},
+							cancelar:()=>{
+								$(this).dialog("close");
 							}
 						}
 					});
 				});
-				$(this).dialog("close");
-			},
-			cancelar:()=>{
 				$(this).dialog("close");
 			}
 		}

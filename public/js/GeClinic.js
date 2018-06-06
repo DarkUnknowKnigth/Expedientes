@@ -518,6 +518,18 @@ $("#RefreshUser").click((e)=>{
 // 	}
 	
 // });
+$(".selectCURP").click((e)=>{
+	$("#informe").text('Expedeinte seleccionado,Porfavor presione "iniciar Consulta" para continuar');
+	$("#dialog-message").dialog({
+		modal: true,
+		buttons: {
+			Aceptar: function () 
+			{
+				$(this).dialog("close");
+			}
+		}
+	});
+});
 //Envio de datos al servidor 
 $("#nuevaEstadistica").click((e)=>{
 	$.ajax({

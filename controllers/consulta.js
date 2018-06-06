@@ -9,7 +9,7 @@ function crear(req,res)
         {
             if(exp)
             {
-                res.send({msg:'<table class="table table-striped"><tr><td>'+exp.nombre+'</td><td>'+exp._id+'</td><td>'+exp.curp+'</td><td><button value="'+exp._id+'"class="btn btn-success" onclick="consulta.id_exp=this.value">Seleccionar</button></td></tr></table>'});
+                res.send({msg:'<table class="table table-striped"><tr><td>'+exp.nombre+'</td><td>'+exp._id+'</td><td>'+exp.curp+'</td><td><button value="'+exp._id+'" class="btn btn-success selectCURP" onclick="consulta.id_exp=this.value">Seleccionar</button></td></tr></table>'});
             }
             else{
                 res.send({msg:"No se encontro el expediente"});

@@ -156,7 +156,7 @@ function buscar(req, res) {
                                 tb += '<td><button class="btn btn-danger toggleUser" value="' + req.baseUrl + '/toggleUser/' + user.id + '">' + user.activo + '</button></td></tr>';
 
                             }
-                            tb+='<td><div class="btn-group"><button class="edit" value="' + req.baseUrl + '/modificar/' + user.id + '>Editar</button>' +
+                            tb+='<td><div class="btn-group"><button class="edit" value="' + req.baseUrl + '/modificar/' + user.id + '">Editar</button>' +
                                 '<button value="' + req.baseUrl + '/eliminarUsuario/' + user.id + '" class="delete">Eliminar</button></div></td>';
                         });
                         res.send(tb);

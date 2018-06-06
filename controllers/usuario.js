@@ -178,11 +178,13 @@ function buscar(req, res) {
     }
 }
 function toggle(req, res) {
+    let id=req.params.id
+    console.log("id: "+id);
     var st;
-    Usuario.findById(req.params.id).exec((err,u)=>{
+    Usuario.findById(req.params.id).exec((err,us)=>{
         if(!err)
         {
-            st=u.activo;
+            st=us.activo;
         } 
         res.send({msg:"No se encontro usuario"});
        

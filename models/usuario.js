@@ -1,5 +1,6 @@
 var mongoose=require("mongoose");
 var bcrypt=require('bcrypt-nodejs');
+var Consulta=require('../models/consulta');
 var Schema=mongoose.Schema;
 var Permiso=require('../models/permiso');
 var UsuarioSchema= Schema({

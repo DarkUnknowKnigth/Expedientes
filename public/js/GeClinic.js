@@ -1009,7 +1009,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	consulta.programa=$("#programMotivo").val();
 	var ff=new Date();
 	consulta.fecha=ff.getFullYear+"-"+ff.getMonth+"-"+ff.getDay;
-	consulta.doc=$("#ID_USER").innerText;
+	consulta.doc=$("#ID_USER").text();
 	console.log(consulta);
 	$.ajax({
 		type: "POST",

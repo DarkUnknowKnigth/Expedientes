@@ -191,7 +191,7 @@ function toggle(req, res) {
                 }
                 else
                 {
-                    res.status(200).send({ msg: "usuario: "+user.usuario+" ACTIVO:"+user.activo ,url: req.baseUrl.replace('/usuarios', "")});
+                    res.status(200).send({ msg: "usuario: "+user.usuario+" ACTIVO:"+!user.activo ,url: req.baseUrl.replace('/usuarios', "")});
                 }
             });
         } 

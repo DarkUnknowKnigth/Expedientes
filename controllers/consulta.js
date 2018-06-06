@@ -1,5 +1,6 @@
 const Consulta=require('../models/consulta');
 const Expediente=require("../models/expediente");
+const Usuario=require('../models/usuario');
 function crear(req,res)
 {
     var curp=req.body.curp;
@@ -45,10 +46,20 @@ function guardar(req,res) {
                     }
                     else
                     {
-                        res.send({msg:"Se agrego la consulta al expediente"});
-                        console.log(pass);                        
+                        Usuario.where({_id:consulta.doc}).update({$push:{Consulta:saved._id}}).exec((err,uss)=>{
+                            if(err)
+                            {
+                                throw err
+                            }
+                            else
+                            {
+                                res.send({msg:"Se agrego la consulta al expediente y Se registro en: "+uss.usuario});
+                                console.log(pass);                        
+                            }
+                        });                     
                     }
                 });
+
             }
             else
             {

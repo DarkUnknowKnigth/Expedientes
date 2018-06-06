@@ -5,7 +5,8 @@ var Usuario=require('../models/usuario');
 var AdministradorSchema= Schema({
     usuario:String,
     password:String,
-    usuarios:{type:Schema.ObjectId,ref:'Usuario'}
+    usuarios:{type:Schema.ObjectId,ref:'Usuario'},
+    Consulta:[{type:Schema.ObjectId,ref:'Consulta'}]
     });
 AdministradorSchema.pre("save",(next)=>{
     const admin= this;

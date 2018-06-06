@@ -270,7 +270,8 @@ var consulta={
 	saludReprod:"",
 	diagnostico:"",
 	programa:"",
-	fecha:""
+	fecha:"",
+	doc:""
 };
 /*end eventos de modificación de usuario*/
 /*Apartado de consultas */
@@ -1008,6 +1009,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	consulta.programa=$("#programMotivo").val();
 	var ff=new Date();
 	consulta.fecha=ff.getFullYear+"-"+ff.getMonth+"-"+ff.getDay;
+	consulta.doc=$("#ID_USER").innerText;
 	console.log(consulta);
 	$.ajax({
 		type: "POST",

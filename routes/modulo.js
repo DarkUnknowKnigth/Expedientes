@@ -80,6 +80,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                             eliminarUser:usuario.permiso.EliminarUser,
                             
                         },
+                        idU:usuario._id,
                         //links usuarios
                         crearUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/nuevoUsuario`,
                         modificarUsuario:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/usuarios/modificaUsuario`,
@@ -148,6 +149,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                                 modificarUser:true,
                                                 eliminarUser:true,
                                             },
+                                            idU:admin._id,
                                             //link de usuarios
                                             crearUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/nuevoUsuario`,
                                             modificarUsuario:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/usuarios/modificar/`,

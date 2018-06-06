@@ -12,7 +12,8 @@ var UsuarioSchema= Schema({
     cedula:{type:String,required: true},
     fechaCreacion:{type:Date,required: true},
     TipoUsuario:{type:String,required: true},
-    permiso:{type:Schema.ObjectId,ref:'Permiso',required:true}
+    permiso:{type:Schema.ObjectId,ref:'Permiso',required:true},
+    Consulta:[{type:Schema.ObjectId,ref:'Consulta'}]
     });
 // UsuarioSchema.pre("save",(next)=>{
 //     const usuario= this;

@@ -284,7 +284,7 @@ $("#buscarEXP").click(function(e){
 		$.ajax({
 			type: "POST",
 			url: e.target.value,
-			data: {curp:$("#buscarExpCurp").val()},
+			data: {curp:$("#buscarExpCurp").val().tirm()},
 			success: function (r) {
 				$(".resultExpCurp").html(r.msg);
 				$(".resultExpCurp").css("display","block");
@@ -1028,7 +1028,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	consulta.diagnostico=$("#diagnostico").val();
 	consulta.programa=$("#programMotivo").val();
 	var ff=new Date();
-	consulta.fecha=ff.getFullYear()+"-"+ff.getMonth()+"-"+ff.getDay();
+	consulta.fecha=ff.getFullYear()+"-0"+ff.getMonth()+"-0"+ff.getDay();
 	consulta.doc=$("#ID_USER").text().trim();
 	console.log(consulta);
 	$.ajax({

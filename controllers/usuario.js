@@ -184,7 +184,7 @@ function toggle(req, res) {
     Usuario.findById(req.params.id).exec((err,us)=>{
         if(!err)
         {
-            st=us.activo;
+            console.log(us);
         } 
         res.send({msg:"No se encontro usuario"});
        

@@ -13,7 +13,9 @@ function generarHojaDiaria(req,res)
         {
             if(consultas)
             {
-                tb='<table class="table table-bordered table-striped"><thead><tr><th colspan="7">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr><tr><th colspan="4">Identificacion</th> <th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr><tr>'+
+                tb='<table class="table table-bordered table-striped"><thead><tr><th colspan="7">Hoja diaria: Centro de Salud <b>SANTA CRUZ</b></th><th colspan="4">Fecha:'+fecha+'</th><th colspan="3"> Tuxtla Gutierrez,Chiapas</th></tr>'+
+                //'<tr><th colspan="4">Identificacion</th>'+
+                '<th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr><tr>'+
                    // '<tr><th></th>Nombre<th>sexo</th>CURP<th>Fecha Nacimiento</th><th></th>'+
                     '<th class="bg-secondary">Talla</th><th class="bg-secondary">Peso</th><th class="bg-secondary">IMC</th><th class="bg-secondary">Pulso</th><th class="bg-secondary">Tension Arterial</th><th class="bg-secondary">Temperatura</th>'+
                     '<th class="bg-secondary">Deteccion</th><th class="bg-secondary">Primera vez en el Año</th><th class="bg-secondary">Tuberculosis</th><th class="bg-secondary">Obesidad</th><th class="bg-secondary">Salud reproductiva</th>'+

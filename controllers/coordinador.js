@@ -202,21 +202,21 @@ function estadistica(req,res)
     }  
 }
 function anual(req,res){
-    console.log(Consultas.find({"formatoConsulta.deteccion":"Diabetes Mellitus"}).count());
-    Consultas.find({"formatoConsulta.deteccion":"Hipertensión Arterial"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Obesidad"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Dislipidemias"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Depresión"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Alteración de memoria"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Síntomas respiratorios"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Alcoholismo"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Tabaquismo"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Fármacos"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Incontinencia urinaria"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"VIH"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Gonorrea"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"ITS"}).count();
-    Consultas.find({"formatoConsulta.deteccion":"Sífilis"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Diabetes Mellitus"}).count());
+    Consulta.find({"formatoConsulta.deteccion":"Hipertensión Arterial"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Obesidad"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Dislipidemias"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Depresión"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Alteración de memoria"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Síntomas respiratorios"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Alcoholismo"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Tabaquismo"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Fármacos"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Incontinencia urinaria"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"VIH"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Gonorrea"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"ITS"}).count();
+    Consulta.find({"formatoConsulta.deteccion":"Sífilis"}).count();
     res.send(req.body);
 }
 module.exports={

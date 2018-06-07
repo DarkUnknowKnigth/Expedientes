@@ -327,23 +327,23 @@ function anual(req,res){
 
         if(req.body.seleccion=="programas")
         {
-            Consulta.find({"formatoConsulta.programa":"Enfermedades transmisibles"}).count().exec((err,et)=>{
+            Consulta.find({"diagnostico.programa":"Enfermedades transmisibles"}).count().exec((err,et)=>{
                 if(!err)
                 {
                     valores.enf=et;
-                    Consulta.find({"formatoConsulta.programa":"Crónico degenerativas"}).count().exec((err,crd)=>{
+                    Consulta.find({"diagnostico.programa":"Crónico degenerativas"}).count().exec((err,crd)=>{
                         if(!err)
                         {
                             valores.cro=crd;
-                            Consulta.find({"formatoConsulta.programa":"Otras enfermedades"}).count().exec((err,otf)=>{
+                            Consulta.find({"diagnostico.programa":"Otras enfermedades"}).count().exec((err,otf)=>{
                                 if(!err)
                                 {
                                     valores.otr=otf;
-                                    Consulta.find({"formatoConsulta.programa":"A sanos"}).count().exec((err,asa)=>{
+                                    Consulta.find({"diagnostico.programa":"A sanos"}).count().exec((err,asa)=>{
                                         if(!err)
                                         {
                                             valores.asan=asa;
-                                            Consulta.find({"formatoConsulta.programa":"Planificación familiar"}).count().exec((err,plf)=>{
+                                            Consulta.find({"diagnostico.programa":"Planificación familiar"}).count().exec((err,plf)=>{
                                                 if(!err)
                                                 {
                                                     valores.quien="prog";

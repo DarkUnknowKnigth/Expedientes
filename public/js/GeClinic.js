@@ -233,8 +233,7 @@ $("#updateExpedientes").click((e)=>{
 	$.ajax({
 		type: "PUT",
 		url: e.target.value,
-		data: "data",
-		dataType: "nombre="+$("#nom").val()+"apPaterno="+$("#ap").val()+"apMaterno="+$("#am").val(),
+		data: "nombre="+$("#nom").val()+"apPaterno="+$("#ap").val()+"apMaterno="+$("#am").val(),
 		success: function (response) {
 			console.log(response)
 		}

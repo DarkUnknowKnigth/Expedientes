@@ -668,9 +668,10 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 				Ok: function () {
 					$(this).dialog("close");
 				},
-				Guardar:()=>{
-					$(this).dialog("close");
+				Guardar:function(){
+					
 					saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
+					$(this).dialog("close");
 				}
 			}
 		});
@@ -709,9 +710,9 @@ $("#nuevaEstadistica").click((e)=>{
 					Ok: function () {
 						$(this).dialog("close");
 					},
-					Guardar:()=>{
-						$(this).dialog("close");
+					Guardar:function(){
 						saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
+						$(this).dialog("close");
 					}
 				}
 			});

@@ -215,7 +215,19 @@ $(".modifExp .edit").click(function(e){
 		url: e.target.value,
 		data:{id:e.target.name}
 	}).done((res)=>{
-		console.log(res);
+		$("#informe").text(res);
+		$("#dialog-message").dialog({
+			modal: true,
+			width: 200,
+			heigth: 200,
+			buttons: 
+			{
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+		
 
 	});
 });

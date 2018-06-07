@@ -300,7 +300,7 @@ function modificar(req,res)
                     '			<td>Urosepsis</td>'+
                     '			<td>'+exp.urosepsis+'</td>'+
                     '		</tr>'+
-                    '	</table>');
+                    '	</table><button value="'+req.baseUrl+'/modificar/" id="updateExpedientes">Actualizar</button>');
             }
             else
             {
@@ -552,10 +552,16 @@ function guardar(req, res) {
     });
     //console.log(expediente);
 }
+function update(req,res)
+{
+    query=req.params
+    res.send(query);
+}
 module.exports={
     modificar,
     eliminar,
     guardar,
     buscar,
-    query
+    query,
+    update
 }

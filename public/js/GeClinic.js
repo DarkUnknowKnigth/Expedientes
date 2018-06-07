@@ -667,6 +667,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
+					saveSvgAsPng($("#chart_div svg"), "Estadistica.png");
 				}
 			}
 		});

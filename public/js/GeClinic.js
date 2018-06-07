@@ -215,7 +215,7 @@ $(".modifExp .edit").click(function(e){
 		url: e.target.value,
 		data:{id:e.target.name}
 	}).done((res)=>{
-		$("#informe").text(res);
+		$("#informe").html(res);
 		$("#dialog-message").dialog({
 			modal: true,
 			width: 1000,
@@ -227,8 +227,17 @@ $(".modifExp .edit").click(function(e){
 				}
 			}
 		});
-
-
+	});
+});
+$("#updateExpedientes").click((e)=>{
+	$.ajax({
+		type: "PUT",
+		url: e.target.value,
+		data: "data",
+		dataType: "nombre="+$("#nom").val()+"apPaterno="+$("#ap").val()+"apMaterno="+$("#am").val(),
+		success: function (response) {
+			console.log(response)
+		}
 	});
 });
 

@@ -300,7 +300,7 @@ function modificar(req,res)
                     '			<td>Urosepsis</td>'+
                     '			<td>'+exp.urosepsis+'</td>'+
                     '		</tr>'+
-                    '	</table><button value="'+req.baseUrl+'/modificar/" id="updateExpedientes">Actualizar</button>');
+                    '	</table><button value="'+req.baseUrl+'/modificar/'+exp.id+'" id="updateExpedientes">Actualizar</button>');
             }
             else
             {

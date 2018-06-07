@@ -667,7 +667,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
-					saveSvgAsPng($(".currenGrafic svg"), "Estadistica.png");
+					saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
 				}
 			}
 		});

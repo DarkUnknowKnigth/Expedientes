@@ -667,6 +667,9 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
+				},
+				Guardar:()=>{
+					$(this).dialog("close");
 					saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
 				}
 			}
@@ -682,7 +685,7 @@ $("#nuevaEstadistica").click((e)=>{
 		if(r.e)
 		{
 			console.log(r);
-			$("#informe").html('<div id="piechart" style="width: 900px; height: 500px;"></div>');
+			$("#informe").html('<div id="piechart" class="currenGrafic" style="width: 900px; height: 500px;"></div>');
 			google.charts.load('current', { 'packages': ['corechart'] });
 			google.charts.setOnLoadCallback(drawChart);
 			function drawChart() {
@@ -705,6 +708,10 @@ $("#nuevaEstadistica").click((e)=>{
 				buttons: {
 					Ok: function () {
 						$(this).dialog("close");
+					},
+					Guardar:()=>{
+						$(this).dialog("close");
+						saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
 					}
 				}
 			});

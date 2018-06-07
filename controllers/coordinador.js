@@ -17,8 +17,8 @@ function generarHojaDiaria(req,res)
                 //'<tr><th colspan="4">Identificacion</th>'+
                 '<th class="bg-primary" colspan="6">Signos vitales</th><th class="bg-primary" colspan="5">Informacion de consulta</th><th class="bg-primary" colspan="3">Diagnostico</th></tr><tr>'+
                    // '<tr><th></th>Nombre<th>sexo</th>CURP<th>Fecha Nacimiento</th><th></th>'+
-                    '<th class="bg-secondary">Talla</th><th class="bg-secondary">Peso</th><th class="bg-secondary">IMC</th><th class="bg-secondary">Pulso</th><th class="bg-secondary">Tension Arterial</th><th class="bg-secondary">Temperatura</th>'+
-                    '<th class="bg-secondary">Deteccion</th><th class="bg-secondary">Primera vez en el Año</th><th class="bg-secondary">Tuberculosis</th><th class="bg-secondary">Obesidad</th><th class="bg-secondary">Salud reproductiva</th>'+
+                    '<th class="bg-danger">Talla</th><th class="bg-danger">Peso</th><th class="bg-danger">IMC</th><th class="bg-danger">Pulso</th><th class="bg-danger">Tension Arterial</th><th class="bg-danger">Temperatura</th>'+
+                    '<th class="bg-success">Deteccion</th><th class="bg-success">Primera vez en el Año</th><th class="bg-success">Tuberculosis</th><th class="bg-success">Obesidad</th><th class="bg-success">Salud reproductiva</th>'+
                     '<th class="bg-secondary ">Diagnostico</th><th class="bg-secondary">Programa de Salud</th><th class="bg-secondary">Fecha de Creacion</th></tr></thead><tbody>';
                 consultas.forEach(con => {
                    tb+= '<tr>'+
@@ -201,8 +201,26 @@ function estadistica(req,res)
 
     }  
 }
+function anual(req,res){
+    console.log(Consultas.find({"formatoConsulta.deteccion":"Diabetes Mellitus"}).count());
+    Consultas.find({"formatoConsulta.deteccion":"Hipertensión Arterial"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Obesidad"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Dislipidemias"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Depresión"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Alteración de memoria"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Síntomas respiratorios"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Alcoholismo"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Tabaquismo"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Fármacos"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Incontinencia urinaria"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"VIH"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Gonorrea"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"ITS"}).count();
+    Consultas.find({"formatoConsulta.deteccion":"Sífilis"}).count();
+}
 module.exports={
     generarHojaDiaria,
     generarInforme,
-    estadistica
+    estadistica,
+    anual,
 }

@@ -1561,7 +1561,7 @@
 				<div class="formHojaDiaria">
 		
 					<div class="groupForm">
-						<label for="estadistica">Estadistica de Padecimientos detectados:</label>
+						<label for="estadi">Estadistica de Padecimientos detectados:</label>
 						<select id="estadi" name="genearEsta">
 							<option selected value="Seleccione">Seleccione un Padecimieto</option>
 							<option value="cancer">Padecimientos Oncologico</option>
@@ -1582,6 +1582,15 @@
 							<option value="otro">Otras enfermedades</option>
 						</select>
 						<button style="margin-top: 5%;" class="btn btn-primary" id="nuevaEstadistica" value=<%= estadistica %> type="button">Generar Estadisticas</button>
+					</div>
+					<div class="groupForm">
+						<label for="estadiP">Estadistica anuales</label>
+						<select id="estadiP" name="genearEsta">
+							<option selected value="Seleccione">Seleccione programa</option>
+							<option value="detecciones">Conteo de enfermedades detectadas</option>
+							<option value="programas">Conteo de incidencias en programas prioritarios</option>			
+						</select>
+						<button style="margin-top: 5%;" class="btn btn-primary" id="nuevaEstadisticaAnual" value=<%=  %> type="button">Generar Estadisticas</button>
 					</div>
 					<div style="clear: both"></div>
 				</div>

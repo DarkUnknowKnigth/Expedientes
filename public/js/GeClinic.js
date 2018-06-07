@@ -508,7 +508,7 @@ $("#generarHojaDiaria").click((e)=>{
 						table=table.replace("á","a");
 						table=table.replace('í','i');
 						table=table.replace('é','e');
-						var result = "data:application/vnd.ms-excel,"+encodeURIComponent();
+						var result = "data:application/vnd.ms-excel,"+encodeURIComponent(table);
 						a.href = result;
 						a.download = "HojaDiaria_"+$("#fechaHoja").val()+".xls";
 						a.click();

@@ -1181,7 +1181,7 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	consulta.diagnostico=$("#diagnostico").val();
 	consulta.programa=$("#programMotivo").val();
 	var ff=new Date();
-	consulta.fecha=ff.getFullYear()+"-0"+ff.getMonth()+"-0"+ff.getDay();
+	consulta.fecha=ff.getFullYear()+"-0"+(ff.getMonth()+1)+"-0"+ff.getDate();
 	consulta.doc=$("#ID_USER").text().trim();
 	console.log(consulta);
 	$.ajax({

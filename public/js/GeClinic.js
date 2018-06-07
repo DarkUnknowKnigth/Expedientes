@@ -501,14 +501,16 @@ $("#generarHojaDiaria").click((e)=>{
 						$(this).dialog("close");
 					},
 					Guardar:()=>{
-						var table= $("#HojaDiaria_clinica");
-  						var html = table.html();
-						//window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
-						var result = "data:application/vnd.ms-excel,"+encodeURIComponent(html);
-						this.href = result;
+						var a = document.createElement('a');
+						var table= $("#HojaDiaria_clinica").html();
+						// window.open('data:application/vnd.ms-excel,' + encodeURIComponent(table));
+						var result = "data:application/vnd.ms-excel,"+encodeURIComponent(table);
+						a.href = result;
 						var now=new Date();
-						this.download = "HojaDiaria_"+now.toDateString()+".xls";
-						return true;
+						a.download = "HojaDiaria_"+now.toDateString()+".xls";
+						a.click();
+						e.preventDefault;
+						return (a);
 					}
 				}
 			});

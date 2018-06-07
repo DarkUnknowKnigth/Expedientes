@@ -202,22 +202,115 @@ function estadistica(req,res)
     }  
 }
 function anual(req,res){
-    Consulta.find({"formatoConsulta.deteccion":"Diabetes Mellitus"}).count());
-    Consulta.find({"formatoConsulta.deteccion":"Hipertensión Arterial"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Obesidad"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Dislipidemias"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Depresión"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Alteración de memoria"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Síntomas respiratorios"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Alcoholismo"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Tabaquismo"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Fármacos"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Incontinencia urinaria"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"VIH"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Gonorrea"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"ITS"}).count();
-    Consulta.find({"formatoConsulta.deteccion":"Sífilis"}).count();
-    res.send(req.body);
+    var valores={
+        diabetes:"",
+        ha:"",
+        obesidad:"",
+        disl:"",
+        dep:"",
+        alt:"",
+        sin:"",
+        alc:"",
+        tab:"",
+        farm:"",
+        inc:"",
+        vih:"",
+        gon:"",
+        its:"",
+        sif:""
+
+    };
+    Consulta.find({"formatoConsulta.deteccion":"Diabetes Mellitus"}).count().exec((err,dm)=>{
+        if(!err)
+        {
+            valores.diabetes=dm;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Hipertensión Arterial"}).count().exec((err,ha)=>{
+        if(!err)
+        {
+            valores.ha=ha;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Obesidad"}).count().exec((err,o)=>{
+        if(!err)
+        {
+            valores.obesidad=o;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Dislipidemias"}).count().exec((err,d)=>{
+        if(!err)
+        {
+            valores.disl=d;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Depresión"}).count().exec((err,de)=>{
+        if(!err)
+        {
+            valores.dep=de;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Alteración de memoria"}).count().exec((err,am)=>{
+        if(!err)
+        {
+            valores.alt=am;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Síntomas respiratorios"}).count().exec((err,sr)=>{
+        if(!err)
+        {
+            valores.sin=sr;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Alcoholismo"}).count().exec((err,a)=>{
+        if(!err)
+        {
+            valores.alc=a;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Tabaquismo"}).count().exec((err,t)=>{
+        if(!err)
+        {
+            valores.tab=t;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Fármacos"}).count().exec((err,f)=>{
+        if(!err)
+        {
+            valores.farm=f;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Incontinencia urinaria"}).count().exec((err,iu)=>{
+        if(!err)
+        {
+            valores.inc=iu;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"VIH"}).count().exec((err,v)=>{
+        if(!err)
+        {
+            valores.vih=v;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Gonorrea"}).count().exec((err,g)=>{
+        if(!err)
+        {
+            valores.gon=g;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"ITS"}).count().exec((err,i)=>{
+        if(!err)
+        {
+            valores.its=i;
+        }
+    });
+    Consulta.find({"formatoConsulta.deteccion":"Sífilis"}).count().exec((err,s)=>{
+        if(!err)
+        {
+            valores.sif=s;
+        }
+    });
+    res.send(valores);
 }
 module.exports={
     generarHojaDiaria,

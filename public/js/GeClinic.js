@@ -51,6 +51,10 @@ $("#SearchExp").click((r)=>{
 /*Eventos de accordion*/
 $("#crearExp a").click(function(){
 	darColorVinetas("#crearExp");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	texto = $(".createExp p").text();
 
@@ -60,15 +64,23 @@ $("#crearExp a").click(function(){
 	}
 	$(".createExp").css("display","block");
 	$(".createExp form").css("display","none");
-	$(".createExp #firstForm").css("display","block")
+	$(".createExp #firstForm").css("display","block");
 });
 $("#modifExp a").click(function(){
 	darColorVinetas("#modifExp");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	$(".modifExp").css("display","block");
 })
 $("#crearUser a").click(function(){
 	darColorVinetas("#crearUser");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	$(".putForm form").css("display","none");
 
@@ -84,21 +96,37 @@ $("#crearUser a").click(function(){
 });
 $("#modifUser a").click(function(){
 	darColorVinetas("#modifUser");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	$(".modifUser").css("display","block");
 });
 $("#procesoConsulta a").click(function(){
 	darColorVinetas("#procesoConsulta");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	$(".procesoConsulta").css("display","block");
 });
 $("#genHojaDiaria a").click(function(){
 	darColorVinetas("#genHojaDiaria");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	$(".genHojaDiaria").css("display","block");
 });
 $("#genInformeMensual a").click(function(){
 	darColorVinetas("#genInformeMensual");
+	$(".rightSide").css({
+		"background-image":"none",
+		"animation":"none"
+	});
 	$(".containerForms").css("display","none");
 	$(".genInformeMensual").css("display","block");
 });

@@ -55,7 +55,7 @@ function guardar(req,res) {
                             else
                             {
                                 res.send({msg:"Se agrego la consulta al expediente y Se registro en: "+uss.usuario});
-                                console.log(pass);                        
+                                console.log(uss);                        
                             }
                         });                     
                     }

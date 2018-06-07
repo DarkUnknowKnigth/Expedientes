@@ -595,10 +595,10 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 		data: {"seleccion":$("#estadiP").val()}
 	}).done((r) => {
 		$("#informe").html('<div id="chart_div" style="width: 1200px; height: 600px;"></div>');
-		google.charts.load('current', { 'packages': ['corechart'] });
-		google.charts.setOnLoadCallback(drawChart);
 		if (r.quien == "detec") 
 		{
+			google.charts.load('current', {'packages':['corechart']});
+      		google.charts.setOnLoadCallback(drawChart);
 			function drawChart() {
 				var data = google.visualization.arrayToDataTable([
 					['Detecciones', 'Pacientes', { role: 'style' }],
@@ -617,17 +617,17 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 					['Sífilis', r.sif, 'color: #00994d'],
 					['ITS', r.its, 'color: #009999']
 				]);
+				var options = {
+					title: 'Estadísticas de Detecciones Anuales en Consultas Médicas',
+					legend: { position: 'none' },
+					vAxis: {
+						title: 'Cantidad de pacientes',
+						format: '0'
+					}
+				};
+				var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
 			}
-			var options = {
-				title: 'Estadísticas de Detecciones Anuales en Consultas Médicas',
-				legend: { position: 'none' },
-				vAxis: {
-					title: 'Cantidad de pacientes',
-					format: '0'
-				}
-			};
-			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
 		}
 		$("#dialog-message").dialog({
 			modal: true,

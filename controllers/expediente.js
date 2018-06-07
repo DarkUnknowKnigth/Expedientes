@@ -554,7 +554,7 @@ function guardar(req, res) {
 }
 function update(req,res)
 {
-    query=req.params
+    query=req.params;
     res.send(query);
 }
 module.exports={

@@ -218,8 +218,8 @@ $(".modifExp .edit").click(function(e){
 		$("#informe").text(res);
 		$("#dialog-message").dialog({
 			modal: true,
-			width: 200,
-			heigth: 200,
+			width: 1000,
+			heigth: 600,
 			buttons: 
 			{
 				Ok: function () {
@@ -227,7 +227,7 @@ $(".modifExp .edit").click(function(e){
 				}
 			}
 		});
-		
+
 
 	});
 });

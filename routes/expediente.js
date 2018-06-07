@@ -11,7 +11,7 @@ expediente.get('/eliminar',(req,res)=>{
 });
 expediente.post('/nuevoExpediente',controladorExpediente.guardar);
 expediente.post('/SolicitarModificarExpediente',controladorExpediente.modificar);
-expediente.put('/modificar',controladorExpediente,update);
+expediente.put('/modificar',controladorExpediente.update);
 expediente.delete('/eliminarExpediente/:id',controladorExpediente.eliminar);
 expediente.post('/buscarExpediente',controladorExpediente.buscar);
 expediente.post('/buscarUno',controladorExpediente.query);

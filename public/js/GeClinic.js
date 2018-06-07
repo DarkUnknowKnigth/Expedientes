@@ -479,17 +479,17 @@ var enfermedades = [
 						{nombre:"Hipertensión arterial", value: "Hipertensión arterial"},
 						{nombre:"Obesidad", value: "Obesidad"},
 						{nombre:"Dislipidemias", value: "Dislipidemias"},
-						{nombre:"Depresión", value: "Depresion"},
+						{nombre:"Depresión", value: "Depresión"},
 						{nombre:"Alteración de memoria", value: "Alteración de memoria"},
 						{nombre:"Síntomas respiratorios", value: "Síntomas respiratorios"},
 						{nombre:"Alcoholismo", value: "Alcoholismo"},
 						{nombre:"Tabaquismo", value: "Tabaquismo"},
-						{nombre:"Fármacos", value: "Farmacos"},
+						{nombre:"Fármacos", value: "Fármacos"},
 						{nombre:"Incontinencia urinaria", value: "Incontinencia urinaria"},
 						{nombre:"VIH", value: "VIH"},
 						{nombre:"Gonorrea", value: "Gonorrea"},
 						{nombre:"ITS", value: "ITS"},
-						{nombre:"Sífilis", value: "Sifilis"},
+						{nombre:"Sífilis", value: "Sífilis"},
 						{nombre:"Otros", value:"Otros"}
 					];
 

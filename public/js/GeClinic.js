@@ -669,8 +669,8 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 					$(this).dialog("close");
 				},
 				Guardar:function(){
-					
-					saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
+					let d=new Date()
+					saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica"+d.toISOString()+".png");
 					$(this).dialog("close");
 				}
 			}
@@ -711,7 +711,8 @@ $("#nuevaEstadistica").click((e)=>{
 						$(this).dialog("close");
 					},
 					Guardar:function(){
-						saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica.png");
+						let d=new Date()
+						saveSvgAsPng($(".currenGrafic svg")[0], "Estadistica"+d.toISOString()+".png");
 						$(this).dialog("close");
 					}
 				}

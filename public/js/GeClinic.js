@@ -316,7 +316,7 @@ var consulta={
 	Temp:"",
 	deteccion:"",
 	primeravez:false,
-	sitomasTB:false,
+	sintomasTB:false,
 	nivelObesidad:"",
 	saludReprod:"",
 	diagnostico:"",
@@ -504,8 +504,8 @@ $("#generarHojaDiaria").click((e)=>{
 						var a = document.createElement('a');
 						var table= $("#HojaDiaria_clinica").html();
 						// window.open('data:application/vnd.ms-excel,' + encodeURIComponent(table));
-						table=table.replace("ó","o");
 						table=table.replace("á","a");
+						table=table.replace("ó","o");
 						table=table.replace('í','i');
 						table=table.replace('é','e');
 						var result = "data:application/vnd.ms-excel,"+encodeURIComponent(table);
@@ -996,8 +996,6 @@ $("#formFichIde button").click(function(e){
 			}
 		});
 	}
-	
-	
 });
 
 $("#formAPNP button").click(function(){

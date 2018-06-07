@@ -587,6 +587,16 @@ $("#RefreshUser").click((e)=>{
 // });
 
 //Envio de datos al servidor 
+
+$("#nuevaEstadisticaAnual").click((e)=>{
+	$.ajax({
+		type: "POST",
+		url: e.target.value,
+		data: {"seleccion":$("#estadiP").val()}
+	}).done((r)=>{
+		console.log(r);
+	});
+});
 $("#nuevaEstadistica").click((e)=>{
 	$.ajax({
 		type: "POST",

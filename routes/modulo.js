@@ -94,6 +94,7 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                         buscarUno:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/expedientes/buscarUno`,
                         //link coordinador
                         hojaD:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarHojaDiaria`,
+                        anual:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/anual`,
                         //generarInforme:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/generarInforme`,
                         estadistica:`${address}/modulo/${usuario._id}&${usuario.usuario}&${usuario.password}/coordinador/estadistica`,
                         //link consulta 
@@ -171,6 +172,8 @@ modulo.get("/:id&:user&:pass",(req,res)=>{
                                             //link coordinador 
                                             estadistica:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/estadistica`,
                                             hojaD:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/generarHojaDiaria`,
+                                            anual:`${address}/modulo/${admin._id}&${admin.usuario}&${admin.password}/coordinador/anual`,
+
                                             //feed de tabla
                                             collection_expedientes:Expfined,
                                             usuarios: Usuariosfinded,

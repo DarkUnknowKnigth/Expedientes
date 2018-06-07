@@ -217,6 +217,7 @@ function anual(req,res){
     Consultas.find({"formatoConsulta.deteccion":"Gonorrea"}).count();
     Consultas.find({"formatoConsulta.deteccion":"ITS"}).count();
     Consultas.find({"formatoConsulta.deteccion":"Sífilis"}).count();
+    res.send(req.body);
 }
 module.exports={
     generarHojaDiaria,

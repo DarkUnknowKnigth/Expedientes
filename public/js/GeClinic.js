@@ -630,6 +630,36 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 				chart.draw(data, options);
 			}
 		}
+		if(r.quien=="prog")
+		{
+			google.charts.load('current', { 'packages': ['corechart'] });
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Programa según motivo', 'Pacientes', { role: 'style' }],
+					['A sanos', r.asan, 'color: #99ccff'],
+					['Enfermedades transmisibles', r.enf, 'color: #cc0000'],
+					['Crónico degenerativas', r.cro, 'color: #ffff33'],
+					['Otras enfermedades', r.otr, 'color: #ff6666'],
+					['Planificación familiar', r.plan, 'color: #d2ff4d']
+				]);
+				var options = {
+					title: 'Estadísticas de Programa según Motivo en Consultas Médicas',
+					legend: { position: 'none' },
+					vAxis: {
+						title: 'Cantidad de pacientes',
+						format: '0'
+					}
+				};
+				var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+
+		}
+		if(r.msg)
+		{
+			$("#informe").text(r.msg);
+		}
 		$("#dialog-message").dialog({
 			modal: true,
 			width: 1200,

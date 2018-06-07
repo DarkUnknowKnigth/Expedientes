@@ -504,7 +504,7 @@ $("#generarHojaDiaria").click((e)=>{
 						var a = document.createElement('a');
 						var table= $("#HojaDiaria_clinica").html();
 						// window.open('data:application/vnd.ms-excel,' + encodeURIComponent(table));
-						var result = "data:application/vnd.ms-excel,"+encodeURIComponent(table.replace("ó","o").replace("á","a"));
+						var result = "data:application/vnd.ms-excel,"+encodeURIComponent(table.replace("ón","on").replace("á","a").replace('í','i'));
 						a.href = result;
 						a.download = "HojaDiaria_"+$("#fechaHoja").val()+".xls";
 						a.click();

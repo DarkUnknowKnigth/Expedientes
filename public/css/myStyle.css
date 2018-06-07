@@ -182,7 +182,7 @@ header p{
 	animation: cambiarFondo 35s linear infinite;
 	-webkit-animation: cambiarFondo 35s linear infinite;
 	-moz-animation: cambiarFondo 35s linear infinite;
-	background-image: url("../img/IMG1.jpg");
+	background-image: url("../assets/IMG1.jpg");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;
@@ -190,37 +190,37 @@ header p{
 
 @keyframes cambiarFondo{
 	0%{
-		background-image: url("../img/IMG1.jpg");
+		background-image: url("../assets/IMG1.jpg");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;
 	}
 	20%{
-		background-image: url("../img/IMG2.jpg");
+		background-image: url("../assets/IMG2.jpg");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;
 	}
 	40%{
-		background-image: url("../img/IMG3.jpg");
+		background-image: url("../assets/IMG3.jpg");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;
 	}
 	60%{
-		background-image: url("../img/IMG4.jpg");
+		background-image: url("../assets/IMG4.jpg");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;
 	}
 	80%{
-		background-image: url("../img/IMG5.png");
+		background-image: url("../assets/IMG5.png");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;
 	}
 	100%{
-		background-image: url("../img/IMG1.jpg");
+		background-image: url("../assets/IMG1.jpg");
 		background-size: 90% 90%;
 		background-position: 50% 5%;
 		background-repeat: no-repeat;

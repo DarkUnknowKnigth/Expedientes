@@ -593,8 +593,52 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 		type: "POST",
 		url: e.target.value,
 		data: {"seleccion":$("#estadiP").val()}
-	}).done((r)=>{
-		console.log(r);
+	}).done((r) => {
+		$("#informe").html('<div id="chart_div" style="width: 1200px; height: 600px;"></div>');
+		google.charts.load('current', { 'packages': ['corechart'] });
+		google.charts.setOnLoadCallback(drawChart);
+		if (r.quien == "detec") 
+		{
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Detecciones', 'Pacientes', { role: 'style' }],
+					['Sintomas respiratorios', r.sin, 'color: #00e6e6'],
+					['Obesidad', r.obesidad, 'color: #cc0000'],
+					['Diabetes Mellitus', r.diabetes, 'color: #ffff33'],
+					['Hipertensión Arterial', r.ha, 'color: #ff6666'],
+					['Dislipidemias', r.disl, 'color: #ff8c1a'],
+					['Depresión', r, dep, 'color: #990099'],
+					['Alteración de memoria', r.alt, 'color: #9999ff'],
+					['Alcoholismo', r.alc, 'color: #ff99ff'],
+					['Tabaquismo', r.tab, 'color: #e600e6'],
+					['Fármacos', r.farm, 'color: #cc0099'],
+					['VIH', r.vih, 'color: #00ff80'],
+					['Gonorrea', r.gon, 'color: #00cc66'],
+					['Sífilis', r.sif, 'color: #00994d'],
+					['ITS', r.its, 'color: #009999']
+				]);
+			}
+			var options = {
+				title: 'Estadísticas de Detecciones Anuales en Consultas Médicas',
+				legend: { position: 'none' },
+				vAxis: {
+					title: 'Cantidad de pacientes',
+					format: '0'
+				}
+			};
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+		$("#dialog-message").dialog({
+			modal: true,
+			width: 1200,
+			heigth: 600,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
 	});
 });
 $("#nuevaEstadistica").click((e)=>{

@@ -203,6 +203,7 @@ function estadistica(req,res)
 }
 function anual(req,res){
     var valores={
+        quien:"",
         diabetes:"",
         ha:"",
         obesidad:"",
@@ -280,6 +281,7 @@ function anual(req,res){
                                                                                                                         if(!err)
                                                                                                                         {
                                                                                                                             valores.sif=s;
+                                                                                                                            valores.quien="detec";
                                                                                                                             res.send(valores);
                                                                                                                         }
                                                                                                                     });

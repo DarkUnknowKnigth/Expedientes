@@ -595,7 +595,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 		data: {"seleccion":$("#estadiP").val()}
 	}).done((r) => {
 		console.log(r);
-		$("#informe").html('<div id="chart_div" style="width: 1200px; height: 600px;"></div>');
+		$("#informe").html('<div id="chart_div" class="currenGrafic" style="width: 1200px; height: 600px;"></div>');
 		if (r.quien == "detec") 
 		{
 			google.charts.load('current', {'packages':['corechart']});
@@ -667,7 +667,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			buttons: {
 				Ok: function () {
 					$(this).dialog("close");
-					saveSvgAsPng($("#chart_div svg"), "Estadistica.png");
+					saveSvgAsPng($(".currenGrafic svg"), "Estadistica.png");
 				}
 			}
 		});

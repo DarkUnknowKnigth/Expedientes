@@ -594,6 +594,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 		url: e.target.value,
 		data: {"seleccion":$("#estadiP").val()}
 	}).done((r) => {
+		console.log(r);
 		$("#informe").html('<div id="chart_div" style="width: 1200px; height: 600px;"></div>');
 		if (r.quien == "detec") 
 		{
@@ -607,7 +608,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 					['Diabetes Mellitus', r.diabetes, 'color: #ffff33'],
 					['Hipertensión Arterial', r.ha, 'color: #ff6666'],
 					['Dislipidemias', r.disl, 'color: #ff8c1a'],
-					['Depresión', r, dep, 'color: #990099'],
+					['Depresión', r.dep, 'color: #990099'],
 					['Alteración de memoria', r.alt, 'color: #9999ff'],
 					['Alcoholismo', r.alc, 'color: #ff99ff'],
 					['Tabaquismo', r.tab, 'color: #e600e6'],

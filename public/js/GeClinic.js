@@ -332,7 +332,7 @@ $("#buscarEXP").click(function(e){
 		$.ajax({
 			type: "POST",
 			url: e.target.value,
-			data: {curp:$("#buscarExpCurp").val().tirm()},
+			data: {curp:$("#buscarExpCurp").val().trim()},
 			success: function (r) {
 				$(".resultExpCurp").html(r.msg);
 				$(".resultExpCurp").css("display","block");

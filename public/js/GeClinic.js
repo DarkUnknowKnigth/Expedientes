@@ -1208,11 +1208,12 @@ $("#nextAntec").click(()=>{
 
 });
 ///campos seguros
-$("#formFichIde input").keypress((e)=>{
+$("#formFichIde input").keydown((e)=>{
 	var patt = /[^A-Za-z\s\0]/;
 	if(patt.test(e.target.value))
 	{
 		e.preventDefault()
+		str.substring(0, str.length-1);
 		console.log(e.target.value);
 	} 	
 });

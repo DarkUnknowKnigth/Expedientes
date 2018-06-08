@@ -1210,7 +1210,7 @@ $("#nextAntec").click(()=>{
 ///campos seguros
 $("#formFichIde input").keydown((e)=>{
 
-	if((!/[\s\d\0\w]/.test(e.target.value)))
+	if((/[\s\d\0\w]/.test(e.target.value)))
 	{
 		
 	} 

@@ -1209,14 +1209,10 @@ $("#nextAntec").click(()=>{
 });
 ///campos seguros
 $("#formFichIde input").keydown((e)=>{
-	if(e.target.value !=null)
+	var patt = /[^A-Za-z\s\0]/;
+	if(patt.test(e.target.value))
 	{
-		if(!/[\s\d\w]/.test(e.target.value))
-		{
-			e.preventDefault()
-			console.log(e.target.value);
-		} 
-	}
-	console.log("corecto")
-	
+		e.preventDefault()
+		console.log(e.target.value);
+	} 	
 });

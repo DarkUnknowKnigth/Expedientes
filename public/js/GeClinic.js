@@ -656,7 +656,8 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 					['VIH', r.vih, 'color: #00ff80'],
 					['Gonorrea', r.gon, 'color: #00cc66'],
 					['Sífilis', r.sif, 'color: #00994d'],
-					['ITS', r.its, 'color: #009999']
+					['ITS', r.its, 'color: #009999'],
+					['Otros',r.ottt ,'color: #99ffcc']
 				]);
 				var options = {
 					title: 'Estadísticas de Detecciones Anuales en Consultas Médicas',
@@ -703,13 +704,13 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			google.charts.setOnLoadCallback(drawChart);
 			function drawChart() {
 				var data = google.visualization.arrayToDataTable([
-					['Tipo de Obesidad', 'Casos detectados',{ role: 'style' }],
-					['Bajo Peso', r.bp,'color: #99aaff']
-					['Peso Normal', r.np,'color: #99bbff'],
-					['Sobrepeso', r.sp,'color: #99ccff'],
-					['Obesidad', r.ob0,'color: #99ddff'],
-					['Obesidad I', r.ob1,'color: #99eeff'],
-					['Obesidad II', r.ob2,'color: #99ffff'],
+					['Tipo de Obesidad', 'Casos detectados'],
+					['Bajo Peso', r.bp]
+					['Peso Normal', r.np],
+					['Sobrepeso', r.sp],
+					['Obesidad', r.ob0],
+					['Obesidad I', r.ob1],
+					['Obesidad II', r.ob2],
 				]);
 				var options = {
 					title: 'Estadísticas de Obesidad detectada',

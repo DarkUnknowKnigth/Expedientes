@@ -230,7 +230,8 @@ function anual(req,res)
         sp:"",
         ob0:"",
         ob1:"",
-        ob2:""
+        ob2:"",
+        ottt:"",
     };
     if(req.body.seleccion=="detecciones")
     {
@@ -294,8 +295,14 @@ function anual(req,res)
                                                                                                                             if(!err)
                                                                                                                             {
                                                                                                                                 valores.sif=s;
-                                                                                                                                valores.quien="detec";
-                                                                                                                                res.send(valores);
+                                                                                                                                Consulta.find({"formatoConsulta.deteccion":"Otros"}).count().exec((err,ott)=>{
+                                                                                                                                    if(!err)
+                                                                                                                                    {
+                                                                                                                                        valores.ottt=ott;
+                                                                                                                                        valores.quien="detec";
+                                                                                                                                        res.send(valores);
+                                                                                                                                    }
+                                                                                                                                });
                                                                                                                             }
                                                                                                                         });
                                                                                                                     }

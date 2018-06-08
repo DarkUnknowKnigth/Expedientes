@@ -44,7 +44,8 @@ function validarUsuario(req, res) {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
                                     //luego redireccionar con los parametros validos a principal
-                                    if (Ss.estaRegistrado(req.params.id)) {
+                                    if (Ss.estaRegistrado(usuario._id)) 
+                                    {
                                         res.send({
                                             message:
                                                 '<div class="alert alert-dark" role="alert">' +

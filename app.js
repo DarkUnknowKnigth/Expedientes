@@ -108,20 +108,19 @@ app.use((req,res,next)=>{ //middleware de autentificacion
     }
 });
 app.use("/modulo",RutasModulo);
-app.get('/logout',function(req,res){    
-    req.session.destroy(function(err){  
-        if(err){  
-            console.log(err);  
-        }  
-        else  
-        {  
-            res.redirect('/');  
-        }  
-    });  
-
+app.get('/logout/:id',function(req,res){    
+    if(Ss.logout(req,res))
+    {
+        res.redirect('/');
+    }
+    else
+    {
+         res.redirect(req.originalUrl);
+    }
 });  
 //ruta de error
-app.get("*",(req,res)=>{
-res.status(404).render("pages/error");
+app.get("*",(req,res)=>
+{
+    res.status(404).render("pages/error");
 });
 module.exports=app;

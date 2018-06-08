@@ -37,7 +37,7 @@
 		</div>
 		<div class="top-barActions">
 			<div class="conf"><a href="#"><i class="fas fa-cog"></i></a></div>
-			<div class="logOut"><a href="https://stark-sea-10471.herokuapp.com/logout"><i class="fas fa-sign-out-alt"></i></a></div>
+			<div class="logOut"><a href="https://stark-sea-10471.herokuapp.com/logout/<%=idU%>"><i class="fas fa-sign-out-alt"></i></a></div>
 		</div>
 		<p>SISTEMA WEB PARA LA GESTIÓN DE EXPEDIENTES CLÍNICOS <br>CENTRO DE SALUD SANTA CRUZ</p>
 	</header>
@@ -944,10 +944,10 @@
 								<td scope="col"><%=expediente.direccion%></td>
 								<td scope="col"><%=expediente.sexo%></td>
 								<td>
-									<button class="edit btn" value=<%=SolicitarModificarExpediente %> name=<%=expediente.id%>>
+									<!-- <button class="edit btn" value=<%=SolicitarModificarExpediente %> name=<%=expediente.id%>> -->
 										<!-- <i class="fas fa-edit"></i> -->
-										Editar
-									</button>
+										<!-- Editar -->
+									<!-- </button> -->
 									<%if(permiso.eliminarExp){%>
 									<button class="delete btn " name=<%=eliminarExpediente + expediente.id%>>
 										<!-- <i class="fas fa-trash-alt"></i> -->
@@ -1173,10 +1173,10 @@
 									<%}%>
 
 									<td>
-										<button class="edit btn" name=<%=modificarUsuario + usuario.id%> value=<%=usuario.id %> >
+										<!-- <button class="edit btn" name=<%=modificarUsuario + usuario.id%> value=<%=usuario.id %> > -->
 											<!-- <i class="fas fa-edit"></i> -->
-											Editar
-										</button>
+											<!-- Editar -->
+										<!-- </button> -->
 										<button name=<%=eliminarUsuario + usuario.id%> value=<%=usuario.id %> class="btn delete">
 											<!-- <i class="fas fa-trash-alt"></i> -->
 											Eliminar

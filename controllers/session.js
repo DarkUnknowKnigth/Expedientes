@@ -4,7 +4,7 @@ function storeSession(id)
     var uss=new Ss();
     uss.id=id;
     let now=new Date();
-    uss.fecha=now.getFullYear()+"-0"+(now.getMonth()+1)+"-0"+now.getDate();
+    uss.fecha=now.getFullYear()+"-0"+(now.getMonth()+1)+"-0"+now.getDate()+"|"+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
     uss.save((err,session)=>{
         if(!err)
         {
@@ -16,7 +16,7 @@ function storeSession(id)
 }
 function estaRegistrado(req,res) 
 {  
-    Ss.find({id:req.bod.id}).count().exec((err,value)=>{
+    Ss.find({id:params.bod.id}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
@@ -32,24 +32,25 @@ function estaRegistrado(req,res)
 }
 function logout(req,res) 
 {  
-    Ss.find({id:req.bod.id}).count().exec((err,value)=>{
+    Ss.find({id:req.params.id}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
             {
-                Ss.deleteOne({id:req.body.id},(err)=>{
+                Ss.deleteOne({id:req.params.id},(err)=>{
                     if(!err)
                     {
-                        res.redirect('/');
+                        return true;
                     }
                     throw err;
                 });
             }
             else
             {
-                res.redirect('/');
+                return false;
             }
         }
+        return false;
     });
 }
 module.exports={

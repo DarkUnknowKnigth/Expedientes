@@ -1208,7 +1208,7 @@ $("#nextAntec").click(()=>{
 
 });
 ///campos seguros
-$("#formFichIde input").keypress((e)=>{
+$("#formFichIde input").keyup((e)=>{
 	console.log(e.target.value)
 	if(!(/[a-zA-Z0-9.,\s]/.test(e.target.value)))
 	{

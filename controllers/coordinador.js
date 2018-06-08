@@ -239,7 +239,7 @@ function anual(req,res)
             if(!err)
             {
                 valores.diabetes=dm;
-                Consulta.find({"formatoConsulta.deteccion":"Hipertensión Arterial"}).count().exec((err,ha)=>{
+                Consulta.find({"formatoConsulta.deteccion":"Hipertensión arterial"}).count().exec((err,ha)=>{
                     if(!err)
                     {
                         valores.ha=ha;

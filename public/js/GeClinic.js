@@ -707,7 +707,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 	  
 			  var data = google.visualization.arrayToDataTable([
 				['Categorias de Peso', 'Frecuencia de detecciones'],
-				['Work',  ],
+				['Work', 1 ],
 				['Eat',      2],
 				['Commute',  2],
 				['Watch TV', 2],

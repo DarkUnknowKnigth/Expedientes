@@ -14,19 +14,19 @@ function storeSession(id)
         return false;
     })
 }
-function estaRegistrado(req,res) 
+function estaRegistrado(Uid) 
 {  
-    Ss.find({id:params.bod.id}).count().exec((err,value)=>{
+    Ss.find({id:Uid}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
             { 
-                res.redirect('/');   
+               return true;  
             }
         }
         else
         {
-            return true;
+            return false;
         }
     });
 }

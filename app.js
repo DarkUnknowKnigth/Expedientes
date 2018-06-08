@@ -50,7 +50,6 @@ app.use(session({
 ============================================================*/
 //ruta base carga vista del login es ala que se accede al cargar la pagina por primera vez
 app.get("/",(req,res)=>{
-    req.session.user_id=null;
     res.render("pages/login");
 });
 app.use((req,res,next)=>{ //middleware de session
@@ -115,7 +114,7 @@ app.get('/logout/:id',function(req,res){
     }
     else
     {
-         res.redirect(req.originalUrl);
+        res.redirect('/');
     }
 });  
 //ruta de error

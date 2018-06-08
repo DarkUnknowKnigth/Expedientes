@@ -15,6 +15,7 @@ const ejsLint = require('ejs-lint');
 var Usuariosfinded = "0 results";
 var Expfined = "0 results";
 modulo.get("/:id&:user&:pass",(req,res)=>{
+    
     Expediente.find({}).sort({ nombre: 'asc'}).exec((err, expedientes) => {
         if (err) {
             throw err;

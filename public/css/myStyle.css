@@ -178,7 +178,7 @@ header p{
 	border-radius: 10px;
 	padding-bottom: 5%;
 	margin-bottom: 3%;
-	transition: ease all 0.2s;
+	transition: ease all 1.2s;
 	animation: cambiarFondo 35s linear infinite;
 	-webkit-animation: cambiarFondo 35s linear infinite;
 	-moz-animation: cambiarFondo 35s linear infinite;

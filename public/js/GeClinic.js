@@ -707,15 +707,16 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 	  
 			  var data = google.visualization.arrayToDataTable([
 				['Categorias de Peso', 'Frecuencia de detecciones'],
-				['Work', 1 ],
-				['Eat',      2],
-				['Commute',  2],
-				['Watch TV', 2],
-				['Sleep',    7]
+				['Bajo Peso', r.bp ],
+				['Peso normal',r.np],
+				['Sobre peso', r.sp],
+				['Obesidad', r.ob0],
+				['Obesidad I', r.ob1],
+				['Obesidad II', r.ob2]
 			  ]);
 	  
 			  var options = {
-				title: 'My Daily Activities'
+				title: 'Niveles de Obesidad'
 			  };
 	  
 			  var chart = new google.visualization.PieChart(document.getElementById('piechart'));

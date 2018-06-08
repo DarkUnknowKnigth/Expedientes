@@ -1219,6 +1219,7 @@
 				<label for="buscarExpCurp">Buscador de Expedientes:</label>
 				<!-- <input placeholder="Ingrese el curp para buscar el expediente" maxlength="18" onkeyup="this.value = this.value.toUpperCase();" required type="text" id="buscarExpCurp" name="buscarExpCurp"> -->
 			<select id="buscarExpCurp">
+				<option value="Seleccione">Seleccione una CURP</option>
 				<% collection_expedientes.forEach(expediente => { %>
 					<option value=<%= expediente.curp%>><%= expediente.curp %></option>
 				<%});%>

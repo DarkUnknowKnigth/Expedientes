@@ -1218,11 +1218,11 @@
 			<div class="groupForm buscarExpCurp">
 				<label for="buscarExpCurp">Buscador de Expedientes:</label>
 				<!-- <input placeholder="Ingrese el curp para buscar el expediente" maxlength="18" onkeyup="this.value = this.value.toUpperCase();" required type="text" id="buscarExpCurp" name="buscarExpCurp"> -->
-			<section id="buscarExpCurp">
+			<select id="buscarExpCurp">
 				<% collection_expedientes.forEach(expediente => { %>
 					<option value=<%= expediente.curp%>><%= expediente.curp %></option>
 				<%});%>
-			</section>
+			</select>
 			</div>
 			<div class="groupForm buscarExpCurp">
 				<button id="buscarEXP" style="margin-top: 45px; width: 50%;" type="button" class="btn btn-primary" value=<%= nuevaConsulta %>>Buscar</button>

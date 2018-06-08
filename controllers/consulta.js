@@ -61,6 +61,7 @@ function guardar(req,res) {
                                     }
                                     else
                                     {
+                                        console.log(uss);
                                         res.send({msg:"Se agrego la consulta al expediente y Se registro en el usuario: "+uss.usuario});
                                     }  
                                 });                     

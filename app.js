@@ -64,6 +64,7 @@ app.use((req,res,next)=>{ //middleware de session
         {
             if(user)
             {
+                console.log(Ss.storeSession(user._id));
                 req.session.user_id=user._id;
                 res.locals={usuario:user};
             }

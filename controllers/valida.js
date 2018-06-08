@@ -44,8 +44,7 @@ function validarUsuario(req, res) {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
                                     //luego redireccionar con los parametros validos a principal
-                                    if (Ss.estaRegistrado(usuario._id)) 
-                                    {
+                                    if (Ss.estaRegistrado(usuario._id)) {
                                         res.send({
                                             message:
                                                 '<div class="alert alert-dark" role="alert">' +
@@ -58,23 +57,8 @@ function validarUsuario(req, res) {
                                     }
                                     else
                                     {
-                                        if(Ss.storeSession(usuario._id))
-                                        {
-                                            res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
-                                        }
-                                        else
-                                        {
-                                            res.send({
-                                                message:
-                                                    '<div class="alert alert-dark" role="alert">' +
-                                                    '<form action="' + address + '/" method="GET">' +
-                                                    '<strong class="form-control">Error en la session</strong>' +
-                                                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
-                                                    '</form>' +
-                                                    '</div>'
-                                            });
-                                        }
-                                       
+
+                                        res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
                                     }
                                 }
                                 else {

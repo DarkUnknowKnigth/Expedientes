@@ -58,8 +58,23 @@ function validarUsuario(req, res) {
                                     }
                                     else
                                     {
-
-                                        res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                                        if(Ss.storeSession(usuario._id))
+                                        {
+                                            res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                                        }
+                                        else
+                                        {
+                                            res.send({
+                                                message:
+                                                    '<div class="alert alert-dark" role="alert">' +
+                                                    '<form action="' + address + '/" method="GET">' +
+                                                    '<strong class="form-control">Error en la session</strong>' +
+                                                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                                                    '</form>' +
+                                                    '</div>'
+                                            });
+                                        }
+                                       
                                     }
                                 }
                                 else {

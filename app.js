@@ -23,6 +23,7 @@ const app=express();
 var RutasPrincipal=require("./routes/principal");
 var RutasValidacion=require('./routes/valida');
 var RutasModulo=require("./routes/modulo");
+var Ss=require('./controllers/session');
 /*==========================================================
 ============== usando motor de plantillas ejs ==============
 ============================================================*/
@@ -66,7 +67,7 @@ app.use((req,res,next)=>{ //middleware de session
             {
                 req.session.user_id=user._id;
                 res.locals={usuario:user};
-                next();
+                Ss.storeSession(user._id) ? next() : next();
             }
             else
             {
@@ -81,7 +82,7 @@ app.use((req,res,next)=>{ //middleware de session
                         {
                             req.session.user_id=admin._id;
                             res.locals={usuario:admin};
-                            next();
+                            Ss.storeSession(admin._id) ? next() : next();
                         }
                         else
                         {

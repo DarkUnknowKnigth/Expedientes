@@ -1211,7 +1211,7 @@ $("#nextAntec").click(()=>{
 $("#formFichIde input").keydown((e)=>{
 	if(e.target.value !=null)
 	{
-		if((!/[\s\d\w]/.test(e.target.value)))
+		if(!/[\s\d\w]/.test(e.target.value))
 		{
 			e.preventDefault()
 			console.log(e.target.value);

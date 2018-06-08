@@ -224,8 +224,12 @@ function anual(req,res){
         otr:"",
         plan:"",
         asan:"",
-
-
+        bp:"",
+        np:"",
+        sp:"",
+        ob0:"",
+        ob1:"",
+        ob2:""
     };
     if(req.body.seleccion=="detecciones")
     {
@@ -350,18 +354,74 @@ function anual(req,res){
                                                     valores.plan=plf;
                                                     res.send(valores);
                                                 }
+                                                throw err;
                                             });
                                         }
+                                        throw err;
                                     });
                                 }
+                                throw err;
                             });
                         }
+                        throw err;
                     });
                 }
+                throw err;
             });
         }
-        else{
-            res.send({msg:"No se selecciono el tipo de grafico"});
+        else
+        {
+            if(req.body.seleccion=="obesidad")
+            {
+                Consulta.find({"formatoConsulta.nivelObesidad":"bajoPeso"}).count().exec((err,bp)=>{
+                    if(!err)
+                    {
+                        valores.bp=bp;
+                        Consulta.find({"formatoConsulta.nivelObesidad":"normal"}).count().exec((err,np)=>{
+                            if(!err)
+                            {
+                                valores.np=np;
+                                Consulta.find({"formatoConsulta.nivelObesidad":"sobrepeso"}).count().exec((err,sp)=>{
+                                    if(!err)
+                                    {
+                                        valores.sp=sp;
+                                        Consulta.find({"formatoConsulta.nivelObesidad":"obesidad"}).count().exec((err,ob0)=>{
+                                            if(!err)
+                                            {
+                                                valores.ob0=ob0;
+                                                Consulta.find({"formatoConsulta.nivelObesidad":"obesidad I"}).count().exec((err,ob1)=>{
+                                                    if(!err)
+                                                    {
+                                                        valores.ob1=ob1;
+                                                        Consulta.find({"formatoConsulta.nivelObesidad":"obesidad II"}).count().exec((err,ob2)=>{
+                                                            if(!err)
+                                                            {
+                                                                valores.ob2=ob2;
+                                                                valores.quien="obes";
+                                                                res.send(valores);
+                                                            }
+                                                            throw err;
+                                                        });
+                                                    }
+                                                    throw err;
+                                                });
+                                            }
+                                            throw err;
+                                        });
+                                    }
+                                    throw err;
+                                });
+                            }
+                            throw err;
+                        });
+                    }
+                    throw err;
+                });
+            }
+            else
+            {
+                res.send({msg:"No se selecciono el tipo de grafico"});
+            } 
         }
     } 
 }

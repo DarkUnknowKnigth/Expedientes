@@ -696,6 +696,28 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			}
 
 		}
+		if(r.quien=="obes")
+		{
+			$("#informe").html('<div id="piechart" class="currenGrafic" style="width: 900px; height: 500px;"></div>');
+			google.charts.load('current', { 'packages': ['corechart'] });
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Tipo de Obesidad', 'Casos detectados',{ role: 'style' }],
+					['Bajo Peso', r.bp,'color: #99aaff']
+					['Peso Normal', r.np,'color: #99bbff'],
+					['Sobrepeso', r.sp,'color: #99ccff'],
+					['Obesidad', r.ob0,'color: #99ddff'],
+					['Obesidad I', r.ob1,'color: #99eeff'],
+					['Obesidad II', r.ob2,'color: #99ffff'],
+				]);
+				var options = {
+					title: 'Estadísticas de Obesidad detectada',
+				};
+				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+				chart.draw(data, options);
+			}
+		}
 		if(r.msg)
 		{
 			$("#informe").text(r.msg);

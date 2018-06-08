@@ -1213,8 +1213,8 @@ $("#formFichIde input").keydown((e)=>{
 	str=e.target.value;
 	if(patt.test(str))
 	{
-		e.preventDefault()
 		str=str.substring(0, str.length-1);
+		e.preventDefault();
 		console.log(e.target.value);
 	} 	
 });

@@ -704,7 +704,7 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			google.charts.setOnLoadCallback(drawChart);
 			function drawChart(){
 				var data = google.visualization.arrayToDataTable([
-					['Tipo de Obesidad','Casos detectados'],
+					['Obesidad','Detecciones'],
 					['Bajo Peso', r.bp]
 					['Peso Normal', r.np],
 					['Sobrepeso', r.sp],

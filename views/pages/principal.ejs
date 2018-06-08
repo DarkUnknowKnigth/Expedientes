@@ -356,7 +356,7 @@
 					</div>
 					<div class="groupForm">
 						<label for="curp">CURP:</label>
-						<input placeholder="Ingrese CURP" type="text" id="curp" name="curp" onkeyup="this.value = this.value.toUpperCase();">
+						<input placeholder="Ingrese CURP" maxlength="18" type="text" id="curp" name="curp" onkeyup="this.value = this.value.toUpperCase();">
 					</div>
 					<div class="groupForm">
 						<label for="estadoCivil">Estado civil:</label>
@@ -1217,7 +1217,7 @@
 			</div> -->
 			<div class="groupForm buscarExpCurp">
 				<label for="buscarExpCurp">Buscador de Expedientes:</label>
-				<input placeholder="Ingrese el curp para buscar el expediente" onkeyup="this.value = this.value.toUpperCase();" required type="text" id="buscarExpCurp" name="buscarExpCurp">
+				<input placeholder="Ingrese el curp para buscar el expediente" maxlength="18" onkeyup="this.value = this.value.toUpperCase();" required type="text" id="buscarExpCurp" name="buscarExpCurp">
 			</div>
 			<div class="groupForm buscarExpCurp">
 				<button id="buscarEXP" style="margin-top: 45px; width: 50%;" type="button" class="btn btn-primary" value=<%= nuevaConsulta %>>Buscar</button>

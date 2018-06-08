@@ -1209,13 +1209,12 @@ $("#nextAntec").click(()=>{
 });
 ///campos seguros
 $("#formFichIde input").keyup((e)=>{
-	var patt = /[^A-Za-z0-9\s\0]/;
+	var patt = /[^.,A-Za-z0-9\s\0]/;
 	str=e.target.value;
 	if(patt.test(str))
 	{
-		bad=str.search(/[^A-Za-z0-9\s\0]/);
+		bad=str.search(/[^,.A-Za-z0-9\s\0]/);
 		e.target.value=str.replace(str[bad],'');
 		e.preventDefault();
-		console.log(e.target.value);
 	} 	
 });

@@ -17,12 +17,12 @@ $(document).ready(function(){
 	$("#failUser").css("display","none");
 	$("#parentRest").text(dec);
 	$("input:text").keyup((e) => {
-		var patt = /[^.,A-Za-z0-9áéióú\s\0]/;
+		var patt = /[^.,A-Za-z0-9áéióúñ\s\0]/;
 		str = e.target.value;
 		if (patt.test(str)) {
-			bad = str.search(/[^,.A-Za-z0-9áéióú\s\0]/);
+			bad = str.search(/[^,.A-Za-z0-9áéióúñ\s\0]/);
 			while (bad != -1) {
-				bad = str.search(/[^,.A-Za-z0-9áéióú\s\0]/);
+				bad = str.search(/[^,.A-Za-z0-9áéióúñ\s\0]/);
 				str = str.replace(str[bad], '');
 			}
 			e.target.value = str;
@@ -30,12 +30,12 @@ $(document).ready(function(){
 		}
 	});
 	$("textarea").keyup((e) => {
-		var patt = /[^.,A-Za-z0-9áéióú\s\0]/;
+		var patt = /[^.,A-Za-z0-9áéióúñ\s\0]/;
 		str = e.target.value;
 		if (patt.test(str)) {
-			bad = str.search(/[^,.A-Za-z0-9áéióú\s\0]/);
+			bad = str.search(/[^,.A-Za-z0-9áéióúñ\s\0]/);
 			while (bad != -1) {
-				bad = str.search(/[^,.A-Za-z0-9áéióú\s\0]/);
+				bad = str.search(/[^,.A-Za-z0-9áéióúñ\s\0]/);
 				str = str.replace(str[bad], '');
 			}
 			e.target.value = str;

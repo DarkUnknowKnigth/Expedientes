@@ -18,12 +18,16 @@ function estaRegistrado(Uid)
 {  
 
     console.log("buscando a: "+ Uid);
-    Ss.find({"session":Uid}).count().exec((err,value)=>{
+    Ss.findOne({"session":Uid}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
             { 
                return true;  
+            }
+            else
+            {
+                return false;
             }
         }
         else
@@ -49,9 +53,12 @@ function logout(req,res)
             }
             else
             {
+                console.log("no se elimino");
                 return false;
             }
         }
+        
+        console.log("erro en la eliminacion");
         return false;
     });
 }

@@ -201,7 +201,8 @@ function estadistica(req,res)
 
     }  
 }
-function anual(req,res){
+function anual(req,res)
+{
     var valores={
         quien:"",
         diabetes:"",
@@ -354,24 +355,23 @@ function anual(req,res){
                                                     valores.plan=plf;
                                                     res.send(valores);
                                                 }
-                                                throw err;
+                            
                                             });
                                         }
-                                        throw err;
+                    
                                     });
                                 }
-                                throw err;
+            
                             });
                         }
-                        throw err;
+    
                     });
                 }
-                throw err;
             });
         }
         else
         {
-            if(req.body.seleccion=="obesidad")
+            if(req.body.seleccion=="obes")
             {
                 Consulta.find({"formatoConsulta.nivelObesidad":"bajoPeso"}).count().exec((err,bp)=>{
                     if(!err)
@@ -400,22 +400,21 @@ function anual(req,res){
                                                                 valores.quien="obes";
                                                                 res.send(valores);
                                                             }
-                                                            throw err;
+                                    
                                                         });
                                                     }
-                                                    throw err;
+                            
                                                 });
                                             }
-                                            throw err;
+                    
                                         });
                                     }
-                                    throw err;
+            
                                 });
                             }
-                            throw err;
+    
                         });
                     }
-                    throw err;
                 });
             }
             else

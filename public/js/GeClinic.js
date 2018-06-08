@@ -1208,10 +1208,10 @@ $("#nextAntec").click(()=>{
 
 });
 ///campos seguros
-$("#formFichIde input").keydown((e)=>{
+$("#formFichIde input").keypress((e)=>{
+	console.log(e.target.value)
 	if(!(/[a-zA-Z0-9.,\s]/.test(e.target.value)))
 	{
 		e.preventDefault()
 	} 
-	console.log(e.target.value)
 });

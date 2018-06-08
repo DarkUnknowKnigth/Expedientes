@@ -5,7 +5,7 @@ function storeSession(id)
     var uss=new Ss();
     uss.session=id;
     let now=new Date();
-    Us.findOne({"id":id}).exec((err,user)=>{
+    Us.findById({id}).exec((err,user)=>{
         if(!err)
         {
             uss.fecha=now.getFullYear()+"-0"+(now.getMonth()+1)+"-0"+now.getDate()+"|"+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();

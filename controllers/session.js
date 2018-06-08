@@ -16,7 +16,9 @@ function storeSession(id)
 }
 function estaRegistrado(Uid) 
 {  
-    Ss.find({session:Uid}).count().exec((err,value)=>{
+
+    console.log("buscando a: "+ Uid);
+    Ss.find({"session":Uid}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
@@ -32,12 +34,12 @@ function estaRegistrado(Uid)
 }
 function logout(req,res) 
 {  
-    Ss.find({session:req.params.id}).count().exec((err,value)=>{
+    Ss.find({'session':req.params.id}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
             {
-                Ss.deleteOne({session:req.params.id},(err)=>{
+                Ss.deleteOne({'session':req.params.id},(err)=>{
                     if(!err)
                     {
                         return true;

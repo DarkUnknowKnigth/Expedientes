@@ -232,6 +232,7 @@ function anual(req,res)
         ob1:"",
         ob2:"",
         ottt:"",
+        urin:"",
     };
     if(req.body.seleccion=="detecciones")
     {
@@ -298,9 +299,14 @@ function anual(req,res)
                                                                                                                                 Consulta.find({"formatoConsulta.deteccion":"Otros"}).count().exec((err,ott)=>{
                                                                                                                                     if(!err)
                                                                                                                                     {
-                                                                                                                                        valores.ottt=ott;
-                                                                                                                                        valores.quien="detec";
-                                                                                                                                        res.send(valores);
+                                                                                                                                        valores.ottt = ott;
+                                                                                                                                        Consulta.find({ "formatoConsulta.deteccion": "Incontinencia urinaria" }).count().exec((err, urin) => {
+                                                                                                                                            if (!err) {
+                                                                                                                                                valores.urin=urin
+                                                                                                                                                valores.quien = "detec";
+                                                                                                                                                res.send(valores);
+                                                                                                                                            }
+                                                                                                                                        });                                                                                            
                                                                                                                                     }
                                                                                                                                 });
                                                                                                                             }

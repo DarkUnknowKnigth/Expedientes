@@ -657,7 +657,9 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 					['Gonorrea', r.gon, 'color: #00cc66'],
 					['Sífilis', r.sif, 'color: #00994d'],
 					['ITS', r.its, 'color: #009999'],
-					['Otros',r.ottt ,'color: #99ffcc']
+					['Otros',r.ottt ,'color: #99ffcc'],
+					['Incontinencia U.',r.urin ,'color: #ffd11a']
+
 				]);
 				var options = {
 					title: 'Estadísticas de Detecciones Anuales en Consultas Médicas',

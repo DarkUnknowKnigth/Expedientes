@@ -54,8 +54,13 @@ function guardar(req,res) {
                             }
                             else
                             {
-                                res.send({msg:"Se agrego la consulta al expediente y Se registro en: "+uss.usuario});
-                                console.log(uss);                        
+                                Usuario.find({_id:consulta.doc},(err,uss)=>{
+                                    if(!err)
+                                    {
+                                        res.send({msg:"Se agrego la consulta al expediente y Se registro en el usuario: "+uss.usuario});
+                                    }
+                                    res.send({msg:"error en la comprobracion de usuario "});
+                                });                     
                             }
                         });                     
                     }

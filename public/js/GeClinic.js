@@ -700,24 +700,28 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 		if(r.quien=="obes")
 		{
 			$("#informe").html('<div id="piechart" class="currenGrafic" style="width: 900px; height: 500px;"></div>');
-			google.charts.load('current', { 'packages': ['corechart'] });
+			google.charts.load('current', {'packages':['corechart']});
 			google.charts.setOnLoadCallback(drawChart);
-			function drawChart(){
-				var data = google.visualization.arrayToDataTable([
-					['Obesidad','Detecciones'],
-					['Bajo Peso', r.bp]
-					['Peso Normal', r.np],
-					['Sobrepeso', r.sp],
-					['Obesidad', r.ob0],
-					['Obesidad I', r.ob1],
-					['Obesidad II', r.ob2]
-				]);
-				var options = {
-					title: 'Estadísticas de Obesidad detectada'
-				};
-				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-				chart.draw(data, options);
-			}
+	  
+			function drawChart() {
+	  
+			  var data = google.visualization.arrayToDataTable([
+				['Categorias de Peso', 'Frecuencia de detecciones'],
+				['Work',  ],
+				['Eat',      2],
+				['Commute',  2],
+				['Watch TV', 2],
+				['Sleep',    7]
+			  ]);
+	  
+			  var options = {
+				title: 'My Daily Activities'
+			  };
+	  
+			  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	  
+			  chart.draw(data, options);
+			}	  
 		}
 		if(r.msg)
 		{

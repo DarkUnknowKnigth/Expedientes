@@ -43,23 +43,26 @@ function guardar(req,res) {
                 Expediente.where({_id:consulta.id_exp}).update({$push:{Consulta:saved._id}}).exec((err,pass)=>{
                     if(err)
                     {
-                        throw err
+                        throw err;
                     }
                     else
                     {
                         Usuario.where({_id:consulta.doc}).update({$push:{Consulta:saved._id}}).exec((err,uss)=>{
                             if(err)
                             {
-                                throw err
+                                throw err;
                             }
                             else
                             {
                                 Usuario.find({_id:consulta.doc},(err,uss)=>{
-                                    if(!err)
+                                    if(err)
+                                    {
+                                        throw err;
+                                    }
+                                    else
                                     {
                                         res.send({msg:"Se agrego la consulta al expediente y Se registro en el usuario: "+uss.usuario});
-                                    }
-                                    res.send({msg:"error en la comprobracion de usuario "});
+                                    }  
                                 });                     
                             }
                         });                     

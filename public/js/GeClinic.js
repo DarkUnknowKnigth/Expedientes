@@ -702,18 +702,18 @@ $("#nuevaEstadisticaAnual").click((e)=>{
 			$("#informe").html('<div id="piechart" class="currenGrafic" style="width: 900px; height: 500px;"></div>');
 			google.charts.load('current', { 'packages': ['corechart'] });
 			google.charts.setOnLoadCallback(drawChart);
-			function drawChart() {
+			function drawChart(){
 				var data = google.visualization.arrayToDataTable([
-					['Tipo de Obesidad', 'Casos detectados'],
+					['Tipo de Obesidad','Casos detectados'],
 					['Bajo Peso', r.bp]
 					['Peso Normal', r.np],
 					['Sobrepeso', r.sp],
 					['Obesidad', r.ob0],
 					['Obesidad I', r.ob1],
-					['Obesidad II', r.ob2],
+					['Obesidad II', r.ob2]
 				]);
 				var options = {
-					title: 'Estadísticas de Obesidad detectada',
+					title: 'Estadísticas de Obesidad detectada'
 				};
 				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 				chart.draw(data, options);

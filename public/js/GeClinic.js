@@ -1213,7 +1213,7 @@ $("#formFichIde input").keypress((e)=>{
 	str=e.target.value;
 	if(patt.test(str))
 	{
-		str=str.substring(0, str.length-1);
+		e.target.value=str.substring(0, str.length-1);
 		e.preventDefault();
 		console.log(e.target.value);
 	} 	

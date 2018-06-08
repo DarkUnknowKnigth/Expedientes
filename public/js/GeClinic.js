@@ -16,6 +16,32 @@ $(document).ready(function(){
 	insertarEstadoCivil(estadosCiviles);
 	$("#failUser").css("display","none");
 	$("#parentRest").text(dec);
+	$("input:text").keyup((e) => {
+		var patt = /[^.,A-Za-z0-9\s\0]/;
+		str = e.target.value;
+		if (patt.test(str)) {
+			bad = str.search(/[^,.A-Za-z0-9\s\0]/);
+			while (bad != -1) {
+				bad = str.search(/[^,.A-Za-z0-9\s\0]/);
+				str = str.replace(str[bad], '');
+			}
+			e.target.value = str;
+			e.preventDefault();
+		}
+	});
+	$("textarea").keyup((e) => {
+		var patt = /[^.,A-Za-z0-9\s\0]/;
+		str = e.target.value;
+		if (patt.test(str)) {
+			bad = str.search(/[^,.A-Za-z0-9\s\0]/);
+			while (bad != -1) {
+				bad = str.search(/[^,.A-Za-z0-9\s\0]/);
+				str = str.replace(str[bad], '');
+			}
+			e.target.value = str;
+			e.preventDefault();
+		}
+	});
 });
 
 /*end precargar elementos*/
@@ -1208,18 +1234,3 @@ $("#nextAntec").click(()=>{
 
 });
 ///campos seguros
-$("#formFichIde input").keyup((e)=>{
-	var patt = /[^.,A-Za-z0-9\s\0]/;
-	str=e.target.value;
-	if(patt.test(str))
-	{
-		bad=str.search(/[^,.A-Za-z0-9\s\0]/);
-		while(bad != -1)
-		{
-			bad=str.search(/[^,.A-Za-z0-9\s\0]/);
-			str=str.replace(str[bad],'');
-		}
-		e.target.value=str;
-		e.preventDefault();
-	} 	
-});

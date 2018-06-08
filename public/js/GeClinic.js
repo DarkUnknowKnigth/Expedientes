@@ -1207,5 +1207,5 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 $("#nextAntec").click(()=>{
 
 });
-
+$("input ").keyup((e)=>{/[a-zA-Z]/.test(e.target.value) ? true : e.preventDefault()});
 ///campos seguros

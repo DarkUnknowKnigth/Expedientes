@@ -1208,18 +1208,18 @@ $("#nextAntec").click(()=>{
 
 });
 ///campos seguros
-$("#formFichIde input").keydown(function(e) 
-{
-	if(e.repeat)
-		e.preventDefault();
-});
 $("#formFichIde input").keyup((e)=>{
 	var patt = /[^.,A-Za-z0-9\s\0]/;
 	str=e.target.value;
 	if(patt.test(str))
 	{
 		bad=str.search(/[^,.A-Za-z0-9\s\0]/);
-		e.target.value=str.replace(str[bad],'');
+		while(bad != -1)
+		{
+			bad=str.search(/[^,.A-Za-z0-9\s\0]/);
+			str=str.replace(str[bad],'');
+		}
+		e.target.value=str;
 		e.preventDefault();
 	} 	
 });

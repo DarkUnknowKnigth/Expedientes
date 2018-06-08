@@ -4,7 +4,6 @@ var address = 'https://stark-sea-10471.herokuapp.com'
 var bcrypt = require('bcrypt-nodejs');
 var Usuario = require("../models/usuario");
 var Administrador = require("../models/administrador");
-var Ss = require("../controllers/session");
 //funcion que determina si un usuario es valido
 //parametros(Datos enviados por post, respuesta del servidor heredada)
 function validarUsuario(req, res) {
@@ -44,22 +43,7 @@ function validarUsuario(req, res) {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
                                     //luego redireccionar con los parametros validos a principal
-                                    if (Ss.estaRegistrado(usuario._id)) {
-                                        res.send({
-                                            message:
-                                                '<div class="alert alert-dark" role="alert">' +
-                                                '<form action="' + address + '/" method="GET">' +
-                                                '<strong class="form-control">Este usuario ya posee una session activa</strong>' +
-                                                '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
-                                                '</form>' +
-                                                '</div>'
-                                        });
-                                    }
-                                    else
-                                    {
-
-                                        res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
-                                    }
+                                    res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);     
                                 }
                                 else {
                                     res.send({

@@ -64,11 +64,9 @@ app.use((req,res,next)=>{ //middleware de session
         {
             if(user)
             {
-                if(Ss.storeSession(user._id)){
-                    req.session.user_id=user._id;
-                    res.locals={usuario:user};
-                    next();
-                };
+                
+                req.session.user_id=user._id;
+                res.locals={usuario:user};
                 next();  
             }
             else
@@ -110,14 +108,7 @@ app.use((req,res,next)=>{ //middleware de autentificacion
 });
 app.use("/modulo",RutasModulo);
 app.get('/logout/:id',function(req,res){    
-    if(Ss.logout(req,res))
-    {
-        res.redirect('/');
-    }
-    else
-    {
-        res.redirect('/');
-    }
+   res.redirect('/');
 });  
 //ruta de error
 app.get("*",(req,res)=>

@@ -1,18 +1,26 @@
 var Ss=require('../models/session');
+var Us=require('../models/usuario');
 function storeSession(id)
 {
     var uss=new Ss();
     uss.session=id;
     let now=new Date();
-    uss.fecha=now.getFullYear()+"-0"+(now.getMonth()+1)+"-0"+now.getDate()+"|"+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
-    uss.save((err,session)=>{
+    Us.findOne({"id":id}).exec((err,user)=>{
         if(!err)
         {
-            console.log(session);
-            return true;
-        } 
+            uss.fecha=now.getFullYear()+"-0"+(now.getMonth()+1)+"-0"+now.getDate()+"|"+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+            uss.uname=user.usuario;
+            uss.save((err,session)=>{
+                if(!err)
+                {
+                    console.log(session);
+                    return true;
+                } 
+                return false;
+            });
+        }
         return false;
-    })
+    });  
 }
 function estaRegistrado(Uid) 
 {  

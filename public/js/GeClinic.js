@@ -1213,7 +1213,8 @@ $("#formFichIde input").keyup((e)=>{
 	str=e.target.value;
 	if(patt.test(str))
 	{
-		e.target.value=str.substring(0, str.length-1);
+		bad=str.search(/[^A-Za-z0-9\s\0]/);
+		e.target.value=str.replace(str[bad],'');
 		e.preventDefault();
 		console.log(e.target.value);
 	} 	

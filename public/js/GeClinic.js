@@ -1208,6 +1208,11 @@ $("#nextAntec").click(()=>{
 
 });
 ///campos seguros
+$("#formFichIde input").keydown(function(e) 
+{
+	if(e.repeat)
+		e.preventDefault();
+});
 $("#formFichIde input").keyup((e)=>{
 	var patt = /[^.,A-Za-z0-9\s\0]/;
 	str=e.target.value;

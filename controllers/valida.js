@@ -43,7 +43,8 @@ function validarUsuario(req, res) {
                             {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
-                                    //luego redireccionar con los parametros validos a principal
+                                    //luego redireccionar con los parametros validos a 
+                                    console.log("existente: "+Session.estaRegistrado(usuario._id)+" guardado: "+Session.guardarSession(usuario._id));
                                     if(Session.estaRegistrado(usuario._id)==false)
                                     {
                                         if(Session.guardarSession(usuario._id))

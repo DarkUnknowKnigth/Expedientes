@@ -64,7 +64,7 @@ function validarUsuario(req, res) {
                                             {
                                                 if(value==0)
                                                 {
-                                                    Us.findById(usuario._id).exec((err,user)=>{
+                                                    Usuario.findById(usuario._id).exec((err,user)=>{
                                                         if(!err)
                                                         {
                                                             var uss=new Ss();

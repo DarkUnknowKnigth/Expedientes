@@ -10,7 +10,7 @@ var express=require("express");
 var morgan =require("morgan");
 var path = require('path');
 var cookieParser=require('cookie-parser');
-//var passport=require('passport');
+var Ss=require("./controllers/session");
 var session=require('express-session');
 var User=require('./models/usuario');
 var Admin=require('./models/administrador');
@@ -107,8 +107,9 @@ app.use((req,res,next)=>{ //middleware de autentificacion
     }
 });
 app.use("/modulo",RutasModulo);
-app.get('/logout/:id',function(req,res){    
-   res.redirect('/');
+app.get('/logout/:id',function(req,res){  
+    Ss.logout(req.params.id);  
+    res.redirect('/');
 });  
 //ruta de error
 app.get("*",(req,res)=>

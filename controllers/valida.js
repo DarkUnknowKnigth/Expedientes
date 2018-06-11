@@ -46,6 +46,7 @@ function validarUsuario(req, res) {
                                     //luego redireccionar con los parametros validos a principal
                                     res.locals.yes=`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`;
                                     res.locals.idUser=usuario._id;
+                                    console.log(res.locals);
                                     Session.estaRegistrado(req,res);     
                                 }
                                 else {

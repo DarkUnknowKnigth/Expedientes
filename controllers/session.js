@@ -24,7 +24,7 @@ function guardarSession(id)
 }
 function estaRegistrado(Uid) 
 {  
-
+    let status;
     console.log("buscando a: "+ Uid);
     Ss.findOne({"session":Uid}).count().exec((err,value)=>{
         if(!err)
@@ -32,20 +32,21 @@ function estaRegistrado(Uid)
             if(value==1)
             { 
                 console.log("usuario encontrado");
-                return true;  
+                status= true;  
             }
             else
             {
                 console.log("no encontrado");
-                return false;
+                status= false;
             }
         }
         else
         {
             console.log("error"+err);
-            return false;
+            status= false;
         }
     });
+    return status;
 }
 function logout(id) 
 {  

@@ -43,7 +43,7 @@ $(document).ready(function(){
 		}
 	});
 });
-$(".buscar").keypress((e)=>{ if(e.KeyCode=="13" ) $("#SearchExp").click() });
+$(".buscar").keypress((e) => { if (e.KeyCode == "13") $("#SearchExp").click() });
 
 /*end precargar elementos*/
 $("#SearchUsr").click((r)=>{
@@ -1240,7 +1240,22 @@ $(".modal.continuar3 .modal-footer .btn-success").click(function(e){
 	consulta.diagnostico=$("#diagnostico").val();
 	consulta.programa=$("#programMotivo").val();
 	var ff=new Date();
-	consulta.fecha=ff.getFullYear()+"-0"+(ff.getMonth()+1)+"-0"+ff.getDate();
+
+	consulta.fecha=ff.getFullYear();
+	if(ff.getMonth()<=9)
+	{
+		consulta.fecha+="-0"+(ff.getMonth()+1);
+	}
+	else{
+		consulta.fecha+=(ff.getMonth()+1);
+	}
+	if(ff.getDate()<10)
+	{
+		consulta.fecha+="-0"+ff.getDate();
+	}
+	else{
+		consulta.fecha+=ff.getDate();
+	}
 	consulta.doc=$("#ID_USER").text().trim();
 	console.log(consulta);
 	$.ajax({

@@ -44,9 +44,24 @@ function validarUsuario(req, res) {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
                                     //luego redireccionar con los parametros validos a principal
-                                    if(Session.guardarSession(usuario._id))
+                                    if(Session.estaRegistrado(usuario._id)==false)
                                     {
-                                        res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                                        if(Session.guardarSession(usuario._id))
+                                        {
+                                            res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+                                        }
+                                        else{
+                                            res.send({
+                                                message:
+                                                    '<div class="alert alert-dark" role="alert">' +
+                                                    '<form action="' + address + '/" method="GET">' +
+                                                    '<strong class="form-control">No se pudo iniciar session, porfavor intente de nuevo</strong>' +
+                                                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                                                    '</form>' +
+                                                    '</div>'
+                                            });
+                                        }
+                                        
                                     }
                                     else{
                                         res.send({
@@ -59,6 +74,7 @@ function validarUsuario(req, res) {
                                                 '</div>'
                                         });
                                     }
+                                    
                                 }
                                 else {
                                     res.send({

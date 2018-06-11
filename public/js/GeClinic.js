@@ -43,6 +43,7 @@ $(document).ready(function(){
 		}
 	});
 });
+$(".buscar").keypress((e)=>{ if(e.KeyCode=="13" ) $("#SearchExp").click() });
 
 /*end precargar elementos*/
 $("#SearchUsr").click((r)=>{

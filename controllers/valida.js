@@ -1,7 +1,8 @@
 'use strict'
 //modelos de la base de datos
 var address = 'https://stark-sea-10471.herokuapp.com'
-var bcrypt = require('bcrypt-nodejs');
+var express = require('express');
+var router = express.Router();
 var Usuario = require("../models/usuario");
 var Administrador = require("../models/administrador");
 var Session=require('../controllers/session');
@@ -47,7 +48,8 @@ function validarUsuario(req, res) {
                                     res.locals.yes=`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`;
                                     res.locals.idUser=usuario._id;
                                     console.log(res.locals);
-                                    Session.estaRegistrado(req,res);     
+                                    router.use(Session.estaRegistrado(req,res));
+                                         
                                 }
                                 else {
                                     res.send({

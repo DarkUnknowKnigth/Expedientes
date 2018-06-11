@@ -1,9 +1,9 @@
 var Ss=require('../models/session');
 var Us=require('../models/usuario');
-function storeSession(id)
+function guardarSession(id)
 {
     Us.findById({id}).exec((err,user)=>{
-        if(!err)
+        if(!err && !estaRegistrado(id))
         {
             var uss=new Ss();
             uss.session=id;
@@ -44,19 +44,20 @@ function estaRegistrado(Uid)
         }
     });
 }
-function logout(req,res) 
+function logout(id) 
 {  
-    Ss.find({'session':req.params.id}).count().exec((err,value)=>{
+    Ss.find({'session':id}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
             {
-                Ss.deleteOne({'session':req.params.id},(err)=>{
+                Ss.deleteOne({'session':id},(err)=>{
                     if(!err)
                     {
                         return true;
                     }
-                    throw err;
+                    console.log("ocurrio un error");
+                    return false;
                 });
             }
             else
@@ -65,13 +66,12 @@ function logout(req,res)
                 return false;
             }
         }
-        
-        console.log("erro en la eliminacion");
+        console.log("erro en la busqueda");
         return false;
     });
 }
 module.exports={
     estaRegistrado,
     logout,
-    storeSession
+    guardarSession
 }

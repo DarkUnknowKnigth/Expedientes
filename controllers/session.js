@@ -31,15 +31,18 @@ function estaRegistrado(Uid)
         {
             if(value==1)
             { 
-               return true;  
+                console.log("usuario encontrado");
+                return true;  
             }
             else
             {
+                console.log("no encontrado");
                 return false;
             }
         }
         else
         {
+            console.log("error"+err);
             return false;
         }
     });

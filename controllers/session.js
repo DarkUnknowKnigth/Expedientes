@@ -32,7 +32,7 @@ function estaRegistrado(req,res)
                 res.send({
                     message:
                         '<div class="alert alert-dark" role="alert">' +
-                        '<form action="' + address + '/" method="GET">' +
+                        '<form action="/" method="GET">' +
                         '<strong class="form-control">Ya posee una sesion abierta</strong>' +
                         '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
                         '</form>' +
@@ -63,6 +63,15 @@ function estaRegistrado(req,res)
         else
         {
             console.log("error"+err);
+            res.send({
+                message:
+                    '<div class="alert alert-dark" role="alert">' +
+                    '<form action="/" method="GET">' +
+                    '<strong class="form-control">Error interno</strong>' +
+                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                    '</form>' +
+                    '</div>'
+            });
         }
     });
 }

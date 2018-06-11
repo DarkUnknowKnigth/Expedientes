@@ -1,8 +1,7 @@
 'use strict'
 //modelos de la base de datos
 var address = 'https://stark-sea-10471.herokuapp.com'
-var express = require('express');
-var router = express.Router();
+var Ss=require('../models/session');
 var Usuario = require("../models/usuario");
 var Administrador = require("../models/administrador");
 var Session=require('../controllers/session');
@@ -45,10 +44,74 @@ function validarUsuario(req, res) {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
                                     //luego redireccionar con los parametros validos a principal
-                                    res.locals.yes=`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`;
-                                    res.locals.idUser=usuario._id;
-                                    console.log(res.locals);
-                                    router.use(Session.estaRegistrado);
+                                    //=====================new
+                                    Ss.findOne({"session":usuario._id}).count().exec((err,value)=>{
+                                        if(!err)
+                                        {
+                                            if(value==1)
+                                            { 
+                                                res.send({
+                                                    message:
+                                                        '<div class="alert alert-dark" role="alert">' +
+                                                        '<form action="/" method="GET">' +
+                                                        '<strong class="form-control">Ya posee una sesion abierta</strong>' +
+                                                        '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                                                        '</form>' +
+                                                        '</div>'
+                                                });
+                                            }
+                                            else
+                                            {
+                                                if(value==0)
+                                                {
+                                                    Us.findById(usuario._id).exec((err,user)=>{
+                                                        if(!err)
+                                                        {
+                                                            var uss=new Ss();
+                                                            uss.session=user._id;
+                                                            let now=new Date(); 
+                                                            uss.fecha=now.getFullYear()+"-0"+(now.getMonth()+1)+"-0"+now.getDate()+"|"+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+                                                            uss.uname=user.usuario;
+                                                            uss.save((err,session)=>{
+                                                                if(!err)
+                                                                {
+                                                                    console.log(session);  
+                                                                    res.redirect( `${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
+
+                                                                } 
+                                                            });
+                                                        }
+                                                    }); 
+                                                }  
+                                                else
+                                                {
+                                                    res.send({
+                                                        message:
+                                                            '<div class="alert alert-dark" role="alert">' +
+                                                            '<form action="/" method="GET">' +
+                                                            '<strong class="form-control">Ya tiene una cuenta iniciada</strong>' +
+                                                            '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                                                            '</form>' +
+                                                            '</div>'
+                                                    });
+                                                }  
+                                            }
+                                        }
+                                        else
+                                        {
+                                            console.log("error"+err);
+                                            res.send({
+                                                message:
+                                                    '<div class="alert alert-dark" role="alert">' +
+                                                    '<form action="/" method="GET">' +
+                                                    '<strong class="form-control">Error interno</strong>' +
+                                                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                                                    '</form>' +
+                                                    '</div>'
+                                            });
+                                        }
+                                    });
+                                    //========================
                                          
                                 }
                                 else {

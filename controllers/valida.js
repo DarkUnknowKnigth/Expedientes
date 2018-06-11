@@ -43,39 +43,10 @@ function validarUsuario(req, res) {
                             {
                                 if (req.body.Password == usuario.password) {
                                     //console.log(usuario);
-                                    //luego redireccionar con los parametros validos a 
-                                    console.log("existente: "+Session.estaRegistrado(usuario._id)+" guardado: "+Session.guardarSession(usuario._id));
-                                    if(Session.estaRegistrado(usuario._id)==false)
-                                    {
-                                        if(Session.guardarSession(usuario._id))
-                                        {
-                                            res.redirect(`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`);
-                                        }
-                                        else{
-                                            res.send({
-                                                message:
-                                                    '<div class="alert alert-dark" role="alert">' +
-                                                    '<form action="' + address + '/" method="GET">' +
-                                                    '<strong class="form-control">No se pudo iniciar session, porfavor intente de nuevo</strong>' +
-                                                    '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
-                                                    '</form>' +
-                                                    '</div>'
-                                            });
-                                        }
-                                        
-                                    }
-                                    else{
-                                        res.send({
-                                            message:
-                                                '<div class="alert alert-dark" role="alert">' +
-                                                '<form action="' + address + '/" method="GET">' +
-                                                '<strong class="form-control">Ya ha iniciado session</strong>' +
-                                                '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
-                                                '</form>' +
-                                                '</div>'
-                                        });
-                                    }
-                                    
+                                    //luego redireccionar con los parametros validos a principal
+                                    res.locals.yes=`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`;
+                                    res.locals.idUser=usuario._id;
+                                    Session.estaRegistrado(req,res);     
                                 }
                                 else {
                                     res.send({

@@ -1,8 +1,8 @@
 var Ss=require('../models/session');
 var Us=require('../models/usuario');
+
 function guardarSession(id)
 {
-    let status;
     Us.findById(id).exec((err,user)=>{
         if(!err)
         {
@@ -14,41 +14,57 @@ function guardarSession(id)
             uss.save((err,session)=>{
                 if(!err)
                 {
-                    console.log(session);
-                    status=true;
+                    console.log(session);  
                 } 
-                status= false;
             });
         }
-        status= false;
     }); 
-    return status;
 }
-function estaRegistrado(Uid) 
+
+function estaRegistrado(req,res) 
 {  
-    let status;
-    console.log("buscando a: "+ Uid);
+    console.log("local : "+req.locals );
     Ss.findOne({"session":Uid}).count().exec((err,value)=>{
         if(!err)
         {
             if(value==1)
             { 
-                console.log("usuario encontrado");
-                status= true;  
+                res.send({
+                    message:
+                        '<div class="alert alert-dark" role="alert">' +
+                        '<form action="' + address + '/" method="GET">' +
+                        '<strong class="form-control">Ya posee una sesion abierta</strong>' +
+                        '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                        '</form>' +
+                        '</div>'
+                });
             }
             else
             {
-                console.log("no encontrado");
-                status= false;
+                if(value==0)
+                {
+                    guardarSession(res.locals.idUser);
+                    res.redirect(res.locals.yes);
+                }  
+                else
+                {
+                    res.send({
+                        message:
+                            '<div class="alert alert-dark" role="alert">' +
+                            '<form action="/" method="GET">' +
+                            '<strong class="form-control">Ya tiene una cuenta iniciada</strong>' +
+                            '<button type="submit" class="btn btn-danger form-control">Aceptar</button>' +
+                            '</form>' +
+                            '</div>'
+                    });
+                }  
             }
         }
         else
         {
             console.log("error"+err);
-            status= false;
         }
     });
-    return status;
 }
 function logout(id) 
 {  
@@ -60,20 +76,17 @@ function logout(id)
                 Ss.deleteOne({'session':id},(err)=>{
                     if(!err)
                     {
-                        return true;
+                        console.log("sacado")
                     }
                     console.log("ocurrio un error");
-                    return false;
                 });
             }
             else
             {
                 console.log("no se elimino");
-                return false;
             }
         }
         console.log("erro en la busqueda");
-        return false;
     });
 }
 module.exports={

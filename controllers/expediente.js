@@ -12,7 +12,7 @@ function query(req,res)
             find={'_id':query};
         break;
         case "curp":
-            find={'curp':query};
+            find={'curp':query.toUpperCase()};
         break;
         case "apPatero":
             find={'apPaterno':query}; 

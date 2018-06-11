@@ -1,5 +1,5 @@
 'use strict'
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');//nuevo up
 var Consulta=require("../models/consulta");
 var Schema=mongoose.Schema;
 var ExpedienteSchema = Schema({

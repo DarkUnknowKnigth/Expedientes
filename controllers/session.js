@@ -2,8 +2,8 @@ var Ss=require('../models/session');
 var Us=require('../models/usuario');
 function guardarSession(id)
 {
-    var status;
-    Us.findById(id).exec((err,user)=>{
+    
+    return Us.findById(id).exec((err,user)=>{
         if(!err)
         {
             var uss=new Ss();
@@ -15,14 +15,14 @@ function guardarSession(id)
                 if(!err)
                 {
                     console.log(session);
-                    status= true;
+                    return true;
                 } 
-                status= true; false;
+                return false;
             });
         }
-        status= false;
+        return false;
     });  
-    return status;
+    //return status;
 }
 function estaRegistrado(Uid) 
 {  

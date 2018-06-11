@@ -10,7 +10,5 @@ function logout(id)
     });
 }
 module.exports={
-    estaRegistrado,
-    logout,
-    guardarSession
+    logout
 }

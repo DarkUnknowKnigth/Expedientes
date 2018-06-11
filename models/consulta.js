@@ -12,7 +12,7 @@ var ConsultaSchema= Schema({
     formatoConsulta:{
         deteccion:String,
         primeravez:Boolean,
-        sitomasTB:Boolean,
+        sintomasTB:Boolean,
         nivelObesidad:String,
         saludReprod:String
     },

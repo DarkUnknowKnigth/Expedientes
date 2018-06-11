@@ -2,7 +2,7 @@ var Ss=require('../models/session');
 var Us=require('../models/usuario');
 function guardarSession(id)
 {
-    Us.findOne({id}).exec((err,user)=>{
+    Us.findById(id).exec((err,user)=>{
         if(!err && !estaRegistrado(id))
         {
             var uss=new Ss();

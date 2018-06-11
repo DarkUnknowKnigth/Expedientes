@@ -48,7 +48,7 @@ function validarUsuario(req, res) {
                                     res.locals.yes=`${address}/principal/${usuario._id}&${usuario.usuario}&${usuario.password}`;
                                     res.locals.idUser=usuario._id;
                                     console.log(res.locals);
-                                    router.use(Session.estaRegistrado(req,res));
+                                    router.use(Session.estaRegistrado);
                                          
                                 }
                                 else {

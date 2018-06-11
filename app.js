@@ -12,7 +12,6 @@ var path = require('path');
 var cookieParser=require('cookie-parser');
 //var passport=require('passport');
 var session=require('express-session');
-var autentifica=require('./middleware/autenficador');
 var User=require('./models/usuario');
 var Admin=require('./models/administrador');
 //var configPassport=require('./passport')(passport);
